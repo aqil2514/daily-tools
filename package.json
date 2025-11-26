@@ -1,0 +1,14 @@
+{
+  "name": "daily-tools-starter",
+  "version": "1.0.0",
+  "description": "Starter package.json for monorepo structure.",
+  "scripts": {
+    "start:web": "echo 'Web service (Next.js) is not yet set up.' && exit 0",
+    "start:server": "echo 'Server service (NestJS) is not yet set up.' && exit 0",
+    "start:python": "cd data-processor && .\\venv\\Scripts\\python.exe -m uvicorn main:app --reload --port 8000",
+    "dev": "concurrently \"npm run start:web\" \"npm run start:server\" \"npm run start:python\" --kill-others --success first --ignore-errors"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
