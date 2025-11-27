@@ -4,7 +4,7 @@
 4. Image Cropper (✔ done)  
 5. Image Rotate (✔ done) 
 6. Image to PDF (✔ done) 
-7. PDF Merge ← next
-8. PDF Split
-9. PDF Compress
-10. HEIC to JPG (backend or python)
+7. PDF Merge (✔ done)  
+8. PDF Split (✔ done) 
+9. PDF Compress (✔ done) 
+10. HEIC to JPG (backend or python) ← next
