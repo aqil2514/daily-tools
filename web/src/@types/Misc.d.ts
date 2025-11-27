@@ -1,1 +1,6 @@
-export type ToolName = "image-converter" | "image-resizer" | "image-compressor" | "image-cropper";
+export type ToolName =
+  | "image-converter"
+  | "image-resizer"
+  | "image-compressor"
+  | "image-cropper"
+  | "image-rotate";

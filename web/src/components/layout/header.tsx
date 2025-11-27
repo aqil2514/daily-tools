@@ -58,9 +58,9 @@ const toolsItems: MenuItem[] = [
     description: "Crop your Image",
   },
   {
-    title: "Soon Service",
-    href: "#",
-    description: "This service will available in the future.",
+    title: "Image Rotate",
+    href: "/tools/image-rotate",
+    description: "Rotate your image.",
   },
   {
     title: "Soon Service",
