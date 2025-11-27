@@ -1,4 +1,4 @@
-import { ImageConverter } from "./image-converter";
+import { ImageConverter } from "./components/image-converter";
 
 export default function ImageConverterTemplate(){
     return (
