@@ -3,4 +3,5 @@ export type ToolName =
   | "image-resizer"
   | "image-compressor"
   | "image-cropper"
-  | "image-rotate";
+  | "image-rotate"
+  | "image-to-pdf";
