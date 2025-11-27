@@ -28,7 +28,7 @@ export default function Header() {
             </NavigationMenuLink>
           </NavigationMenuItem>
 
-          <ConvertMenu />
+          <ToolsMenu />
 
         </NavigationMenuList>
       </NavigationMenu>
@@ -36,21 +36,21 @@ export default function Header() {
   );
 }
 
-const convertItems: MenuItem[] = [
+const toolsItems: MenuItem[] = [
   {
     title: "Image Converter",
-    href: "/convert/image",
+    href: "/tools/image-converter",
     description: "Convert your image from one type to another type.",
   },
   {
-    title: "Soon Service",
-    href: "#",
-    description: "This service will available in the future.",
+    title: "Image Resizer",
+    href: "/tools/image-resizer",
+    description: "Resize your image.",
   },
   {
-    title: "Soon Service",
-    href: "#",
-    description: "This service will available in the future.",
+    title: "Image Comporessor",
+    href: "/tools/image-compressor",
+    description: "Compress your image.",
   },
   {
     title: "Soon Service",
@@ -79,14 +79,14 @@ const convertItems: MenuItem[] = [
   },
 ];
 
-const ConvertMenu = () => {
+const ToolsMenu = () => {
   return (
     <NavigationMenuItem>
-      <NavigationMenuTrigger className="bg-transparent">Converter</NavigationMenuTrigger>
+      <NavigationMenuTrigger className="bg-transparent">Tools</NavigationMenuTrigger>
 
       <NavigationMenuContent className="bg-slate-800 border-slate-400">
         <ul className="grid gap-3 p-4 sm:w-[400px] md:w-[500px] md:grid-cols-2 lg:w-[600px]">
-          {convertItems.map((component, i) => (
+          {toolsItems.map((component, i) => (
             <ListItem
               key={`menu-${i}`}
               title={component.title}

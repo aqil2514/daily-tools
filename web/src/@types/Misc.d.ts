@@ -1,1 +1,1 @@
-export type ConvertCategory = "image"
+export type ToolName = "image-converter" | "image-resizer" | "image-compressor"
