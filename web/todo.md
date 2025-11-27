@@ -1,7 +1,7 @@
 1. Image Converter (✔ done)
 2. Image Resizer (✔ done) 
-3. Image Compressor ← next
-4. Image Cropper
+3. Image Compressor (✔ done) 
+4. Image Cropper ← next
 5. Image Rotate
 6. Image to PDF
 7. PDF Merge

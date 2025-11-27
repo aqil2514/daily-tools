@@ -9,13 +9,15 @@ interface Props {
 const titleMapper: Record<ToolName, string> = {
   "image-converter": "Image Converter",
   "image-resizer":"Image Resizer",
-  "image-compressor":"Image Compressor"
+  "image-compressor":"Image Compressor",
+  "image-cropper":"Image Cropper",
 };
 
 const componentMapper: Record<ToolName, React.ComponentType> = {
   "image-converter": dynamic(() => import("@/featured/tools/ImageConverter")),
   "image-resizer": dynamic(() => import("@/featured/tools/ImageResizer")),
   "image-compressor": dynamic(() => import("@/featured/tools/ImageCompressor")),
+  "image-cropper": dynamic(() => import("@/featured/tools/ImageCropper")),
 };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
