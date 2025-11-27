@@ -4,4 +4,7 @@ export type ToolName =
   | "image-compressor"
   | "image-cropper"
   | "image-rotate"
-  | "image-to-pdf";
+  | "image-to-pdf"
+  | "pdf-merge"
+  | "pdf-split"
+  | "pdf-compress";

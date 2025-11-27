@@ -29,7 +29,7 @@ export function ImageConverter() {
       <FileDropzone
         accept="image/*"
         label="Klik atau drag ke sini untuk upload gambar"
-        onSelect={handleSelect}
+        onSelect={(files) => handleSelect(files[0])}
       />
 
       {/* Preview */}

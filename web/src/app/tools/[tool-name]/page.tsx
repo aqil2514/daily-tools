@@ -12,7 +12,10 @@ const titleMapper: Record<ToolName, string> = {
   "image-compressor":"Image Compressor",
   "image-cropper":"Image Cropper",
   "image-rotate":"Image Rotate",
-  "image-to-pdf":"Image To PDF"
+  "image-to-pdf":"Image To PDF",
+  "pdf-merge":"PDF Merge",
+  "pdf-split":"PDF Split",
+  "pdf-compress":"PDF Compress"
 };
 
 const componentMapper: Record<ToolName, React.ComponentType> = {
@@ -22,6 +25,9 @@ const componentMapper: Record<ToolName, React.ComponentType> = {
   "image-cropper": dynamic(() => import("@/featured/tools/ImageCropper")),
   "image-rotate": dynamic(() => import("@/featured/tools/ImageRotate")),
   "image-to-pdf": dynamic(() => import("@/featured/tools/ImageToPDF")),
+  "pdf-merge": dynamic(() => import("@/featured/tools/PDFMerge")),
+  "pdf-split": dynamic(() => import("@/featured/tools/PDFSplit")),
+  "pdf-compress": dynamic(() => import("@/featured/tools/PDFCompress")),
 };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {

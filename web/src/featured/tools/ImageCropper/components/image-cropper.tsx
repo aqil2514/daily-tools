@@ -34,7 +34,7 @@ export function ImageCropper() {
       <FileDropzone
         accept="image/*"
         label="Klik atau drag gambar untuk upload"
-        onSelect={handleSelect}
+        onSelect={(files) => handleSelect(files[0])}
       />
 
       {previewUrl && (

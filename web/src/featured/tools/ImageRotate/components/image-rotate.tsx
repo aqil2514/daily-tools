@@ -26,7 +26,7 @@ export function ImageRotate() {
       <FileDropzone
         accept="image/*"
         label="Klik atau drag untuk upload"
-        onSelect={handleSelect}
+        onSelect={(files) => handleSelect(files[0])}
       />
 
       {previewUrl && <ImagePreview src={previewUrl} />}
