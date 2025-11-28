@@ -15,7 +15,8 @@ const titleMapper: Record<ToolName, string> = {
   "image-to-pdf":"Image To PDF",
   "pdf-merge":"PDF Merge",
   "pdf-split":"PDF Split",
-  "pdf-compress":"PDF Compress"
+  "pdf-compress":"PDF Compress",
+  "qr-generator":"QR Generator"
 };
 
 const componentMapper: Record<ToolName, React.ComponentType> = {
@@ -28,6 +29,7 @@ const componentMapper: Record<ToolName, React.ComponentType> = {
   "pdf-merge": dynamic(() => import("@/featured/tools/PDFMerge")),
   "pdf-split": dynamic(() => import("@/featured/tools/PDFSplit")),
   "pdf-compress": dynamic(() => import("@/featured/tools/PDFCompress")),
+  "qr-generator": dynamic(() => import("@/featured/tools/QRGenerator")),
 };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {

@@ -7,4 +7,5 @@ export type ToolName =
   | "image-to-pdf"
   | "pdf-merge"
   | "pdf-split"
-  | "pdf-compress";
+  | "pdf-compress"
+  | "qr-generator";

@@ -7,4 +7,23 @@
 7. PDF Merge (✔ done)  
 8. PDF Split (✔ done) 
 9. PDF Compress (✔ done) 
-10. HEIC to JPG (backend or python) ← next
+
+Fitur lanjutan:
+
+QR code
+
+WebP/AVIF converter
+
+EXIF remover
+
+watermark
+
+rotate PDF
+
+reorder PDF
+
+extract image
+
+json tools
+
+text tools
