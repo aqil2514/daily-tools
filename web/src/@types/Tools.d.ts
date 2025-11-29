@@ -9,3 +9,10 @@ export type ToolName =
   | "pdf-split"
   | "pdf-compress"
   | "qr-generator";
+
+
+export interface ToolsListItemType {
+  title: string;
+  href: `/tools/${ToolName}`;
+  description: string;
+}

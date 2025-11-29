@@ -1,4 +1,4 @@
-import { ToolName } from "@/@types/Misc";
+import { ToolName } from "@/@types/Tools";
 import { Metadata } from "next";
 import dynamic from "next/dynamic";
 
@@ -20,16 +20,16 @@ const titleMapper: Record<ToolName, string> = {
 };
 
 const componentMapper: Record<ToolName, React.ComponentType> = {
-  "image-converter": dynamic(() => import("@/featured/tools/ImageConverter")),
-  "image-resizer": dynamic(() => import("@/featured/tools/ImageResizer")),
-  "image-compressor": dynamic(() => import("@/featured/tools/ImageCompressor")),
-  "image-cropper": dynamic(() => import("@/featured/tools/ImageCropper")),
-  "image-rotate": dynamic(() => import("@/featured/tools/ImageRotate")),
-  "image-to-pdf": dynamic(() => import("@/featured/tools/ImageToPDF")),
-  "pdf-merge": dynamic(() => import("@/featured/tools/PDFMerge")),
-  "pdf-split": dynamic(() => import("@/featured/tools/PDFSplit")),
-  "pdf-compress": dynamic(() => import("@/featured/tools/PDFCompress")),
-  "qr-generator": dynamic(() => import("@/featured/tools/QRGenerator")),
+  "image-converter": dynamic(() => import("@/featured/tools/Images/ImageConverter")),
+  "image-resizer": dynamic(() => import("@/featured/tools/Images/ImageResizer")),
+  "image-compressor": dynamic(() => import("@/featured/tools/Images/ImageCompressor")),
+  "image-cropper": dynamic(() => import("@/featured/tools/Images/ImageCropper")),
+  "image-rotate": dynamic(() => import("@/featured/tools/Images/ImageRotate")),
+  "image-to-pdf": dynamic(() => import("@/featured/tools/Images/ImageToPDF")),
+  "pdf-merge": dynamic(() => import("@/featured/tools/PDF/PDFMerge")),
+  "pdf-split": dynamic(() => import("@/featured/tools/PDF/PDFSplit")),
+  "pdf-compress": dynamic(() => import("@/featured/tools/PDF/PDFCompress")),
+  "qr-generator": dynamic(() => import("@/featured/tools/QR/QRGenerator")),
 };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
