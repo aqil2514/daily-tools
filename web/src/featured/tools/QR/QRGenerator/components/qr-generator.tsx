@@ -15,34 +15,47 @@ export function QRGenerator() {
 
     handleDownload,
   } = useQRGenerator();
-  const { get, set, clear } = useQueryParams();
+  const { get, set, clear, all } = useQueryParams();
   const outputUrl = get("output-url");
   const [value, setValue] = useState<string>(outputUrl ?? "");
 
   return (
     <ToolCard>
-      {/* Input text */}
-      <div className="space-y-2">
-        <label className="text-sm font-medium">Isi Teks / URL</label>
-        <input
-          value={value}
-          onBlur={() => set("output-url", value)}
-          onChange={(e) => setValue(e.target.value)}
-          className="w-full border rounded-md p-2"
-          placeholder="Masukkan teks atau URL untuk membuat QR"
-        />
+      <div className="grid grid-cols-2">
+        <div>
+          {/* Action */}
+          <div className="flex gap-3">
+            {outputUrl && <Button onClick={handleDownload}>Download</Button>}
+            {all.size > 0 && (
+              <Button
+                onClick={() => {
+                  setValue("");
+                  clear();
+                }}
+              >
+                Reset
+              </Button>
+            )}
+          </div>
+          <div className="space-y-2">
+            <label className="text-sm font-medium">Isi Teks / URL</label>
+            <input
+              value={value}
+              onBlur={() => {
+                if (!value) return;
+                set("output-url", value);
+              }}
+              onChange={(e) => setValue(e.target.value)}
+              className="w-full border rounded-md p-2"
+              placeholder="Masukkan teks atau URL untuk membuat QR"
+            />
+          </div>
+
+          <QRSettings />
+        </div>
+
+        <QRPreview canvasRef={canvasRef} src={outputUrl ?? ""} />
       </div>
-
-      {/* Settings */}
-      <QRSettings />
-
-      {/* Action */}
-      <div className="flex gap-3">
-        {outputUrl && <Button onClick={handleDownload}>Download</Button>}
-        <Button onClick={() => clear()}>Reset</Button>
-      </div>
-
-      <QRPreview canvasRef={canvasRef} src={outputUrl ?? ""} />
     </ToolCard>
   );
 }

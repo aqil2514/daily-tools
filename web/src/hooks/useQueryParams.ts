@@ -36,7 +36,25 @@ export function useQueryParams() {
       const params = getParams();
       params.set(key, value);
 
-      router.replace(`${pathname}?${params.toString()}`);
+      router.replace(`${pathname}?${params.toString()}`, { scroll: false } );
+    },
+    [router, pathname, getParams]
+  );
+
+  /**
+   * Set multiple query sekaligus
+   */
+  const setMany = useCallback(
+    (obj: Record<string, string>) => {
+      const params = getParams();
+
+      Object.entries(obj).forEach(([key, value]) => {
+        params.set(key, value);
+      });
+
+      const query = params.toString();
+      const url = query ? `${pathname}?${query}` : pathname;
+      router.replace(url, { scroll: false });
     },
     [router, pathname, getParams]
   );
@@ -52,16 +70,33 @@ export function useQueryParams() {
       const query = params.toString();
       const url = query ? `${pathname}?${query}` : pathname;
 
-      router.replace(url);
+      router.replace(url, { scroll: false });
     },
     [router, pathname, getParams]
   );
 
   /**
-   * Menghapus semua query
+   * Menghapus multiple query sekaligus
+   */
+  const removeMany = useCallback(
+    (keys: string[]) => {
+      const params = getParams();
+
+      keys.forEach((k) => params.delete(k));
+
+      const query = params.toString();
+      const url = query ? `${pathname}?${query}` : pathname;
+
+      router.replace(url, { scroll: false });
+    },
+    [router, pathname, getParams]
+  );
+
+  /**
+   * Menghapus seluruh query
    */
   const clear = useCallback(() => {
-    router.replace(pathname);
+    router.replace(pathname, { scroll: false });
   }, [router, pathname]);
 
   /**
@@ -80,7 +115,7 @@ export function useQueryParams() {
       const query = params.toString();
       const url = query ? `${pathname}?${query}` : pathname;
 
-      router.replace(url);
+      router.replace(url, { scroll: false });
     },
     [router, pathname]
   );
@@ -88,7 +123,9 @@ export function useQueryParams() {
   return {
     get,
     set,
+    setMany, // ← Added
     remove,
+    removeMany, // ← Added
     clear,
     replaceAll,
     all: searchParams, // read-only
