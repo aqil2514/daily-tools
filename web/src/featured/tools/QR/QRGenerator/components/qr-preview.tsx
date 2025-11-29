@@ -33,8 +33,8 @@ export function QRPreview({ src, canvasRef }: Props) {
           size={Number(size ?? 260)}
           level={level ?? "M"}
           value={src}
-          fgColor={fgColor ?? "#FFFFFF"}
-          bgColor={bgColor ?? "#000000"}
+          fgColor={bgColor ?? "#000000"}
+          bgColor={fgColor ?? "#ffffff"}
           imageSettings={
             includeImage
               ? {

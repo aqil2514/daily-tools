@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 "use client";
 
 import { UploadImage, UploadImageRef } from "@/components/atoms/upload-image";
@@ -38,7 +39,6 @@ const QRSetting = () => {
   );
 
   useEffect(() => {
-    // eslint-disable-next-line react-hooks/set-state-in-effect
     if (!paramSize) return setSize(260);
   }, [paramSize]);
   return (
@@ -126,63 +126,219 @@ const QRSetting = () => {
   );
 };
 
+// const QRImageSetting = () => {
+//   const { get, set } = useQueryParams();
+//   const uploadRef = useRef<UploadImageRef>(null);
+
+//   // Ambil dari URL
+//   const paramWidth = get("image-qr-width");
+//   const paramHeight = get("image-qr-height");
+//   const paramOpacity = get("image-qr-opacity");
+//   const paramImage = get("image-qr-url");
+
+//   // State utama
+//   const [imageUrl, setImageUrl] = useState<string>(paramImage ?? "");
+//   const [width, setWidth] = useState<number>(Number(paramWidth ?? 24));
+//   const [height, setHeight] = useState<number>(Number(paramHeight ?? 24));
+//   const [opacity, setOpacity] = useState<number>(Number(paramOpacity ?? 1));
+
+//   // Sync image URL to query param
+//   useEffect(() => {
+//     set("image-qr-url", "");
+//     // eslint-disable-next-line react-hooks/exhaustive-deps
+//   }, []);
+
+//   // Sync width & height to query param
+//   useEffect(() => {
+//     set("image-qr-width", String(width));
+//     // eslint-disable-next-line react-hooks/exhaustive-deps
+//   }, [width]);
+
+//   useEffect(() => {
+//     set("image-qr-height", String(height));
+//     // eslint-disable-next-line react-hooks/exhaustive-deps
+//   }, [height]);
+
+//   useEffect(() => {
+//     set("image-qr-opacity", String(opacity));
+//     // eslint-disable-next-line react-hooks/exhaustive-deps
+//   }, [opacity]);
+
+//   return (
+//     <>
+//       <UploadImage
+//         ref={uploadRef}
+//         onUploadChange={async (file) => {
+//           if (file) {
+//             const url = file.type.includes("png")
+//               ? await convertToTransparentPNG(file)
+//               : URL.createObjectURL(file);
+//             setImageUrl(url);
+//             set("image-qr-url", url);
+//           }
+//         }}
+//       />
+
+//       {imageUrl && (
+//         <Image width={64} height={64} src={imageUrl} alt="Preview" />
+//       )}
+
+//       {imageUrl && (
+//         <>
+//           <div className="grid grid-cols-3 gap-4 mt-4">
+//             <div className="flex flex-col gap-1">
+//               <label htmlFor="image-qr-width">Width</label>
+//               <Input
+//                 value={width}
+//                 onChange={(e) => setWidth(Number(e.target.value))}
+//                 type="number"
+//                 id="image-qr-width"
+//               />
+//             </div>
+
+//             <div className="flex flex-col gap-1">
+//               <label htmlFor="image-qr-height">Height</label>
+//               <Input
+//                 value={height}
+//                 onChange={(e) => setHeight(Number(e.target.value))}
+//                 type="number"
+//                 id="image-qr-height"
+//               />
+//             </div>
+
+//             <div className="flex flex-col gap-1">
+//               <label htmlFor="image-qr-opacity">Opacity</label>
+//               <Input
+//                 max={1}
+//                 min={0}
+//                 step={0.1}
+//                 value={opacity}
+//                 onChange={(e) => setOpacity(Number(e.target.value))}
+//                 type="number"
+//                 id="image-qr-opacity"
+//               />
+//             </div>
+//           </div>
+
+//           <Button
+//             variant={"destructive"}
+//             className="mt-4"
+//             onClick={() => {
+//               uploadRef.current?.reset();
+//               setImageUrl("");
+//               setWidth(24);
+//               setHeight(24);
+//             }}
+//           >
+//             Delete Image
+//           </Button>
+//         </>
+//       )}
+//     </>
+//   );
+// };
+
 const QRImageSetting = () => {
-  const { get, set } = useQueryParams();
+  const { get, set, remove } = useQueryParams();
   const uploadRef = useRef<UploadImageRef>(null);
 
-  // Ambil dari URL
+  // Parameter
   const paramWidth = get("image-qr-width");
   const paramHeight = get("image-qr-height");
   const paramOpacity = get("image-qr-opacity");
-  const paramImage = get("image-qr-url");
 
-  // State utama
-  const [imageUrl, setImageUrl] = useState<string>(paramImage ?? "");
+  // States
+  const [imageUrl, setImageUrl] = useState<string>("");
   const [width, setWidth] = useState<number>(Number(paramWidth ?? 24));
   const [height, setHeight] = useState<number>(Number(paramHeight ?? 24));
   const [opacity, setOpacity] = useState<number>(Number(paramOpacity ?? 1));
 
-  // Sync image URL to query param
+  // Sumber image: upload atau url
+  const [source, setSource] = useState<"upload" | "url">("upload");
+  const [imageUrlInput, setImageUrlInput] = useState("");
+
+  // Hapus param blob pada refresh
   useEffect(() => {
-    set("image-qr-url", "");
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    remove("image-qr-url");
   }, []);
 
-  // Sync width & height to query param
-  useEffect(() => {
-    set("image-qr-width", String(width));
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [width]);
+  // Sync values
+  useEffect(() => set("image-qr-width", String(width)), [width]);
+  useEffect(() => set("image-qr-height", String(height)), [height]);
+  useEffect(() => set("image-qr-opacity", String(opacity)), [opacity]);
 
+  // Jika input URL berubah
   useEffect(() => {
-    set("image-qr-height", String(height));
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [height]);
-
-  useEffect(() => {
-    set("image-qr-opacity", String(opacity));
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [opacity]);
+    if (source === "url" && imageUrlInput.trim().length > 0) {
+      setImageUrl(imageUrlInput);
+      set("image-qr-url", imageUrlInput);
+    }
+  }, [imageUrlInput, source]);
 
   return (
     <>
-      <UploadImage
-        ref={uploadRef}
-        onUploadChange={async (file) => {
-          if (file) {
-            const url = file.type.includes("png")
+      {/* PILIH SUMBER */}
+      <div className="flex gap-3 mb-4">
+        <Button
+          variant={source === "upload" ? "default" : "outline"}
+          onClick={() => {
+            setSource("upload");
+            setImageUrl("");
+            remove("image-qr-url");
+          }}
+        >
+          Upload
+        </Button>
+
+        <Button
+          variant={source === "url" ? "default" : "outline"}
+          onClick={() => {
+            setSource("url");
+            uploadRef.current?.reset();
+            setImageUrl("");
+          }}
+        >
+          From URL
+        </Button>
+      </div>
+
+      {/* INPUT BERDASARKAN SUMBER */}
+
+      {source === "upload" && (
+        <UploadImage
+          ref={uploadRef}
+          onUploadChange={async (file) => {
+            if (!file) return;
+
+            const isPNG = file.type.includes("png");
+            const url = isPNG
               ? await convertToTransparentPNG(file)
               : URL.createObjectURL(file);
+
             setImageUrl(url);
             set("image-qr-url", url);
-          }
-        }}
-      />
-
-      {imageUrl && (
-        <Image width={64} height={64} src={imageUrl} alt="Preview" />
+          }}
+        />
       )}
 
+      {source === "url" && (
+        <div className="flex flex-col gap-2">
+          <label>Image URL</label>
+          <Input
+            type="text"
+            placeholder="https://domain.com/logo.png"
+            value={imageUrlInput}
+            onChange={(e) => setImageUrlInput(e.target.value)}
+          />
+        </div>
+      )}
+
+      {/* PREVIEW */}
+      {imageUrl && (
+        <Image width={64} height={64} src={imageUrl} alt="Preview" className="mt-4" />
+      )}
+
+      {/* SETTINGS */}
       {imageUrl && (
         <>
           <div className="grid grid-cols-3 gap-4 mt-4">
@@ -190,9 +346,9 @@ const QRImageSetting = () => {
               <label htmlFor="image-qr-width">Width</label>
               <Input
                 value={width}
-                onChange={(e) => setWidth(Number(e.target.value))}
                 type="number"
                 id="image-qr-width"
+                onChange={(e) => setWidth(Number(e.target.value))}
               />
             </div>
 
@@ -200,34 +356,36 @@ const QRImageSetting = () => {
               <label htmlFor="image-qr-height">Height</label>
               <Input
                 value={height}
-                onChange={(e) => setHeight(Number(e.target.value))}
                 type="number"
                 id="image-qr-height"
+                onChange={(e) => setHeight(Number(e.target.value))}
               />
             </div>
 
             <div className="flex flex-col gap-1">
               <label htmlFor="image-qr-opacity">Opacity</label>
               <Input
+                value={opacity}
                 max={1}
                 min={0}
                 step={0.1}
-                value={opacity}
-                onChange={(e) => setOpacity(Number(e.target.value))}
                 type="number"
                 id="image-qr-opacity"
+                onChange={(e) => setOpacity(Number(e.target.value))}
               />
             </div>
           </div>
 
           <Button
-            variant={"destructive"}
+            variant="destructive"
             className="mt-4"
             onClick={() => {
               uploadRef.current?.reset();
               setImageUrl("");
+              setImageUrlInput("");
               setWidth(24);
               setHeight(24);
+              remove("image-qr-url");
             }}
           >
             Delete Image
