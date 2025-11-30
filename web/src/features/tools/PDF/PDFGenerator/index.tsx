@@ -9,7 +9,7 @@ export default function PDFGenerator() {
     <PDFGeneratorProvider>
       <div>
         <SectionHeader
-          title="PDF Generator"
+          title="PDF Generator (On Progress)"
           description="Generate a PDF file for certificates, invoice, etc"
         />
         <TemplateSelector />
