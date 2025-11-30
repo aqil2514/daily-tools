@@ -1,10 +1,10 @@
 import { Document, Page, StyleSheet } from "@react-pdf/renderer";
 import { HeaderPDF } from "./HeaderPDF";
 import { InvoiceBasicSchemaType } from "../schema";
+import { invoiceBasicStyle } from "../styles";
 
 const styles = StyleSheet.create({
-  page: { backgroundColor: "white", paddingHorizontal:"36px", paddingVertical:"16px" },
-  section: { color: "white", textAlign: "center", margin: 30 },
+  page: invoiceBasicStyle.page,
 });
 
 interface Props {
