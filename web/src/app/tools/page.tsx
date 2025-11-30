@@ -1,4 +1,4 @@
-import ToolsTemplate from "@/featured/tools";
+import ToolsTemplate from "@/features/tools";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {

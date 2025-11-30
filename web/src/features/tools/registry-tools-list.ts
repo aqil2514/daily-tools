@@ -41,6 +41,16 @@ const imageToolList: ToolsListItemType[] = [
 
 const pdfToolList: ToolsListItemType[] = [
   {
+    title: "PDF Compress",
+    href: "/tools/pdf-compress",
+    description: "Compress PDF documents to reduce file size efficiently.",
+  },
+  {
+    title: "PDF Generator",
+    href: "/tools/pdf-generator",
+    description: "Generate a PDF file for certificates, invoice, etc",
+  },
+  {
     title: "PDF Merge",
     href: "/tools/pdf-merge",
     description: "Combine multiple PDF files into a single organized document.",
@@ -49,11 +59,6 @@ const pdfToolList: ToolsListItemType[] = [
     title: "PDF Split",
     href: "/tools/pdf-split",
     description: "Split PDF pages into separate files with full flexibility.",
-  },
-  {
-    title: "PDF Compress",
-    href: "/tools/pdf-compress",
-    description: "Compress PDF documents to reduce file size efficiently.",
   },
 ];
 

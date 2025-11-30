@@ -31,7 +31,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <Header />
-        <main className="grid grid-cols-[20%_auto] pt-20">
+        <main className="grid grid-cols-[15%_auto] pt-20">
           <Sidebar />
           <ContentContainer>{children}</ContentContainer>
         </main>

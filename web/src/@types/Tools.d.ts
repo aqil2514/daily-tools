@@ -8,6 +8,7 @@ export type ToolName =
   | "pdf-merge"
   | "pdf-split"
   | "pdf-compress"
+  | "pdf-generator"
   | "qr-generator";
 
 

@@ -1,6 +1,6 @@
 "use client";
 
-import { toolList } from "@/featured/tools/tools-list";
+import { toolList } from "@/features/tools/registry-tools-list";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 

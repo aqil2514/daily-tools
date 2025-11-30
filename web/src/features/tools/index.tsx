@@ -6,7 +6,7 @@ import {
 } from "@/components/ui/accordion";
 import { Card, CardContent } from "@/components/ui/card";
 import Link from "next/link";
-import { toolList } from "./tools-list";
+import { toolList } from "./registry-tools-list";
 
 export default function ToolsTemplate() {
   return (

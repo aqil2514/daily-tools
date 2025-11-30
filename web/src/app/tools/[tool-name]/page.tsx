@@ -16,20 +16,22 @@ const titleMapper: Record<ToolName, string> = {
   "pdf-merge":"PDF Merge",
   "pdf-split":"PDF Split",
   "pdf-compress":"PDF Compress",
-  "qr-generator":"QR Generator"
+  "qr-generator":"QR Generator",
+  "pdf-generator":"PDF Generator"
 };
 
 const componentMapper: Record<ToolName, React.ComponentType> = {
-  "image-converter": dynamic(() => import("@/featured/tools/Images/ImageConverter")),
-  "image-resizer": dynamic(() => import("@/featured/tools/Images/ImageResizer")),
-  "image-compressor": dynamic(() => import("@/featured/tools/Images/ImageCompressor")),
-  "image-cropper": dynamic(() => import("@/featured/tools/Images/ImageCropper")),
-  "image-rotate": dynamic(() => import("@/featured/tools/Images/ImageRotate")),
-  "image-to-pdf": dynamic(() => import("@/featured/tools/Images/ImageToPDF")),
-  "pdf-merge": dynamic(() => import("@/featured/tools/PDF/PDFMerge")),
-  "pdf-split": dynamic(() => import("@/featured/tools/PDF/PDFSplit")),
-  "pdf-compress": dynamic(() => import("@/featured/tools/PDF/PDFCompress")),
-  "qr-generator": dynamic(() => import("@/featured/tools/QR/QRGenerator")),
+  "image-converter": dynamic(() => import("@/features/tools/Images/ImageConverter")),
+  "image-resizer": dynamic(() => import("@/features/tools/Images/ImageResizer")),
+  "image-compressor": dynamic(() => import("@/features/tools/Images/ImageCompressor")),
+  "image-cropper": dynamic(() => import("@/features/tools/Images/ImageCropper")),
+  "image-rotate": dynamic(() => import("@/features/tools/Images/ImageRotate")),
+  "image-to-pdf": dynamic(() => import("@/features/tools/Images/ImageToPDF")),
+  "pdf-merge": dynamic(() => import("@/features/tools/PDF/PDFMerge")),
+  "pdf-split": dynamic(() => import("@/features/tools/PDF/PDFSplit")),
+  "pdf-compress": dynamic(() => import("@/features/tools/PDF/PDFCompress")),
+  "pdf-generator": dynamic(() => import("@/features/tools/PDF/PDFGenerator")),
+  "qr-generator": dynamic(() => import("@/features/tools/QR/QRGenerator")),
 };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {

@@ -7,10 +7,9 @@
 7. PDF Merge (✔ done)  
 8. PDF Split (✔ done) 
 9. PDF Compress (✔ done) 
+10. QR Generator (✔ done) 
 
 Fitur lanjutan:
-
-QR code
 
 WebP/AVIF converter
 
