@@ -1,16 +1,25 @@
-// // referensi https://eforms.com/images/2016/10/invoice-template-pdf-1.png
+// // // referensi https://eforms.com/images/2016/10/invoice-template-pdf-1.png
 
-"use client";
-
-import { HeaderPreview } from "./HeaderPreview";
-import { invoiceBasicStyle } from "../styles";
-import React from "react";
+import { BlobProvider } from "@react-pdf/renderer";
+import { PDFDocument } from "../PDF/PDFDocument";
+import { usePDFGenerator } from "@/features/tools/PDF/PDFGenerator/provider";
+import { InvoiceBasicSchemaType } from "../schema";
 
 export default function InvoiceBasicHTMLPreview() {
+  const { pdfData } = usePDFGenerator();
 
+  if (!pdfData) return null;
   return (
-    <div style={invoiceBasicStyle.page as React.CSSProperties}>
-      <HeaderPreview />
-    </div>
-  )
+    <BlobProvider
+      document={<PDFDocument pdfData={pdfData as InvoiceBasicSchemaType} />}
+    >
+      {({ url }) =>
+        url ? (
+          <iframe src={url} style={{ width: "100%", height: "500px" }} />
+        ) : (
+          "Loading..."
+        )
+      }
+    </BlobProvider>
+  );
 }

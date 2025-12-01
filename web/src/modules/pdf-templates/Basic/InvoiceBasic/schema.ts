@@ -19,6 +19,9 @@ export const invoiceBasicSchema = z.object({
     terms: z.string(),
     dueDate: z.string(),
   }),
+
+  currency: z.enum(["USD", "IDR", "EUR", "JPY", "GBP"]),
+  tax: z.number(),
 });
 
 export type InvoiceBasicSchemaType = z.infer<typeof invoiceBasicSchema>;
@@ -57,4 +60,7 @@ export const invoiceBasicSchemaDefault: InvoiceBasicSchemaType = {
     terms: "Payment due within 7 days.",
     dueDate: new Date().toISOString().slice(0, 10),
   },
+
+  currency: "IDR",
+  tax: 0,
 };

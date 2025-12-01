@@ -1,0 +1,35 @@
+export const theme = {
+  spacing: {
+    0: 0,
+    1: 4,
+    2: 8,
+    3: 12,
+    4: 16,
+    5: 20,
+    6: 24,
+  },
+  fontSize: {
+    xs: 8,
+    sm: 10,
+    base: 12,
+    lg: 14,
+    xl: 16,
+    "2xl": 20,
+    "3xl": 24,
+    "4xl": 32,
+  },
+  colors: {
+    black: "#000000",
+    white: "#FFFFFF",
+    gray: "#6B7280",
+    red: "#EF4444",
+    blue: "#3B82F6",
+    green: "#10B981",
+  },
+  fontWeight: {
+    normal: 400,
+    medium: 500,
+    semibold: 600,
+    bold: 700,
+  },
+};

@@ -11,6 +11,14 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Trash } from "lucide-react";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import { onNumberChange } from "@/lib/onNumberChange";
 
 interface ItemListFormProps {
   form: UseFormReturn<InvoiceBasicSchemaType>;
@@ -24,6 +32,48 @@ export function ItemListForm({ form }: ItemListFormProps) {
 
   return (
     <div className="space-y-4">
+      <FormField
+        control={form.control}
+        name="currency"
+        render={({ field }) => (
+          <FormItem>
+            <FormLabel>Currency</FormLabel>
+            <FormControl>
+              <Select onValueChange={field.onChange} defaultValue={field.value}>
+                <SelectTrigger className="w-full">
+                  <SelectValue placeholder="Select currency" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="USD">USD ($)</SelectItem>
+                  <SelectItem value="IDR">IDR (Rp)</SelectItem>
+                  <SelectItem value="EUR">EUR (€)</SelectItem>
+                  <SelectItem value="JPY">JPY (¥)</SelectItem>
+                  <SelectItem value="GBP">GBP (£)</SelectItem>
+                </SelectContent>
+              </Select>
+            </FormControl>
+          </FormItem>
+        )}
+      />
+
+      <FormField
+        control={form.control}
+        name={`tax`}
+        render={({ field }) => (
+          <FormItem>
+            <FormLabel>Tax</FormLabel>
+            <FormControl>
+              <Input
+                type="number"
+                {...field}
+                onChange={onNumberChange(field.onChange)}
+              />
+            </FormControl>
+            <FormMessage />
+          </FormItem>
+        )}
+      />
+
       {fields.map((item, index) => (
         <div
           key={item.id}
@@ -50,7 +100,7 @@ export function ItemListForm({ form }: ItemListFormProps) {
               <FormItem>
                 <FormLabel>Qty</FormLabel>
                 <FormControl>
-                  <Input type="number" {...field} />
+                  <Input type="number" {...field} onChange={onNumberChange(field.onChange)} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -64,25 +114,33 @@ export function ItemListForm({ form }: ItemListFormProps) {
               <FormItem>
                 <FormLabel>Price</FormLabel>
                 <FormControl>
-                  <Input type="number" {...field} />
+                  <Input type="number" {...field} onChange={onNumberChange(field.onChange)} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
             )}
           />
 
-          <Button onClick={() => remove(index)} variant="destructive" size={"icon"}>
-            <Trash />
-          </Button>
+          {fields.length > 1 && (
+            <Button
+              onClick={() => remove(index)}
+              variant="destructive"
+              size={"icon"}
+            >
+              <Trash />
+            </Button>
+          )}
         </div>
       ))}
 
-      <Button
-        onClick={() => append({ description: "", quantity: 1, price: 0 })}
-        type="button"
-      >
-        Add Item
-      </Button>
+      {fields.length < 10 && (
+        <Button
+          onClick={() => append({ description: "", quantity: 1, price: 0 })}
+          type="button"
+        >
+          Add Item
+        </Button>
+      )}
     </div>
   );
 }
