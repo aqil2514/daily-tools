@@ -10,7 +10,7 @@ import React, {
 interface ImageResizerContextTypes {
   resizedUrl: string;
   setResizedUrl: Dispatch<SetStateAction<string>>;
-  previewUrl:string;
+  previewUrl: string;
   setPreviewUrl: Dispatch<SetStateAction<string>>;
   resizerSettings: ImageResizerSettings;
   setResizerSettings: Dispatch<SetStateAction<ImageResizerSettings>>;
@@ -31,6 +31,7 @@ export function ImageResizerProvider({ children }: ImageResizerProviderProps) {
     height: 0,
     keepRatio: true,
     width: 0,
+    ratio: 0,
   });
 
   const value: ImageResizerContextTypes = {
