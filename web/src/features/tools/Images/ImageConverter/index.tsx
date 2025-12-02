@@ -1,10 +1,17 @@
+import { SectionHeader } from "@/components/molecules/section-header";
 import { ImageConverter } from "./components/image-converter";
+import { ImageConverterProvider } from "./provider";
 
-export default function ImageConverterTemplate(){
-    return (
-    <div className="max-w-2xl mx-auto py-10 px-4">
-      <h1 className="text-2xl font-bold mb-6">Image Converter</h1>
-      <ImageConverter />
-    </div>
+export default function ImageConverterTemplate() {
+  return (
+    <ImageConverterProvider>
+      <div className="mx-auto p-4">
+        <SectionHeader
+          title="Image Converter"
+          description="Convert your Image"
+        />
+        <ImageConverter />
+      </div>
+    </ImageConverterProvider>
   );
 }

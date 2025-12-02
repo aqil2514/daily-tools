@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { convertImageFormat } from "@/lib/convertImageFormat";
+import { convertImageFormat } from "@/utils/convertImageFormat";
 
 export function useImageConverter() {
   const [file, setFile] = useState<File | null>(null);

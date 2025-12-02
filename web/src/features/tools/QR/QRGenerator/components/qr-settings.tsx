@@ -5,7 +5,7 @@ import { UploadImage, UploadImageRef } from "@/components/atoms/upload-image";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useQueryParams } from "@/hooks/useQueryParams";
-import { convertToTransparentPNG } from "@/lib/convertToTransparentPNG";
+import { convertToTransparentPNG } from "@/utils/convertToTransparentPNG";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 

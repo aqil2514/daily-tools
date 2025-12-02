@@ -18,7 +18,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { onNumberChange } from "@/lib/onNumberChange";
+import { onNumberChange } from "@/utils/onNumberChange";
 
 interface ItemListFormProps {
   form: UseFormReturn<InvoiceBasicSchemaType>;
