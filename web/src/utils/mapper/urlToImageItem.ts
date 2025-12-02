@@ -1,7 +1,8 @@
 import { ImageItem } from "@/@types/Images";
 import { nanoid } from "nanoid";
+import { getImageMetadata } from "../image/getImageMetadata";
 
-export function mapUrlToImageItem(rawUrl: string): ImageItem {
+export async function mapUrlToImageItem(rawUrl: string): Promise<ImageItem> {
   const getFileNameFromUrl = (url: string): string => {
     try {
       const urlObj = new URL(url);
@@ -18,6 +19,8 @@ export function mapUrlToImageItem(rawUrl: string): ImageItem {
     }
   };
 
+  const image = await getImageMetadata(rawUrl);
+
   const fileName = getFileNameFromUrl(rawUrl);
 
   // Asumsi format (misalnya: png, jpeg) diambil dari ekstensi file
@@ -29,5 +32,7 @@ export function mapUrlToImageItem(rawUrl: string): ImageItem {
     format: format,
     url: rawUrl, // Langsung gunakan URL string
     fileName: fileName,
+    height: image.height,
+    width: image.width,
   };
 }

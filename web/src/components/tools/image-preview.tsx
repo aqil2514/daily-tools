@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { Paragraph } from "../atoms/paragraph";
 
-interface ImagePreviewProps {
+export interface ImagePreviewProps {
   src?: string;
   alt?: string;
   noImageMessage?: string;
@@ -16,7 +16,7 @@ export function ImagePreview({
 }: ImagePreviewProps) {
   if (!src) return <Paragraph>{noImageMessage}</Paragraph>;
   return (
-    <>
+    <div className="space-y-4">
       <p>{title}</p>
       <div className="flex justify-center">
         <Image
@@ -27,6 +27,6 @@ export function ImagePreview({
           className="rounded-md border"
         />
       </div>
-    </>
+    </div>
   );
 }
