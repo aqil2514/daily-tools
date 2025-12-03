@@ -1,53 +1,53 @@
-"use client";
-
-import { FileDropzone } from "@/components/tools/file-dropzone";
-import { ImagePreview } from "@/components/tools/image-preview";
-import { TaskProgress } from "@/components/tools/task-progress";
 import { ToolCard } from "@/components/tools/tool-card";
+import { defaultRotateState, useImageRotate } from "../provider";
+import { SourceSelection } from "@/components/molecules/source-selection";
+import { RotateSetting } from "./rotate-setting";
+import { RotatePreview } from "./rotate-preview";
+import { ScrollArea } from "@/components/ui/scroll-area";
+import { RotateDownload } from "./rotate-download";
+import { Button } from "@/components/ui/button";
 
-import { useImageRotate } from "../hooks/useImageRotate";
-import { RotateControls } from "./rotate-controls";
-import { RotateAction } from "./rotate-action";
+export function ImageRotateComponent() {
+  const { setImageUrl, imageUrl, setRotateState } = useImageRotate();
 
-export function ImageRotate() {
-  const {
-    file,
-    previewUrl,
-    angle,
-    rotatedUrl,
-    loading,
-    setAngle,
-    handleSelect,
-    handleRotate,
-  } = useImageRotate();
+  const fileSelectedHandler = async (file: File | null) => {
+    if (!file) return;
+    const url = URL.createObjectURL(file);
+
+    setImageUrl({ result: "", preview: url });
+  };
+
+  const urlSelectedHandler = async (url: string) => {
+    setImageUrl({ result: "", preview: url });
+  };
+
+  if (!imageUrl.preview)
+    return (
+      <ToolCard>
+        <SourceSelection
+          onFileSelected={fileSelectedHandler}
+          onUrlSelected={urlSelectedHandler}
+        />
+      </ToolCard>
+    );
 
   return (
-    <ToolCard>
-      <FileDropzone
-        accept="image/*"
-        label="Klik atau drag untuk upload"
-        onSelect={(files) => handleSelect(files[0])}
-      />
+    <div className="grid grid-cols-2 gap-4">
+      <ToolCard>
+        <RotatePreview />
+        <RotateDownload />
+      </ToolCard>
 
-      {previewUrl && <ImagePreview src={previewUrl} />}
+      <ToolCard>
+        <div className="flex justify-between">
 
-      <RotateControls angle={angle} setAngle={setAngle} />
-
-      <RotateAction
-        file={file}
-        loading={loading}
-        rotatedUrl={rotatedUrl}
-        onRotate={handleRotate}
-      />
-
-      {loading && <TaskProgress label="Memutar gambar..." />}
-
-      {rotatedUrl && (
-        <>
-          <p className="text-center font-medium mt-2">Hasil:</p>
-          <ImagePreview src={rotatedUrl} />
-        </>
-      )}
-    </ToolCard>
+        <p className="text-2xl font-semibold">Rotate Setting</p>
+        <Button variant={"outline"} onClick={() => setRotateState(defaultRotateState)} >Reset</Button>
+        </div>
+        <ScrollArea className="h-96">
+          <RotateSetting />
+        </ScrollArea>
+      </ToolCard>
+    </div>
   );
 }

@@ -10,7 +10,7 @@ import { Button } from "@/components/ui/button";
 import { CropperAction } from "./cropper-action";
 
 export function ImageCropperComp() {
-  const { setImageUrl, setCropState } = useImageCroper();
+  const { setImageUrl, setCropState, imageUrl } = useImageCroper();
 
   const fileSelectedHandler = async (file: File | null) => {
     if (!file) return;
@@ -23,29 +23,37 @@ export function ImageCropperComp() {
     setImageUrl({ result: "", preview: url });
   };
 
+  if (!imageUrl.preview)
+    return (
+      <ToolCard>
+        <SourceSelection
+          onFileSelected={fileSelectedHandler}
+          onUrlSelected={urlSelectedHandler}
+        />
+      </ToolCard>
+    );
+
   return (
     <div className="grid grid-cols-[70%_auto] gap-4">
       <ToolCard>
         <ScrollArea className="h-96 px-4">
-          <SourceSelection
-            onFileSelected={fileSelectedHandler}
-            onUrlSelected={urlSelectedHandler}
-          />
-
           <CropperUI />
 
           <CropperAction />
-          
         </ScrollArea>
       </ToolCard>
 
       <ToolCard>
         <div className="flex justify-between items-center">
-
-        <p className="text-xl font-semibold underline">Crop Setting</p>
-        <Button variant={"outline"} onClick={() => setCropState(defaultCropState)} >Reset</Button>
+          <p className="text-xl font-semibold underline">Crop Setting</p>
+          <Button
+            variant={"outline"}
+            onClick={() => setCropState(defaultCropState)}
+          >
+            Reset
+          </Button>
         </div>
-        <Separator /> 
+        <Separator />
         <CropperSetting />
       </ToolCard>
     </div>
