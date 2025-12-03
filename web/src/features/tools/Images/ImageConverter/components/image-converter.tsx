@@ -25,6 +25,7 @@ export function ImageConverter() {
     items.length > 0 && outputFormat
       ? `${getCleanFileName(items[0].fileName)}.${outputFormat}`
       : "";
+      
   return (
     <div className="grid grid-cols-2 gap-4">
       <ToolCard>

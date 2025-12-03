@@ -1,14 +1,25 @@
 "use client";
+import { useImageCompressor } from "../provider";
 
-interface Props {
-  quality: number;
-  setQuality: (q: number) => void;
-}
+export function QualitySelector() {
+  const { quality, setQuality, previewUrl, fileMime } =
+    useImageCompressor();
 
-export function QualitySelector({ quality, setQuality }: Props) {
+  if (!previewUrl) return null;
+
+  const isLossy =
+    fileMime.includes("jpeg") ||
+    fileMime.includes("jpg") ||
+    fileMime.includes("webp") ||
+    fileMime.includes("avif");
+
+  if (!isLossy) return null;
+
   return (
     <div className="space-y-2">
-      <label className="text-sm font-medium">Compression Quality ({quality}%)</label>
+      <label className="text-sm font-medium">
+        Compression Quality ({quality}%)
+      </label>
       <input
         type="range"
         min={1}

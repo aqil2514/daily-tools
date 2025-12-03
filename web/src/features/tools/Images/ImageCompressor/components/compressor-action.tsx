@@ -2,23 +2,47 @@
 
 import { Button } from "@/components/ui/button";
 import { DownloadButton } from "@/components/tools/download-button";
+import { useImageCompressor } from "../provider";
+import { getImageFileData } from "@/utils/image/getImageFileData";
+import { normalizeMime } from "@/utils/normalizeMime";
 
-interface Props {
-  file: File | null;
-  loading: boolean;
-  convertedUrl: string | null;
-  onCompress: () => void;
-}
+export function CompressorAction() {
+  const { previewUrl, setCompressedUrl, quality, compressedUrl } =
+    useImageCompressor();
+  if (!previewUrl) return null;
 
-export function CompressorAction({ file, loading, convertedUrl, onCompress }: Props) {
+  async function handleCompress() {
+    setCompressedUrl("");
+
+    const blob = await getImageFileData(previewUrl);
+
+    // Normalize mime
+    const mime = normalizeMime(blob.type);
+
+    const bitmap = await createImageBitmap(blob);
+
+    const canvas = document.createElement("canvas");
+    canvas.width = bitmap.width;
+    canvas.height = bitmap.height;
+
+    const ctx = canvas.getContext("2d")!;
+    ctx.drawImage(bitmap, 0, 0);
+
+    const out = canvas.toDataURL(mime, quality / 100);
+    setCompressedUrl(out);
+  }
+
   return (
-    <div className="flex gap-3">
-      <Button onClick={onCompress} disabled={!file || loading}>
+    <div>
+      <Button
+        disabled={!previewUrl}
+        variant={"outline"}
+        onClick={handleCompress}
+      >
         Compress
       </Button>
-
-      {convertedUrl && (
-        <DownloadButton filename="compressed.jpg" url={convertedUrl} />
+      {compressedUrl && (
+        <DownloadButton url={compressedUrl} filename="Compressed Image" />
       )}
     </div>
   );

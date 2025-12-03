@@ -1,53 +1,66 @@
 "use client";
-
-import { FileDropzone } from "@/components/tools/file-dropzone";
-import { ImagePreview } from "@/components/tools/image-preview";
-import { TaskProgress } from "@/components/tools/task-progress";
+import { ImageBeforeAfterPreview } from "@/components/molecules/image-before-after-preview";
+import { SourceSelection } from "@/components/molecules/source-selection";
 import { ToolCard } from "@/components/tools/tool-card";
-
-import { useImageCompressor } from "../hooks/useImageCompressor";
+import { ScrollArea } from "@radix-ui/react-scroll-area";
 import { QualitySelector } from "./quality-selector";
+import { useImageCompressor } from "../provider";
 import { CompressorAction } from "./compressor-action";
+import { getImageFileData } from "@/utils/image/getImageFileData";
 
-export function ImageCompressor() {
+export function ImageCompressorComp() {
   const {
-    file,
+    compressedUrl,
     previewUrl,
-    convertedUrl,
-    loading,
-    quality,
-    setQuality,
-    handleSelect,
-    handleCompress,
+    setPreviewUrl,
+    setCompressedUrl,
+    setFileMime,
   } = useImageCompressor();
 
+  const fileSelectedHandler = async (file: File | null) => {
+    if (!file) return;
+    const url = URL.createObjectURL(file);
+
+    setPreviewUrl(url);
+    setFileMime(file.type);
+    setCompressedUrl("");
+  };
+
+  const urlSelectedHandler = async (url: string) => {
+    const file = await getImageFileData(url);
+    
+    setPreviewUrl(url);
+    setCompressedUrl("");
+    setFileMime(file.type)
+  };
+
   return (
-    <ToolCard>
-      <FileDropzone
-        accept="image/*"
-        label="Klik atau drag untuk upload"
-        onSelect={(files) => handleSelect(files[0])}
+    <div className="grid grid-cols-2 gap-4">
+      <ToolCard>
+        <ScrollArea className="h-96 space-y-6">
+          <SourceSelection
+            onFileSelected={fileSelectedHandler}
+            onUrlSelected={urlSelectedHandler}
+          />
+        </ScrollArea>
+
+        <QualitySelector />
+
+        <CompressorAction />
+      </ToolCard>
+
+      <ImageBeforeAfterPreview
+        before={{
+          noImageMessage: "Pilih gambar dari file atau url",
+          src: previewUrl,
+          title: "Sebelum dikompress",
+        }}
+        after={{
+          noImageMessage: "",
+          src: compressedUrl,
+          title: "Setelah dikompress",
+        }}
       />
-
-      {previewUrl && <ImagePreview src={previewUrl} />}
-
-      <QualitySelector quality={quality} setQuality={setQuality} />
-
-      <CompressorAction
-        file={file}
-        loading={loading}
-        convertedUrl={convertedUrl}
-        onCompress={handleCompress}
-      />
-
-      {loading && <TaskProgress label="Mengompresi gambar..." />}
-
-      {convertedUrl && (
-        <>
-          <p className="text-sm font-medium text-center mt-2">Hasil:</p>
-          <ImagePreview src={convertedUrl} />
-        </>
-      )}
-    </ToolCard>
+    </div>
   );
 }

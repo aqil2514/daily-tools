@@ -10,13 +10,13 @@ import {
 
 // --- IMAGE REGISTRY ---
 export const imageRegistry: Record<ImageToolName, ToolRegistryItem> = {
-  "image-compressor": {
-    Component: dynamic(() => import("@/features/tools/Images/ImageCompressor")),
-    href: "/tools/image-compressor",
-    title: "Image Compressor",
-    description: "Reduce image size while retaining quality.",
-    category: "image",
-  },
+  // "image-compressor": {
+  //   Component: dynamic(() => import("@/features/tools/Images/ImageCompressor")),
+  //   href: "/tools/image-compressor",
+  //   title: "Image Compressor",
+  //   description: "Reduce image size while retaining quality.",
+  //   category: "image",
+  // },
   "image-converter": {
     Component: dynamic(() => import("@/features/tools/Images/ImageConverter")),
     href: "/tools/image-converter",

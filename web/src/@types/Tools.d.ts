@@ -3,7 +3,8 @@ import React from "react";
 export type ImageToolName =
   | "image-converter"
   | "image-resizer"
-  | "image-compressor"
+  // TODO : Nanti kalo Python udah siap
+  // | "image-compressor"
   | "image-cropper"
   | "image-rotate"
   | "image-to-pdf";

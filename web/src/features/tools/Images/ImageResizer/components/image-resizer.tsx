@@ -21,7 +21,13 @@ export function ImageResizer() {
 }
 
 const InnerTemplate = () => {
-  const { setResizerSettings, setPreviewUrl, previewUrl, resizedUrl, resizerSettings } = useImageResizer();
+  const {
+    setResizerSettings,
+    setPreviewUrl,
+    previewUrl,
+    resizedUrl,
+    resizerSettings,
+  } = useImageResizer();
   const [snapshot, setSnapshot] = useState<{ width: number; height: number }>({
     height: 0,
     width: 0,
@@ -29,7 +35,7 @@ const InnerTemplate = () => {
 
   const { height, width } = snapshot;
   const { nearestLabel } = getNearestRatio(width, height);
-  const { nearestLabel:currentRatio } = getNearestRatio(width, height);
+  const { nearestLabel: currentRatio } = getNearestRatio(width, height);
 
   const fileSelectedHandler = async (file: File | null) => {
     if (!file) return;
