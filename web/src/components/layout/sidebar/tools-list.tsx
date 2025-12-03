@@ -1,6 +1,6 @@
 "use client";
 
-import { toolList } from "@/features/tools/registry-tools-list";
+import { sidebarSections } from "@/features/tools/registry";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -13,7 +13,7 @@ export function ToolsList() {
         Tools List
       </p>
 
-      {toolList.map((list, i) => (
+      {sidebarSections.map((list, i) => (
         <div key={`sidebar-tools-${i + 1}`} className="space-y-3">
           <p className="text-sm font-semibold text-slate-700 tracking-wide">
             {list.sectionTitle}

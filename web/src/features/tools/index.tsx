@@ -6,7 +6,7 @@ import {
 } from "@/components/ui/accordion";
 import { Card, CardContent } from "@/components/ui/card";
 import Link from "next/link";
-import { toolList } from "./registry-tools-list";
+import { sidebarSections } from "./registry";
 
 export default function ToolsTemplate() {
   return (
@@ -22,7 +22,7 @@ export default function ToolsTemplate() {
 
         {/* Tools Accordion */}
         <div className="space-y-3">
-          {toolList.map((list, i) => (
+          {sidebarSections.map((list, i) => (
             <Accordion
               type="single"
               key={`tools-list-${i + 1}`}
