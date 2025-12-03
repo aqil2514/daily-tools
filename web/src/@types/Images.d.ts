@@ -10,6 +10,11 @@ export interface ImageItem {
   width: number;
 }
 
+export interface ImageUrl{
+  preview:string;
+  result:string;
+}
+
 export interface ImageResizerSettings {
   width: number;
   height: number;

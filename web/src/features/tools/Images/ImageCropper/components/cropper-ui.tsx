@@ -1,39 +1,28 @@
 "use client";
 
 import Cropper from "react-easy-crop";
-import type { Area, Point } from "react-easy-crop";
+import { useImageCroper } from "../provider";
 
-interface Props {
-  image: string;
-  crop: Point;
-  zoom: number;
-  aspect: number | null;
+export function CropperUI() {
+  const { cropState, imageUrl, setCropState } = useImageCroper();
 
-  setCrop: (v: Point) => void;
-  setZoom: (v: number) => void;
-  onCropComplete: (croppedArea: Area, croppedAreaPixels: Area) => void;
-}
-
-export function CropperUI({
-  image,
-  crop,
-  zoom,
-  aspect,
-  setCrop,
-  setZoom,
-  onCropComplete,
-}: Props) {
+  if (!imageUrl.preview) return null;
   return (
-    <div className="relative w-full h-[300px] bg-black/20 rounded-md overflow-hidden">
-      <Cropper
-        image={image}
-        crop={crop}
-        zoom={zoom}
-        aspect={aspect ?? undefined}
-        onCropChange={setCrop}
-        onCropComplete={onCropComplete}
-        onZoomChange={setZoom}
-      />
+    <div className="mt-6">
+      <p className="font-semibold">Crop UI</p>
+      <div className="relative w-full h-[300px] bg-black/20 rounded-md overflow-hidden ">
+        <Cropper
+          image={imageUrl.preview}
+          crop={cropState.crop}
+          cropShape={cropState.cropShape}
+          zoom={cropState.zoom}
+          rotation={cropState.rotation}
+          aspect={cropState.aspect}
+          onCropChange={(point) => setCropState({ ...cropState, crop: point })}
+          onZoomChange={(zoom) => setCropState({ ...cropState, zoom })}
+          onCropComplete={(_, area) => setCropState({ ...cropState, area })}
+        />
+      </div>
     </div>
   );
 }

@@ -1,74 +1,53 @@
 "use client";
-
-import { FileDropzone } from "@/components/tools/file-dropzone";
-import { ImagePreview } from "@/components/tools/image-preview";
-import { TaskProgress } from "@/components/tools/task-progress";
 import { ToolCard } from "@/components/tools/tool-card";
-
-import { useImageCropper } from "../hooks/useImageCropper";
+import { defaultCropState, useImageCroper } from "../provider";
+import { ScrollArea } from "@/components/ui/scroll-area";
+import { SourceSelection } from "@/components/molecules/source-selection";
 import { CropperUI } from "./cropper-ui";
+import { Separator } from "@/components/ui/separator";
+import { CropperSetting } from "./cropper-setting";
+import { Button } from "@/components/ui/button";
 import { CropperAction } from "./cropper-action";
-import { AspectRatioSelector } from "./aspect-ratio-selector";
 
-export function ImageCropper() {
-  const {
-    file,
-    previewUrl,
-    crop,
-    zoom,
-    loading,
-    croppedImage,
-    aspect,
+export function ImageCropperComp() {
+  const { setImageUrl, setCropState } = useImageCroper();
 
-    setCrop,
-    setZoom,
-    setAspect,
+  const fileSelectedHandler = async (file: File | null) => {
+    if (!file) return;
+    const url = URL.createObjectURL(file);
 
-    handleSelect,
-    handleCrop,
-    onCropComplete,
-  } = useImageCropper();
+    setImageUrl({ result: "", preview: url });
+  };
+
+  const urlSelectedHandler = async (url: string) => {
+    setImageUrl({ result: "", preview: url });
+  };
 
   return (
-    <ToolCard>
-      <FileDropzone
-        accept="image/*"
-        label="Klik atau drag gambar untuk upload"
-        onSelect={(files) => handleSelect(files[0])}
-      />
-
-      {previewUrl && (
-        <>
-
-          <CropperUI
-            image={previewUrl}
-            crop={crop}
-            aspect={aspect}
-            zoom={zoom}
-            setCrop={setCrop}
-            setZoom={setZoom}
-            onCropComplete={onCropComplete}
+    <div className="grid grid-cols-[70%_auto] gap-4">
+      <ToolCard>
+        <ScrollArea className="h-96 px-4">
+          <SourceSelection
+            onFileSelected={fileSelectedHandler}
+            onUrlSelected={urlSelectedHandler}
           />
-        </>
-      )}
 
-      <AspectRatioSelector aspect={aspect} setAspect={setAspect} />
-      
-      <CropperAction
-        file={file}
-        loading={loading}
-        croppedImage={croppedImage}
-        onCrop={handleCrop}
-      />
+          <CropperUI />
 
-      {loading && <TaskProgress label="Memotong gambar..." />}
+          <CropperAction />
+          
+        </ScrollArea>
+      </ToolCard>
 
-      {croppedImage && (
-        <>
-          <p className="text-center font-medium mt-2">Hasil:</p>
-          <ImagePreview src={croppedImage} />
-        </>
-      )}
-    </ToolCard>
+      <ToolCard>
+        <div className="flex justify-between items-center">
+
+        <p className="text-xl font-semibold underline">Crop Setting</p>
+        <Button variant={"outline"} onClick={() => setCropState(defaultCropState)} >Reset</Button>
+        </div>
+        <Separator /> 
+        <CropperSetting />
+      </ToolCard>
+    </div>
   );
 }
