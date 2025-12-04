@@ -5,6 +5,7 @@ import { PDFDocument, PDFImage } from "pdf-lib";
 import { useImageToPDF } from "../../provider";
 import { getImageFileData } from "@/utils/image/getImageFileData";
 import { convertImageFormat } from "@/utils/convertImageFormat";
+import { useState } from "react";
 
 const PAGE_SIZES = {
   a4: { width: 595.28, height: 841.89 },
@@ -14,6 +15,7 @@ const PAGE_SIZES = {
 
 export function PdfAction() {
   const { images, settings } = useImageToPDF();
+  const [isLoading, setIsLoading] = useState<boolean>(false)
 
   const getPageSize = (imgWidth: number, imgHeight: number) => {
     if (settings.pageSize === "fit") {
@@ -32,6 +34,7 @@ export function PdfAction() {
   };
 
   const generatePDF = async () => {
+    setIsLoading(true)
     // File mentah. Artinya, ada banyak image selain format JPG dan PNG
     const rawImagesFile = await Promise.all(
       images.map((image) => getImageFileData(image))
@@ -132,12 +135,12 @@ export function PdfAction() {
     a.click();
     a.remove();
 
-    console.log(url);
+    setIsLoading(false)
   };
 
   return (
-    <Button onClick={generatePDF} disabled={images.length === 0}>
-      Download PDF
+    <Button onClick={generatePDF} disabled={images.length === 0 || isLoading} >
+      {isLoading ? "Memproses..." : "Unduh PDF"}
     </Button>
   );
 }
