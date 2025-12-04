@@ -1,4 +1,4 @@
-import { X } from "lucide-react";
+import { RotateCcw, X } from "lucide-react";
 import { useImageToPDF } from "../../provider";
 import { Button } from "@/components/ui/button";
 
@@ -15,7 +15,6 @@ import {
   rectSwappingStrategy,
   SortableContext,
   sortableKeyboardCoordinates,
-  verticalListSortingStrategy,
 } from "@dnd-kit/sortable";
 
 import type { DragEndEvent } from "@dnd-kit/core";
@@ -25,7 +24,9 @@ export function PDFPreview() {
   const { images, deleteImage, resetImage, reorderImages } = useImageToPDF();
 
   const sensors = useSensors(
-    useSensor(PointerSensor),
+    useSensor(PointerSensor, {
+      activationConstraint: { distance: 2 },
+    }),
     useSensor(KeyboardSensor, {
       coordinateGetter: sortableKeyboardCoordinates,
     })
@@ -46,7 +47,7 @@ export function PDFPreview() {
       <div className="flex gap-4 justify-between">
         <AddImageDialog />
         <Button variant={"destructive"} onClick={resetImage}>
-          Reset
+          <RotateCcw /> Gambar
         </Button>
       </div>
 

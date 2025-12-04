@@ -1,6 +1,7 @@
 import { useSortable } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
 import { X } from "lucide-react";
+import { PreviewLayer } from "./preview-layer";
 
 export function SortableItem({
   id,
@@ -32,7 +33,7 @@ export function SortableItem({
       "
     >
       {/* Thumbnail */}
-      <img src={url} alt={`preview-${index}`} className="w-full h-40 object-cover bg-muted" />
+      <PreviewLayer url={url} />
 
       {/* Urutan */}
       <div className="absolute top-2 left-2 bg-black/50 text-white text-xs px-2 py-1 rounded-md">

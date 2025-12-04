@@ -4,6 +4,7 @@ import { ImageToPDFProvider, useImageToPDF } from "../provider";
 import { PDFPreview } from "./pdf-preview";
 import { UploadImage } from "@/components/atoms/upload-image-v2";
 import { SourceSelection } from "@/components/molecules/source-selection-v2";
+import { PDFSetting } from "./pdf-settings";
 
 export function ImageToPDFComponent() {
   const { images, addImage } = useImageToPDF();
@@ -27,7 +28,9 @@ export function ImageToPDFComponent() {
       <ToolCard>
         <PDFPreview />
       </ToolCard>
-      <ToolCard>Setting</ToolCard>
+      <ToolCard>
+        <PDFSetting />
+      </ToolCard>
     </div>
   );
 }
