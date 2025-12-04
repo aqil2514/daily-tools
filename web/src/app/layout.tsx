@@ -1,21 +1,11 @@
-import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/layout/header";
 import Sidebar from "@/components/layout/sidebar";
 import { ContentContainer } from "@/components/layout/container/content-container";
+import { Metadata } from "next";
+import { LayoutWrapper } from "@/components/layout/wrapper/LayoutWrapper";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
-export const metadata = {
+export const metadata: Metadata = {
   title: "Flowtooly – Free Online Tools for Productivity",
   description:
     "Flowtooly offers powerful online tools for files, images, PDFs, finance, QR generation, and more.",
@@ -28,14 +18,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        <Header />
-        <main className="grid grid-cols-[15%_auto] pt-20">
-          <Sidebar />
-          <ContentContainer>{children}</ContentContainer>
-        </main>
+      <body className={` antialiased`}>
+        <LayoutWrapper>{children}</LayoutWrapper>
       </body>
     </html>
   );

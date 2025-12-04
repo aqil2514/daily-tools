@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: `${tool.title} | Flowtooly`,
     description: tool.description,
-    // keywords: tool.keywords,
+    keywords: tool.keywords,
   };
 }
 
