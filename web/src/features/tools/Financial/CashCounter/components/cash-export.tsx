@@ -4,9 +4,36 @@ import { Button } from "@/components/ui/button";
 import { useCashCounter } from "../store/provider";
 import { formatCurrency } from "@/utils/formatCurrency";
 import { PDFDocument, StandardFonts, rgb } from "pdf-lib";
+import { Braces, FileSpreadsheet, FileText } from "lucide-react";
 
 export function CashExport() {
   const { denoms, settings, totalCash, difference } = useCashCounter();
+
+  /* ---------------------------------------
+      EXPORT JSON
+  ---------------------------------------- */
+  const exportJSON = () => {
+    const data = {
+      currency: settings.currency,
+      denominations: denoms,
+      totalCash,
+      receivables: settings.receivables,
+      otherPeopleCash: settings.otherPeopleCash,
+      cashInData: settings.cashInData,
+      difference,
+    };
+
+    const blob = new Blob([JSON.stringify(data, null, 2)], {
+      type: "application/json",
+    });
+
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = "cash-counter.json";
+    link.click();
+    URL.revokeObjectURL(url);
+  };
 
   /* ---------------------------------------
       EXPORT PDF USING PDF-LIB
@@ -210,18 +237,26 @@ export function CashExport() {
     URL.revokeObjectURL(url);
   };
 
-  return (
-    <div className="flex flex-col gap-3">
-      <Button onClick={exportPDF} variant="default">
+   return (
+    <div className="grid grid-cols-4 gap-2">
+      <Button onClick={exportPDF} variant="default" className="flex gap-2 items-center">
+        <FileText className="w-4 h-4" />
         Export PDF
       </Button>
 
-      <Button onClick={exportExcel} variant="secondary">
+      <Button onClick={exportExcel} variant="secondary" className="flex gap-2 items-center">
+        <FileSpreadsheet className="w-4 h-4" />
         Export Excel
       </Button>
 
-      <Button onClick={exportCSV} variant="outline">
+      <Button onClick={exportCSV} variant="outline" className="flex gap-2 items-center">
+        <FileSpreadsheet className="w-4 h-4" />
         Export CSV
+      </Button>
+
+      <Button onClick={exportJSON} variant="outline" className="flex gap-2 items-center">
+        <Braces className="w-4 h-4" />
+        Export JSON
       </Button>
     </div>
   );
