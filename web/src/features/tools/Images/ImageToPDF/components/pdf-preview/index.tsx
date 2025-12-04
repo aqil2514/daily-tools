@@ -19,6 +19,7 @@ import {
 
 import type { DragEndEvent } from "@dnd-kit/core";
 import { SortableItem } from "./sortable-item";
+import { PdfAction } from "./pdf-action";
 
 export function PDFPreview() {
   const { images, deleteImage, resetImage, reorderImages } = useImageToPDF();
@@ -43,9 +44,12 @@ export function PDFPreview() {
     reorderImages(fromIndex, toIndex);
   };
   return (
-    <div>
+    <div className="space-y-4">
       <div className="flex gap-4 justify-between">
-        <AddImageDialog />
+        <div className="space-x-4">
+          <AddImageDialog />
+          <PdfAction />
+        </div>
         <Button variant={"destructive"} onClick={resetImage}>
           <RotateCcw /> Gambar
         </Button>
