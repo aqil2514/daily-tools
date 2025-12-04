@@ -2,7 +2,6 @@
 
 import { currencyOptions } from "../config/currency-options";
 import { useCashCounter } from "../store/provider";
-
 import {
   Select,
   SelectTrigger,
@@ -11,51 +10,68 @@ import {
   SelectItem,
 } from "@/components/ui/select";
 
+import CurrencyInput from "react-currency-input-field";
+
 export function CashSettings() {
   const { settings, setSettings } = useCashCounter();
+
+  const currencyFormatMap: Record<
+    string,
+    { prefix: string; locale: string }
+  > = {
+    idr: { prefix: "Rp ", locale: "id-ID" },
+    usd: { prefix: "$ ", locale: "en-US" },
+    eur: { prefix: "€ ", locale: "de-DE" },
+    jpy: { prefix: "¥ ", locale: "ja-JP" },
+  };
+
+  const { prefix, locale } = currencyFormatMap[settings.currency];
 
   return (
     <div className="space-y-4 text-sm">
       {/* CASH IN DATA */}
       <div className="flex flex-col gap-1">
         <label className="font-medium">Cash in Data</label>
-        <input
-          type="number"
+        <CurrencyInput
           value={settings.cashInData}
-          onChange={(e) =>
-            setSettings({ cashInData: Number(e.target.value) })
+          onValueChange={(val) =>
+            setSettings({ cashInData: Number(val) || 0 })
           }
-          className="border rounded px-2 py-1"
+          intlConfig={{ locale, currency: settings.currency.toUpperCase() }}
+          prefix={prefix}
+          className="border rounded px-2 py-1 w-full"
         />
       </div>
 
       {/* RECEIVABLES */}
       <div className="flex flex-col gap-1">
         <label className="font-medium">Receivables</label>
-        <input
-          type="number"
+        <CurrencyInput
           value={settings.receivables}
-          onChange={(e) =>
-            setSettings({ receivables: Number(e.target.value) })
+          onValueChange={(val) =>
+            setSettings({ receivables: Number(val) || 0 })
           }
-          className="border rounded px-2 py-1"
+          intlConfig={{ locale, currency: settings.currency.toUpperCase() }}
+          prefix={prefix}
+          className="border rounded px-2 py-1 w-full"
         />
       </div>
 
       {/* OTHER PEOPLE'S CASH */}
       <div className="flex flex-col gap-1">
         <label className="font-medium">Other People’s Cash</label>
-        <input
-          type="number"
+        <CurrencyInput
           value={settings.otherPeopleCash}
-          onChange={(e) =>
-            setSettings({ otherPeopleCash: Number(e.target.value) })
+          onValueChange={(val) =>
+            setSettings({ otherPeopleCash: Number(val) || 0 })
           }
-          className="border rounded px-2 py-1"
+          intlConfig={{ locale, currency: settings.currency.toUpperCase() }}
+          prefix={prefix}
+          className="border rounded px-2 py-1 w-full"
         />
       </div>
 
-      {/* CURRENCY */}
+      {/* CURRENCY SELECT */}
       <div className="flex flex-col gap-1">
         <label className="font-medium">Currency</label>
         <Select
