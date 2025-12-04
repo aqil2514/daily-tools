@@ -17,14 +17,16 @@ export type PDFToolName =
 
 export type QRToolName = "qr-generator";
 
-export type ToolName = ImageToolName | PDFToolName | QRToolName;
+export type FinancialToolName = "cash-counter";
+
+export type ToolName = ImageToolName | PDFToolName | QRToolName | FinancialToolName;
 
 export interface ToolRegistryItem {
   title: string;
   Component: React.ComponentType;
   href: `/tools/${ToolName}`;
   description: string;
-  category: "image" | "pdf" | "qr";
+  category: "image" | "pdf" | "qr" | "financial";
 }
 
 export type ToolRegistry = Record<ToolName, ToolRegistryItem>;

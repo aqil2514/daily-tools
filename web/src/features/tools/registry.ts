@@ -1,5 +1,6 @@
 import dynamic from "next/dynamic";
 import {
+  FinancialToolName,
   ImageToolName,
   PDFToolName,
   QRToolName,
@@ -100,26 +101,50 @@ export const qrRegistry: Record<QRToolName, ToolRegistryItem> = {
 };
 export const qrToolNames = Object.keys(qrRegistry) as QRToolName[];
 
+// --- Financial REGISTRY ---
+
+export const financialRegistry: Record<FinancialToolName, ToolRegistryItem> = {
+  "cash-counter": {
+    Component: dynamic(() => import("@/features/tools/Financial/CashCounter")),
+    href: "/tools/cash-counter",
+    category: "financial",
+    description:
+      "Quickly calculate cash totals, verify denominations, and check for discrepancies in your daily balance.",
+    title: "Cash Counter",
+  },
+};
+
+export const financialToolNames = Object.keys(
+  financialRegistry
+) as FinancialToolName[];
+
 //  --- COMBINED REGISTRY ---
 export const toolsRegistry: ToolRegistry = {
   ...imageRegistry,
   ...pdfRegistry,
   ...qrRegistry,
+  ...financialRegistry,
 };
 
 export const allToolNames = [
   ...imageToolNames,
   ...pdfToolNames,
   ...qrToolNames,
+  ...financialToolNames
 ] as ToolName[];
 
 export const toolList = {
   image: Object.values(toolsRegistry).filter((t) => t.category === "image"),
   pdf: Object.values(toolsRegistry).filter((t) => t.category === "pdf"),
   qr: Object.values(toolsRegistry).filter((t) => t.category === "qr"),
+  fiancial: Object.values(toolsRegistry).filter((t) => t.category === "financial"),
 };
 
 export const sidebarSections = [
+  {
+    sectionTitle: "Financial Tools",
+    sectionItem: toolList.fiancial,
+  },
   {
     sectionTitle: "Image Tools",
     sectionItem: toolList.image,
