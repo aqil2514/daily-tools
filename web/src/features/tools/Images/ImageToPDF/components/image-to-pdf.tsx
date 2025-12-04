@@ -1,53 +1,33 @@
 "use client";
-
-import { FileDropzone } from "@/components/tools/file-dropzone";
-import { ImagePreview } from "@/components/tools/image-preview";
-import { TaskProgress } from "@/components/tools/task-progress";
 import { ToolCard } from "@/components/tools/tool-card";
+import { ImageToPDFProvider, useImageToPDF } from "../provider";
+import { PDFPreview } from "./pdf-preview";
+import { UploadImage } from "@/components/atoms/upload-image-v2";
+import { SourceSelection } from "@/components/molecules/source-selection-v2";
 
-import { useImageToPDF } from "../hooks/useImageToPDF";
-import { PDFSettings } from "./pdf-settings";
-import { PdfAction } from "./pdf-action";
+export function ImageToPDFComponent() {
+  const { images, addImage } = useImageToPDF();
 
-export function ImageToPDF() {
-  const {
-    file,
-    previewUrl,
-    pdfUrl,
-    loading,
-    pageSize,
-    setPageSize,
-    handleSelect,
-    handleConvert,
-  } = useImageToPDF();
+  if (images.length < 1)
+    return (
+      <ToolCard>
+        <SourceSelection
+          onFilesSelected={(files) => {
+            files.forEach((file) => addImage(URL.createObjectURL(file)));
+          }}
+          onSelectImages={(urls) => {
+            urls.forEach((url) => addImage(url));
+          }}
+        />
+      </ToolCard>
+    );
 
   return (
-    <ToolCard>
-      <FileDropzone
-        accept="image/*"
-        label="Klik atau drag gambar untuk upload"
-        onSelect={(files) => handleSelect(files[0])}
-      />
-
-      {previewUrl && <ImagePreview src={previewUrl} />}
-
-      <PDFSettings pageSize={pageSize} setPageSize={setPageSize} />
-
-      <PdfAction
-        file={file}
-        loading={loading}
-        pdfUrl={pdfUrl}
-        onConvert={handleConvert}
-      />
-
-      {loading && <TaskProgress label="Mengonversi menjadi PDF..." />}
-
-      {pdfUrl && (
-        <iframe
-          src={pdfUrl}
-          className="w-full h-[400px] border rounded-md mt-4"
-        />
-      )}
-    </ToolCard>
+    <div className="grid grid-cols-[60%_auto] gap-4">
+      <ToolCard>
+        <PDFPreview />
+      </ToolCard>
+      <ToolCard>Setting</ToolCard>
+    </div>
   );
 }
