@@ -12,12 +12,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   if (!tool) {
     return {
-      title: "Tools not found",
+      title: "Tool Not Found – Flowtooly",
+      description: "The requested tool could not be found on Flowtooly.",
     };
   }
 
   return {
-    title: tool.title,
+    title: `${tool.title} | Flowtooly`,
+    description: tool.description,
+    // keywords: tool.keywords,
   };
 }
 

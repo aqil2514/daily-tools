@@ -40,7 +40,7 @@ export default function Header() {
   return (
     <header className="fixed top-0 left-0 w-full bg-slate-800 text-amber-100 px-6 py-4 flex gap-8 items-center">
       <Link href="/" className="font-semibold text-lg">
-        File Tools
+        Flowtooly
       </Link>
 
       <NavigationMenu>
