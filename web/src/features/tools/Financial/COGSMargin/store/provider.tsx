@@ -14,6 +14,10 @@ interface CogsMarginContextType {
 
   highlightItem: (item: CogsMarginItem) => void;
   clearHighlight: () => void;
+
+  editingItemIndex: number | null;
+  startEdit: (index: number) => void;
+  stopEdit: () => void;
 }
 
 const CogsMarginContext = createContext<CogsMarginContextType | null>(null);
@@ -27,6 +31,15 @@ export function CogsMarginProvider({
   const [highlightedItem, setHighlightedItem] = useState<CogsMarginItem | null>(
     null
   );
+  const [editingItemIndex, setEditingItemIndex] = useState<number | null>(null);
+
+  const startEdit = (index: number) => {
+    setEditingItemIndex(index);
+  };
+
+  const stopEdit = () => {
+    setEditingItemIndex(null);
+  };
 
   const addItem = (item: CogsMarginItem) => {
     setItems((prev) => [...prev, item]);
@@ -63,6 +76,10 @@ export function CogsMarginProvider({
 
     highlightItem,
     clearHighlight,
+
+    editingItemIndex,
+    startEdit,
+    stopEdit,
   };
 
   return (

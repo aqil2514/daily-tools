@@ -21,6 +21,7 @@ import CurrencyInput from "react-currency-input-field";
 import { cn } from "@/lib/utils";
 import { useCogsMargin } from "../store/provider";
 import { useTranslations } from "next-intl";
+import { useEffect } from "react";
 
 const cogsSchema = z.object({
   packAmount: z.number().min(1),
@@ -50,15 +51,30 @@ const currencyInputClassname = cn(
 
 export function COGSForm() {
   const t = useTranslations("tools-registry.financial.cogs-margin-tool");
-  const { addItem } = useCogsMargin();
+  const { addItem, updateItem, editingItemIndex, items, stopEdit } =
+    useCogsMargin();
   const form = useForm<CogsSchemaType>({
     defaultValues,
     resolver: zodResolver(cogsSchema),
   });
 
+  useEffect(() => {
+    if (editingItemIndex !== null) {
+      const currentItem = items[editingItemIndex];
+      form.reset(currentItem);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [editingItemIndex]);
+
   function onSubmit(values: CogsSchemaType) {
-    addItem(values);
-    form.reset();
+    if (editingItemIndex !== null) {
+      updateItem(editingItemIndex, values);
+      stopEdit();
+    } else {
+      addItem(values);
+    }
+
+    form.reset(defaultValues);
   }
 
   return (
@@ -70,7 +86,9 @@ export function COGSForm() {
             name="itemName"
             render={({ field }) => (
               <FormItem>
-                <FormLabel className="mt-4">{t("form.fields.item-name")}</FormLabel>
+                <FormLabel className="mt-4">
+                  {t("form.fields.item-name")}
+                </FormLabel>
                 <FormControl>
                   <Input placeholder="Item Name..." {...field} />
                 </FormControl>
@@ -84,7 +102,9 @@ export function COGSForm() {
             name="packAmount"
             render={({ field }) => (
               <FormItem>
-                <FormLabel className="mt-4">{t("form.fields.pack-amount")}</FormLabel>
+                <FormLabel className="mt-4">
+                  {t("form.fields.pack-amount")}
+                </FormLabel>
                 <FormControl>
                   <Input
                     type="number"
@@ -105,7 +125,9 @@ export function COGSForm() {
             name="qtyPerPack"
             render={({ field }) => (
               <FormItem>
-                <FormLabel className="mt-4">{t("form.fields.qty-per-pack")}</FormLabel>
+                <FormLabel className="mt-4">
+                  {t("form.fields.qty-per-pack")}
+                </FormLabel>
                 <FormControl>
                   <Input
                     type="number"
@@ -126,7 +148,9 @@ export function COGSForm() {
             name="pricePerPack"
             render={({ field }) => (
               <FormItem>
-                <FormLabel className="mt-4">{t("form.fields.price-per-pack")}</FormLabel>
+                <FormLabel className="mt-4">
+                  {t("form.fields.price-per-pack")}
+                </FormLabel>
                 <FormControl>
                   <CurrencyInput
                     className={currencyInputClassname}
@@ -147,7 +171,9 @@ export function COGSForm() {
             name="sellingPrice"
             render={({ field }) => (
               <FormItem>
-                <FormLabel className="mt-4">{t('form.fields.selling-price')}</FormLabel>
+                <FormLabel className="mt-4">
+                  {t("form.fields.selling-price")}
+                </FormLabel>
                 <FormControl>
                   <CurrencyInput
                     className={currencyInputClassname}
@@ -168,7 +194,9 @@ export function COGSForm() {
             name="additionalInformation"
             render={({ field }) => (
               <FormItem>
-                <FormLabel className="mt-4">{t("form.fields.additional-info")}</FormLabel>
+                <FormLabel className="mt-4">
+                  {t("form.fields.additional-info")}
+                </FormLabel>
                 <FormControl>
                   <Textarea placeholder="Informasi Tambahan" {...field} />
                 </FormControl>
@@ -181,7 +209,7 @@ export function COGSForm() {
           />
         </ScrollArea>
 
-        <Button type="submit">{t("form.submit")}</Button>
+        <Button type="submit">{editingItemIndex !== null ? t("form.edit") : t("form.submit")}</Button>
       </form>
     </Form>
   );

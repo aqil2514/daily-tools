@@ -1,13 +1,13 @@
 "use client";
 import { Card, CardContent } from "@/components/ui/card";
-import { Trash } from "lucide-react";
+import { Pencil, Trash } from "lucide-react";
 import { useCogsMargin } from "../store/provider";
 import { calculateCogsMargin } from "../utils/calculateCogsMargin";
 import { useTranslations } from "next-intl";
 
 export function COGSItem() {
-  const { items, highlightItem, deleteItem } = useCogsMargin();
-  const t = useTranslations("tools-registry.financial.cogs-margin-tool")
+  const { items, highlightItem, deleteItem, startEdit } = useCogsMargin();
+  const t = useTranslations("tools-registry.financial.cogs-margin-tool");
 
   if (!items.length) {
     return (
@@ -28,16 +28,27 @@ export function COGSItem() {
             className="relative cursor-pointer transition hover:bg-accent group"
             onClick={() => highlightItem(item)}
           >
-            {/* Delete Button */}
-            <button
-              className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition p-1 rounded-md hover:bg-muted"
-              onClick={(e) => {
-                e.stopPropagation();
-                deleteItem(index);
-              }}
-            >
-              <Trash className="w-4 h-4 text-red-600" />
-            </button>
+            <div className="group absolute top-2 right-2 ">
+              <button
+                onClick={(e) => {
+                  e.stopPropagation();
+                  startEdit(index);
+                }}
+                className="p-1 rounded-md hover:bg-muted opacity-0 group-hover:opacity-100 transition"
+              >
+                <Pencil className="w-4 h-4 text-blue-600" />
+              </button>
+
+              <button
+                className="opacity-0 group-hover:opacity-100 transition p-1 rounded-md hover:bg-muted"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  deleteItem(index);
+                }}
+              >
+                <Trash className="w-4 h-4 text-red-600" />
+              </button>
+            </div>
 
             <CardContent className="p-4">
               <div className="flex justify-between items-start">
@@ -54,7 +65,9 @@ export function COGSItem() {
                   <p className="text-sm font-medium text-primary">
                     Rp {data.unitProfit.toLocaleString()}
                   </p>
-                  <p className="text-xs text-muted-foreground">{t("list.profit-per-unit")}</p>
+                  <p className="text-xs text-muted-foreground">
+                    {t("list.profit-per-unit")}
+                  </p>
                 </div>
               </div>
 
@@ -67,7 +80,9 @@ export function COGSItem() {
                 </div>
 
                 <div>
-                  <p className="text-muted-foreground">{t("list.selling-price")}</p>
+                  <p className="text-muted-foreground">
+                    {t("list.selling-price")}
+                  </p>
                   <p className="font-medium">
                     Rp {item.sellingPrice.toLocaleString()}
                   </p>

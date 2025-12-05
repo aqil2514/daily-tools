@@ -42,7 +42,8 @@
             "additional-info": "Additional Information",
             "additional-info-desc": "Can be purchase link, small notes, etc."
           },
-          "submit": "Add Item"
+          "submit": "Add Item",
+          "edit": "Edit Item"
         },
 
         "list": {

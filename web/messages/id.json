@@ -41,7 +41,8 @@
             "additional-info": "Informasi Tambahan",
             "additional-info-desc": "Bisa berupa link pembelian, catatan kecil, dan lainnya."
           },
-          "submit": "Tambah Item"
+          "submit": "Tambah Item",
+          "edit": "Simpan Perubahan"
         },
         "list": {
           "empty": "Belum ada item. Tambahkan item terlebih dahulu.",
