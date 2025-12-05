@@ -204,7 +204,7 @@ export function COGSDetailDialog() {
                     {t("dialog.fields.break-even")}
                   </p>
                   <p className="font-medium">
-                    {output.breakEvenCount.toFixed(1)} unit
+                    {Math.ceil(output.breakEvenCount)} unit
                   </p>
                 </div>
               </div>
