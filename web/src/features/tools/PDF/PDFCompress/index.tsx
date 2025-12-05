@@ -1,2 +1,2 @@
-import { PDFCompress } from "./components/pdf-compress";
-export default PDFCompress;
+// import { PDFCompress } from "./components/pdf-compress";
+// export default PDFCompress;
