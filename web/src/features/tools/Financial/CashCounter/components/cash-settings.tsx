@@ -11,6 +11,8 @@ import {
 } from "@/components/ui/select";
 
 import CurrencyInput from "react-currency-input-field";
+import { Currency } from "../types/interface";
+import { useTranslations } from "next-intl";
 
 export function CashSettings() {
   const { settings, setSettings } = useCashCounter();
@@ -26,12 +28,13 @@ export function CashSettings() {
   };
 
   const { prefix, locale } = currencyFormatMap[settings.currency];
+  const t = useTranslations("tools-registry.financial.cash-counter")
 
   return (
     <div className="space-y-4 text-sm">
       {/* CASH IN DATA */}
       <div className="flex flex-col gap-1">
-        <label className="font-medium">Cash in Data</label>
+        <label className="font-medium">{t("cash-in-data")}</label>
         <CurrencyInput
           value={settings.cashInData}
           onValueChange={(val) =>
@@ -45,7 +48,7 @@ export function CashSettings() {
 
       {/* RECEIVABLES */}
       <div className="flex flex-col gap-1">
-        <label className="font-medium">Receivables</label>
+        <label className="font-medium">{t("receivables")}</label>
         <CurrencyInput
           value={settings.receivables}
           onValueChange={(val) =>
@@ -59,7 +62,7 @@ export function CashSettings() {
 
       {/* OTHER PEOPLE'S CASH */}
       <div className="flex flex-col gap-1">
-        <label className="font-medium">Other People’s Cash</label>
+        <label className="font-medium">{t("other-peoples-cash")}</label>
         <CurrencyInput
           value={settings.otherPeopleCash}
           onValueChange={(val) =>
@@ -73,11 +76,11 @@ export function CashSettings() {
 
       {/* CURRENCY SELECT */}
       <div className="flex flex-col gap-1">
-        <label className="font-medium">Currency</label>
+        <label className="font-medium">{t("currency")}</label>
         <Select
           value={settings.currency}
           onValueChange={(value) =>
-            setSettings({ currency: value as any })
+            setSettings({ currency: value as Currency })
           }
         >
           <SelectTrigger className="border rounded px-2 py-1 w-full">

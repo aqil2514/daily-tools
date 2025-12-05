@@ -17,15 +17,15 @@
   "tools-registry": {
     "financial": {
       "cash-counter": {
-        "title": "Cash Counter",
-        "description": "Quickly calculate cash totals, verify denominations, and check for discrepancies in your daily balance.",
-        "keywords": [
-          "cash counter",
-          "cash calculator",
-          "cash reconciliation",
-          "count money",
-          "denomination calculator"
-        ]
+        "cash-table": "Cash Table",
+        "summary": "Summary",
+        "setting": "Setting",
+        "total-cash": "Total Cash",
+        "difference": "Difference",
+        "receivables": "Receivables",
+        "other-peoples-cash": "Other People’s Cash",
+        "cash-in-data": "Cash in Data",
+        "currency": "Currency"
       }
     }
   },

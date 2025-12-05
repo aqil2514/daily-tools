@@ -3,15 +3,17 @@
 import { useCashCounter } from "../store/provider";
 import { formatCurrency } from "@/utils/formatCurrency";
 import { CashExport } from "./cash-export";
+import { useTranslations } from "next-intl";
 
 export function CashSummary() {
   const { totalCash, settings, difference } = useCashCounter();
+  const t = useTranslations("tools-registry.financial.cash-counter")
 
   return (
     <div className="space-y-3 text-sm">
       {/* TOTAL CASH */}
       <div className="flex justify-between border-b pb-1">
-        <span>Total Cash</span>
+        <span>{t("total-cash")}</span>
         <span className="font-semibold">
           {formatCurrency(totalCash, settings.currency.toUpperCase())}
         </span>
@@ -19,7 +21,7 @@ export function CashSummary() {
 
       {/* RECEIVABLES */}
       <div className="flex justify-between border-b pb-1">
-        <span>Receivables</span>
+        <span>{t("receivables")}</span>
         <span>
           {formatCurrency(
             settings.receivables,
@@ -30,7 +32,7 @@ export function CashSummary() {
 
       {/* OTHER PEOPLE CASH */}
       <div className="flex justify-between border-b pb-1">
-        <span>Other People’s Cash</span>
+        <span>{t("other-peoples-cash")}</span>
         <span>
           {formatCurrency(
             settings.otherPeopleCash,
@@ -41,7 +43,7 @@ export function CashSummary() {
 
       {/* CASH IN DATA / TARGET */}
       <div className="flex justify-between border-b pb-1">
-        <span>Cash in Data</span>
+        <span>{t("cash-in-data")}</span>  
         <span>
           {formatCurrency(settings.cashInData, settings.currency.toUpperCase())}
         </span>
@@ -49,7 +51,7 @@ export function CashSummary() {
 
       {/* DIFFERENCE */}
       <div className="flex justify-between pt-2 text-sm font-semibold">
-        <span>Difference</span>
+        <span>{t("difference")}</span>
         <span
           className={
             difference === 0

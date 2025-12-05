@@ -1,10 +1,12 @@
 "use client";
 import { formatCurrency } from "@/utils/formatCurrency";
 import { useCashCounter } from "../store/provider";
+import { useTranslations } from "next-intl";
 
 export function CashTable() {
   const { denoms, setQuantity, totalCash, difference, settings } =
     useCashCounter();
+  const t = useTranslations("tools-registry.financial.cash-counter")
 
   return (
     <div className="w-full border rounded-lg overflow-hidden shadow-sm bg-white">
@@ -47,7 +49,7 @@ export function CashTable() {
 
       {/* FOOTER TOTAL */}
       <div className="grid grid-cols-3 bg-gray-50 font-semibold border-t">
-        <div className="p-2 border-r col-span-2 text-right">Total Cash:</div>
+        <div className="p-2 border-r col-span-2 text-right">{t("total-cash")}:</div>
         <div className="p-2 text-right">
           {formatCurrency(totalCash, settings.currency.toUpperCase())}
         </div>
@@ -55,7 +57,7 @@ export function CashTable() {
 
       {/* DIFFERENCE */}
       <div className="grid grid-cols-3 bg-gray-50 font-semibold border-t">
-        <div className="p-2 border-r col-span-2 text-right">Difference:</div>
+        <div className="p-2 border-r col-span-2 text-right">{t("difference")}:</div>
         <div
           className={`p-2 text-right ${
             difference === 0

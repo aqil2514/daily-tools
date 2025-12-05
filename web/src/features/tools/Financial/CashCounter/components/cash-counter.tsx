@@ -12,15 +12,17 @@ import {
 import { ShortcutHint } from "./shortcut-hint";
 import { useCashCounter } from "../store/provider";
 import { Button } from "@/components/ui/button";
+import { useTranslations } from "next-intl";
 
 export function CashCounterComponent() {
   const { resetAll } = useCashCounter();
+  const t = useTranslations("tools-registry.financial.cash-counter")
   return (
     <div className="grid grid-cols-2 gap-4">
       <ToolCard>
         <div className="flex justify-between">
           <p className="text-gray-500 text-2xl font-semibold mb-2">
-            Cash Table
+            {t("cash-table")}
           </p>
 
           <div className="flex gap-4">
@@ -33,14 +35,14 @@ export function CashCounterComponent() {
       </ToolCard>
 
       <ToolCard>
-        <p className="text-gray-500 text-2xl font-semibold">Summary</p>
+        <p className="text-gray-500 text-2xl font-semibold">{t("summary")}</p>
 
         <CashSummary />
 
         <Accordion type="single" collapsible>
           <AccordionItem value="item-1">
             <AccordionTrigger>
-              <p className="text-gray-500 text-2xl font-semibold">Setting</p>
+              <p className="text-gray-500 text-2xl font-semibold">{t("setting")}</p>
             </AccordionTrigger>
             <AccordionContent>
               <CashSettings />

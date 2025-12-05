@@ -17,15 +17,15 @@
   "tools-registry": {
     "financial": {
       "cash-counter": {
-        "title": "Penghitung Uang Tunai",
-        "description": "Hitung total uang tunai dengan cepat, verifikasi denominasi, dan periksa adanya selisih dalam saldo harian Anda.",
-        "keywords": [
-          "penghitung uang tunai",
-          "kalkulator uang tunai",
-          "rekonsiliasi uang tunai",
-          "hitung uang",
-          "kalkulator denominasi"
-        ]
+        "cash-table": "Tabel Kas",
+        "summary": "Ringkasan",
+        "setting": "Pengaturan",
+        "total-cash": "Total Kas",
+        "difference": "Perbedaan",
+        "receivables": "Piutang",
+        "other-peoples-cash": "Uang Orang Lain",
+        "cash-in-data": "Nominal di Data",
+        "currency": "Mata Uang"
       }
     }
   },
