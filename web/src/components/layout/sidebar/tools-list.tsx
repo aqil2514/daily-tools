@@ -3,11 +3,12 @@
 import { sidebarSections } from "@/features/tools/registry";
 import Link from "next/link";
 import { usePathname } from "@/i18n/navigation";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 
 export function ToolsList() {
   const pathname = usePathname();
   const t = useTranslations();
+  const locale = useLocale()
 
   return (
     <div className="py-3 space-y-6">
@@ -38,7 +39,7 @@ export function ToolsList() {
                       }
                     `}
                   >
-                    {item.title}
+                    {item.title[locale]}
                   </Link>
                 </li>
               );

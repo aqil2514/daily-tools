@@ -7,10 +7,11 @@ import {
 import { Card, CardContent } from "@/components/ui/card";
 import Link from "next/link";
 import { sidebarSections } from "./registry";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 
 export default function ToolsTemplate() {
   const t = useTranslations();
+  const locale = useLocale()
 
   return (
     <>
@@ -47,10 +48,10 @@ export default function ToolsTemplate() {
                       <Card className="hover:bg-slate-50 transition border border-slate-200">
                         <CardContent className="p-4">
                           <h3 className="text-slate-800 font-semibold text-base">
-                            {item.title}
+                            {item.title[locale]}
                           </h3>
                           <p className="text-slate-500 text-sm mt-1">
-                            {item.description}
+                            {item.description[locale]}
                           </p>
                         </CardContent>
                       </Card>

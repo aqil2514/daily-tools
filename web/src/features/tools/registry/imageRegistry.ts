@@ -1,81 +1,117 @@
-import { ImageToolName, ToolRegistryItem } from "@/@types/Tools";
+// src/features/tools/registry/imageRegistry.ts
+
 import dynamic from "next/dynamic";
+import { ImageToolName, ToolRegistryItem } from "@/@types/Tools"; // Asumsi path
 
 export const imageRegistry: Record<ImageToolName, ToolRegistryItem> = {
   "image-converter": {
     Component: dynamic(() => import("@/features/tools/Images/ImageConverter")),
     href: "/tools/image-converter",
-    title: "Image Converter",
-    description: "Convert images between JPG, PNG, WebP, AVIF and more.",
     category: "image",
-    keywords: [
-      "image converter",
-      "convert image",
-      "jpg to png",
-      "png to jpg",
-      "webp converter",
-      "image format converter",
-    ],
+
+    title: {
+      en: "Image Converter",
+      id: "Konverter Gambar",
+    },
+    description: {
+      en: "Convert images between JPG, PNG, WebP, AVIF and more.",
+      id: "Konversi gambar antara format JPG, PNG, WebP, AVIF, dan lainnya.",
+    },
+    keywords: {
+      en: ["image converter", "convert image", "jpg to png", "webp converter"],
+      id: [
+        "konverter gambar",
+        "konversi gambar",
+        "jpg ke png",
+        "konverter webp",
+      ],
+    },
   },
 
   "image-resizer": {
     Component: dynamic(() => import("@/features/tools/Images/ImageResizer")),
     href: "/tools/image-resizer",
-    title: "Image Resizer",
-    description: "Resize your image to exact dimensions.",
     category: "image",
-    keywords: [
-      "image resizer",
-      "resize image",
-      "resize photo",
-      "image dimensions",
-      "photo resizer",
-    ],
+
+    title: {
+      en: "Image Resizer",
+      id: "Pengubah Ukuran Gambar",
+    },
+    description: {
+      en: "Resize your image to exact dimensions.",
+      id: "Ubah ukuran gambar Anda ke dimensi yang tepat.",
+    },
+    keywords: {
+      en: ["image resizer", "resize image", "resize photo", "image dimensions"],
+      id: [
+        "pengubah ukuran gambar",
+        "ubah ukuran gambar",
+        "ubah ukuran foto",
+        "dimensi gambar",
+      ],
+    },
   },
 
   "image-cropper": {
     Component: dynamic(() => import("@/features/tools/Images/ImageCropper")),
     href: "/tools/image-cropper",
-    title: "Image Cropper",
-    description: "Crop your image with flexible aspect ratios.",
     category: "image",
-    keywords: [
-      "image cropper",
-      "crop image",
-      "photo crop",
-      "crop tool",
-      "aspect ratio crop",
-    ],
+
+    title: {
+      en: "Image Cropper",
+      id: "Pemotong Gambar",
+    },
+    description: {
+      en: "Crop your image with flexible aspect ratios.",
+      id: "Potong gambar Anda dengan rasio aspek yang fleksibel.",
+    },
+    keywords: {
+      en: ["image cropper", "crop image", "photo crop", "crop tool"],
+      id: ["pemotong gambar", "potong gambar", "potong foto", "alat potong"],
+    },
   },
 
   "image-rotate": {
     Component: dynamic(() => import("@/features/tools/Images/ImageRotate")),
     href: "/tools/image-rotate",
-    title: "Image Rotate",
-    description: "Rotate your image instantly.",
     category: "image",
-    keywords: [
-      "image rotate",
-      "rotate photo",
-      "rotate picture",
-      "flip image",
-      "rotate tool",
-    ],
+
+    title: {
+      en: "Image Rotate",
+      id: "Pemutar Gambar",
+    },
+    description: {
+      en: "Rotate your image instantly.",
+      id: "Putar gambar Anda secara instan.",
+    },
+    keywords: {
+      en: ["image rotate", "rotate photo", "rotate picture", "flip image"],
+      id: ["pemutar gambar", "putar foto", "putar gambar", "balik gambar"],
+    },
   },
 
   "image-to-pdf": {
     Component: dynamic(() => import("@/features/tools/Images/ImageToPDF")),
     href: "/tools/image-to-pdf",
-    title: "Image to PDF",
-    description: "Convert one or more images into a clean PDF.",
     category: "image",
-    keywords: [
-      "image to pdf",
-      "convert image to pdf",
-      "jpg to pdf",
-      "png to pdf",
-      "photo to pdf",
-    ],
+
+    title: {
+      en: "Image to PDF",
+      id: "Gambar ke PDF",
+    },
+    description: {
+      en: "Convert one or more images into a clean PDF.",
+      id: "Konversi satu atau lebih gambar menjadi PDF yang rapi.",
+    },
+    keywords: {
+      en: ["image to pdf", "convert image to pdf", "jpg to pdf", "png to pdf"],
+      id: [
+        "gambar ke pdf",
+        "konversi gambar ke pdf",
+        "jpg ke pdf",
+        "png ke pdf",
+      ],
+    },
   },
 };
 

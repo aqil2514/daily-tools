@@ -1,7 +1,7 @@
 import { ToolName } from "@/@types/Tools";
 import { toolsRegistry } from "@/features/tools/registry";
 import { Metadata } from "next";
-import { getTranslations } from "next-intl/server";
+import { getLocale, getTranslations } from "next-intl/server";
 
 interface Props {
   params: Promise<{ "tool-name": ToolName }>;
@@ -11,6 +11,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const toolName = (await params)["tool-name"];
   const tool = toolsRegistry[toolName];
   const t = await getTranslations();
+  const locale = await getLocale()
 
   if (!tool) {
     return {
@@ -21,8 +22,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   return {
     title: `${tool.title} | Flowtooly`,
-    description: tool.description,
-    keywords: tool.keywords,
+    description: tool.description[locale],
+    keywords: tool.keywords[locale],
   };
 }
 

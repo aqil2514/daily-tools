@@ -12,7 +12,7 @@ export type ImageToolName =
 export type PDFToolName =
   | "pdf-merge"
   | "pdf-split"
-  | "pdf-compress"
+  // | "pdf-compress"
   | "pdf-generator";
 
 export type QRToolName = "qr-generator";
@@ -26,12 +26,19 @@ export type ToolName =
   | FinancialToolName;
 
 export interface ToolRegistryItem {
-  title: string;
   Component: React.ComponentType;
   href: `/tools/${ToolName}`;
-  description: string;
-  keywords: string[];
   category: "image" | "pdf" | "qr" | "financial";
+
+  description: {
+    en: string;
+    id: string;
+  };
+  keywords: {
+    en: string[];
+    id: string[];
+  };
+  title: { en: string; id: string };
 }
 
 export type ToolRegistry = Record<ToolName, ToolRegistryItem>;
