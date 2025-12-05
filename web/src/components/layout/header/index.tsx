@@ -1,13 +1,12 @@
 "use client";
 
-import Link from "next/link";
 import {
   NavigationMenu,
   NavigationMenuItem,
   NavigationMenuLink,
   NavigationMenuList,
 } from "@/components/ui/navigation-menu";
-import { usePathname } from "next/navigation";
+import { usePathname, Link } from "@/i18n/navigation";
 import { cn } from "@/lib/utils";
 
 export interface MenuItem {

@@ -6,17 +6,15 @@ import { LayoutWrapper } from "@/components/layout/wrapper/LayoutWrapper";
 import { routing } from "@/i18n/routing";
 import { notFound } from "next/navigation";
 import { getLocale } from "next-intl/server";
+import { getLocalizedMetadata } from "@/utils/localization/getLocalizedMetadata";
 
-type GlobalMetadata = typeof import("@/../data/metadata/global/en.json");
 
 export async function generateMetadata(): Promise<Metadata> {
   const locale = await getLocale();
-  const metadataContent: GlobalMetadata = (
-    await import(`@/../data/metadata/global/${locale}.json`)
-  ).default;
+  const metadata = await getLocalizedMetadata("global", locale)
   return {
-    title: metadataContent.title,
-    description: metadataContent.description,
+    title: metadata.title,
+    description: metadata.description,
   };
 }
 

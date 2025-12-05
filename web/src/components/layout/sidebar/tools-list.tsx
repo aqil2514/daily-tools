@@ -2,7 +2,7 @@
 
 import { sidebarSections } from "@/features/tools/registry";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname } from "@/i18n/navigation";
 
 export function ToolsList() {
   const pathname = usePathname();

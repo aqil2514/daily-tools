@@ -1,19 +1,17 @@
 import ToolsTemplate from "@/features/tools";
+import { getLocalizedMetadata } from "@/utils/localization/getLocalizedMetadata";
 import { Metadata } from "next";
 import { getLocale } from "next-intl/server";
 
-type ToolMetadata = typeof import("@/../data/metadata/all-tools/en.json");
-
 export async function generateMetadata(): Promise<Metadata> {
   const locale = await getLocale();
-  const metadataContent: ToolMetadata = (
-    await import(`@/../data/metadata/all-tools/${locale}.json`)
-  ).default;
+
+  const metadata = await getLocalizedMetadata("all-tools", locale);
 
   return {
-    title: metadataContent.title,
-    description: metadataContent.description,
-    keywords: metadataContent.keywords,
+    title: metadata.title,
+    description: metadata.description,
+    keywords: metadata.keywords,
   };
 }
 

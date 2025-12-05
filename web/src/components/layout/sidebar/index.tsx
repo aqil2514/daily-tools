@@ -1,6 +1,7 @@
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { ToolsList } from "./tools-list";
 import { SectionList } from "./section-list";
+import { LocaleSwitcher } from "./switch-changer";
 
 export default function Sidebar() {
   return (
@@ -9,7 +10,9 @@ export default function Sidebar() {
         <SectionList />
         <ToolsList />
       </ScrollArea>
-      <footer className="p-4 text-xs text-gray-400">Footer</footer>
+      <footer className="p-4 text-xs text-gray-400">
+        <LocaleSwitcher showLabel={true} />
+      </footer>
     </div>
   );
 }
