@@ -1,9 +1,9 @@
 "use client";
 
-import { usePathname } from "next/navigation";
 import Sidebar from "@/components/layout/sidebar";
 import Header from "@/components/layout/header";
 import { ContentContainer } from "@/components/layout/container/content-container";
+import { usePathname } from "@/i18n/navigation";
 
 export function LayoutWrapper({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
