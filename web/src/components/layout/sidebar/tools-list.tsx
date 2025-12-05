@@ -1,8 +1,7 @@
 "use client";
 
 import { sidebarSections } from "@/features/tools/registry";
-import Link from "next/link";
-import { usePathname } from "@/i18n/navigation";
+import { usePathname, Link } from "@/i18n/navigation";
 import { useLocale, useTranslations } from "next-intl";
 
 export function ToolsList() {
