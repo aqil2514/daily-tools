@@ -26,7 +26,69 @@
         "other-peoples-cash": "Other People’s Cash",
         "cash-in-data": "Cash in Data",
         "currency": "Currency"
+      },
+      "cogs-margin-tool": {
+        "title": "COGS & Margin Calculator",
+        "description": "Calculate cost of goods sold, unit cost, margin, markup, and profit instantly.",
+
+        "form": {
+          "section-title": "Add Item",
+          "fields": {
+            "item-name": "Item Name",
+            "pack-amount": "Number of Packs",
+            "qty-per-pack": "Quantity per Pack",
+            "price-per-pack": "Purchase Price per Pack",
+            "selling-price": "Selling Price per Unit",
+            "additional-info": "Additional Information",
+            "additional-info-desc": "Can be purchase link, small notes, etc."
+          },
+          "submit": "Add Item"
+        },
+
+        "list": {
+          "empty": "No items added yet.",
+          "profit-per-unit": "Profit/Unit",
+          "hpp": "Unit Cost",
+          "selling-price": "Selling Price",
+          "margin": "Margin",
+          "delete": "Delete Item"
+        },
+
+        "dialog": {
+          "title": "Item Details",
+          "description": "Summary of purchase, cost, margin, and profit information.",
+          "purchase-info": "Purchase Information",
+          "hpp-section": "COGS & Profit",
+          "margin-section": "Margin & Markup",
+          "potential-section": "Potential Revenue",
+          "fields": {
+            "pack-amount": "Number of Packs",
+            "qty-per-pack": "Quantity per Pack",
+            "price-per-pack": "Purchase Price per Pack",
+            "selling-price": "Selling Price per Unit",
+            "total-units": "Total Units",
+            "total-cost": "Total Cost",
+            "unit-cost": "Unit Cost",
+            "unit-profit": "Profit per Unit",
+            "margin-sell": "Selling Margin",
+            "margin-buy": "Markup Margin",
+            "potential-revenue": "Potential Revenue",
+            "potential-profit": "Potential Profit",
+            "break-even": "Break-even Point (Units)"
+          },
+          "close": "Close"
+        },
+
+        "actions": {
+          "delete-confirm-title": "Delete Item",
+          "delete-confirm-desc": "Are you sure you want to delete this item? This action cannot be undone.",
+          "confirm-delete": "Delete",
+          "cancel": "Cancel"
+        }
       }
+    },
+    "image": {
+      "image-converter": {}
     }
   },
   "Misc": {

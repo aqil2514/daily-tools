@@ -26,6 +26,61 @@
         "other-peoples-cash": "Uang Orang Lain",
         "cash-in-data": "Nominal di Data",
         "currency": "Mata Uang"
+      },
+      "cogs-margin-tool": {
+        "title": "Kalkulator HPP & Margin",
+        "description": "Hitung harga pokok penjualan (HPP), biaya per unit, margin, markup, dan profit secara instan.",
+        "form": {
+          "section-title": "Tambah Item",
+          "fields": {
+            "item-name": "Nama Item",
+            "pack-amount": "Jumlah Pak",
+            "qty-per-pack": "Kuantitas per Pak",
+            "price-per-pack": "Harga Beli per Pak",
+            "selling-price": "Harga Jual per Unit",
+            "additional-info": "Informasi Tambahan",
+            "additional-info-desc": "Bisa berupa link pembelian, catatan kecil, dan lainnya."
+          },
+          "submit": "Tambah Item"
+        },
+        "list": {
+          "empty": "Belum ada item. Tambahkan item terlebih dahulu.",
+          "profit-per-unit": "Profit/Unit",
+          "hpp": "HPP",
+          "selling-price": "Harga Jual",
+          "margin": "Margin",
+          "delete": "Hapus Item"
+        },
+        "dialog": {
+          "title": "Detail Item",
+          "description": "Ringkasan informasi pembelian, HPP, margin, dan profit.",
+          "purchase-info": "Informasi Pembelian",
+          "hpp-section": "HPP & Profit",
+          "margin-section": "Margin & Markup",
+          "potential-section": "Potensi Keuntungan",
+          "fields": {
+            "pack-amount": "Jumlah Pak",
+            "qty-per-pack": "Kuantitas per Pak",
+            "price-per-pack": "Harga Beli per Pak",
+            "selling-price": "Harga Jual per Unit",
+            "total-units": "Total Unit",
+            "total-cost": "Total Modal",
+            "unit-cost": "HPP per Unit",
+            "unit-profit": "Profit per Unit",
+            "margin-sell": "Margin Jual",
+            "margin-buy": "Margin Markup",
+            "potential-revenue": "Potensi Omzet",
+            "potential-profit": "Potensi Profit",
+            "break-even": "Titik Impas (Unit)"
+          },
+          "close": "Tutup"
+        },
+        "actions": {
+          "delete-confirm-title": "Hapus Item",
+          "delete-confirm-desc": "Apakah Anda yakin ingin menghapus item ini? Tindakan ini tidak dapat dibatalkan.",
+          "confirm-delete": "Hapus",
+          "cancel": "Batal"
+        }
       }
     }
   },

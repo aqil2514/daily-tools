@@ -50,6 +50,7 @@ export function CashCounterProvider({
   );
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setDenoms(JSON.parse(JSON.stringify(allDenoms[settings.currency])));
   }, [settings.currency]);
 

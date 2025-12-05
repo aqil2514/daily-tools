@@ -17,7 +17,7 @@ export type PDFToolName =
 
 export type QRToolName = "qr-generator";
 
-export type FinancialToolName = "cash-counter";
+export type FinancialToolName = "cash-counter" | "cogs-margin-tool";
 
 export type ToolName =
   | ImageToolName

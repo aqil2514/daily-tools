@@ -9,7 +9,6 @@ export const financialRegistry: Record<FinancialToolName, ToolRegistryItem> = {
     href: "/tools/cash-counter",
     category: "financial",
 
-    // --- Lokalisasi Langsung ---
     title: {
       en: "Cash Counter",
       id: "Penghitung Uang Tunai",
@@ -32,6 +31,40 @@ export const financialRegistry: Record<FinancialToolName, ToolRegistryItem> = {
         "rekonsiliasi uang tunai",
         "hitung uang",
         "kalkulator denominasi",
+      ],
+    },
+  },
+  "cogs-margin-tool": {
+    Component: dynamic(
+      () => import("@/features/tools/Financial/COGSMargin")
+    ), // Placeholder Component
+    href: "/tools/cogs-margin-tool",
+    category: "financial",
+
+    title: {
+      en: "COGS Calculator",
+      id: "Profit Margin Kalkulator",
+    },
+    description: {
+      en: "Calculate your Cost of Goods Sold (COGS) and determine your Gross Profit Margin and Markup percentage for pricing strategy.",
+      id: "Hitung Harga Pokok Penjualan (HPP) Anda dan tentukan Margin Keuntungan Kotor serta persentase Markup untuk strategi penetapan harga.",
+    },
+    keywords: {
+      en: [
+        "cogs calculator",
+        "profit margin",
+        "gross margin",
+        "markup calculator",
+        "pricing strategy",
+        "cost of goods sold",
+      ],
+      id: [
+        "kalkulator hpp",
+        "margin keuntungan",
+        "margin kotor",
+        "kalkulator markup",
+        "strategi harga",
+        "harga pokok penjualan",
       ],
     },
   },
