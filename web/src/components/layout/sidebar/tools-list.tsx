@@ -3,9 +3,11 @@
 import { sidebarSections } from "@/features/tools/registry";
 import Link from "next/link";
 import { usePathname } from "@/i18n/navigation";
+import { useTranslations } from "next-intl";
 
 export function ToolsList() {
   const pathname = usePathname();
+  const t = useTranslations();
 
   return (
     <div className="py-3 space-y-6">
@@ -16,7 +18,7 @@ export function ToolsList() {
       {sidebarSections.map((list, i) => (
         <div key={`sidebar-tools-${i + 1}`} className="space-y-3">
           <p className="text-sm font-semibold text-slate-700 tracking-wide">
-            {list.sectionTitle}
+            {t(list.sectionTitle)}
           </p>
 
           <ul className="space-y-1.5">
@@ -29,9 +31,10 @@ export function ToolsList() {
                     href={item.href}
                     className={`
                       block px-2 py-1 rounded-md text-sm transition
-                      ${isActive
-                        ? "bg-slate-200 text-slate-900 font-semibold border-l-4 border-slate-500"
-                        : "text-slate-600 hover:text-slate-900 hover:bg-slate-100"
+                      ${
+                        isActive
+                          ? "bg-slate-200 text-slate-900 font-semibold border-l-4 border-slate-500"
+                          : "text-slate-600 hover:text-slate-900 hover:bg-slate-100"
                       }
                     `}
                   >

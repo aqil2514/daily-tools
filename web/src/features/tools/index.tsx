@@ -7,17 +7,20 @@ import {
 import { Card, CardContent } from "@/components/ui/card";
 import Link from "next/link";
 import { sidebarSections } from "./registry";
+import { useTranslations } from "next-intl";
 
 export default function ToolsTemplate() {
+  const t = useTranslations();
+
   return (
     <>
       <div className="space-y-4 pb-20">
         {/* Header */}
         <div>
-          <h1 className="text-slate-800 text-3xl font-semibold">Tools</h1>
-          <p className="text-slate-500 text-lg">
-            Temukan tools yang cocok untuk anda
-          </p>
+          <h1 className="text-slate-800 text-3xl font-semibold">
+            {t("tools.title")}
+          </h1>
+          <p className="text-slate-500 text-lg">{t("tools.subtitle")}</p>
         </div>
 
         {/* Tools Accordion */}
@@ -31,7 +34,7 @@ export default function ToolsTemplate() {
             >
               <AccordionItem value="item-1">
                 <AccordionTrigger className="px-4 text-lg font-medium">
-                  {list.sectionTitle}
+                  {t(list.sectionTitle)}
                 </AccordionTrigger>
 
                 <AccordionContent className="px-3 pb-4 space-y-3 grid grid-cols-1 lg:grid-cols-2 gap-4">

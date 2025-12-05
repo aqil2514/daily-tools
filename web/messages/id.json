@@ -3,5 +3,34 @@
     "greetings": "Selamat datang di",
     "description": "Kumpulan tools utilitas online yang simpel, cepat, dan gratis untuk membantu tugas sehari-hari. Konversi, kreasi, kalkuasi, dan manajemen apa pun — Semua dalam satu tempat.",
     "explore": "Jelajahi Tools"
+  },
+  "tools": {
+    "title": "Kumpulan Tools",
+    "subtitle": "Temukan alat yang cocok untuk anda",
+    "category": {
+      "financial-tool": "Tools Finansial",
+      "image-tool": "Tools Gambar",
+      "pdf-tool": "Tools PDF",
+      "qr-tool": "Tools QR"
+    }
+  },
+  "tools-registry": {
+    "financial": {
+      "cash-counter": {
+        "title": "Penghitung Uang Tunai",
+        "description": "Hitung total uang tunai dengan cepat, verifikasi denominasi, dan periksa adanya selisih dalam saldo harian Anda.",
+        "keywords": [
+          "penghitung uang tunai",
+          "kalkulator uang tunai",
+          "rekonsiliasi uang tunai",
+          "hitung uang",
+          "kalkulator denominasi"
+        ]
+      }
+    }
+  },
+  "Misc": {
+    "notfound-title": "Tools Tidak Ditemukan",
+    "notfound-description": "Tools yang diminta tidak dapat ditemukan"
   }
 }

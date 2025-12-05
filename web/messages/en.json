@@ -3,5 +3,34 @@
     "greetings": "Welcome to",
     "description": "A collection of simple, fast, and free online tools for your daily tasks. Convert, create, calculate, and manage everything — all in one place.",
     "explore": "Explore Tools"
+  },
+  "tools": {
+    "title": "Tools",
+    "subtitle": "Find the tools that suit you",
+    "category": {
+      "financial-tool": "Financial Tools",
+      "image-tool": "Image Tools",
+      "pdf-tool": "PDF Tools",
+      "qr-tool": "QR Tools"
+    }
+  },
+  "tools-registry": {
+    "financial": {
+      "cash-counter": {
+        "title": "Cash Counter",
+        "description": "Quickly calculate cash totals, verify denominations, and check for discrepancies in your daily balance.",
+        "keywords": [
+          "cash counter",
+          "cash calculator",
+          "cash reconciliation",
+          "count money",
+          "denomination calculator"
+        ]
+      }
+    }
+  },
+  "Misc": {
+    "notfound-title": "Tool Not Found",
+    "notfound-description": "The requested tool could not be found on Flowtooly"
   }
 }

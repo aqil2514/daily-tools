@@ -218,19 +218,19 @@ export const toolList = {
 
 export const sidebarSections = [
   {
-    sectionTitle: "Financial Tools",
+    sectionTitle: "tools.category.financial-tool",
     sectionItem: toolList.fiancial,
   },
   {
-    sectionTitle: "Image Tools",
+    sectionTitle: "tools.category.image-tool",
     sectionItem: toolList.image,
   },
   {
-    sectionTitle: "PDF Tools",
+    sectionTitle: "tools.category.pdf-tool",
     sectionItem: toolList.pdf,
   },
   {
-    sectionTitle: "QR Tools",
+    sectionTitle: "tools.category.qr-tool",
     sectionItem: toolList.qr,
   },
-];
+] as const;

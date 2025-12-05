@@ -26,12 +26,23 @@ export type ToolName =
   | FinancialToolName;
 
 export interface ToolRegistryItem {
-  title: string;
   Component: React.ComponentType;
   href: `/tools/${ToolName}`;
+  title: string;
   description: string;
-  keywords: string[];
+  keywords: string[] | const;
   category: "image" | "pdf" | "qr" | "financial";
+}
+
+export interface ToolRegistryKeys {
+  Component: React.ComponentType;
+  href: string;
+  category: "image" | "pdf" | "qr" | "financial";
+
+  // Properti konten menyimpan KUNCI PESAN (string)
+  title: string;
+  description: string;
+  keywords: string;
 }
 
 export type ToolRegistry = Record<ToolName, ToolRegistryItem>;

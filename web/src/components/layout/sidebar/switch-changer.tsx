@@ -8,21 +8,19 @@ interface LocaleSwitcherProps {
   showLabel?: boolean;
 }
 
-export function LocaleSwitcher({showLabel}:LocaleSwitcherProps) {
+export function LocaleSwitcher({ showLabel }: LocaleSwitcherProps) {
   const currentLocale = useLocale();
   const router = useRouter();
   const pathname = usePathname();
   const [isPending, startTransition] = useTransition(); // Untuk state loading
 
-  // Tentukan status Switch (checked jika currentLocale adalah 'en')
   const isChecked = currentLocale === "en";
 
   const handleChange = (checked: boolean) => {
-    // Tentukan locale baru berdasarkan status checked
     const newLocale = checked ? "en" : "id";
 
     startTransition(() => {
-      router.replace(pathname, { locale: newLocale });
+      router.replace(pathname, { locale: newLocale, scroll: false });
     });
   };
 
@@ -44,7 +42,7 @@ export function LocaleSwitcher({showLabel}:LocaleSwitcherProps) {
         id="locale-switch"
         checked={isChecked}
         onCheckedChange={handleChange}
-        disabled={isPending} // Nonaktifkan selama transisi
+        disabled={isPending}
       />
 
       {/* Label Kanan (Misalnya, EN) */}
