@@ -15,8 +15,10 @@ import { Input } from "@/components/ui/input";
 import CurrencyInput from "react-currency-input-field";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
+import { useTranslations } from "next-intl";
 
 export function AddTransactionModal() {
+  const t = useTranslations("tools-registry.financial.financial-simulator")
   const { addTransaction, settings } = useFinancialSimulator();
 
   const [open, setOpen] = useState(false);
@@ -53,32 +55,32 @@ export function AddTransactionModal() {
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
-        <Button>Add Transaction</Button>
+        <Button>{t("add-transaction")}</Button>
       </DialogTrigger>
 
       <DialogContent>
         <DialogHeader>
-          <DialogTitle>Add Transaction</DialogTitle>
+          <DialogTitle>{t("add-transaction")}</DialogTitle>
         </DialogHeader>
 
         <div className="space-y-4 py-2">
 
           {/* Type */}
           <div className="space-y-1">
-            <Label>Type</Label>
+            <Label>{t("type")}</Label>
             <select
               className="border border-input rounded-md p-2 text-sm bg-background"
               value={type}
               onChange={(e) => setType(e.target.value as "income" | "expense")}
             >
-              <option value="income">Income</option>
-              <option value="expense">Expense</option>
+              <option value="income">{t("income")}</option>
+              <option value="expense">{t("expense")}</option>
             </select>
           </div>
 
           {/* Amount */}
           <div className="space-y-1">
-            <Label>Amount</Label>
+            <Label>{t("amount")}</Label>
             <CurrencyInput
               value={amount}
               decimalsLimit={settings.decimal}
@@ -91,9 +93,9 @@ export function AddTransactionModal() {
 
           {/* Category */}
           <div className="space-y-1">
-            <Label>Category</Label>
+            <Label>{t("category")}</Label>
             <Input
-              placeholder="e.g. Salary, Food, Transport..."
+              placeholder={t("category-placeholder")}
               value={category}
               onChange={(e) => setCategory(e.target.value)}
             />
@@ -101,9 +103,9 @@ export function AddTransactionModal() {
 
           {/* Note */}
           <div className="space-y-1">
-            <Label>Note (optional)</Label>
+            <Label>{t("note")}</Label>
             <Textarea
-              placeholder="Additional details..."
+              placeholder={t("additional-details")}
               value={note}
               onChange={(e) => setNote(e.target.value)}
             />
@@ -113,9 +115,9 @@ export function AddTransactionModal() {
 
         <DialogFooter>
           <Button variant="secondary" onClick={() => setOpen(false)}>
-            Cancel
+            {t("cancel")}
           </Button>
-          <Button onClick={handleSubmit}>Save Transaction</Button>
+          <Button onClick={handleSubmit}>{t("save-transaction")}</Button>
         </DialogFooter>
       </DialogContent>
     </Dialog>

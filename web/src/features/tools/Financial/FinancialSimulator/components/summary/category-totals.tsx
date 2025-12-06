@@ -2,20 +2,22 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { computeCategoryTotals } from "./helper";
 import { useFinancialSimulator } from "../../store/provider";
 import { formatCurrency } from "@/utils/formatCurrency";
+import { useTranslations } from "next-intl";
 
 export function CategoryTotals() {
+  const t = useTranslations("tools-registry.financial.financial-simulator")
   const { transactions, settings } = useFinancialSimulator();
   const categoryTotals = computeCategoryTotals(transactions);
   return (
     <Card>
       <CardHeader>
-        <CardTitle>Category Breakdown</CardTitle>
+        <CardTitle>{t("category-breakdown")}</CardTitle>
       </CardHeader>
 
       <CardContent className="space-y-2">
         {Object.keys(categoryTotals).length === 0 && (
           <p className="text-sm text-muted-foreground">
-            No category data available.
+            {t("no-category-data")}
           </p>
         )}
 

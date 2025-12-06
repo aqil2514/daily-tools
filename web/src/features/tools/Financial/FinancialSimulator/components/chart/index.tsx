@@ -16,6 +16,7 @@ import {
 } from "recharts";
 import { FinancialSimulatorSettings, FinancialTransaction } from "../../types/interface";
 import { formatCurrency } from "@/utils/formatCurrency";
+import { useTranslations } from "next-intl";
 
 /* Helper: Generate chart-friendly data */
 function prepareChartData(transactions: FinancialTransaction[], settings: FinancialSimulatorSettings) {
@@ -39,6 +40,7 @@ function prepareChartData(transactions: FinancialTransaction[], settings: Financ
 }
 
 export default function ChartTab() {
+  const t = useTranslations("tools-registry.financial.financial-simulator")
   const { transactions, settings } = useFinancialSimulator();
   const { decimal, currency } = settings;
 
@@ -50,11 +52,11 @@ export default function ChartTab() {
       {/* BALANCE OVER TIME */}
       <Card>
         <CardHeader>
-          <CardTitle>Balance Over Time</CardTitle>
+          <CardTitle>{t("balance-over-time")}</CardTitle>
         </CardHeader>
         <CardContent className="h-[300px]">
           {data.length === 0 ? (
-            <p className="text-sm text-muted-foreground">No data available.</p>
+            <p className="text-sm text-muted-foreground">{t("no-data")}</p>
           ) : (
             <ResponsiveContainer width="100%" height="100%">
               <LineChart data={data}>
@@ -81,11 +83,11 @@ export default function ChartTab() {
       {/* INCOME VS EXPENSE */}
       <Card>
         <CardHeader>
-          <CardTitle>Income vs Expense</CardTitle>
+          <CardTitle>{t("income")} vs {t("expense")}</CardTitle>
         </CardHeader>
         <CardContent className="h-[300px]">
           {data.length === 0 ? (
-            <p className="text-sm text-muted-foreground">No data available.</p>
+            <p className="text-sm text-muted-foreground">{t("no-data")}</p>
           ) : (
             <ResponsiveContainer width="100%" height="100%">
               <BarChart data={data}>

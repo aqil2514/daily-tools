@@ -9,8 +9,6 @@ export default function SummaryTab() {
       <TotalSummary />
 
       <CategoryTotals />
-
-
     </div>
   );
 }

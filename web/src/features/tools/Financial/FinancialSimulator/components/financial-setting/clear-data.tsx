@@ -11,35 +11,36 @@ import {
   AlertDialogCancel,
 } from "@/components/ui/alert-dialog";
 import { useFinancialSimulator } from "../../store/provider";
+import { useTranslations } from "next-intl";
 
 export function ClearDataButton() {
+  const t = useTranslations("tools-registry.financial.financial-simulator")
   const { resetAll } = useFinancialSimulator();
 
   return (
     <AlertDialog>
       <AlertDialogTrigger asChild>
         <Button variant="destructive">
-          Clear All Data
+          {t("clear-all-data")}
         </Button>
       </AlertDialogTrigger>
 
       <AlertDialogContent>
         <AlertDialogHeader>
-          <AlertDialogTitle>Are you sure?</AlertDialogTitle>
+          <AlertDialogTitle>{t("sure")}</AlertDialogTitle>
           <AlertDialogDescription>
-            This action will permanently remove all settings and
-            transactions from your financial simulator. This cannot be undone.
+            {t("clear-description")}
           </AlertDialogDescription>
         </AlertDialogHeader>
 
         <AlertDialogFooter>
-          <AlertDialogCancel>Cancel</AlertDialogCancel>
+          <AlertDialogCancel>{t("cancel")}</AlertDialogCancel>
           <AlertDialogAction
             onClick={() => {
               resetAll();
             }}
           >
-            Clear Data
+           {t("clear-data")}
           </AlertDialogAction>
         </AlertDialogFooter>
       </AlertDialogContent>

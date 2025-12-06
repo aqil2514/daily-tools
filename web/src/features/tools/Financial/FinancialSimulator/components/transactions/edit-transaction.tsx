@@ -15,12 +15,14 @@ import { Label } from "@/components/ui/label";
 import { useFinancialSimulator } from "../../store/provider";
 import { FinancialTransaction } from "../../types/interface";
 import CurrencyInput from "react-currency-input-field";
+import { useTranslations } from "next-intl";
 
 export function EditTransactionModal({
   transaction,
 }: {
   transaction: FinancialTransaction;
 }) {
+  const t = useTranslations("tools-registry.financial.financial-simulator")
   const { updateTransaction, settings } = useFinancialSimulator();
   const [open, setOpen] = useState(false);
 
@@ -50,19 +52,19 @@ export function EditTransactionModal({
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
         <Button size="sm" variant="outline">
-          Edit
+          {t("edit")}
         </Button>
       </DialogTrigger>
 
       <DialogContent>
         <DialogHeader>
-          <DialogTitle>Edit Transaction</DialogTitle>
+          <DialogTitle>{t("edit-transaction")}</DialogTitle>
         </DialogHeader>
 
         <div className="space-y-4">
           {/* TYPE */}
           <div className="space-y-2">
-            <Label>Type</Label>
+            <Label>{t("type")}</Label>
             <select
               className="border rounded p-2 w-full"
               value={form.type}
@@ -73,14 +75,14 @@ export function EditTransactionModal({
                 })
               }
             >
-              <option value="income">Income</option>
-              <option value="expense">Expense</option>
+              <option value="income">{t("income")}</option>
+              <option value="expense">{t("expense")}</option>
             </select>
           </div>
 
           {/* AMOUNT */}
           <div className="space-y-2">
-            <Label>Amount</Label>
+            <Label>{t("amount")}</Label>
             <CurrencyInput
               value={form.amount}
               decimalsLimit={settings.decimal}
@@ -95,7 +97,7 @@ export function EditTransactionModal({
 
           {/* CATEGORY */}
           <div className="space-y-2">
-            <Label>Category</Label>
+            <Label>{t("category")}</Label>
             <Input
               value={form.category}
               onChange={(e) => setForm({ ...form, category: e.target.value })}
@@ -104,7 +106,7 @@ export function EditTransactionModal({
 
           {/* NOTE */}
           <div className="space-y-2">
-            <Label>Note</Label>
+            <Label>{t("note")}</Label>
             <Input
               value={form.note}
               onChange={(e) => setForm({ ...form, note: e.target.value })}
@@ -114,9 +116,9 @@ export function EditTransactionModal({
 
         <DialogFooter>
           <Button variant="secondary" onClick={() => setOpen(false)}>
-            Cancel
+            {t("cancel")}
           </Button>
-          <Button onClick={handleSubmit}>Save</Button>
+          <Button onClick={handleSubmit}>{t("edit")}</Button>
         </DialogFooter>
       </DialogContent>
     </Dialog>

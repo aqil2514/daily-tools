@@ -5,17 +5,19 @@ import { AddTransactionModal } from "../add-transaction";
 import { useFinancialSimulator } from "../../store/provider";
 import { useFinancialComputed } from "../../hooks/useFinancialComputed";
 import { formatCurrency } from "@/utils/formatCurrency";
+import { useTranslations } from "next-intl";
 
 export default function OverviewTab() {
   const { settings } = useFinancialSimulator();
   const { balance, totalIncome, totalExpense, recent } = useFinancialComputed();
+  const t = useTranslations("tools-registry.financial.cash-counter")
 
   return (
     <div className="space-y-6">
       {/* BALANCE CARD */}
       <Card>
         <CardHeader>
-          <CardTitle>Current Balance</CardTitle>
+          <CardTitle>{t("current-balance")}</CardTitle>
         </CardHeader>
         <CardContent>
           <div className="text-3xl font-bold">
@@ -28,7 +30,7 @@ export default function OverviewTab() {
       <div className="grid grid-cols-2 gap-4">
         <Card>
           <CardHeader>
-            <CardTitle>Total Income</CardTitle>
+            <CardTitle>{t("total-income")}</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="text-xl font-bold text-green-600">
@@ -39,7 +41,7 @@ export default function OverviewTab() {
 
         <Card>
           <CardHeader>
-            <CardTitle>Total Expense</CardTitle>
+            <CardTitle>{t("total-expense")}</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="text-xl font-bold text-red-600">
@@ -59,13 +61,13 @@ export default function OverviewTab() {
       {/* RECENT TRANSACTIONS */}
       <Card>
         <CardHeader>
-          <CardTitle>Recent Transactions</CardTitle>
+          <CardTitle>{t("recent-transactions")}</CardTitle>
         </CardHeader>
 
         <CardContent className="space-y-3">
           {recent.length === 0 && (
             <p className="text-sm text-muted-foreground">
-              No transactions yet.
+              {t("no-transaction")}
             </p>
           )}
 

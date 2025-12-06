@@ -5,17 +5,19 @@ import OverviewTab from "./overview";
 import TransactionsTab from "./transactions";
 import SummaryTab from "./summary";
 import ChartTab from "./chart";
+import { useTranslations } from "next-intl";
 
 export function FinancialSimulatorComponent() {
+  const t = useTranslations("tools-registry.financial.financial-simulator")
   return (
     <ToolCard>
       <Tabs defaultValue="overview" className="w-full">
         <TabsList className="flex flex-wrap">
-          <TabsTrigger value="overview">Overview</TabsTrigger>
-          <TabsTrigger value="transactions">Transactions</TabsTrigger>
-          <TabsTrigger value="chart">Chart</TabsTrigger>
-          <TabsTrigger value="summary">Summary</TabsTrigger>
-          <TabsTrigger value="setting">Setting</TabsTrigger>
+          <TabsTrigger value="overview">{t("overview")}</TabsTrigger>
+          <TabsTrigger value="transactions">{t("transaction")}</TabsTrigger>
+          <TabsTrigger value="chart">{t("chart")}</TabsTrigger>
+          <TabsTrigger value="summary">{t("summary")}</TabsTrigger>
+          <TabsTrigger value="setting">{t("setting")}</TabsTrigger>
         </TabsList>
 
         {/* Overview Tab */}

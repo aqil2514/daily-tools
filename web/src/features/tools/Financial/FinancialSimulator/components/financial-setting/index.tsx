@@ -15,6 +15,7 @@ import { Label } from "@/components/ui/label";
 import { CurrencyCode } from "../../types/interface";
 import CurrencyInput from "react-currency-input-field";
 import { ClearDataButton } from "./clear-data";
+import { useTranslations } from "next-intl";
 
 function getCurrencyPrefix(code: CurrencyCode) {
   const prefixes = {
@@ -27,6 +28,7 @@ function getCurrencyPrefix(code: CurrencyCode) {
 }
 
 export function FinancialSetting() {
+  const t = useTranslations("tools-registry.financial.financial-simulator")
   const { settings, setSettings, resetSetting } =
     useFinancialSimulator();
 
@@ -34,13 +36,13 @@ export function FinancialSetting() {
     <div className="space-y-4">
       <Card>
         <CardHeader>
-          <CardTitle>Settings</CardTitle>
+          <CardTitle>{t("setting")}</CardTitle>
         </CardHeader>
 
         <CardContent className="space-y-6">
           {/* Currency */}
           <div className="space-y-2">
-            <Label>Currency</Label>
+            <Label>{t("currency")}</Label>
             <Select
               value={settings.currency}
               onValueChange={(v) =>
@@ -61,7 +63,7 @@ export function FinancialSetting() {
 
           {/* Decimal */}
           <div className="space-y-2">
-            <Label>Decimal Format</Label>
+            <Label>{t("decimal-format")}</Label>
             <Input
               type="number"
               min={0}
@@ -70,13 +72,13 @@ export function FinancialSetting() {
               onChange={(e) => setSettings({ decimal: Number(e.target.value) })}
             />
             <p className="text-xs text-muted-foreground">
-              Recommended: IDR = 0, USD/EUR = 2
+              {t("recommended")}: IDR = 0, USD/EUR = 2
             </p>
           </div>
 
           {/* Starting Balance */}
           <div className="space-y-2">
-            <Label>Starting Balance</Label>
+            <Label>{t("starting-balance")}</Label>
 
             <CurrencyInput
               id="startingBalance"
@@ -95,13 +97,13 @@ export function FinancialSetting() {
             />
 
             <p className="text-xs text-muted-foreground">
-              Automatically formatted based on your currency.
+              {t("starting-balance-info")}
             </p>
           </div>
 
           <div className="flex gap-3 pt-4">
             <Button variant="secondary" onClick={resetSetting}>
-              Reset Settings
+              {t("reset-settings")}
             </Button>
             <ClearDataButton />
           </div>

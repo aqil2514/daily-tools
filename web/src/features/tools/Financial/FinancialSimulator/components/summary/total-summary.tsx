@@ -6,8 +6,10 @@ import { useFinancialComputed } from "../../hooks/useFinancialComputed";
 import { Button } from "@/components/ui/button";
 import { createSummaryPdf } from "../../utils/createSummaryPdf";
 import { computeCategoryTotals } from "./helper";
+import { useTranslations } from "next-intl";
 
 export function TotalSummary() {
+  const t = useTranslations("tools-registry.financial.financial-simulator");
   const { settings, transactions } = useFinancialSimulator();
   const { balance, totalIncome, totalExpense } = useFinancialComputed();
   const netChange = totalIncome - totalExpense;
@@ -16,40 +18,39 @@ export function TotalSummary() {
   return (
     <Card>
       <CardHeader>
-        <CardTitle>Financial Summary</CardTitle>
-
-        <Button
-          size="sm"
-          onClick={async () => {
-            const pdfBytes = await createSummaryPdf({
-              settings,
-              balance,
-              totalIncome,
-              totalExpense,
-              netChange,
-              categories,
-            });
-
-            const array = pdfBytes.slice().buffer;
-
-            const blob = new Blob([array], { type: "application/pdf" });
-            const url = URL.createObjectURL(blob);
-
-            const a = document.createElement("a");
-            a.href = url;
-            a.download = "financial-summary.pdf";
-            a.click();
-
-            URL.revokeObjectURL(url);
-          }}
-        >
-          Export PDF
-        </Button>
+        <CardTitle>{t("financial-summary")}</CardTitle>
       </CardHeader>
 
       <CardContent className="space-y-4">
+      <Button
+        size="sm"
+        onClick={async () => {
+          const pdfBytes = await createSummaryPdf({
+            settings,
+            balance,
+            totalIncome,
+            totalExpense,
+            netChange,
+            categories,
+          });
+
+          const array = pdfBytes.slice().buffer;
+
+          const blob = new Blob([array], { type: "application/pdf" });
+          const url = URL.createObjectURL(blob);
+
+          const a = document.createElement("a");
+          a.href = url;
+          a.download = "financial-summary.pdf";
+          a.click();
+
+          URL.revokeObjectURL(url);
+        }}
+      >
+        {t("export-pdf")}
+      </Button>
         <SummaryRow
-          label="Starting Balance"
+          label={t("starting-balance")}
           value={formatCurrency(
             settings.startingBalance,
             settings.currency,
@@ -58,7 +59,7 @@ export function TotalSummary() {
         />
 
         <SummaryRow
-          label="Total Income"
+          label={t("total-income")}
           value={formatCurrency(
             totalIncome,
             settings.currency,
@@ -68,7 +69,7 @@ export function TotalSummary() {
         />
 
         <SummaryRow
-          label="Total Expense"
+          label={t("total-expense")}
           value={formatCurrency(
             totalExpense,
             settings.currency,
@@ -78,13 +79,13 @@ export function TotalSummary() {
         />
 
         <SummaryRow
-          label="Net Change"
+          label={t("net-change")}
           value={formatCurrency(netChange, settings.currency, settings.decimal)}
           color={netChange >= 0 ? "text-green-600" : "text-red-600"}
         />
 
         <SummaryRow
-          label="Current Balance"
+          label={t("current-balance")}
           value={formatCurrency(balance, settings.currency, settings.decimal)}
           bold
         />

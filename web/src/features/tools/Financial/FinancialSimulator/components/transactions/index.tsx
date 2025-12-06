@@ -16,8 +16,10 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { formatCurrency } from "@/utils/formatCurrency";
 import { EditTransactionModal } from "./edit-transaction";
+import { useTranslations } from "next-intl";
 
 export default function TransactionsTab() {
+  const t = useTranslations("tools-registry.financial.financial-simulator");
   const { transactions, deleteTransaction, settings } = useFinancialSimulator();
   const [filter, setFilter] = useState<"all" | "income" | "expense">("all");
 
@@ -34,19 +36,19 @@ export default function TransactionsTab() {
             variant={filter === "all" ? "default" : "secondary"}
             onClick={() => setFilter("all")}
           >
-            All
+            {t("all-type")}
           </Button>
           <Button
             variant={filter === "income" ? "default" : "secondary"}
             onClick={() => setFilter("income")}
           >
-            Income
+            {t("income")}
           </Button>
           <Button
             variant={filter === "expense" ? "default" : "secondary"}
             onClick={() => setFilter("expense")}
           >
-            Expense
+            {t("expense")}
           </Button>
         </div>
 
@@ -56,13 +58,13 @@ export default function TransactionsTab() {
       {/* MAIN CARD */}
       <Card>
         <CardHeader>
-          <CardTitle>Transaction List</CardTitle>
+          <CardTitle>{t("transaction-list")}</CardTitle>
         </CardHeader>
         <CardContent>
           {/* EMPTY STATE */}
           {filtered.length === 0 && (
             <p className="text-sm text-muted-foreground">
-              No transactions found.
+              {t("no-transaction")}
             </p>
           )}
 
@@ -71,11 +73,11 @@ export default function TransactionsTab() {
             <Table>
               <TableHeader>
                 <TableRow>
-                  <TableHead>Date</TableHead>
-                  <TableHead>Category</TableHead>
-                  <TableHead>Type</TableHead>
-                  <TableHead>Amount</TableHead>
-                  <TableHead className="text-right">Action</TableHead>
+                  <TableHead>{t("date")}</TableHead>
+                  <TableHead>{t("category")}</TableHead>
+                  <TableHead>{t("type")}</TableHead>
+                  <TableHead>{t("amount")}</TableHead>
+                  <TableHead className="text-right">{t("action")}</TableHead>
                 </TableRow>
               </TableHeader>
 
@@ -115,7 +117,7 @@ export default function TransactionsTab() {
                         size="sm"
                         onClick={() => deleteTransaction(tx.id)}
                       >
-                        Delete
+                        {t("delete")}
                       </Button>
                     </TableCell>
                   </TableRow>
