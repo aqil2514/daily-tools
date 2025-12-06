@@ -202,7 +202,7 @@ export function CashExport() {
       EXPORT EXCEL (HTML/XLS)
   ---------------------------------------- */
   const exportExcel = () => {
-    let table = `
+    const table = `
       <table border="1">
         <tr><th>Nominal</th><th>Qty</th><th>Subtotal</th></tr>
         ${denoms

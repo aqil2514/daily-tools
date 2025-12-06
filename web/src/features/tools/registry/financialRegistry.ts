@@ -1,5 +1,3 @@
-// src/features/tools/registry/financialRegistry.ts
-
 import dynamic from "next/dynamic";
 import { FinancialToolName, ToolRegistryItem } from "@/@types/Tools"; // Asumsi path
 
@@ -35,9 +33,7 @@ export const financialRegistry: Record<FinancialToolName, ToolRegistryItem> = {
     },
   },
   "cogs-margin-tool": {
-    Component: dynamic(
-      () => import("@/features/tools/Financial/COGSMargin")
-    ), // Placeholder Component
+    Component: dynamic(() => import("@/features/tools/Financial/COGSMargin")),
     href: "/tools/cogs-margin-tool",
     category: "financial",
 
@@ -65,6 +61,42 @@ export const financialRegistry: Record<FinancialToolName, ToolRegistryItem> = {
         "kalkulator markup",
         "strategi harga",
         "harga pokok penjualan",
+      ],
+    },
+  },
+  "financial-simulator": {
+    Component: dynamic(
+      () => import("@/features/tools/Financial/FinancialSimulator")
+    ),
+    href: "/tools/financial-simulator",
+    category: "financial",
+
+    title: {
+      en: "Financial Simulator",
+      id: "Simulasi Keuangan",
+    },
+    description: {
+      en: "Simulate income, expenses, and financial scenarios starting from an initial balance. Track how money grows or decreases over time based on your actions.",
+      id: "Simulasikan pemasukan, pengeluaran, dan berbagai skenario keuangan mulai dari saldo awal. Lihat bagaimana uang bertambah atau berkurang seiring aktivitas yang Anda lakukan.",
+    },
+    keywords: {
+      en: [
+        "financial simulator",
+        "money simulation",
+        "income tracker",
+        "expense simulator",
+        "budget planning",
+        "financial tool",
+        "money management",
+      ],
+      id: [
+        "simulasi keuangan",
+        "simulator uang",
+        "pelacak pemasukan",
+        "simulasi pengeluaran",
+        "perencanaan anggaran",
+        "alat keuangan",
+        "manajemen uang",
       ],
     },
   },

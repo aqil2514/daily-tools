@@ -1,4 +1,4 @@
-export function formatCurrency(value: number, currency: string) {
+export function formatCurrency(value: number, currency: string, decimal:number = 0) {
   const n = Number(value);
   if (isNaN(n)) return "";
 
@@ -7,27 +7,27 @@ export function formatCurrency(value: number, currency: string) {
     IDR: {
       locale: "id-ID",
       symbol: "Rp",
-      minimumFractionDigits: 0,
+      minimumFractionDigits: decimal,
     },
     USD: {
       locale: "en-US",
       symbol: "$",
-      minimumFractionDigits: 2,
+      minimumFractionDigits: decimal,
     },
     EUR: {
       locale: "de-DE",
       symbol: "€",
-      minimumFractionDigits: 2,
+      minimumFractionDigits: decimal,
     },
     JPY: {
       locale: "ja-JP",
       symbol: "¥",
-      minimumFractionDigits: 0,
+      minimumFractionDigits: decimal,
     },
     GBP: {
       locale: "en-GB",
       symbol: "£",
-      minimumFractionDigits: 2,
+      minimumFractionDigits: decimal,
     },
   } as const;
 
