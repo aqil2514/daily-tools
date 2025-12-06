@@ -1,55 +1,37 @@
-"use client";
+import { useEffect, useRef, useState } from "react";
+import { useQRGenerator } from "../store/provider";
+import QRCodeStyling from "qr-code-styling";
 
-import { useQueryParams } from "@/hooks/useQueryParams";
-import { cn } from "@/lib/utils";
-import { QRCodeCanvas } from "qrcode.react";
-import { RefObject } from "react";
+export function QRPreview() {
+  const { options } = useQRGenerator();
+  const [qrCode, setQrCode] = useState<QRCodeStyling>();
+  const ref = useRef<HTMLDivElement>(null);
 
-interface Props {
-  canvasRef: RefObject<HTMLCanvasElement | null>;
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setQrCode(new QRCodeStyling(options));
+  }, [options]);
 
-  src?: string;
-}
+  useEffect(() => {
+    if (ref.current) {
+      qrCode?.append(ref.current);
+    }
+  }, [qrCode, ref]);
 
-export function QRPreview({ src, canvasRef }: Props) {
-  const { get } = useQueryParams();
-  const size = get("size");
-  const fgColor = get("fg-color");
-  const bgColor = get("bg-color");
-  const level = get("level") as "H" | "L" | "M" | "Q";
+  useEffect(() => {
+    if (!qrCode) return;
+    qrCode?.update(options);
+  }, [qrCode, options]);
 
-  const paramWidth = get("image-qr-width");
-  const paramHeight = get("image-qr-height");
-  const paramOpacity = get("image-qr-opacity");
-  const paramImageUrl = get("image-qr-url");
-  const includeImage = get("include-image");
-
+  if (!options.data)
+    return (
+      <div>
+        <p>Data belum ditentukan</p>
+      </div>
+    );
   return (
-    <div className="w-full flex justify-center">
-      {src ? (
-        <QRCodeCanvas
-          className={cn("hidden", src && "block")}
-          ref={canvasRef}
-          size={Number(size ?? 260)}
-          level={level ?? "M"}
-          value={src}
-          fgColor={bgColor ?? "#000000"}
-          bgColor={fgColor ?? "#ffffff"}
-          imageSettings={
-            includeImage
-              ? {
-                  excavate: true,
-                  height: Number(paramWidth),
-                  width: Number(paramHeight),
-                  src: String(paramImageUrl),
-                  opacity: Number(paramOpacity),
-                }
-              : undefined
-          }
-        />
-      ) : (
-        <p className="text-slate-500">Masukkan teks atau URL</p>
-      )}
+    <div>
+      <div ref={ref} />
     </div>
   );
 }
