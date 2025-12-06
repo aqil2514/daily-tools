@@ -95,6 +95,7 @@ export function SocialMediaForm() {
     setOptions((prev) => ({
       ...prev,
       data: value,
+      image:""
     }));
   }
 
