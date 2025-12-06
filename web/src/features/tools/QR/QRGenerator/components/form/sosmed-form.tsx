@@ -91,6 +91,7 @@ export function SocialMediaForm() {
       "@",
       ""
     )}`;
+    setWithLogo(false);
     setOptions((prev) => ({
       ...prev,
       data: value,
