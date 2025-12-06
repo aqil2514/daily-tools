@@ -27,8 +27,24 @@ export function QRGeneratorProvider({
     height: 300,
     type: "canvas",
     dotsOptions: {
-      color: "#aabbcc",
+      color: "#000000",
       type: "square",
+    },
+    cornersSquareOptions: {
+      color: "#000000",
+      type: "square",
+    },
+    cornersDotOptions: {
+      color: "#000000",
+      type: "square",
+    },
+    backgroundOptions: {
+      color: "#FFFFFF",
+    },
+    imageOptions: {
+      hideBackgroundDots: true,
+      imageSize: 0.4,
+      margin: 0,
     },
   });
 

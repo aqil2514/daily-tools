@@ -11,14 +11,18 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { DotType } from "qr-code-styling";
+import { CornerSquareType } from "qr-code-styling";
 import { useQRGenerator } from "../../store/provider";
 import { ColorOption } from "./sub/color-element";
 
-const dotStyleItems: { value: DotType; label: string }[] = [
+const cornerSquareStyleItems: { value: CornerSquareType; label: string }[] = [
   {
     value: "rounded",
     label: "Rounded",
+  },
+  {
+    value: "dot",
+    label: "Dot",
   },
   {
     value: "dots",
@@ -42,44 +46,44 @@ const dotStyleItems: { value: DotType; label: string }[] = [
   },
 ];
 
-export function DotsOptions() {
+export function CornerSquareOptions() {
   return (
-      <AccordionItem value="item-2">
-        <AccordionTrigger>Dots Options</AccordionTrigger>
+      <AccordionItem value="item-3">
+        <AccordionTrigger>Corner Square Options</AccordionTrigger>
         <AccordionContent className="space-y-4">
           <div className="space-y-4">
-            <Label>Dots Style</Label>
-            <DotsStyle />
+            <Label>Corner Square Style</Label>
+            <CornerSquareStyle />
           </div>
 
           <div className="space-y-4">
             <div className="flex justify-between">
-              <Label>Dots Color</Label>
+              <Label>Corner Square Color</Label>
             </div>
-            <ColorOption colorKey="dotsOptions" />
+            <ColorOption colorKey="cornersSquareOptions" />
           </div>
         </AccordionContent>
       </AccordionItem>
   );
 }
 
-const DotsStyle = () => {
+const CornerSquareStyle = () => {
   const { options, setOptions } = useQRGenerator();
   return (
     <Select
-      value={options.dotsOptions?.type}
+      value={options.cornersSquareOptions?.type}
       onValueChange={(e) => {
         setOptions((prev) => ({
           ...prev,
-          dotsOptions: { ...prev.dotsOptions, type: e as DotType },
+          cornersSquareOptions: { ...prev.cornersSquareOptions, type: e as CornerSquareType  },
         }));
       }}
     >
       <SelectTrigger className="w-[180px]">
-        <SelectValue placeholder="Dot Style" />
+        <SelectValue placeholder="Corner Square Style" />
       </SelectTrigger>
       <SelectContent>
-        {dotStyleItems.map((item) => (
+        {cornerSquareStyleItems.map((item) => (
           <SelectItem key={item.value} value={item.value}>
             {item.label}
           </SelectItem>

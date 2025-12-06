@@ -18,6 +18,8 @@ import { useQRGenerator } from "../../store/provider";
 import Image from "next/image";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
+import { Label } from "@/components/ui/label";
+import { Switch } from "@/components/ui/switch";
 
 const formSchema = z.object({
   username: z.string().min(1),
@@ -75,6 +77,8 @@ const prefixMapping: Record<SosmedName, string> = {
 export function SocialMediaForm() {
   const { setOptions } = useQRGenerator();
   const [sosmed, setSosmed] = useState<SosmedName>("facebook");
+  const [imageLogo, setImageLogo] = useState<string>("/logo/facebook.png");
+  const [withLogo, setWithLogo] = useState<boolean>(false);
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -93,6 +97,15 @@ export function SocialMediaForm() {
     }));
   }
 
+  const logoHandler = (checked: boolean) => {
+    setWithLogo(checked);
+
+    setOptions((prev) => ({
+      ...prev,
+      image: checked ? imageLogo : "",
+    }));
+  };
+
   return (
     <div>
       <SubHeading>Social Media Data</SubHeading>
@@ -108,7 +121,10 @@ export function SocialMediaForm() {
                     "rounded-lg group hover:bg-blue-300 transition duration-100 cursor-pointer",
                     isSelected && "bg-blue-300 "
                   )}
-                  onClick={() => setSosmed(item.value)}
+                  onClick={() => {
+                    setSosmed(item.value);
+                    setImageLogo(item.image);
+                  }}
                 >
                   <Image
                     width={48}
@@ -138,6 +154,14 @@ export function SocialMediaForm() {
               </FormItem>
             )}
           />
+          <div className="flex gap-4">
+            <Label htmlFor="use-logo">Use Logo</Label>
+            <Switch
+              id="use-logo"
+              checked={withLogo}
+              onCheckedChange={logoHandler}
+            />
+          </div>
           <Button type="submit">Submit</Button>
         </form>
       </Form>
