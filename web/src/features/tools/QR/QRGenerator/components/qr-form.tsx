@@ -8,6 +8,7 @@ import { MapsAndLocationForm } from "./form/maps-and-location-form";
 import { WifiForm } from "./form/wifi-form";
 import { VCardForm } from "./form/v-card-form";
 import { EmailSmsForm } from "./form/email-sms-form";
+import { EventCalendarForm } from "./form/event-calendar-form";
 
 const ComponentMapping: Record<QRType, JSX.Element> = {
   url: <URLForm />,
@@ -16,7 +17,8 @@ const ComponentMapping: Record<QRType, JSX.Element> = {
   "maps-and-location": <MapsAndLocationForm />,
   wifi: <WifiForm />,
   "v-card": <VCardForm />,
-  "email-sms": <EmailSmsForm />
+  "email-sms": <EmailSmsForm />,
+  "event-calendar": <EventCalendarForm />
 };
 
 export function QRForm() {

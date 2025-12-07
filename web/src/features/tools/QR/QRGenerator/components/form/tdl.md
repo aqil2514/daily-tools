@@ -1,24 +1,3 @@
-✅ 7. Email & SMS
-Email (mailto)
-mailto:email@example.com
-
-Atau dengan preset:
-
-mailto:email@example.com?subject=Judul&body=Isi%20pesan
-
-SMS
-sms:+6281234567890?body=Halo
-
-✅ 8. App Store Links
-
-Play Store:
-
-https://play.google.com/store/apps/details?id=com.app.example
-
-App Store:
-
-https://apps.apple.com/app/id1234567890
-
 ✅ 9. Event Calendar
 
 Format .ics:
