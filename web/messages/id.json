@@ -12,7 +12,8 @@
       "image-tool": "Tools Gambar",
       "pdf-tool": "Tools PDF",
       "qr-tool": "Tools QR"
-    }
+    },
+    "searchPlaceholder": "Temukan alat yang anda butuhkan..."
   },
   "tools-registry": {
     "financial": {

@@ -12,7 +12,8 @@
       "image-tool": "Image Tools",
       "pdf-tool": "PDF Tools",
       "qr-tool": "QR Tools"
-    }
+    },
+    "searchPlaceholder": "Search tools that you need"
   },
   "tools-registry": {
     "financial": {

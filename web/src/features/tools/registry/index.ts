@@ -23,7 +23,7 @@ export const toolList = {
   image: Object.values(toolsRegistry).filter((t) => t.category === "image"),
   pdf: Object.values(toolsRegistry).filter((t) => t.category === "pdf"),
   qr: Object.values(toolsRegistry).filter((t) => t.category === "qr"),
-  fiancial: Object.values(toolsRegistry).filter(
+  financial: Object.values(toolsRegistry).filter(
     (t) => t.category === "financial"
   ),
 };
@@ -31,18 +31,22 @@ export const toolList = {
 export const sidebarSections = [
   {
     sectionTitle: "tools.category.financial-tool",
-    sectionItem: toolList.fiancial,
+    sectionCategory: "financial",
+    sectionItem: toolList.financial,
   },
   {
     sectionTitle: "tools.category.image-tool",
+    sectionCategory: "image",
     sectionItem: toolList.image,
   },
   {
     sectionTitle: "tools.category.pdf-tool",
+    sectionCategory: "pdf",
     sectionItem: toolList.pdf,
   },
   {
     sectionTitle: "tools.category.qr-tool",
+    sectionCategory: "qr",
     sectionItem: toolList.qr,
   },
 ] as const;

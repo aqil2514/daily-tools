@@ -1,4 +1,4 @@
-import ToolsTemplate from "@/features/tools";
+import ToolsTemplate from "@/features/tools/master";
 import { getLocalizedMetadata } from "@/utils/localization/getLocalizedMetadata";
 import { Metadata } from "next";
 import { getLocale } from "next-intl/server";
