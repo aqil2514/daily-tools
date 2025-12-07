@@ -1,5 +1,4 @@
 import { useForm } from "react-hook-form";
-import z from "zod";
 import PhoneInput, { isValidPhoneNumber } from "react-phone-number-input";
 import "react-phone-number-input/style.css";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -19,6 +18,7 @@ import { IconSelector } from "./sub/IconSelector";
 import { useQRGenerator } from "../../store/provider";
 import { UseLogoSwitcher } from "./sub/UseLogoSwitcher";
 import { Input } from "@/components/ui/input";
+import { whatsAppMessengerSchema, WhatsAppMessengerSchemaType } from "../../schemas/whatsapp-messenger-schema";
 
 type MessageName = "whatsapp" | "telegram";
 
@@ -43,11 +43,6 @@ const prefixMapping: Record<MessageName, string> = {
   telegram: "https://t.me/",
 };
 
-export const formSchema = z.object({
-  phone: z.string(),
-  username: z.string(),
-  message: z.string(),
-});
 
 export function WhatsappAndMessengerForm() {
   const { setOptions } = useQRGenerator();
@@ -55,8 +50,8 @@ export function WhatsappAndMessengerForm() {
   const [messageLogo, setMessageLogo] = useState<string>("/logo/whatsapp.png");
   const [withLogo, setWithLogo] = useState<boolean>(false);
 
-  const form = useForm<z.infer<typeof formSchema>>({
-    resolver: zodResolver(formSchema),
+  const form = useForm<WhatsAppMessengerSchemaType>({
+    resolver: zodResolver(whatsAppMessengerSchema),
     defaultValues: {
       phone: "",
       message: "",
@@ -64,7 +59,7 @@ export function WhatsappAndMessengerForm() {
     },
   });
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
+  function onSubmit(values: WhatsAppMessengerSchemaType) {
     if (message === "whatsapp") {
       if (!values.phone || !isValidPhoneNumber(values.phone)) {
         form.setError("phone", { message: "Nomor telepon tidak valid" });

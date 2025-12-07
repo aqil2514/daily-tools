@@ -1,5 +1,4 @@
 import { SubHeading } from "@/components/atoms/subHeading";
-import z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 
@@ -14,21 +13,19 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { useQRGenerator } from "../../store/provider";
+import { urlSchema, URLSchemaType } from "../../schemas/url-schema";
 
-const formSchema = z.object({
-  url: z.url().min(1),
-});
 
 export function URLForm() {
   const { setOptions } = useQRGenerator();
-  const form = useForm<z.infer<typeof formSchema>>({
-    resolver: zodResolver(formSchema),
+  const form = useForm<URLSchemaType>({
+    resolver: zodResolver(urlSchema),
     defaultValues: {
       url: "",
     },
   });
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
+  function onSubmit(values: URLSchemaType) {
     setOptions((prev) => ({ ...prev, data: values.url }));
   }
 

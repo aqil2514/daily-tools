@@ -1,5 +1,4 @@
 import { SubHeading } from "@/components/atoms/subHeading";
-import z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 
@@ -18,10 +17,7 @@ import { useQRGenerator } from "../../store/provider";
 import { useState } from "react";
 import { IconSelector } from "./sub/IconSelector";
 import { UseLogoSwitcher } from "./sub/UseLogoSwitcher";
-
-const formSchema = z.object({
-  username: z.string().min(1),
-});
+import { sosmedSchema, SosmedSchemaType } from "../../schemas/sosmed-schema";
 
 type SosmedName =
   | "facebook"
@@ -77,14 +73,15 @@ export function SocialMediaForm() {
   const [sosmed, setSosmed] = useState<SosmedName>("facebook");
   const [imageLogo, setImageLogo] = useState<string>("/logo/facebook.png");
   const [withLogo, setWithLogo] = useState<boolean>(false);
-  const form = useForm<z.infer<typeof formSchema>>({
-    resolver: zodResolver(formSchema),
+
+  const form = useForm<SosmedSchemaType>({
+    resolver: zodResolver(sosmedSchema),
     defaultValues: {
       username: "",
     },
   });
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
+  function onSubmit(values: SosmedSchemaType) {
     const value = `${prefixMapping[sosmed]}${values.username.replaceAll(
       "@",
       ""

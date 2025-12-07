@@ -4,15 +4,17 @@ import { URLForm } from "./form/url-form";
 import { SocialMediaForm } from "./form/sosmed-form";
 import { useQRGenerator } from "../store/provider";
 import { WhatsappAndMessengerForm } from "./form/whatsapp-and-messenger-form";
+import { MapsAndLocationForm } from "./form/maps-and-location-form";
 
 const ComponentMapping: Record<QRType, JSX.Element> = {
   url: <URLForm />,
   "social-media": <SocialMediaForm />,
-  "whatsapp-messenger": <WhatsappAndMessengerForm />
+  "whatsapp-messenger": <WhatsappAndMessengerForm />,
+  "maps-and-location": <MapsAndLocationForm />,
 };
 
 export function QRForm() {
   const { qrType } = useQRGenerator();
-  
+
   return ComponentMapping[qrType];
 }
