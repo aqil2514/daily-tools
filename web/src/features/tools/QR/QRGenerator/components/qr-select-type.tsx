@@ -16,6 +16,7 @@ const qrTypeList: Record<QRType, string> = {
   "maps-and-location": "Maps and Location",
   wifi: "Wifi",
   "v-card": "V Card",
+  "email-sms": "Email and SMS"
 };
 
 export function QRSelectType() {

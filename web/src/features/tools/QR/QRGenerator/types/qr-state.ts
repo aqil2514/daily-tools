@@ -4,7 +4,8 @@ export type QRType =
   | "whatsapp-messenger"
   | "maps-and-location"
   | "wifi"
-  | "v-card";
+  | "v-card"
+  | "email-sms";
 
 export interface QRUrl {
   url: string;

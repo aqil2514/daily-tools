@@ -7,6 +7,7 @@ import { WhatsappAndMessengerForm } from "./form/whatsapp-and-messenger-form";
 import { MapsAndLocationForm } from "./form/maps-and-location-form";
 import { WifiForm } from "./form/wifi-form";
 import { VCardForm } from "./form/v-card-form";
+import { EmailSmsForm } from "./form/email-sms-form";
 
 const ComponentMapping: Record<QRType, JSX.Element> = {
   url: <URLForm />,
@@ -14,7 +15,8 @@ const ComponentMapping: Record<QRType, JSX.Element> = {
   "whatsapp-messenger": <WhatsappAndMessengerForm />,
   "maps-and-location": <MapsAndLocationForm />,
   wifi: <WifiForm />,
-  "v-card": <VCardForm />
+  "v-card": <VCardForm />,
+  "email-sms": <EmailSmsForm />
 };
 
 export function QRForm() {
