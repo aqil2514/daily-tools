@@ -15,6 +15,7 @@ const qrTypeList: Record<QRType, string> = {
   "whatsapp-messenger": "Whatsapp and Messenger",
   "maps-and-location": "Maps and Location",
   wifi: "Wifi",
+  "v-card": "V Card",
 };
 
 export function QRSelectType() {

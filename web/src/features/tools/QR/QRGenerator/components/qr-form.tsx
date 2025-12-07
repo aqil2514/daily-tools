@@ -6,13 +6,15 @@ import { useQRGenerator } from "../store/provider";
 import { WhatsappAndMessengerForm } from "./form/whatsapp-and-messenger-form";
 import { MapsAndLocationForm } from "./form/maps-and-location-form";
 import { WifiForm } from "./form/wifi-form";
+import { VCardForm } from "./form/v-card-form";
 
 const ComponentMapping: Record<QRType, JSX.Element> = {
   url: <URLForm />,
   "social-media": <SocialMediaForm />,
   "whatsapp-messenger": <WhatsappAndMessengerForm />,
   "maps-and-location": <MapsAndLocationForm />,
-  wifi: <WifiForm />
+  wifi: <WifiForm />,
+  "v-card": <VCardForm />
 };
 
 export function QRForm() {

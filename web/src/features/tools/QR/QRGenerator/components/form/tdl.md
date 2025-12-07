@@ -1,27 +1,6 @@
-✅ 5. WiFi QR (tanpa URL tapi berbentuk text skema)
-
-Format standar:
-
-WIFI:T:WPA;S:NamaWifi;P:PasswordWifi;;
-
-✅ 6. Contact / vCard (text format)
-
-Bisa berupa file vCard atau text langsung.
-
-Contoh:
-
-BEGIN:VCARD
-VERSION:3.0
-N:Maulana;Aqil;;;
-TEL:+628123456789
-EMAIL:hello@example.com
-URL:https://maqilm.site
-END:VCARD
-
 ✅ 7. Email & SMS
 Email (mailto)
 mailto:email@example.com
-
 
 Atau dengan preset:
 
