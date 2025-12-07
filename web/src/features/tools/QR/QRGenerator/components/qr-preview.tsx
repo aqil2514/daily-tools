@@ -34,8 +34,8 @@ export function QRPreview() {
 
   if (!options.data)
     return (
-      <div>
-        <p>Data belum ditentukan</p>
+      <div className="p-6 border border-border rounded-xl bg-muted/30 text-center">
+        <p className="text-sm text-muted-foreground">Data belum ditentukan</p>
       </div>
     );
 
@@ -45,23 +45,31 @@ export function QRPreview() {
       extension: fileExt,
     });
   };
+
   return (
-    <div>
-      <div ref={ref} />
-      <div className="mt-4 space-y-4">
-        {/* Select: file extension */}
-        <div className="space-y-2">
-          <label className="text-sm font-medium">Download Format</label>
+    <div className="w-full max-w-sm mx-auto space-y-6">
+      {/* QR Box */}
+      <div className="rounded-xl border border-border bg-white shadow-sm p-6 flex items-center justify-center">
+        <div ref={ref} />
+      </div>
+
+      {/* Controls */}
+      <div className="rounded-xl border border-border bg-muted/20 p-4 space-y-4">
+        {/* Format Select */}
+        <div className="space-y-1">
+          <label className="text-xs font-medium text-muted-foreground">
+            Format Download
+          </label>
 
           <Select
             value={fileExt}
             onValueChange={(e) => setFileExt(e as FileExtension)}
           >
-            <SelectTrigger className="w-[180px]">
+            <SelectTrigger className="w-full">
               <SelectValue placeholder="Select format" />
             </SelectTrigger>
 
-            <SelectContent>
+            <SelectContent className="w-(--radix-select-trigger-width)">
               <SelectItem value="svg">SVG</SelectItem>
               <SelectItem value="png">PNG</SelectItem>
               <SelectItem value="jpeg">JPEG</SelectItem>
@@ -70,7 +78,7 @@ export function QRPreview() {
           </Select>
         </div>
 
-        {/* Download button */}
+        {/* Download Button */}
         <Button onClick={onDownloadClick} className="w-full">
           Download QR
         </Button>
