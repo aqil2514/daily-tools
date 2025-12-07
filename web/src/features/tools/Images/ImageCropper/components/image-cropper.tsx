@@ -34,7 +34,7 @@ export function ImageCropperComp() {
     );
 
   return (
-    <div className="grid grid-cols-[70%_auto] gap-4">
+    <div className="grid grid-cols-1 lg:grid-cols-[70%_auto] gap-4">
       <ToolCard>
         <ScrollArea className="h-96 px-4">
           <CropperUI />

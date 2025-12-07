@@ -1,8 +1,7 @@
 "use client";
 import { ToolCard } from "@/components/tools/tool-card";
-import { ImageToPDFProvider, useImageToPDF } from "../provider";
+import { useImageToPDF } from "../provider";
 import { PDFPreview } from "./pdf-preview";
-import { UploadImage } from "@/components/atoms/upload-image-v2";
 import { SourceSelection } from "@/components/molecules/source-selection-v2";
 import { PDFSetting } from "./pdf-settings";
 
@@ -24,7 +23,7 @@ export function ImageToPDFComponent() {
     );
 
   return (
-    <div className="grid grid-cols-[60%_auto] gap-4">
+    <div className="grid grid-cols-1 lg:grid-cols-[60%_auto] gap-4">
       <ToolCard>
         <PDFPreview />
       </ToolCard>

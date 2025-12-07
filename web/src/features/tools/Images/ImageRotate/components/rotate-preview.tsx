@@ -10,7 +10,7 @@ export function RotatePreview() {
   const originalW = 300;
   const originalH = 300;
 
-  // Hitung expanded bounding box (canvas style)
+  // Canvas-expanded bounding box
   const expandedW =
     Math.abs(originalW * Math.cos(rad)) +
     Math.abs(originalH * Math.sin(rad));
@@ -30,11 +30,14 @@ export function RotatePreview() {
 
   return (
     <div
-      className="flex justify-center items-center p-4 rounded-2xl bg-black/10"
+      className="
+        flex justify-center items-center p-4 rounded-2xl bg-black/10
+        w-full h-auto
+      "
       style={{
-        width: previewW,
-        height: previewH,
-        transition: "width .2s ease, height .2s ease",
+        maxWidth: "100%",
+        maxHeight: "70vh",
+        overflow: "hidden",
         background:
           rotateState.background === "transparent"
             ? "transparent"
@@ -43,8 +46,16 @@ export function RotatePreview() {
     >
       <div
         style={{
+          width: previewW,
+          height: previewH,
+          maxWidth: "100%",
+          maxHeight: "70vh",
           transform: transformValue,
-          transition: "transform .2s ease",
+          transformOrigin: "center",
+          transition: "transform .2s ease, width .2s ease, height .2s ease",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
         }}
       >
         <Image
@@ -52,7 +63,7 @@ export function RotatePreview() {
           alt="Rotate Preview"
           width={originalW}
           height={originalH}
-          className="rounded-md border"
+          className="rounded-md border max-w-full h-auto"
         />
       </div>
     </div>
