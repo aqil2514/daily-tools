@@ -12,6 +12,7 @@ import { QRType } from "../types/qr-state";
 const qrTypeList: Record<QRType, string> = {
   url: "URL",
   "social-media": "Social Media",
+  "whatsapp-messenger":"Whatsapp and Messenger  "
 };
 
 export function QRSelectType() {
@@ -25,7 +26,7 @@ export function QRSelectType() {
         setOptions((prev) => ({ ...prev, data: "" }));
       }}
     >
-      <SelectTrigger className="w-[180px]">
+      <SelectTrigger className="w-[300px]">
         <SelectValue placeholder="QR Type" />
       </SelectTrigger>
       <SelectContent>

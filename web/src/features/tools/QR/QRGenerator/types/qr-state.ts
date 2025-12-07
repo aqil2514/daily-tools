@@ -1,4 +1,4 @@
-export type QRType = "url" | "social-media";
+export type QRType = "url" | "social-media" | "whatsapp-messenger";
 
 export interface QRUrl {
   url: string;

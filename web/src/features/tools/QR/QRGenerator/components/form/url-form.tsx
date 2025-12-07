@@ -20,7 +20,7 @@ const formSchema = z.object({
 });
 
 export function URLForm() {
-  const { setOptions, options } = useQRGenerator();
+  const { setOptions } = useQRGenerator();
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -30,7 +30,6 @@ export function URLForm() {
 
   function onSubmit(values: z.infer<typeof formSchema>) {
     setOptions((prev) => ({ ...prev, data: values.url }));
-    console.log(options);
   }
 
   return (

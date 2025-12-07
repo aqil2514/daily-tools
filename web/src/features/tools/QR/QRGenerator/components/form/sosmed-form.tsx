@@ -15,11 +15,9 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { useQRGenerator } from "../../store/provider";
-import Image from "next/image";
 import { useState } from "react";
-import { cn } from "@/lib/utils";
-import { Label } from "@/components/ui/label";
-import { Switch } from "@/components/ui/switch";
+import { IconSelector } from "./sub/IconSelector";
+import { UseLogoSwitcher } from "./sub/UseLogoSwitcher";
 
 const formSchema = z.object({
   username: z.string().min(1),
@@ -95,7 +93,7 @@ export function SocialMediaForm() {
     setOptions((prev) => ({
       ...prev,
       data: value,
-      image:""
+      image: "",
     }));
   }
 
@@ -113,35 +111,13 @@ export function SocialMediaForm() {
       <SubHeading>Social Media Data</SubHeading>
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-          <div className="flex gap-4 justify-center">
-            {sosmedItems.map((item) => {
-              const isSelected = item.value === sosmed;
-              return (
-                <div
-                  key={item.value}
-                  className={cn(
-                    "rounded-lg group hover:bg-blue-300 transition duration-100 cursor-pointer",
-                    isSelected && "bg-blue-300 "
-                  )}
-                  onClick={() => {
-                    setSosmed(item.value);
-                    setImageLogo(item.image);
-                  }}
-                >
-                  <Image
-                    width={48}
-                    height={48}
-                    src={item.image}
-                    alt={item.value}
-                    className={cn(
-                      "group-hover:scale-75 duration-100 transition",
-                      isSelected && "scale-75"
-                    )}
-                  />
-                </div>
-              );
-            })}
-          </div>
+          <IconSelector
+            iconName={sosmed}
+            setIconName={setSosmed}
+            setIconLogo={setImageLogo}
+            items={sosmedItems}
+          />
+
           <FormField
             control={form.control}
             name="username"
@@ -156,14 +132,8 @@ export function SocialMediaForm() {
               </FormItem>
             )}
           />
-          <div className="flex gap-4">
-            <Label htmlFor="use-logo">Use Logo</Label>
-            <Switch
-              id="use-logo"
-              checked={withLogo}
-              onCheckedChange={logoHandler}
-            />
-          </div>
+
+          <UseLogoSwitcher onCheckedChange={logoHandler} withLogo={withLogo} />
           <Button type="submit">Submit</Button>
         </form>
       </Form>
