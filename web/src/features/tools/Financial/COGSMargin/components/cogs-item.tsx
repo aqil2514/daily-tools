@@ -28,7 +28,8 @@ export function COGSItem() {
             className="relative cursor-pointer transition hover:bg-accent group"
             onClick={() => highlightItem(item)}
           >
-            <div className="group absolute top-2 right-2 ">
+            {/* Floating Buttons */}
+            <div className="group absolute top-2 right-2 flex gap-2">
               <button
                 onClick={(e) => {
                   e.stopPropagation();
@@ -51,9 +52,11 @@ export function COGSItem() {
             </div>
 
             <CardContent className="p-4">
-              <div className="flex justify-between items-start">
-                <div>
-                  <h2 className="font-medium">
+              {/* TOP SECTION – Responsive row */}
+              <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-3">
+                {/* Item name */}
+                <div className="min-w-0">
+                  <h2 className="font-medium truncate">
                     {item.itemName || "Tanpa Nama"}
                   </h2>
                   <p className="text-xs text-muted-foreground mt-1">
@@ -61,7 +64,8 @@ export function COGSItem() {
                   </p>
                 </div>
 
-                <div className="text-right">
+                {/* Profit per unit */}
+                <div className="text-right sm:min-w-[100px]">
                   <p className="text-sm font-medium text-primary">
                     Rp {data.unitProfit.toLocaleString()}
                   </p>
@@ -71,15 +75,18 @@ export function COGSItem() {
                 </div>
               </div>
 
-              <div className="flex justify-between text-xs mt-3">
-                <div>
+              {/* BOTTOM SECTION – Wrap nicely on mobile */}
+              <div className="flex flex-wrap justify-between gap-4 text-xs mt-4">
+                {/* HPP */}
+                <div className="flex-1 min-w-20">
                   <p className="text-muted-foreground">{t("list.hpp")}</p>
                   <p className="font-medium">
                     Rp {data.unitCost.toLocaleString()}
                   </p>
                 </div>
 
-                <div>
+                {/* Selling Price */}
+                <div className="flex-1 min-w-20">
                   <p className="text-muted-foreground">
                     {t("list.selling-price")}
                   </p>
@@ -88,7 +95,8 @@ export function COGSItem() {
                   </p>
                 </div>
 
-                <div className="text-right">
+                {/* Margin */}
+                <div className="flex-1 min-w-20 text-right">
                   <p className="text-muted-foreground">{t("list.margin")}</p>
                   <p
                     className={`font-medium ${

@@ -13,7 +13,7 @@ export function COGSMarginComponent() {
   const t = useTranslations();
   return (
     <>
-      <div className="grid grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
         <ToolCard>
           <div className="flex justify-between">
             <p className="text-lg font-medium mb-3">List Item</p>

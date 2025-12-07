@@ -238,7 +238,7 @@ export function CashExport() {
   };
 
    return (
-    <div className="grid grid-cols-4 gap-2">
+    <div className="grid grid-cols-2 lg:grid-cols-4 gap-2">
       <Button onClick={exportPDF} variant="default" className="flex gap-2 items-center">
         <FileText className="w-4 h-4" />
         Export PDF

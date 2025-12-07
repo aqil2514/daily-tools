@@ -16,17 +16,21 @@ import { useTranslations } from "next-intl";
 
 export function CashCounterComponent() {
   const { resetAll } = useCashCounter();
-  const t = useTranslations("tools-registry.financial.cash-counter")
+  const t = useTranslations("tools-registry.financial.cash-counter");
+
   return (
-    <div className="grid grid-cols-2 gap-4">
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+      {/* Table Section */}
       <ToolCard>
-        <div className="flex justify-between">
-          <p className="text-gray-500 text-2xl font-semibold mb-2">
+        <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+          <p className="text-gray-500 text-2xl font-semibold">
             {t("cash-table")}
           </p>
 
-          <div className="flex gap-4">
-            <Button variant={"outline"} onClick={resetAll}>Reset</Button>
+          <div className="flex gap-2 md:gap-4">
+            <Button variant="outline" onClick={resetAll}>
+              Reset
+            </Button>
             <ShortcutHint />
           </div>
         </div>
@@ -34,15 +38,20 @@ export function CashCounterComponent() {
         <CashTable />
       </ToolCard>
 
+      {/* Summary Section */}
       <ToolCard>
-        <p className="text-gray-500 text-2xl font-semibold">{t("summary")}</p>
+        <p className="text-gray-500 text-2xl font-semibold">
+          {t("summary")}
+        </p>
 
         <CashSummary />
 
         <Accordion type="single" collapsible>
           <AccordionItem value="item-1">
             <AccordionTrigger>
-              <p className="text-gray-500 text-2xl font-semibold">{t("setting")}</p>
+              <p className="text-gray-500 text-2xl font-semibold">
+                {t("setting")}
+              </p>
             </AccordionTrigger>
             <AccordionContent>
               <CashSettings />
