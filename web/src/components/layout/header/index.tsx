@@ -6,6 +6,8 @@ import {
   NavigationMenuLink,
   NavigationMenuList,
 } from "@/components/ui/navigation-menu";
+import { SidebarTrigger } from "@/components/ui/sidebar";
+import { fontLobster } from "@/constants/fonts";
 import { usePathname, Link } from "@/i18n/navigation";
 import { cn } from "@/lib/utils";
 
@@ -37,12 +39,17 @@ const items: HeaderItem[] = [
 export default function Header() {
   const pathname = usePathname();
   return (
-    <header className="fixed top-0 left-0 w-full bg-slate-800 text-amber-100 px-6 py-4 flex gap-8 items-center">
-      <Link href="/" className="font-semibold text-lg">
-        Flowtooly
-      </Link>
+    <header className="w-full bg-slate-800 text-amber-100 px-6 py-4 flex gap-8 justify-between lg:justify-start items-center z-10">
+      <div className="flex gap-4">
+        <SidebarTrigger className="hidden lg:block" />
+        <Link href="/" className={cn(fontLobster.className, "font-semibold text-2xl")}>
+          FlowTooly
+        </Link>
+      </div>
 
-      <NavigationMenu>
+        <SidebarTrigger className="block lg:hidden" />
+
+      <NavigationMenu className="hidden lg:flex">
         <NavigationMenuList className="flex-wrap">
           {items.map((item, i) => {
             const isActive = item.isDynamic

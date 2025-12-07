@@ -1,29 +1,18 @@
-"use client";
-
-import Sidebar from "@/components/layout/sidebar";
-import Header from "@/components/layout/header";
-import { ContentContainer } from "@/components/layout/container/content-container";
-import { usePathname } from "@/i18n/navigation";
-import { cn } from "@/lib/utils";
+import { ScrollArea } from "@/components/ui/scroll-area";
 
 export function LayoutWrapper({ children }: { children: React.ReactNode }) {
-  const pathname = usePathname();
-
-  const hideSidebar = pathname === "/";
-
   return (
-    <>
-      <Header />
-
-      <main
-        className={cn(
-          "bg-zinc-50 dark:bg-black",
-          hideSidebar ? "pt-20" : "grid grid-cols-[15%_auto] pt-20"
-        )}
+    <ScrollArea className="h-[calc(100vh-64px)] w-full">
+      <div
+        className="
+          px-4 sm:px-6 lg:px-8 xl:px-12
+          max-w-7xl mx-auto
+          space-y-6 lg:space-y-8
+          py-6
+        "
       >
-        {!hideSidebar && <Sidebar />}
-        <ContentContainer>{children}</ContentContainer>
-      </main>
-    </>
+        {children}
+      </div>
+    </ScrollArea>
   );
 }

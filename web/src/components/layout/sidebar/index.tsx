@@ -1,18 +1,41 @@
-import { ScrollArea } from "@/components/ui/scroll-area";
-import { ToolsList } from "./tools-list";
-import { SectionList } from "./section-list";
+"use client";
+import { Separator } from "@/components/ui/separator";
+import {
+  Sidebar,
+  SidebarContent,
+  SidebarFooter,
+  SidebarHeader,
+} from "@/components/ui/sidebar";
+import { fontLobster } from "@/constants/fonts";
+import { cn } from "@/lib/utils";
 import { LocaleSwitcher } from "./switch-changer";
+import { MainGroup } from "./sidebar-group/main-group";
+import { CategoryGroup } from "./sidebar-group/category-group";
 
-export default function Sidebar() {
+export default function AppSidebar() {
   return (
-    <div className="sticky top-0 h-[calc(100vh-5rem)]">
-      <ScrollArea className="w-full h-[90%] px-4">
-        <SectionList />
-        <ToolsList />
-      </ScrollArea>
-      <footer className="p-4 text-xs text-gray-400">
-        <LocaleSwitcher showLabel={true} />
-      </footer>
-    </div>
+    <Sidebar>
+      <SidebarHeader>
+        <p
+          className={cn(
+            fontLobster.className,
+            "text-2xl lg:text-4xl font-semibold text-center pt-6 text-slate-800"
+          )}
+        >
+          FlowTooly
+        </p>
+        <Separator />
+      </SidebarHeader>
+      <SidebarContent>
+        <MainGroup />
+        <Separator />
+        <CategoryGroup />
+        <Separator />
+      </SidebarContent>
+      <SidebarFooter>
+        <Separator />
+        <LocaleSwitcher showLabel />
+      </SidebarFooter>
+    </Sidebar>
   );
 }
