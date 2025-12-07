@@ -1,6 +1,7 @@
 import { useLocale } from "next-intl";
 import { sidebarSections } from "../registry";
 import { Button } from "@/components/ui/button";
+import { Link } from "@/i18n/navigation";
 
 interface Props {
   selectedCategory: string;
@@ -51,9 +52,9 @@ export function CategoryContent({
         "
       >
         {tools.map((tool, i) => (
-          <div
-            key={`tool-${i + 1}`}
-            className="
+          <Link key={`tool-${i + 1}`} href={tool.href}>
+            <div
+              className="
               p-5 
               border 
               rounded-2xl 
@@ -64,15 +65,16 @@ export function CategoryContent({
               transition
               cursor-pointer
             "
-          >
-            <h3 className="text-lg font-medium text-slate-900">
-              {tool.title[locale]}
-            </h3>
+            >
+              <h3 className="text-lg font-medium text-slate-900">
+                {tool.title[locale]}
+              </h3>
 
-            <p className="text-sm text-slate-500 mt-1 leading-relaxed">
-              {tool.description[locale]}
-            </p>
-          </div>
+              <p className="text-sm text-slate-500 mt-1 leading-relaxed">
+                {tool.description[locale]}
+              </p>
+            </div>
+          </Link>
         ))}
       </div>
     </div>
