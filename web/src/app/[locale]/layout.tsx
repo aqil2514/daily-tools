@@ -1,6 +1,6 @@
 import "../globals.css";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
-import { Toaster } from "@/components/ui/sonner"
+import { Toaster } from "@/components/ui/sonner";
 
 import { Metadata } from "next";
 import { routing } from "@/i18n/routing";
@@ -11,6 +11,7 @@ import { SidebarProvider } from "@/components/ui/sidebar";
 import AppSidebar from "@/components/layout/sidebar";
 import Header from "@/components/layout/header";
 import { LayoutWrapper } from "@/components/layout/wrapper/LayoutWrapper";
+import { canonicalUrl, getHreflangs } from "@/constants/seo";
 
 export async function generateMetadata(): Promise<Metadata> {
   const locale = await getLocale();
@@ -18,6 +19,10 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     title: metadata.title,
     description: metadata.description,
+    alternates: {
+      canonical: canonicalUrl(locale),
+      languages: getHreflangs(),
+    },
   };
 }
 
@@ -33,7 +38,7 @@ export default async function LocaleLayout({ children, params }: Props) {
   }
 
   return (
-    <html lang="en">
+    <html lang={locale}>
       <body className={` antialiased bg-zinc-50 dark:bg-black`}>
         <NextIntlClientProvider>
           <SidebarProvider>

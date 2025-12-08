@@ -1,17 +1,39 @@
-Developer Tools
+🧰 1. Developer Tools (Tambahan Paling Cocok untuk Flowtooly)
 
-Password Generator ✅
+Kategori developer cenderung kecil, tapi antusiasnya tinggi. Ini juga membuat Flowtooly terlihat "lebih teknis".
 
-JWT Decoder
+🔧 Sangat Mudah (Client-Side Only)
 
-JSON Prettier
+uuid-generator
 
-Hash Tool
+slug-generator
 
-Regex Tester
+base64-encoder-decoder
 
-UUID Generator
+url-encoder-decoder
 
-Base64 Encode/Decode
+json-formatter
 
-URL Encode/Decode
+yaml-json-converter
+
+jwt-decoder (tanpa secret, hanya payload)
+
+regex-tester
+
+html-escape-unescape
+
+lorem-ipsum-generator
+
+🧪 Menengah
+
+bcrypt compare simulator
+(Anda sudah kepikiran ini sebelumnya)
+
+🔐 Advanced (But very cool)
+
+rsa key generator (client-only)
+
+sha hashing tool (sha256, sha512)
+
+Kenapa penting:
+Developer tools membuat Flowtooly tetap relevan untuk programmer. Sekaligus differentiator yang kuat.

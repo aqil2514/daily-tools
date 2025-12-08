@@ -15,10 +15,11 @@ export type ImageToolName =
   | "image-cropper"
   | "image-rotate"
   | "image-to-pdf";
-
-export type PDFToolName =
+  
+  export type PDFToolName =
   | "pdf-merge"
   | "pdf-split"
+  // TODO : Nanti kalo Python udah siap
   // | "pdf-compress"
   | "pdf-generator";
 
