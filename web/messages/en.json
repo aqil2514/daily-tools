@@ -144,5 +144,11 @@
   "Misc": {
     "notfound-title": "Tool Not Found",
     "notfound-description": "The requested tool could not be found on Flowtooly"
+  },
+  "NotFoundPage": {
+    "title": "Page Not Found",
+    "description": "Sorry, the page you’re looking for isn’t available. It might have been moved, deleted, or the link may be incorrect.",
+    "backHome": "Back to Home",
+    "viewTools": "Explore Tools"
   }
 }

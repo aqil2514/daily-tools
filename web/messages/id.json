@@ -141,5 +141,11 @@
   "Misc": {
     "notfound-title": "Tools Tidak Ditemukan",
     "notfound-description": "Tools yang diminta tidak dapat ditemukan"
+  },
+ "NotFoundPage": {
+    "title": "Halaman tidak ditemukan",
+    "description": "Maaf, halaman yang Anda cari tidak tersedia. Mungkin sudah dipindahkan, dihapus, atau Anda salah mengetik link.",
+    "backHome": "Kembali ke Beranda",
+    "viewTools": "Lihat Semua Tools"
   }
 }
