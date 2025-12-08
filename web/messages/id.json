@@ -182,5 +182,27 @@
         "google": "Google Password Manager (bawaan Chrome & Android)"
       }
     }
+  },
+  "tools-pdf": {
+    "pdf-merge": {
+      "setting": {
+        "title": "Pengaturan PDF",
+        "noFiles": "Belum ada file yang diunggah.",
+        "order": "Urutan",
+        "delete": "Hapus",
+        "merge-pdf": "Gabungkan PDF",
+        "merging": "Menggabungkan...",
+        "output-name": "Nama File yang Dihasilkan"
+      },
+      "empty": "File belum ditambahkan",
+      "title": "Tampilan",
+      "addFile": "Tambah File"
+    }
+  },
+  "atoms": {
+    "upload-pdf": {
+      "drop": "Lepaskan file PDF di sini",
+      "uploadOrDrop": "Klik atau drop file PDF di sini"
+    }
   }
 }

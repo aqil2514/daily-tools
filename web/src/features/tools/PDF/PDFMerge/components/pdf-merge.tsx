@@ -1,43 +1,17 @@
-"use client";
-
-import { FileDropzone } from "@/components/tools/file-dropzone";
-import { TaskProgress } from "@/components/tools/task-progress";
-import { ToolCard } from "@/components/tools/tool-card";
-
-import { usePDFMerge } from "../hooks/usePDFMerge";
-import { MergeList } from "./merge-list";
-import { MergeAction } from "./merge-action";
+import { UploadPDF } from "@/components/atoms/upload-pdf";
+import { usePDFMerge } from "../store/provider";
+import { PDFSetting } from "./pdf-setting";
+import { PDFPreview } from "./pdf-preview";
 
 export function PDFMerge() {
-  const { files, mergedUrl, loading, handleSelect, handleMerge } =
-    usePDFMerge();
+  const { files, addFiles } = usePDFMerge();
 
+  if (files.length < 1)
+    return <UploadPDF onFilesSelected={(files) => addFiles(files)} />;
   return (
-    <ToolCard>
-      <FileDropzone
-        accept="application/pdf"
-        label="Klik atau drag beberapa PDF untuk gabungkan"
-        multiple={true}
-        onSelect={(f) => handleSelect(Array.isArray(f) ? f : [f])}
-      />
-
-      <MergeList files={files} />
-
-      <MergeAction
-        files={files}
-        mergedUrl={mergedUrl}
-        loading={loading}
-        onMerge={handleMerge}
-      />
-
-      {loading && <TaskProgress label="Menggabungkan PDF..." />}
-
-      {mergedUrl && (
-        <iframe
-          src={mergedUrl}
-          className="w-full h-[400px] border rounded-md mt-4"
-        />
-      )}
-    </ToolCard>
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+      <PDFPreview />
+      <PDFSetting />
+    </div>
   );
 }

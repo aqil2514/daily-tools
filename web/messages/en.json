@@ -185,5 +185,27 @@
         "google": "Google Password Manager (built-in for Chrome & Android)"
       }
     }
+  },
+  "tools-pdf": {
+    "pdf-merge": {
+      "setting": {
+        "title": "PDF Settings",
+        "noFiles": "No files uploaded yet.",
+        "order": "Order",
+        "delete": "Delete",
+        "merge-pdf": "Merge PDF",
+        "merging": "Merging...",
+        "output-name": "Output Name"
+      },
+      "empty": "No files added yet.",
+      "title": "Preview",
+      "addFile": "Add File"
+    }
+  },
+  "atoms": {
+    "upload-pdf": {
+      "drop": "Drop your PDF files here",
+      "uploadOrDrop": "Click or drop PDF files here"
+    }
   }
 }
