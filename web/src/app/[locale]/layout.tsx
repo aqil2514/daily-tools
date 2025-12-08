@@ -2,6 +2,7 @@ import "../globals.css";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { Toaster } from "@/components/ui/sonner";
 import { Analytics } from "@vercel/analytics/next"
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 import { Metadata } from "next";
 import { routing } from "@/i18n/routing";
@@ -52,6 +53,7 @@ export default async function LocaleLayout({ children, params }: Props) {
           </SidebarProvider>
 
           <Analytics />
+          <SpeedInsights />
         </NextIntlClientProvider>
       </body>
     </html>
