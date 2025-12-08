@@ -1,5 +1,7 @@
 Developer Tools
 
+Password Generator ✅
+
 JWT Decoder
 
 JSON Prettier
