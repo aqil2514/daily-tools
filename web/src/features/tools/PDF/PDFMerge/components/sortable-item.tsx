@@ -44,12 +44,12 @@ export function SortableItem({
       <FileText className="text-primary shrink-0" />
 
       {/* File Info */}
-      <div className="flex-1">
-        <p className="font-medium truncate">{file.name}</p>
-        <p className="text-xs text-muted-foreground">
-          {(file.size / 1024).toFixed(1)} KB
-        </p>
-      </div>
+     <div className="flex-1 min-w-0">
+  <p className="font-medium truncate">{file.name}</p>
+  <p className="text-xs text-muted-foreground">
+    {(file.size / 1024).toFixed(1)} KB
+  </p>
+</div>
 
       {/* Delete */}
       <Button
