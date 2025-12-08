@@ -1,5 +1,12 @@
 import React from "react";
 
+export type DeveloperToolName = "password-generator";
+
+export type FinancialToolName =
+  | "cash-counter"
+  | "cogs-margin-tool"
+  | "financial-simulator";
+
 export type ImageToolName =
   | "image-converter"
   | "image-resizer"
@@ -17,21 +24,17 @@ export type PDFToolName =
 
 export type QRToolName = "qr-generator";
 
-export type FinancialToolName =
-  | "cash-counter"
-  | "cogs-margin-tool"
-  | "financial-simulator";
-
 export type ToolName =
+  | DeveloperToolName
+  | FinancialToolName
   | ImageToolName
   | PDFToolName
-  | QRToolName
-  | FinancialToolName;
+  | QRToolName;
 
 export interface ToolRegistryItem {
   Component: React.ComponentType;
   href: `/tools/${ToolName}`;
-  category: "image" | "pdf" | "qr" | "financial";
+  category: "image" | "pdf" | "qr" | "financial" | "developer";
 
   description: {
     en: string;

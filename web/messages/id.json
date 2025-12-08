@@ -11,7 +11,8 @@
       "financial-tool": "Tools Finansial",
       "image-tool": "Tools Gambar",
       "pdf-tool": "Tools PDF",
-      "qr-tool": "Tools QR"
+      "qr-tool": "Tools QR",
+      "developer-tool": "Developer Tools"
     },
     "searchPlaceholder": "Temukan alat yang anda butuhkan..."
   },
@@ -142,7 +143,7 @@
     "notfound-title": "Tools Tidak Ditemukan",
     "notfound-description": "Tools yang diminta tidak dapat ditemukan"
   },
- "NotFoundPage": {
+  "NotFoundPage": {
     "title": "Halaman tidak ditemukan",
     "description": "Maaf, halaman yang Anda cari tidak tersedia. Mungkin sudah dipindahkan, dihapus, atau Anda salah mengetik link.",
     "backHome": "Kembali ke Beranda",

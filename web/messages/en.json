@@ -11,7 +11,8 @@
       "financial-tool": "Financial Tools",
       "image-tool": "Image Tools",
       "pdf-tool": "PDF Tools",
-      "qr-tool": "QR Tools"
+      "qr-tool": "QR Tools",
+      "developer-tool": "Developer Tools"
     },
     "searchPlaceholder": "Search tools that you need"
   },

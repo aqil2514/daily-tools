@@ -6,6 +6,7 @@ import {
   FileText,
   QrCode,
   LucideIcon,
+  Code,
 } from "lucide-react";
 
 const categoryIcons: Record<string, LucideIcon> = {
@@ -13,6 +14,7 @@ const categoryIcons: Record<string, LucideIcon> = {
   image: ImageIcon,
   pdf: FileText,
   qr: QrCode,
+  developer:Code
 };
 
 export function CategoryList({
