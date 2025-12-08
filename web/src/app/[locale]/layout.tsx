@@ -1,5 +1,6 @@
 import "../globals.css";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
+import { Toaster } from "@/components/ui/sonner"
 
 import { Metadata } from "next";
 import { routing } from "@/i18n/routing";
@@ -41,6 +42,7 @@ export default async function LocaleLayout({ children, params }: Props) {
               <Header />
               <LayoutWrapper>{children}</LayoutWrapper>
             </main>
+            <Toaster richColors position="top-center" />
           </SidebarProvider>
         </NextIntlClientProvider>
       </body>

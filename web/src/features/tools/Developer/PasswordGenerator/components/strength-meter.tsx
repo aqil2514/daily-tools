@@ -1,14 +1,7 @@
 "use client";
 
 import zxcvbn from "zxcvbn";
-
-const SCORE_TEXT = [
-  "Very Weak",
-  "Weak",
-  "Fair",
-  "Strong",
-  "Very Strong",
-];
+import { useTranslations } from "next-intl";
 
 const SCORE_COLORS = [
   "bg-red-500",
@@ -19,6 +12,8 @@ const SCORE_COLORS = [
 ];
 
 export function StrengthMeter({ value }: { value: string }) {
+  const t = useTranslations("tools-developer.password-generator");
+
   if (!value) return null;
 
   const result = zxcvbn(value);
@@ -28,8 +23,8 @@ export function StrengthMeter({ value }: { value: string }) {
     <div className="space-y-2">
       {/* LABEL */}
       <p className="text-sm font-medium">
-        Password Strength:{" "}
-        <span className="font-semibold">{SCORE_TEXT[score]}</span>
+        {t("strengthLabel")}{" "}
+        <span className="font-semibold">{t(`score.${score}`)}</span>
       </p>
 
       {/* BAR */}

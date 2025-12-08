@@ -151,5 +151,31 @@
     "description": "Sorry, the page you’re looking for isn’t available. It might have been moved, deleted, or the link may be incorrect.",
     "backHome": "Back to Home",
     "viewTools": "Explore Tools"
+  },
+  "tools-developer": {
+    "password-generator": {
+      "length": "Password Length: {value}",
+      "lowercase": "Lowercase (a-z)",
+      "uppercase": "Uppercase (A-Z)",
+      "numbers": "Numbers (0-9)",
+      "symbols": "Symbols (!@#$...)",
+      "allowSpaces": "Allow Spaces",
+      "excludeSimilar": "Exclude Similar (Il1O0)",
+      "excludeDuplicates": "No Duplicate Characters",
+      "customCharacters": "Custom Characters",
+      "placeholderCustomCharacters": "ABC123!@#",
+      "generate": "Generate",
+      "copy": "Copy",
+      "copySuccess": "Password copied successfully!",
+
+      "strengthLabel": "Password Strength:",
+      "score": {
+        "0": "Very Weak",
+        "1": "Weak",
+        "2": "Fair",
+        "3": "Strong",
+        "4": "Very Strong"
+      }
+    }
   }
 }

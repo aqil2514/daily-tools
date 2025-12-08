@@ -2,7 +2,6 @@
 
 import { ToolCard } from "@/components/tools/tool-card";
 import { usePasswordGenerator } from "../store/provider";
-
 import { Input } from "@/components/ui/input";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Button } from "@/components/ui/button";
@@ -11,10 +10,13 @@ import { Slider } from "@/components/ui/slider";
 import { useState } from "react";
 import { generatePassword } from "../utils/generate-password";
 import { StrengthMeter } from "./strength-meter";
+import { toast } from "sonner";
+import { useTranslations } from "next-intl";
 
 export default function PasswordGenerator() {
   const { state, setSetting } = usePasswordGenerator();
   const [result, setResult] = useState("");
+  const t = useTranslations("tools-developer.password-generator");
 
   const generate = () => {
     const pass = generatePassword(state.settings);
@@ -24,13 +26,17 @@ export default function PasswordGenerator() {
   const copy = async () => {
     if (!result) return;
     await navigator.clipboard.writeText(result);
+    toast.success(t("copySuccess"));
   };
 
   return (
     <ToolCard>
       {/* LENGTH */}
       <div className="space-y-2">
-        <Label>Password Length: {state.settings.length}</Label>
+        <Label>
+          {t("length", { value: state.settings.length })}
+        </Label>
+
         <Slider
           min={4}
           max={128}
@@ -46,7 +52,7 @@ export default function PasswordGenerator() {
             checked={state.settings.useLowercase}
             onCheckedChange={(v) => setSetting("useLowercase", Boolean(v))}
           />
-          Lowercase (a-z)
+          {t("lowercase")}
         </Label>
 
         <Label className="flex items-center gap-2">
@@ -54,7 +60,7 @@ export default function PasswordGenerator() {
             checked={state.settings.useUppercase}
             onCheckedChange={(v) => setSetting("useUppercase", Boolean(v))}
           />
-          Uppercase (A-Z)
+          {t("uppercase")}
         </Label>
 
         <Label className="flex items-center gap-2">
@@ -62,7 +68,7 @@ export default function PasswordGenerator() {
             checked={state.settings.useNumbers}
             onCheckedChange={(v) => setSetting("useNumbers", Boolean(v))}
           />
-          Numbers (0-9)
+          {t("numbers")}
         </Label>
 
         <Label className="flex items-center gap-2">
@@ -70,7 +76,7 @@ export default function PasswordGenerator() {
             checked={state.settings.useSymbols}
             onCheckedChange={(v) => setSetting("useSymbols", Boolean(v))}
           />
-          Symbols (!@#$...)
+          {t("symbols")}
         </Label>
 
         <Label className="flex items-center gap-2">
@@ -78,7 +84,7 @@ export default function PasswordGenerator() {
             checked={state.settings.allowSpaces}
             onCheckedChange={(v) => setSetting("allowSpaces", Boolean(v))}
           />
-          Allow Spaces
+          {t("allowSpaces")}
         </Label>
 
         <Label className="flex items-center gap-2">
@@ -86,7 +92,7 @@ export default function PasswordGenerator() {
             checked={state.settings.excludeSimilar}
             onCheckedChange={(v) => setSetting("excludeSimilar", Boolean(v))}
           />
-          Exclude Similar (Il1O0)
+          {t("excludeSimilar")}
         </Label>
 
         <Label className="flex items-center gap-2">
@@ -94,15 +100,15 @@ export default function PasswordGenerator() {
             checked={state.settings.excludeDuplicates}
             onCheckedChange={(v) => setSetting("excludeDuplicates", Boolean(v))}
           />
-          No Duplicate Characters
+          {t("excludeDuplicates")}
         </Label>
       </div>
 
       {/* CUSTOM CHARACTERS */}
       <div>
-        <Label>Custom Characters</Label>
+        <Label>{t("customCharacters")}</Label>
         <Input
-          placeholder="ABC123!@#"
+          placeholder={t("placeholderCustomCharacters")}
           value={state.settings.customCharacters}
           onChange={(e) => setSetting("customCharacters", e.target.value)}
         />
@@ -110,20 +116,20 @@ export default function PasswordGenerator() {
 
       {/* ACTION BUTTONS */}
       <div className="flex gap-2">
-        <Button onClick={generate}>Generate</Button>
+        <Button onClick={generate}>{t("generate")}</Button>
         <Button variant="secondary" onClick={copy} disabled={!result}>
-          Copy
+          {t("copy")}
         </Button>
       </div>
 
       {/* RESULT */}
       {result && (
         <>
-        <div className="p-4 bg-muted rounded-lg font-mono break-all">
-          {result}
-        </div>
+          <div className="p-4 bg-muted rounded-lg font-mono break-all">
+            {result}
+          </div>
 
-        <StrengthMeter value={result} />
+          <StrengthMeter value={result} />
         </>
       )}
     </ToolCard>

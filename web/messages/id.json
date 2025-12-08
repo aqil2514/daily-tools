@@ -148,5 +148,31 @@
     "description": "Maaf, halaman yang Anda cari tidak tersedia. Mungkin sudah dipindahkan, dihapus, atau Anda salah mengetik link.",
     "backHome": "Kembali ke Beranda",
     "viewTools": "Lihat Semua Tools"
+  },
+  "tools-developer": {
+    "password-generator": {
+      "length": "Panjang Password: {value}",
+      "lowercase": "Huruf Kecil (a-z)",
+      "uppercase": "Huruf Besar (A-Z)",
+      "numbers": "Angka (0-9)",
+      "symbols": "Simbol (!@#$...)",
+      "allowSpaces": "Izinkan Spasi",
+      "excludeSimilar": "Hapus Karakter Mirip (Il1O0)",
+      "excludeDuplicates": "Tanpa Karakter Duplikat",
+      "customCharacters": "Karakter Kustom",
+      "placeholderCustomCharacters": "ABC123!@#",
+      "generate": "Buat Password",
+      "copy": "Salin",
+      "copySuccess": "Password berhasil disalin!",
+
+      "strengthLabel": "Kekuatan Password:",
+      "score": {
+        "0": "Sangat Lemah",
+        "1": "Lemah",
+        "2": "Cukup",
+        "3": "Kuat",
+        "4": "Sangat Kuat"
+      }
+    }
   }
 }
