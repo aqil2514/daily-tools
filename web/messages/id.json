@@ -164,7 +164,6 @@
       "generate": "Buat Password",
       "copy": "Salin",
       "copySuccess": "Password berhasil disalin!",
-
       "strengthLabel": "Kekuatan Password:",
       "score": {
         "0": "Sangat Lemah",
@@ -172,6 +171,15 @@
         "2": "Cukup",
         "3": "Kuat",
         "4": "Sangat Kuat"
+      },
+      "generate-success": "Password berhasil dibuat",
+      "securityTipTitle": "Tips Keamanan",
+      "securityTipDescription": "Anda tidak perlu menghafal password. Cukup simpan di password manager yang aman.",
+      "recommendedManagersTitle": "Rekomendasi Password Manager",
+      "recommendedManagers": {
+        "bitwarden": "Bitwarden (gratis, open-source)",
+        "onepassword": "1Password (premium, sangat terpercaya)",
+        "google": "Google Password Manager (bawaan Chrome & Android)"
       }
     }
   }

@@ -4,8 +4,6 @@ JWT Decoder
 
 JSON Prettier
 
-Password Generator
-
 Hash Tool
 
 Regex Tester

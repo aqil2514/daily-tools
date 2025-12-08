@@ -3,6 +3,7 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
 import { Currency, Denomination } from "../types/interface";
 import { denominations as allDenoms } from "../config/denominations";
+import { toast } from "sonner";
 
 interface CashCounterSetting {
   cashInData: number;
@@ -91,6 +92,7 @@ export function CashCounterProvider({
     });
 
     setDenoms(JSON.parse(JSON.stringify(allDenoms[settings.currency])));
+    toast.success("Data has been resetted")
   };
 
   return (

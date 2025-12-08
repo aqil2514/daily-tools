@@ -167,7 +167,6 @@
       "generate": "Generate",
       "copy": "Copy",
       "copySuccess": "Password copied successfully!",
-
       "strengthLabel": "Password Strength:",
       "score": {
         "0": "Very Weak",
@@ -175,6 +174,15 @@
         "2": "Fair",
         "3": "Strong",
         "4": "Very Strong"
+      },
+      "generate-success": "Password successfully created",
+      "securityTipTitle": "Security Tip",
+      "securityTipDescription": "You don’t need to memorize your password. Simply store it in a secure password manager.",
+      "recommendedManagersTitle": "Recommended Password Managers",
+      "recommendedManagers": {
+        "bitwarden": "Bitwarden (free, open-source)",
+        "onepassword": "1Password (premium, highly trusted)",
+        "google": "Google Password Manager (built-in for Chrome & Android)"
       }
     }
   }
