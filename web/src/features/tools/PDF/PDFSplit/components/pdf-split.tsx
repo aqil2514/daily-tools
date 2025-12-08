@@ -1,29 +1,23 @@
-"use client";
-
-import { FileDropzone } from "@/components/tools/file-dropzone";
-import { TaskProgress } from "@/components/tools/task-progress";
-import { ToolCard } from "@/components/tools/tool-card";
-
-import { usePDFSplit } from "../hooks/usePDFSplit";
-import { SplitList } from "./split-list";
-import { SplitAction } from "./split-action";
+import { UploadPDF } from "@/components/atoms/upload-pdf";
+import { usePdfSplit } from "../store/provider";
+import { PDFPreview } from "./pdf-preview";
+import { PDFSetting } from "./pdf-setting";
 
 export function PDFSplit() {
-  const { file, urls, loading, handleSelect, handleSplit } = usePDFSplit();
+  const { file, setFile } = usePdfSplit();
 
-  return (
-    <ToolCard>
-      <FileDropzone
-        accept="application/pdf"
-        label="Klik atau drag PDF untuk memisah halaman"
-        onSelect={handleSelect}
+  if (!file)
+    return (
+      <UploadPDF
+        onFilesSelected={(files) => {
+          setFile(files[0]);
+        }}
       />
-
-      <SplitAction file={file} loading={loading} onSplit={handleSplit} />
-
-      {loading && <TaskProgress label="Memisah PDF..." />}
-
-      <SplitList urls={urls} />
-    </ToolCard>
+    );
+  return (
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+      <PDFPreview />
+      <PDFSetting />
+    </div>
   );
 }
