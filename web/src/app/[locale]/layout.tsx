@@ -1,6 +1,7 @@
 import "../globals.css";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { Toaster } from "@/components/ui/sonner";
+import { Analytics } from "@vercel/analytics/next"
 
 import { Metadata } from "next";
 import { routing } from "@/i18n/routing";
@@ -49,6 +50,8 @@ export default async function LocaleLayout({ children, params }: Props) {
             </main>
             <Toaster richColors position="top-center" />
           </SidebarProvider>
+
+          <Analytics />
         </NextIntlClientProvider>
       </body>
     </html>
