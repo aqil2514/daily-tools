@@ -8,7 +8,7 @@ character-counter ✅
 
 remove-duplicate-lines ✅
 
-case-converter (UPPER, lower, Title Case)
+case-converter (UPPER, lower, Title Case) ✅
 
 text-diff (compare two texts)
 

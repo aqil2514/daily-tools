@@ -255,6 +255,11 @@
       "copied": "Copied",
       "copied-success": "Copied successfully!",
       "copied-failed": "Failed to copy."
+    },
+    "text-diff": {
+      "original-editor-text": "Original Text",
+      "changed-editor-text": "Changed Text",
+      "action": "Find Difference"
     }
   }
 }

@@ -252,6 +252,11 @@
       "copied": "Disalin",
       "copied-success": "Berhasil disalin!",
       "copied-failed": "Gagal disalin"
+    },
+    "text-diff": {
+      "original-editor-text": "Teks Asli",
+      "changed-editor-text": "Text yang Diubah",
+      "action": "Temukan Perbedaan"
     }
   }
 }

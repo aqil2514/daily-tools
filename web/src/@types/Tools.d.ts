@@ -25,7 +25,11 @@ export type PDFToolName =
 
 export type QRToolName = "qr-generator";
 
-export type TextToolName = "word-counter" | "remove-duplicate-lines" | "case-converter";
+export type TextToolName =
+  | "word-counter"
+  | "remove-duplicate-lines"
+  | "case-converter"
+  | "text-diff";
 
 export type ToolName =
   | DeveloperToolName

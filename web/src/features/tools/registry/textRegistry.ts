@@ -105,6 +105,41 @@ export const textRegistry: Record<TextToolName, ToolRegistryItem> = {
       ],
     },
   },
+
+  "text-diff": {
+  title: {
+    en: "Text Diff",
+    id: "Pembanding Teks",
+  },
+  description: {
+    en: "Compare two text blocks and instantly see what’s added, removed, or changed — fully processed locally for maximum privacy.",
+    id: "Bandingkan dua blok teks dan lihat perbedaan berupa penambahan, penghapusan, atau perubahan — diproses sepenuhnya secara lokal untuk privasi maksimal.",
+  },
+  category: "text",
+  href: "/tools/text-diff",
+  Component: dynamic(() => import("@/features/tools/Text/TextDiff")),
+  keywords: {
+    en: [
+      "text diff",
+      "compare text",
+      "text compare tool",
+      "diff checker",
+      "find text differences",
+      "compare two texts",
+      "text comparison online"
+    ],
+    id: [
+      "pembanding teks",
+      "perbedaan teks",
+      "cek perbedaan teks",
+      "bandingkan teks",
+      "alat pembanding teks",
+      "diff teks online",
+      "cari perbedaan teks"
+    ],
+  },
+},
+
 };
 
 export const textToolName = Object.keys(textRegistry) as TextToolName[];
