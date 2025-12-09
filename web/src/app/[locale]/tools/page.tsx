@@ -1,3 +1,4 @@
+import { JsonLdToolsList } from "@/components/seo/json-ld-tools-list";
 import ToolsTemplate from "@/features/tools/master";
 import { getLocalizedMetadata } from "@/utils/localization/getLocalizedMetadata";
 import { Metadata } from "next";
@@ -15,6 +16,13 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-export default function ToolsPage() {
-  return <ToolsTemplate />;
+export default async function ToolsPage() {
+  const locale = await getLocale();
+
+  return (
+    <>
+      <JsonLdToolsList locale={locale} />
+      <ToolsTemplate />
+    </>
+  );
 }

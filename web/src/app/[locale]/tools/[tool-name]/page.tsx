@@ -1,4 +1,6 @@
 import { ToolName } from "@/@types/Tools";
+import { JsonLdTool } from "@/components/seo/json-ld-tool";
+import { SEO_CONFIG } from "@/constants/seo";
 import { toolsRegistry } from "@/features/tools/registry";
 import { Metadata } from "next";
 import { getLocale, getTranslations } from "next-intl/server";
@@ -11,7 +13,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const toolName = (await params)["tool-name"];
   const tool = toolsRegistry[toolName];
   const t = await getTranslations();
-  const locale = await getLocale()
+  const locale = await getLocale();
 
   if (!tool) {
     return {
@@ -29,6 +31,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function ConvertCategoryPage({ params }: Props) {
   const toolName = (await params)["tool-name"];
+  const locale = await getLocale();
   const tool = toolsRegistry[toolName];
   const t = await getTranslations();
 
@@ -38,5 +41,16 @@ export default async function ConvertCategoryPage({ params }: Props) {
 
   const ToolsComponent = tool.Component;
 
-  return <ToolsComponent />;
+  const urlJsonLd = `${SEO_CONFIG.siteUrl}/${locale}${tool.href}`;
+
+  return (
+    <>
+      <JsonLdTool
+        url={urlJsonLd}
+        description={tool.description[locale]}
+        name={tool.title[locale]}
+      />
+      <ToolsComponent />
+    </>
+  );
 }
