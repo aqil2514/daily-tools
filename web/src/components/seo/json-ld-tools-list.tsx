@@ -22,7 +22,10 @@ export function JsonLdToolsList({ locale }: { locale: Locale }) {
     "url": `${siteUrl}/${locale}/tools`,
     "description":
       "Explore all utility tools provided by Flowtooly — fast, simple, and privacy-friendly tools for everyday productivity.",
-    "hasPart": itemListElements,
+    "mainEntity": {
+      "@type": "ItemList",
+      "itemListElement": itemListElements
+    }
   };
 
   return (
