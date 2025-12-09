@@ -6,7 +6,7 @@ word-counter ✅
 
 character-counter ✅
 
-remove-duplicate-lines
+remove-duplicate-lines ✅
 
 case-converter (UPPER, lower, Title Case)
 
