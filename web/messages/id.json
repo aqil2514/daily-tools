@@ -242,6 +242,16 @@
         "uniqueLines": "Baris Unik",
         "removedLines": "Baris yang Dihapus"
       }
+    },
+    "case-converter": {
+      "editor-title": "Editor Teks",
+      "editor-placeholder": "Masukkan teks di sini...",
+      "result-title": "Hasil",
+      "copy": "Salin",
+      "no-result": "Tulislah sebuah kalimat...",
+      "copied": "Disalin",
+      "copied-success": "Berhasil disalin!",
+      "copied-failed": "Gagal disalin"
     }
   }
 }

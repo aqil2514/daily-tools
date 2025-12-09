@@ -245,6 +245,16 @@
         "uniqueLines": "Unique Lines",
         "removedLines": "Removed Lines"
       }
+    },
+    "case-converter": {
+      "editor-title": "Text Editor",
+      "editor-placeholder": "Input your text here...",
+      "result-title": "Result",
+      "copy": "Copy",
+      "no-result": "Write some senteces...",
+      "copied": "Copied",
+      "copied-success": "Copied successfully!",
+      "copied-failed": "Failed to copy."
     }
   }
 }

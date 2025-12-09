@@ -2,6 +2,40 @@ import { TextToolName, ToolRegistryItem } from "@/@types/Tools";
 import dynamic from "next/dynamic";
 
 export const textRegistry: Record<TextToolName, ToolRegistryItem> = {
+  "case-converter": {
+    title: {
+      en: "Case Converter",
+      id: "Pengubah Huruf",
+    },
+    description: {
+      en: "Convert your text to UPPERCASE, lowercase, Title Case, or Sentence case instantly — processed locally for privacy.",
+      id: "Ubah teks Anda menjadi HURUF BESAR, huruf kecil, Judul Kapital, atau Kalimat Kapital secara instan — diproses lokal untuk privasi penuh.",
+    },
+    category: "text",
+    href: "/tools/case-converter",
+    Component: dynamic(() => import("@/features/tools/Text/CaseConverter")),
+    keywords: {
+      en: [
+        "case converter",
+        "uppercase converter",
+        "lowercase converter",
+        "title case online",
+        "sentence case",
+        "text transformation",
+        "convert text case",
+      ],
+      id: [
+        "pengubah huruf",
+        "huruf besar",
+        "huruf kecil",
+        "judul kapital",
+        "kalimat kapital",
+        "ubah format teks",
+        "konversi huruf",
+      ],
+    },
+  },
+
   "word-counter": {
     title: {
       en: "Word Counter",
