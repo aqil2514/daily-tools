@@ -35,6 +35,42 @@ export const textRegistry: Record<TextToolName, ToolRegistryItem> = {
       ],
     },
   },
+
+  "remove-duplicate-lines": {
+    title: {
+      en: "Remove Duplicate Lines",
+      id: "Hapus Baris Duplikat",
+    },
+    description: {
+      en: "Quickly remove duplicate lines from your text — clean, simple, and fully private.",
+      id: "Hapus baris duplikat dari teks Anda dengan cepat — mudah, bersih, dan sepenuhnya privat.",
+    },
+    category: "text",
+    href: "/tools/remove-duplicate-lines",
+    Component: dynamic(
+      () => import("@/features/tools/Text/RemoveDuplicateLines")
+    ),
+    keywords: {
+      en: [
+        "remove duplicate lines",
+        "delete duplicate lines",
+        "clean text",
+        "text tools",
+        "unique lines",
+        "line cleaner",
+        "text deduplicator",
+      ],
+      id: [
+        "hapus baris duplikat",
+        "hilangkan baris duplikat",
+        "bersihkan teks",
+        "alat teks",
+        "baris unik",
+        "pembersih teks",
+        "deduplikasi teks",
+      ],
+    },
+  },
 };
 
 export const textToolName = Object.keys(textRegistry) as TextToolName[];

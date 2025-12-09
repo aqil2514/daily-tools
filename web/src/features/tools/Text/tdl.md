@@ -2,9 +2,9 @@
 
 Walaupun belum ada kategori, bisa dimasukkan ke Developer atau umum.
 
-word-counter
+word-counter ✅
 
-character-counter
+character-counter ✅
 
 remove-duplicate-lines
 

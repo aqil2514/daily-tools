@@ -230,6 +230,21 @@
       "keyword-density-count": "Count",
       "keyword-density-density": "Density (%)",
       "keyword-density-no-data": "All keywords are hidden"
+    },
+    "remove-duplicate-lines": {
+      "editor-title": "Text Editor",
+      "text-editor-placeholder": "Start typing or paste your data here…",
+      "output-title": "Result",
+      "options": {
+        "caseSensitive": "Case Sensitive",
+        "removeEmpty": "Remove Empty Lines",
+        "trimLines": "Trim Lines"
+      },
+      "summary": {
+        "totalLines": "Total Lines",
+        "uniqueLines": "Unique Lines",
+        "removedLines": "Removed Lines"
+      }
     }
   }
 }

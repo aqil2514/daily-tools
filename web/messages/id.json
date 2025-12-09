@@ -227,6 +227,21 @@
       "keyword-density-count": "Jumlah",
       "keyword-density-density": "Kepadatan (%)",
       "keyword-density-no-data": "Semua kata disembunyikan"
+    },
+    "remove-duplicate-lines": {
+      "editor-title": "Editor Teks",
+      "text-editor-placeholder": "Tulis atau Salin Data Anda di sini",
+      "output-title": "Hasil",
+      "options": {
+        "caseSensitive": "Sensitivitas Huruf Besar/Kecil",
+        "removeEmpty": "Hapus Baris Kosong",
+        "trimLines": "Potong Spasi Baris"
+      },
+      "summary": {
+        "totalLines": "Total Baris",
+        "uniqueLines": "Baris Unik",
+        "removedLines": "Baris yang Dihapus"
+      }
     }
   }
 }
