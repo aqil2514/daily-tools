@@ -107,39 +107,74 @@ export const textRegistry: Record<TextToolName, ToolRegistryItem> = {
   },
 
   "text-diff": {
-  title: {
-    en: "Text Diff",
-    id: "Pembanding Teks",
+    title: {
+      en: "Text Diff",
+      id: "Pembanding Teks",
+    },
+    description: {
+      en: "Compare two text blocks and instantly see what’s added, removed, or changed — fully processed locally for maximum privacy.",
+      id: "Bandingkan dua blok teks dan lihat perbedaan berupa penambahan, penghapusan, atau perubahan — diproses sepenuhnya secara lokal untuk privasi maksimal.",
+    },
+    category: "text",
+    href: "/tools/text-diff",
+    Component: dynamic(() => import("@/features/tools/Text/TextDiff")),
+    keywords: {
+      en: [
+        "text diff",
+        "compare text",
+        "text compare tool",
+        "diff checker",
+        "find text differences",
+        "compare two texts",
+        "text comparison online",
+      ],
+      id: [
+        "pembanding teks",
+        "perbedaan teks",
+        "cek perbedaan teks",
+        "bandingkan teks",
+        "alat pembanding teks",
+        "diff teks online",
+        "cari perbedaan teks",
+      ],
+    },
   },
-  description: {
-    en: "Compare two text blocks and instantly see what’s added, removed, or changed — fully processed locally for maximum privacy.",
-    id: "Bandingkan dua blok teks dan lihat perbedaan berupa penambahan, penghapusan, atau perubahan — diproses sepenuhnya secara lokal untuk privasi maksimal.",
-  },
-  category: "text",
-  href: "/tools/text-diff",
-  Component: dynamic(() => import("@/features/tools/Text/TextDiff")),
-  keywords: {
-    en: [
-      "text diff",
-      "compare text",
-      "text compare tool",
-      "diff checker",
-      "find text differences",
-      "compare two texts",
-      "text comparison online"
-    ],
-    id: [
-      "pembanding teks",
-      "perbedaan teks",
-      "cek perbedaan teks",
-      "bandingkan teks",
-      "alat pembanding teks",
-      "diff teks online",
-      "cari perbedaan teks"
-    ],
-  },
-},
 
+  "url-extractor": {
+    title: {
+      en: "URL Extractor",
+      id: "Ekstraktor URL",
+    },
+    description: {
+      en: "Extract all URLs from any text instantly — fast, accurate, and processed entirely in your browser for full privacy.",
+      id: "Ekstrak semua URL dari teks apa pun secara instan — cepat, akurat, dan sepenuhnya diproses di browser Anda untuk privasi penuh.",
+    },
+    category: "text",
+    href: "/tools/url-extractor",
+    Component: dynamic(() => import("@/features/tools/Text/UrlExtractor")),
+    keywords: {
+      en: [
+        "url extractor",
+        "extract urls",
+        "find urls in text",
+        "url finder",
+        "link extractor",
+        "extract links",
+        "text url parser",
+        "url scanner",
+      ],
+      id: [
+        "ekstraktor url",
+        "ambil url",
+        "cari url dalam teks",
+        "pencari url",
+        "ekstrak tautan",
+        "pengambil link",
+        "parser url dari teks",
+        "pemindai url",
+      ],
+    },
+  },
 };
 
 export const textToolName = Object.keys(textRegistry) as TextToolName[];

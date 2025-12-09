@@ -29,7 +29,8 @@ export type TextToolName =
   | "word-counter"
   | "remove-duplicate-lines"
   | "case-converter"
-  | "text-diff";
+  | "text-diff"
+  | "url-extractor";
 
 export type ToolName =
   | DeveloperToolName

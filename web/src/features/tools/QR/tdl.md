@@ -4,7 +4,7 @@ Anda sudah punya QR Generator yang bagus. Bisa diperluas sedikit lagi:
 
 🔲 Tambahan:
 
-qr-styler (custom shape, stroke, background)
+qr-styler (custom shape, stroke, background) ✅
 
 qr-batch-generator (upload CSV)
 

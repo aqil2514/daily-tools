@@ -2,7 +2,8 @@ import { SubHeading } from "@/components/atoms/subHeading";
 import { Textarea } from "@/components/ui/textarea";
 import { useTranslations } from "next-intl";
 import { useRemoveDuplicateLines } from "../store/provider";
-import { SampleDataComponent } from "./sample-data";
+import { SampleDataComponent } from "@/components/atoms/sample-data";
+import { sampleData } from "../data/sample-data";
 
 export function TextEditor() {
   const { text, setText } = useRemoveDuplicateLines();
@@ -11,7 +12,7 @@ export function TextEditor() {
     <div>
       <SubHeading className="mt-0">{t("editor-title")}</SubHeading>
       <div className="space-y-2">
-        <SampleDataComponent />
+        <SampleDataComponent setText={setText} sampleData={sampleData} />
         <Textarea
           className="h-96"
           value={text}

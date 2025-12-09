@@ -257,6 +257,17 @@
       "original-editor-text": "Teks Asli",
       "changed-editor-text": "Text yang Diubah",
       "action": "Temukan Perbedaan"
+    },
+    "url-extractor": {
+      "editor-title": "Editor Teks",
+      "result-title": "Hasil",
+      "copy-all": "Salin Semua",
+      "download": "Unduh",
+      "clear": "Bersihkan",
+      "copy-success": "URL berhasil disalin",
+      "copy-bulks-success": "Semua URL berhasil disalin",
+      "download-empty-error": "Anda tidak memiliki data URL",
+      "download-success": "Unduh berhasil"
     }
   }
 }

@@ -1,7 +1,7 @@
 import { ToolCard } from "@/components/tools/tool-card";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
-import { TextEditor } from "./text-editor";
+import { TextEditor } from "@/components/atoms/text-editor";
 import { useTranslations } from "next-intl";
 import { ChangeObject, diffChars } from "diff";
 import { OutputSection } from "./output-section";

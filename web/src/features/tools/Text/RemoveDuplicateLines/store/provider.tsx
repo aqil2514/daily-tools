@@ -1,9 +1,15 @@
-import React, { createContext, Dispatch, SetStateAction, useContext, useState } from "react";
+import React, {
+  createContext,
+  Dispatch,
+  SetStateAction,
+  useContext,
+  useState,
+} from "react";
 import { DedupeOptions } from "../types/inteface";
 
 interface RemoveDuplicateLinesContextTypes {
   text: string;
-  setText: (text: string) => void;
+  setText: Dispatch<SetStateAction<string>>;
 
   settings: DedupeOptions;
   setSettings: Dispatch<SetStateAction<DedupeOptions>>;

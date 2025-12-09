@@ -260,6 +260,17 @@
       "original-editor-text": "Original Text",
       "changed-editor-text": "Changed Text",
       "action": "Find Difference"
+    },
+    "url-extractor": {
+      "editor-title": "Text Editor",
+      "result-title": "Result",
+      "copy-all": "Copy All",
+      "download": "Download",
+      "clear": "Clear",
+      "copy-success": "URL succesfully copied",
+      "copy-bulks-success": "All URLs has been copied",
+      "download-empty-error": "You don't have any URL",
+      "download-success": "Download success"
     }
   }
 }

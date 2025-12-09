@@ -10,9 +10,9 @@ remove-duplicate-lines ✅
 
 case-converter (UPPER, lower, Title Case) ✅
 
-text-diff (compare two texts)
+text-diff (compare two texts) ✅
 
-url-extractor from text
+url-extractor from text ✅
 
 Kenapa penting:
 Tools seperti ini sangat ringan dan mudah mendapatkan traffic SEO.
