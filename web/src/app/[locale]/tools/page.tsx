@@ -1,5 +1,5 @@
 import { JsonLdToolsList } from "@/components/seo/json-ld-tools-list";
-import ToolsTemplate from "@/features/tools/master";
+import ToolsTemplate from "@/features/tools";
 import { getLocalizedMetadata } from "@/utils/localization/getLocalizedMetadata";
 import { Metadata } from "next";
 import { getLocale } from "next-intl/server";

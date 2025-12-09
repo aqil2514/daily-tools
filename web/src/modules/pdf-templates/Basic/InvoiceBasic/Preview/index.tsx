@@ -2,8 +2,8 @@
 
 import { BlobProvider } from "@react-pdf/renderer";
 import { PDFDocument } from "../PDF/PDFDocument";
-import { usePDFGenerator } from "@/features/tools/PDF/PDFGenerator/provider";
 import { InvoiceBasicSchemaType } from "../schema";
+import { usePDFGenerator } from "@/features/tools/tool-name/PDF/PDFGenerator/provider";
 
 export default function InvoiceBasicHTMLPreview() {
   const { pdfData } = usePDFGenerator();

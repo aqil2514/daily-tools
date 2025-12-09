@@ -19,9 +19,9 @@ import { HeaderForm } from "./HeaderForm";
 import { ItemListForm } from "./ItemListForm";
 import { NotesForm } from "./NotesForm";
 import { TermsForm } from "./TermsForm";
-import { usePDFGenerator } from "@/features/tools/PDF/PDFGenerator/provider";
 import { useEffect } from "react";
 import { ScrollArea } from "@/components/ui/scroll-area";
+import { usePDFGenerator } from "@/features/tools/tool-name/PDF/PDFGenerator/provider";
 
 export default function InvoiceBasicForm() {
   const { setPdfData } = usePDFGenerator<InvoiceBasicSchemaType>();

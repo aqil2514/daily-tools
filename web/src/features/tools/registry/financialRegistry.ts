@@ -3,7 +3,7 @@ import { FinancialToolName, ToolRegistryItem } from "@/@types/Tools"; // Asumsi 
 
 export const financialRegistry: Record<FinancialToolName, ToolRegistryItem> = {
   "cash-counter": {
-    Component: dynamic(() => import("@/features/tools/Financial/CashCounter")),
+    Component: dynamic(() => import("@/features/tools/tool-name/Financial/CashCounter")),
     href: "/tools/cash-counter",
     category: "financial",
 
@@ -33,7 +33,7 @@ export const financialRegistry: Record<FinancialToolName, ToolRegistryItem> = {
     },
   },
   "cogs-margin-tool": {
-    Component: dynamic(() => import("@/features/tools/Financial/COGSMargin")),
+    Component: dynamic(() => import("@/features/tools/tool-name/Financial/COGSMargin")),
     href: "/tools/cogs-margin-tool",
     category: "financial",
 
@@ -66,7 +66,7 @@ export const financialRegistry: Record<FinancialToolName, ToolRegistryItem> = {
   },
   "financial-simulator": {
     Component: dynamic(
-      () => import("@/features/tools/Financial/FinancialSimulator")
+      () => import("@/features/tools/tool-name/Financial/FinancialSimulator")
     ),
     href: "/tools/financial-simulator",
     category: "financial",

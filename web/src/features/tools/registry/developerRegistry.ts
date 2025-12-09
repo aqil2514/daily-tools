@@ -5,7 +5,7 @@ export const developerRegistry: Record<DeveloperToolName, ToolRegistryItem> = {
   "password-generator": {
     category: "developer",
     Component: dynamic(
-      () => import("@/features/tools/Developer/PasswordGenerator")
+      () => import("@/features/tools/tool-name/Developer/PasswordGenerator")
     ),
     description: {
       en: "Generate strong, secure, and customizable passwords instantly. Perfect for developers, security tasks, and everyday use.",

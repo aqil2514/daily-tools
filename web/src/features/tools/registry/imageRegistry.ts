@@ -1,11 +1,9 @@
-// src/features/tools/registry/imageRegistry.ts
-
 import dynamic from "next/dynamic";
 import { ImageToolName, ToolRegistryItem } from "@/@types/Tools"; // Asumsi path
 
 export const imageRegistry: Record<ImageToolName, ToolRegistryItem> = {
   "image-converter": {
-    Component: dynamic(() => import("@/features/tools/Images/ImageConverter")),
+    Component: dynamic(() => import("@/features/tools/tool-name/Images/ImageConverter")),
     href: "/tools/image-converter",
     category: "image",
 
@@ -29,7 +27,7 @@ export const imageRegistry: Record<ImageToolName, ToolRegistryItem> = {
   },
 
   "image-resizer": {
-    Component: dynamic(() => import("@/features/tools/Images/ImageResizer")),
+    Component: dynamic(() => import("@/features/tools/tool-name/Images/ImageResizer")),
     href: "/tools/image-resizer",
     category: "image",
 
@@ -53,7 +51,7 @@ export const imageRegistry: Record<ImageToolName, ToolRegistryItem> = {
   },
 
   "image-cropper": {
-    Component: dynamic(() => import("@/features/tools/Images/ImageCropper")),
+    Component: dynamic(() => import("@/features/tools/tool-name/Images/ImageCropper")),
     href: "/tools/image-cropper",
     category: "image",
 
@@ -72,7 +70,7 @@ export const imageRegistry: Record<ImageToolName, ToolRegistryItem> = {
   },
 
   "image-rotate": {
-    Component: dynamic(() => import("@/features/tools/Images/ImageRotate")),
+    Component: dynamic(() => import("@/features/tools/tool-name/Images/ImageRotate")),
     href: "/tools/image-rotate",
     category: "image",
 
@@ -91,7 +89,7 @@ export const imageRegistry: Record<ImageToolName, ToolRegistryItem> = {
   },
 
   "image-to-pdf": {
-    Component: dynamic(() => import("@/features/tools/Images/ImageToPDF")),
+    Component: dynamic(() => import("@/features/tools/tool-name/Images/ImageToPDF")),
     href: "/tools/image-to-pdf",
     category: "image",
 

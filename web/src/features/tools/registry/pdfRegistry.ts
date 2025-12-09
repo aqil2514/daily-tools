@@ -3,7 +3,7 @@ import dynamic from "next/dynamic";
 
 export const pdfRegistry: Record<PDFToolName, ToolRegistryItem> = {
   "pdf-merge": {
-    Component: dynamic(() => import("@/features/tools/PDF/PDFMerge")),
+    Component: dynamic(() => import("@/features/tools/tool-name/PDF/PDFMerge")),
     href: "/tools/pdf-merge",
     category: "pdf",
 
@@ -28,7 +28,7 @@ export const pdfRegistry: Record<PDFToolName, ToolRegistryItem> = {
   },
 
   "pdf-split": {
-    Component: dynamic(() => import("@/features/tools/PDF/PDFSplit")),
+    Component: dynamic(() => import("@/features/tools/tool-name/PDF/PDFSplit")),
     href: "/tools/pdf-split",
     category: "pdf",
 
@@ -47,7 +47,7 @@ export const pdfRegistry: Record<PDFToolName, ToolRegistryItem> = {
   },
 
   // "pdf-compress": {
-  //   Component: dynamic(() => import("@/features/tools/PDF/PDFCompress")),
+  //   Component: dynamic(() => import("@/features/tools/tool-name/PDF/PDFCompress")),
   //   href: "/tools/pdf-compress",
   //   category: "pdf",
 
@@ -66,7 +66,9 @@ export const pdfRegistry: Record<PDFToolName, ToolRegistryItem> = {
   // },
 
   "pdf-generator": {
-    Component: dynamic(() => import("@/features/tools/PDF/PDFGenerator")),
+    Component: dynamic(
+      () => import("@/features/tools/tool-name/PDF/PDFGenerator")
+    ),
     href: "/tools/pdf-generator",
     category: "pdf",
 

@@ -13,7 +13,7 @@ export const textRegistry: Record<TextToolName, ToolRegistryItem> = {
     },
     category: "text",
     href: "/tools/case-converter",
-    Component: dynamic(() => import("@/features/tools/Text/CaseConverter")),
+    Component: dynamic(() => import("@/features/tools/tool-name/Text/CaseConverter")),
     keywords: {
       en: [
         "case converter",
@@ -47,7 +47,7 @@ export const textRegistry: Record<TextToolName, ToolRegistryItem> = {
     },
     category: "text",
     href: "/tools/word-counter",
-    Component: dynamic(() => import("@/features/tools/Text/WordCounter")),
+    Component: dynamic(() => import("@/features/tools/tool-name/Text/WordCounter")),
     keywords: {
       en: [
         "word counter",
@@ -82,7 +82,7 @@ export const textRegistry: Record<TextToolName, ToolRegistryItem> = {
     category: "text",
     href: "/tools/remove-duplicate-lines",
     Component: dynamic(
-      () => import("@/features/tools/Text/RemoveDuplicateLines")
+      () => import("@/features/tools/tool-name/Text/RemoveDuplicateLines")
     ),
     keywords: {
       en: [
@@ -117,7 +117,7 @@ export const textRegistry: Record<TextToolName, ToolRegistryItem> = {
     },
     category: "text",
     href: "/tools/text-diff",
-    Component: dynamic(() => import("@/features/tools/Text/TextDiff")),
+    Component: dynamic(() => import("@/features/tools/tool-name/Text/TextDiff")),
     keywords: {
       en: [
         "text diff",
@@ -151,7 +151,7 @@ export const textRegistry: Record<TextToolName, ToolRegistryItem> = {
     },
     category: "text",
     href: "/tools/url-extractor",
-    Component: dynamic(() => import("@/features/tools/Text/UrlExtractor")),
+    Component: dynamic(() => import("@/features/tools/tool-name/Text/UrlExtractor")),
     keywords: {
       en: [
         "url extractor",
