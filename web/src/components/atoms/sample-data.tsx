@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import { Dispatch, SetStateAction } from "react";
 
-interface Props<T extends Record<string, string>> {
+interface Props<T extends Record<string, string>>  {
   setText: Dispatch<SetStateAction<string>>;
   sampleData: T;
 }
@@ -15,7 +15,7 @@ export function SampleDataComponent<T extends Record<string, string>>({
 
   return (
     <ScrollArea>
-      <div className="flex gap-4 p-4">
+      <div className="flex flex-wrap lg:flex-nowrap gap-4 p-4 items-center justify-center">
         {sampleKeys.map((sample, i) => (
           <Button
             variant="outline"
