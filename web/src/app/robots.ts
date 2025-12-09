@@ -7,6 +7,10 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: "https://flowtooly.vercel.app/sitemap.xml",
+    sitemap: [
+      "https://flowtooly.vercel.app/sitemap.xml",
+      "https://flowtooly.vercel.app/sitemap-static.xml",
+      "https://flowtooly.vercel.app/sitemap-tools.xml",
+    ],
   };
 }
