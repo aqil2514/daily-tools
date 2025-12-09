@@ -13,7 +13,7 @@ import {
 import { sidebarSections } from "@/features/tools/registry";
 import { Link, usePathname } from "@/i18n/navigation";
 import { useLocale } from "next-intl";
-import { Calculator, ImageIcon, FileText, QrCode, Code } from "lucide-react";
+import { Calculator, ImageIcon, FileText, QrCode, Code, Text } from "lucide-react";
 import { ScrollArea } from "@/components/ui/scroll-area";
 
 const categoryTitleMapper: Record<ToolRegistryItem["category"], string> = {
@@ -22,6 +22,7 @@ const categoryTitleMapper: Record<ToolRegistryItem["category"], string> = {
   pdf: "PDF",
   qr: "QR",
   developer: "Developer",
+  text:"Text"
 };
 
 const categoryIcons = {
@@ -29,7 +30,8 @@ const categoryIcons = {
   image: ImageIcon,
   pdf: FileText,
   qr: QrCode,
-  developer: Code
+  developer: Code,
+  text: Text
 };
 
 export function CategoryGroup() {

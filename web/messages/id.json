@@ -8,11 +8,12 @@
     "title": "Kumpulan Tools",
     "subtitle": "Temukan alat yang cocok untuk anda",
     "category": {
-      "financial-tool": "Tools Finansial",
-      "image-tool": "Tools Gambar",
-      "pdf-tool": "Tools PDF",
-      "qr-tool": "Tools QR",
-      "developer-tool": "Developer Tools"
+      "financial-tool": "Alat Finansial",
+      "image-tool": "Alat Gambar",
+      "pdf-tool": "Alat PDF",
+      "qr-tool": "Alat QR",
+      "developer-tool": "Alat Developer",
+      "text-tool": "Alat Teks"
     },
     "searchPlaceholder": "Temukan alat yang anda butuhkan..."
   },
@@ -203,6 +204,29 @@
     "upload-pdf": {
       "drop": "Lepaskan file PDF di sini",
       "uploadOrDrop": "Klik atau drop file PDF di sini"
+    }
+  },
+  "tools-text": {
+    "word-counter": {
+      "text-editor-placeholder": "Tulis kalimat Anda di sini...",
+      "text-editor-title": "Editor Teks",
+      "summary-title": "Ringkasan",
+      "summary": {
+        "words": "Kata",
+        "characters": "Karakter",
+        "charactersNoSpace": "Karakter (Tanpa Spasi)",
+        "sentences": "Kalimat",
+        "paragraphs": "Paragraf",
+        "readingTime": "Waktu Membaca",
+        "speakingTime": "Waktu Bicara",
+        "uniqueWords": "Kata-kata Unik",
+        "avgWordsPerSentence": "Rata-rata Kata Per Kalimat"
+      },
+      "keyword-density-title": "Kepadatan Kata",
+      "keyword-density-word": "Kata",
+      "keyword-density-count": "Jumlah",
+      "keyword-density-density": "Kepadatan (%)",
+      "keyword-density-no-data": "Semua kata disembunyikan"
     }
   }
 }

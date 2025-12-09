@@ -1,0 +1,40 @@
+import { TextToolName, ToolRegistryItem } from "@/@types/Tools";
+import dynamic from "next/dynamic";
+
+export const textRegistry: Record<TextToolName, ToolRegistryItem> = {
+  "word-counter": {
+    title: {
+      en: "Word Counter",
+      id: "Penghitung Kata",
+    },
+    description: {
+      en: "Instantly count words and characters with full local privacy.",
+      id: "Hitung kata dan karakter secara instan dengan privasi penuh.",
+    },
+    category: "text",
+    href: "/tools/word-counter",
+    Component: dynamic(() => import("@/features/tools/Text/WordCounter")),
+    keywords: {
+      en: [
+        "word counter",
+        "count words online",
+        "character counter",
+        "text analyzer",
+        "free word count tool",
+        "word count checker",
+        "typing assistant",
+      ],
+      id: [
+        "penghitung kata",
+        "hitung kata online",
+        "penghitung karakter",
+        "analisis teks",
+        "alat hitung kata gratis",
+        "cek jumlah kata",
+        "asisten mengetik",
+      ],
+    },
+  },
+};
+
+export const textToolName = Object.keys(textRegistry) as TextToolName[];

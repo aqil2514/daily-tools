@@ -12,7 +12,8 @@
       "image-tool": "Image Tools",
       "pdf-tool": "PDF Tools",
       "qr-tool": "QR Tools",
-      "developer-tool": "Developer Tools"
+      "developer-tool": "Developer Tools",
+      "text-tool": "Text Tools"
     },
     "searchPlaceholder": "Search tools that you need"
   },
@@ -206,6 +207,29 @@
     "upload-pdf": {
       "drop": "Drop your PDF files here",
       "uploadOrDrop": "Click or drop PDF files here"
+    }
+  },
+  "tools-text": {
+    "word-counter": {
+      "text-editor-placeholder": "Start typing or paste your text here…",
+      "text-editor-title": "Text Editor",
+      "summary-title": "Summary",
+      "summary": {
+        "words": "Words",
+        "characters": "Characters",
+        "charactersNoSpace": "Characters (No Space)",
+        "sentences": "Sentences",
+        "paragraphs": "Paragraphs",
+        "readingTime": "Reading Time",
+        "speakingTime": "Speaking Time",
+        "uniqueWords": "Unique Words",
+        "avgWordsPerSentence": "Avg Words Per Sentence"
+      },
+      "keyword-density-title": "Keyword Density",
+      "keyword-density-word": "Word",
+      "keyword-density-count": "Count",
+      "keyword-density-density": "Density (%)",
+      "keyword-density-no-data": "All keywords are hidden"
     }
   }
 }
