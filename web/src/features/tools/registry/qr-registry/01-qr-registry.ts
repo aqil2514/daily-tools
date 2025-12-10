@@ -1,7 +1,7 @@
 import { QRToolName, ToolRegistryItem } from "@/@types/Tools";
 import dynamic from "next/dynamic";
 
-export const qrRegistry: Record<QRToolName, ToolRegistryItem> = {
+export const qrRegistry01: Record<QRToolName, ToolRegistryItem> = {
   "qr-generator": {
     Component: dynamic(() => import("@/features/tools/tool-name/QR/QRGenerator")),
     href: "/tools/qr-generator",
@@ -34,5 +34,3 @@ export const qrRegistry: Record<QRToolName, ToolRegistryItem> = {
     },
   },
 };
-
-export const qrToolNames = Object.keys(qrRegistry) as QRToolName[];

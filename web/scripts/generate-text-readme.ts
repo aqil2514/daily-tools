@@ -1,4 +1,0 @@
-import config from "./generate/configs/text.config";
-import { generateRegistry } from "./generate/generate-registry";
-
-generateRegistry(config);

@@ -1,9 +1,9 @@
 import { ToolName, ToolRegistry } from "@/@types/Tools";
-import { imageRegistry, imageToolNames } from "./imageRegistry";
-import { pdfRegistry, pdfToolNames } from "./pdfRegistry";
-import { qrRegistry, qrToolNames } from "./qrRegistry";
+import { imageRegistry, imageToolNames } from "./image-registry";
+import { pdfRegistry, pdfToolNames } from "./pdf-registry";
+import { qrRegistry, qrToolNames } from "./qr-registry";
 import { financialRegistry, financialToolNames } from "./financial-registry";
-import { developerRegistry, developerToolNames } from "./developerRegistry";
+import { developerRegistry, developerToolNames } from "./developer-registry";
 import { textRegistry, textToolName } from "./text-registry";
 
 //  --- COMBINED REGISTRY ---

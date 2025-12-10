@@ -1,7 +1,7 @@
+import { ImageToolName, ToolRegistryItem } from "@/@types/Tools";
 import dynamic from "next/dynamic";
-import { ImageToolName, ToolRegistryItem } from "@/@types/Tools"; // Asumsi path
 
-export const imageRegistry: Record<ImageToolName, ToolRegistryItem> = {
+export const imageRegistry01: Record<ImageToolName, ToolRegistryItem> = {
   "image-converter": {
     Component: dynamic(() => import("@/features/tools/tool-name/Images/ImageConverter")),
     href: "/tools/image-converter",
@@ -112,5 +112,3 @@ export const imageRegistry: Record<ImageToolName, ToolRegistryItem> = {
     },
   },
 };
-
-export const imageToolNames = Object.keys(imageRegistry) as ImageToolName[];

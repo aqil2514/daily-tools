@@ -1,7 +1,7 @@
 import { PDFToolName, ToolRegistryItem } from "@/@types/Tools";
 import dynamic from "next/dynamic";
 
-export const pdfRegistry: Record<PDFToolName, ToolRegistryItem> = {
+export const pdfRegistry01: Record<PDFToolName, ToolRegistryItem> = {
   "pdf-merge": {
     Component: dynamic(() => import("@/features/tools/tool-name/PDF/PDFMerge")),
     href: "/tools/pdf-merge",
@@ -46,25 +46,6 @@ export const pdfRegistry: Record<PDFToolName, ToolRegistryItem> = {
     },
   },
 
-  // "pdf-compress": {
-  //   Component: dynamic(() => import("@/features/tools/tool-name/PDF/PDFCompress")),
-  //   href: "/tools/pdf-compress",
-  //   category: "pdf",
-
-  //   title: {
-  //     en: "PDF Compress",
-  //     id: "Kompres PDF",
-  //   },
-  //   description: {
-  //     en: "Reduce PDF file size while preserving quality.",
-  //     id: "Kurangi ukuran file PDF sambil mempertahankan kualitas.",
-  //   },
-  //   keywords: {
-  //     en: ["pdf compress", "compress pdf", "reduce pdf size", "pdf optimizer"],
-  //     id: ["kompres pdf", "mengurangi ukuran pdf", "pengoptimal pdf"],
-  //   },
-  // },
-
   "pdf-generator": {
     Component: dynamic(
       () => import("@/features/tools/tool-name/PDF/PDFGenerator")
@@ -98,5 +79,3 @@ export const pdfRegistry: Record<PDFToolName, ToolRegistryItem> = {
     },
   },
 };
-
-export const pdfToolNames = Object.keys(pdfRegistry) as PDFToolName[];
