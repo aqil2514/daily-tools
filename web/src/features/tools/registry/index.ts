@@ -2,7 +2,7 @@ import { ToolName, ToolRegistry } from "@/@types/Tools";
 import { imageRegistry, imageToolNames } from "./imageRegistry";
 import { pdfRegistry, pdfToolNames } from "./pdfRegistry";
 import { qrRegistry, qrToolNames } from "./qrRegistry";
-import { financialRegistry, financialToolNames } from "./financialRegistry";
+import { financialRegistry, financialToolNames } from "./financial-registry";
 import { developerRegistry, developerToolNames } from "./developerRegistry";
 import { textRegistry, textToolName } from "./text-registry";
 

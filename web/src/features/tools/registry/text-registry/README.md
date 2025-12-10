@@ -1,4 +1,4 @@
-# #TEXT TOOLS REGISTRY LIST
+# Text Tools
 
 ===== 01-text-registry.ts =====
 01. Case Converter (Pengubah Huruf)

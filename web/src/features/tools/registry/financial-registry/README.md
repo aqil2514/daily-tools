@@ -1,0 +1,10 @@
+# Financial Tools
+
+===== 01-financial-registry.ts =====
+01. Cash Counter (Penghitung Uang Tunai)
+02. COGS Calculator (Profit Margin Kalkulator)
+03. Financial Simulator (Simulasi Keuangan)
+
+---
+> ⚠️ **Catatan:** File ini dihasilkan secara otomatis oleh script generator.
+> Jangan diedit manual karena setiap perubahan akan ditimpa.

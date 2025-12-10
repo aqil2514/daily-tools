@@ -1,7 +1,7 @@
+import { FinancialToolName, ToolRegistryItem } from "@/@types/Tools";
 import dynamic from "next/dynamic";
-import { FinancialToolName, ToolRegistryItem } from "@/@types/Tools"; // Asumsi path
 
-export const financialRegistry: Record<FinancialToolName, ToolRegistryItem> = {
+export const financialRegistry01: Record<FinancialToolName, ToolRegistryItem> = {
   "cash-counter": {
     Component: dynamic(() => import("@/features/tools/tool-name/Financial/CashCounter")),
     href: "/tools/cash-counter",
@@ -101,7 +101,3 @@ export const financialRegistry: Record<FinancialToolName, ToolRegistryItem> = {
     },
   },
 };
-
-export const financialToolNames = Object.keys(
-  financialRegistry
-) as FinancialToolName[];
