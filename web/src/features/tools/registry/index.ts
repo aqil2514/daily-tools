@@ -4,7 +4,7 @@ import { pdfRegistry, pdfToolNames } from "./pdfRegistry";
 import { qrRegistry, qrToolNames } from "./qrRegistry";
 import { financialRegistry, financialToolNames } from "./financialRegistry";
 import { developerRegistry, developerToolNames } from "./developerRegistry";
-import { textRegistry, textToolName } from "./textRegistry";
+import { textRegistry, textToolName } from "./text-registry";
 
 //  --- COMBINED REGISTRY ---
 export const toolsRegistry: ToolRegistry = {

@@ -1,7 +1,7 @@
 import { TextToolName, ToolRegistryItem } from "@/@types/Tools";
 import dynamic from "next/dynamic";
 
-export const textRegistry: Record<TextToolName, ToolRegistryItem> = {
+export const textRegistry01: Record<TextToolName, ToolRegistryItem> = {
   "case-converter": {
     title: {
       en: "Case Converter",
@@ -176,5 +176,3 @@ export const textRegistry: Record<TextToolName, ToolRegistryItem> = {
     },
   },
 };
-
-export const textToolName = Object.keys(textRegistry) as TextToolName[];
