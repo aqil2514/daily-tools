@@ -15,7 +15,7 @@ export function SampleDataComponent<T extends Record<string, string>>({
 
   return (
     <ScrollArea>
-      <div className="flex flex-wrap lg:flex-nowrap gap-4 p-4 items-center justify-center">
+      <div className="flex flex-wrap lg:flex-nowrap gap-4 p-4 items-center justify-start">
         {sampleKeys.map((sample, i) => (
           <Button
             variant="outline"

@@ -2,6 +2,7 @@
 
 ===== 01-developer-registry.ts =====
 01. Password Generator (Generator Password)
+02. JWT Decoder (Dekoder JWT)
 
 ---
 > ⚠️ **Catatan:** File ini dihasilkan secara otomatis oleh script generator.

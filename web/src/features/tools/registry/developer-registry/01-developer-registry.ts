@@ -34,4 +34,37 @@ export const developerRegistry01: Record<DeveloperToolName, ToolRegistryItem> =
         ],
       },
     },
+    "jwt-decoder": {
+      Component: dynamic(
+        () => import("@/features/tools/tool-name/Developer/JWTDecoder")
+      ),
+      href: "/tools/jwt-decoder",
+      category: "developer",
+      title: {
+        en: "JWT Decoder",
+        id: "Dekoder JWT",
+      },
+      description: {
+        en: "Decode JWT tokens instantly and securely in your browser. View header, payload, and signature without uploading any data.",
+        id: "Decode token JWT secara instan dan aman langsung di browser Anda. Lihat header, payload, dan signature tanpa mengunggah data apa pun.",
+      },
+      keywords: {
+        en: [
+          "jwt decoder",
+          "jwt token",
+          "decode jwt online",
+          "jwt viewer",
+          "developer tool jwt",
+          "jwt header payload",
+        ],
+        id: [
+          "dekoder jwt",
+          "token jwt",
+          "decode jwt online",
+          "lihat jwt",
+          "alat developer jwt",
+          "jwt header payload",
+        ],
+      },
+    },
   };

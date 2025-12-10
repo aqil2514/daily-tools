@@ -1,7 +1,7 @@
 import { SubHeading } from "@/components/atoms/subHeading";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
-import { Upload } from "lucide-react"; // atau icon lain
+import { Trash, Upload } from "lucide-react"; // atau icon lain
 import { Dispatch, SetStateAction, useRef } from "react";
 
 interface Props {
@@ -32,16 +32,29 @@ export function TextEditor({ setText, text, title }: Props) {
       <div className="flex items-center justify-between">
         <SubHeading className="mt-0">{title}</SubHeading>
 
-        {/* Import Button */}
-        <Button
-          variant="outline"
-          size="sm"
-          onClick={() => fileInputRef.current?.click()}
-          className="flex items-center gap-2"
-        >
-          <Upload size={16} />
-          Import
-        </Button>
+        <div className="flex gap-2">
+          {/* Import Button */}
+          <Button
+            variant="outline"
+            size="sm"
+            onClick={() => fileInputRef.current?.click()}
+            className="flex items-center gap-2"
+          >
+            <Upload size={16} />
+            Import
+          </Button>
+
+          {/* Clear Button */}
+          <Button
+            variant="outline"
+            size="sm"
+            onClick={() => setText("")}
+            className="flex items-center gap-2"
+          >
+            <Trash size={16} />
+            Clear
+          </Button>
+        </div>
 
         <input
           ref={fileInputRef}
