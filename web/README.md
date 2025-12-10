@@ -1,36 +1,53 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Flowtooly — Your Daily Utility Tools Hub ⚡
 
-## Getting Started
+Flowtooly adalah kumpulan utility tools lengkap untuk kebutuhan harian — mulai dari Text Tools, Image Tools, PDF Tools, Financial Tools, Developer Tools, dan banyak lagi.  
+Semua tools dibuat dengan fokus pada **kecepatan**, **kebersihan UI**, **kemudahan penggunaan**, dan **privasi** (sebanyak mungkin diproses lokal tanpa server).
 
-First, run the development server:
+Website: **https://flowtooly.vercel.app**
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🚀 Fitur Utama Flowtooly
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### **📝 Text Tools**
+- Case Converter  
+- Word Counter  
+- Remove Duplicate Lines  
+- Text Diff  
+- URL Extractor  
+- …dan masih bertambah!
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### **🖼️ Image Tools**
+- Image Resizer  
+- Image Compressor  
+- Image Converter  
+- Crop, Rotate, Metadata Clean  
+- Image to PDF  
+- …segera ditambah!
 
-## Learn More
+### **📄 PDF Tools**
+- Merge PDF  
+- Split PDF  
+- Compress PDF  
+- Convert Images to PDF  
+- …work in progress
 
-To learn more about Next.js, take a look at the following resources:
+### **💰 Financial Tools**
+- Financial Simulator  
+- Cash Counter  
+- Profit Margin Calculator  
+- …dan lainnya
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### **👨‍💻 Developer Tools**
+- JWT Decoder  
+- Regex Tester  
+- UUID Generator  
+- Base64 Encoder / Decoder  
+- …dan daftar akan membesar seiring waktu
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## 🧩 Arsitektur Tools Registry (Automated)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Setiap tools memiliki sistem registry berbasis TypeScript dan seluruh README per kategori dihasilkan otomatis menggunakan CLI internal Flowtooly:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
