@@ -5,7 +5,8 @@ import { safeDecodeJwt } from "../utils/decode-jwt";
 import { Button } from "@/components/ui/button";
 import { Copy, AlertTriangle } from "lucide-react";
 import { useState } from "react";
-import { useTranslations } from "next-intl";
+import { useLocale } from "next-intl";
+import { i18nJwtDecoder } from "../i18n";
 
 interface Props {
   text: string;
@@ -13,7 +14,9 @@ interface Props {
 
 export function JWTOutput({ text }: Props) {
   const [copiedKey, setCopiedKey] = useState<string | null>(null);
-  const t = useTranslations("tools-developer.jwt-decoder");
+
+  const locale = useLocale() as "en" | "id";
+  const t = i18nJwtDecoder[locale];
 
   const handleCopy = async (value: string, key: string) => {
     await navigator.clipboard.writeText(value);
@@ -21,12 +24,12 @@ export function JWTOutput({ text }: Props) {
     setTimeout(() => setCopiedKey(null), 1500);
   };
 
-  // Jika belum ada input sama sekali
+  // Empty state
   if (!text || text.trim().length === 0) {
     return (
       <ToolCard>
         <div className="text-center text-muted-foreground text-sm py-8">
-          {t("empty")}
+          {t["empty"]}
         </div>
       </ToolCard>
     );
@@ -36,16 +39,15 @@ export function JWTOutput({ text }: Props) {
 
   return (
     <ToolCard>
-
       {/* ERROR STATE */}
       {error && (
         <div className="flex items-start gap-3 p-4 mb-4 rounded-md bg-red-50 text-red-700 border border-red-200 text-sm">
           <AlertTriangle className="h-5 w-5 mt-0.5 shrink-0" />
 
           <div>
-            {error === "INVALID_FORMAT" && t("error-invalidFormat")}
-            {error === "INVALID_BASE64" && t("error-invalidBase64")}
-            {error === "UNKNOWN_ERROR" && t("error-unknownError")}
+            {error === "INVALID_FORMAT" && t["error-invalidFormat"]}
+            {error === "INVALID_BASE64" && t["error-invalidBase64"]}
+            {error === "UNKNOWN_ERROR" && t["error-unknownError"]}
           </div>
         </div>
       )}
@@ -53,11 +55,10 @@ export function JWTOutput({ text }: Props) {
       {/* VALID STATE */}
       {data && !error && (
         <div className="space-y-6">
-
           {/* HEADER */}
           <section className="space-y-2">
             <div className="flex justify-between items-center">
-              <h3 className="font-semibold text-sm">{t("header")}</h3>
+              <h3 className="font-semibold text-sm">{t["header"]}</h3>
               <Button
                 size="sm"
                 variant="outline"
@@ -67,7 +68,7 @@ export function JWTOutput({ text }: Props) {
                 }
               >
                 <Copy size={14} />
-                {copiedKey === "header" ? t("copied") : t("copy")}
+                {copiedKey === "header" ? t["copied"] : t["copy"]}
               </Button>
             </div>
 
@@ -79,7 +80,7 @@ export function JWTOutput({ text }: Props) {
           {/* PAYLOAD */}
           <section className="space-y-2">
             <div className="flex justify-between items-center">
-              <h3 className="font-semibold text-sm">{t("payload")}</h3>
+              <h3 className="font-semibold text-sm">{t["payload"]}</h3>
               <Button
                 size="sm"
                 variant="outline"
@@ -89,7 +90,7 @@ export function JWTOutput({ text }: Props) {
                 }
               >
                 <Copy size={14} />
-                {copiedKey === "payload" ? t("copied") : t("copy")}
+                {copiedKey === "payload" ? t["copied"] : t["copy"]}
               </Button>
             </div>
 
@@ -101,7 +102,7 @@ export function JWTOutput({ text }: Props) {
           {/* SIGNATURE */}
           <section className="space-y-2">
             <div className="flex justify-between items-center">
-              <h3 className="font-semibold text-sm">{t("signature")}</h3>
+              <h3 className="font-semibold text-sm">{t["signature"]}</h3>
               <Button
                 size="sm"
                 variant="outline"
@@ -109,7 +110,7 @@ export function JWTOutput({ text }: Props) {
                 onClick={() => handleCopy(data.signature, "signature")}
               >
                 <Copy size={14} />
-                {copiedKey === "signature" ? t("copied") : t("copy")}
+                {copiedKey === "signature" ? t["copied"] : t["copy"]}
               </Button>
             </div>
 
@@ -117,7 +118,6 @@ export function JWTOutput({ text }: Props) {
               {data.signature}
             </pre>
           </section>
-
         </div>
       )}
     </ToolCard>

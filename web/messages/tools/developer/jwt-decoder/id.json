@@ -1,0 +1,32 @@
+{
+      "input-title": "Nilai JWT",
+
+      "empty": "Masukkan JWT untuk melihat hasil decode.",
+
+      "error-invalidFormat": "Format JWT tidak valid. JWT yang benar harus memiliki 3 bagian: header.payload.signature.",
+      "error-invalidBase64": "Encoding Base64URL dalam token tidak valid. Sebagian data mungkin rusak atau tidak ter-encode dengan benar.",
+      "error-unknownError": "Tidak dapat mendecode JWT. Pastikan token valid dan coba lagi.",
+
+      "header": "Header",
+      "payload": "Payload",
+      "signature": "Signature",
+
+      "copy": "Salin",
+      "copied": "Disalin!",
+      "faq": {
+        "q1": "Apakah aman menempelkan JWT saya di sini?",
+        "a1": "Aman. Semua proses dilakukan 100% di browser Anda. JWT dan secret key tidak pernah dikirim ke server mana pun.",
+
+        "q2": "Kenapa JWT saya terlihat seperti teks biasa?",
+        "a2": "Payload JWT hanya di-encode Base64URL, bukan dienkripsi. Bagian header dan payload bisa dibaca siapa saja.",
+
+        "q3": "Apakah tool ini dapat memverifikasi signature?",
+        "a3": "Hanya untuk algoritma HMAC (HS256, HS384, HS512). Algoritma public key seperti RS256 membutuhkan public key.",
+
+        "q4": "Kenapa signature saya tidak valid?",
+        "a4": "Biasanya karena secret key salah, algoritma berbeda, atau token telah dimodifikasi.",
+
+        "q5": "Apakah decode JWT berarti otentikasi?",
+        "a5": "Tidak. Decode hanya membaca data. Bukan verifikasi identitas atau hak akses."
+      }
+    }

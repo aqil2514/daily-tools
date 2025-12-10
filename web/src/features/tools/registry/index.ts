@@ -1,10 +1,19 @@
-import { ToolName, ToolRegistry } from "@/@types/Tools";
+import { ToolName, ToolRegistry, ToolRegistryItem } from "@/@types/Tools";
 import { imageRegistry, imageToolNames } from "./image-registry";
 import { pdfRegistry, pdfToolNames } from "./pdf-registry";
 import { qrRegistry, qrToolNames } from "./qr-registry";
 import { financialRegistry, financialToolNames } from "./financial-registry";
 import { developerRegistry, developerToolNames } from "./developer-registry";
 import { textRegistry, textToolName } from "./text-registry";
+
+export const toolsCategory: ToolRegistryItem["category"][] = [
+  "developer",
+  "financial",
+  "image",
+  "pdf",
+  "qr",
+  "text",
+];
 
 //  --- COMBINED REGISTRY ---
 export const toolsRegistry: ToolRegistry = {

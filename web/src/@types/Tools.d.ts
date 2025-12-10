@@ -45,6 +45,8 @@ export interface ToolRegistryItem {
   href: `/tools/${ToolName}`;
   category: "image" | "pdf" | "qr" | "financial" | "developer" | "text";
 
+  messagePath?: string;
+
   description: {
     en: string;
     id: string;

@@ -66,5 +66,6 @@ export const developerRegistry01: Record<DeveloperToolName, ToolRegistryItem> =
           "jwt header payload",
         ],
       },
+      messagePath: "tools.developer.jwt-decoder",
     },
   };
