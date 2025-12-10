@@ -9,7 +9,7 @@ import {
 import { ToolCard } from "../tools/tool-card";
 import { SubHeading } from "./subHeading";
 
-interface FAQItem {
+export interface FAQItem {
   question: string;
   answer: string;
 }

@@ -1,8 +1,9 @@
 # Developer Tools
 
 ===== 01-developer-registry.ts =====
-01. Password Generator (Generator Password)
-02. JWT Decoder (Dekoder JWT)
+01. JWT Decoder (Dekoder JWT)
+02. Password Generator (Generator Password)
+03. UUID Generator (Generator UUID)
 
 ---
 > ⚠️ **Catatan:** File ini dihasilkan secara otomatis oleh script generator.

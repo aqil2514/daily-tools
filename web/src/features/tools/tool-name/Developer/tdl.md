@@ -16,7 +16,7 @@ json-formatter
 
 yaml-json-converter
 
-jwt-decoder (tanpa secret, hanya payload)
+jwt-decoder (tanpa secret, hanya payload) ✅
 
 regex-tester
 
