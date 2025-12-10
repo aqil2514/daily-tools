@@ -4,7 +4,7 @@ Kategori developer cenderung kecil, tapi antusiasnya tinggi. Ini juga membuat Fl
 
 🔧 Sangat Mudah (Client-Side Only)
 
-uuid-generator
+uuid-generator ✅
 
 slug-generator
 

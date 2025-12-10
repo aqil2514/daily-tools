@@ -1,7 +1,14 @@
-import { TextToolName, ToolRegistryItem } from "@/@types/Tools";
+import { ToolRegistryItem } from "@/@types/Tools";
 import dynamic from "next/dynamic";
 
-export const textRegistry01: Record<TextToolName, ToolRegistryItem> = {
+type TextRegistry01 =
+  | "case-converter"
+  | "word-counter"
+  | "remove-duplicate-lines"
+  | "text-diff"
+  | "url-extractor";
+
+export const textRegistry01: Record<TextRegistry01, ToolRegistryItem> = {
   "case-converter": {
     title: {
       en: "Case Converter",
@@ -13,7 +20,9 @@ export const textRegistry01: Record<TextToolName, ToolRegistryItem> = {
     },
     category: "text",
     href: "/tools/case-converter",
-    Component: dynamic(() => import("@/features/tools/tool-name/Text/CaseConverter")),
+    Component: dynamic(
+      () => import("@/features/tools/tool-name/Text/CaseConverter")
+    ),
     keywords: {
       en: [
         "case converter",
@@ -47,7 +56,9 @@ export const textRegistry01: Record<TextToolName, ToolRegistryItem> = {
     },
     category: "text",
     href: "/tools/word-counter",
-    Component: dynamic(() => import("@/features/tools/tool-name/Text/WordCounter")),
+    Component: dynamic(
+      () => import("@/features/tools/tool-name/Text/WordCounter")
+    ),
     keywords: {
       en: [
         "word counter",
@@ -117,7 +128,9 @@ export const textRegistry01: Record<TextToolName, ToolRegistryItem> = {
     },
     category: "text",
     href: "/tools/text-diff",
-    Component: dynamic(() => import("@/features/tools/tool-name/Text/TextDiff")),
+    Component: dynamic(
+      () => import("@/features/tools/tool-name/Text/TextDiff")
+    ),
     keywords: {
       en: [
         "text diff",
@@ -151,7 +164,9 @@ export const textRegistry01: Record<TextToolName, ToolRegistryItem> = {
     },
     category: "text",
     href: "/tools/url-extractor",
-    Component: dynamic(() => import("@/features/tools/tool-name/Text/UrlExtractor")),
+    Component: dynamic(
+      () => import("@/features/tools/tool-name/Text/UrlExtractor")
+    ),
     keywords: {
       en: [
         "url extractor",

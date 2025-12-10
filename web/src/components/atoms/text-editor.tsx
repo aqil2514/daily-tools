@@ -1,5 +1,4 @@
 import { SubHeading } from "@/components/atoms/subHeading";
-import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { Trash, Upload } from "lucide-react"; // atau icon lain
 import { Dispatch, SetStateAction, useRef } from "react";
@@ -65,8 +64,22 @@ export function TextEditor({ setText, text, title }: Props) {
         />
       </div>
 
-      <Textarea
-        className="h-48"
+      <textarea
+        className="
+    h-48 w-full
+    resize-none
+    wrap-break-word
+    whitespace-pre-wrap
+    overflow-y-auto
+    overflow-x-hidden
+    rounded-md border border-input bg-background px-3 py-2 text-sm
+    ring-offset-background 
+    placeholder:text-muted-foreground 
+    focus-visible:outline-none
+    focus-visible:ring-2
+    focus-visible:ring-ring
+    focus-visible:ring-offset-2
+  "
         value={text}
         onChange={(e) => setText(e.target.value)}
       />

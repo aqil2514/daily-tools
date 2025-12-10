@@ -30,7 +30,8 @@ export type TextToolName =
   | "remove-duplicate-lines"
   | "case-converter"
   | "text-diff"
-  | "url-extractor";
+  | "url-extractor"
+  | "slug-generator";
 
 export type ToolName =
   | DeveloperToolName
