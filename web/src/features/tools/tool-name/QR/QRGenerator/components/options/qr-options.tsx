@@ -1,3 +1,5 @@
+"use client";
+
 import {
   AccordionContent,
   AccordionItem,
@@ -8,10 +10,16 @@ import { useQRGenerator } from "../../store/provider";
 import { Input } from "@/components/ui/input";
 import { TypeNumber } from "qr-code-styling";
 
+import { useLocale } from "next-intl";
+import { i18nQROptions } from "../../i18n/options/qr";
+
 export function QRInnerOptions() {
+  const locale = useLocale();
+  const t = i18nQROptions[locale];
+
   return (
     <AccordionItem value="item-7">
-      <AccordionTrigger>QR Options</AccordionTrigger>
+      <AccordionTrigger>{t.sectionTitle}</AccordionTrigger>
       <AccordionContent className="space-y-4 px-4">
         <TypeNumberComp />
       </AccordionContent>
@@ -21,9 +29,14 @@ export function QRInnerOptions() {
 
 const TypeNumberComp = () => {
   const { options, setOptions } = useQRGenerator();
+
+  const locale = useLocale();
+  const t = i18nQROptions[locale];
+
   return (
     <div className="space-y-4">
-      <Label>Type Number</Label>
+      <Label>{t.typeNumberLabel}</Label>
+
       <Input
         type="number"
         max={40}

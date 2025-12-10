@@ -6,7 +6,7 @@ Kategori developer cenderung kecil, tapi antusiasnya tinggi. Ini juga membuat Fl
 
 uuid-generator ✅
 
-slug-generator
+slug-generator ✅
 
 base64-encoder-decoder
 

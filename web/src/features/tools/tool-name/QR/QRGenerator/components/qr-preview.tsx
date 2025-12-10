@@ -1,6 +1,9 @@
+"use client";
+
 import { useEffect, useRef, useState } from "react";
 import { useQRGenerator } from "../store/provider";
 import QRCodeStyling, { FileExtension } from "qr-code-styling";
+
 import {
   Select,
   SelectContent,
@@ -8,13 +11,19 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+
 import { Button } from "@/components/ui/button";
+import { useLocale } from "next-intl";
+import { i18nQRPreview } from "../i18n/preview";
 
 export function QRPreview() {
   const { options } = useQRGenerator();
   const [qrCode, setQrCode] = useState<QRCodeStyling>();
   const [fileExt, setFileExt] = useState<FileExtension>("svg");
   const ref = useRef<HTMLDivElement>(null);
+
+  const locale = useLocale();
+  const t = i18nQRPreview[locale];
 
   useEffect(() => {
     // eslint-disable-next-line react-hooks/set-state-in-effect
@@ -25,25 +34,23 @@ export function QRPreview() {
     if (ref.current) {
       qrCode?.append(ref.current);
     }
-  }, [qrCode, ref]);
+  }, [qrCode]);
 
   useEffect(() => {
     if (!qrCode) return;
-    qrCode?.update(options);
+    qrCode.update(options);
   }, [qrCode, options]);
 
   if (!options.data)
     return (
       <div className="p-6 border border-border rounded-xl bg-muted/30 text-center">
-        <p className="text-sm text-muted-foreground">Data belum ditentukan</p>
+        <p className="text-sm text-muted-foreground">{t.noData}</p>
       </div>
     );
 
   const onDownloadClick = () => {
     if (!qrCode) return;
-    qrCode.download({
-      extension: fileExt,
-    });
+    qrCode.download({ extension: fileExt });
   };
 
   return (
@@ -58,18 +65,15 @@ export function QRPreview() {
         {/* Format Select */}
         <div className="space-y-1">
           <label className="text-xs font-medium text-muted-foreground">
-            Format Download
+            {t.formatLabel}
           </label>
 
-          <Select
-            value={fileExt}
-            onValueChange={(e) => setFileExt(e as FileExtension)}
-          >
+          <Select value={fileExt} onValueChange={(e) => setFileExt(e as FileExtension)}>
             <SelectTrigger className="w-full">
-              <SelectValue placeholder="Select format" />
+              <SelectValue placeholder={t.formatPlaceholder} />
             </SelectTrigger>
 
-            <SelectContent className="w-(--radix-select-trigger-width)">
+            <SelectContent>
               <SelectItem value="svg">SVG</SelectItem>
               <SelectItem value="png">PNG</SelectItem>
               <SelectItem value="jpeg">JPEG</SelectItem>
@@ -80,7 +84,7 @@ export function QRPreview() {
 
         {/* Download Button */}
         <Button onClick={onDownloadClick} className="w-full">
-          Download QR
+          {t.btnDownload}
         </Button>
       </div>
     </div>

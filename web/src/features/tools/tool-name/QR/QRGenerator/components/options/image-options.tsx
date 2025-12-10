@@ -1,3 +1,5 @@
+"use client";
+
 import {
   AccordionContent,
   AccordionItem,
@@ -5,18 +7,23 @@ import {
 } from "@/components/ui/accordion";
 import { Label } from "@/components/ui/label";
 import { Switch } from "@/components/ui/switch";
-import { useQRGenerator } from "../../store/provider";
 import { Input } from "@/components/ui/input";
+import { useQRGenerator } from "../../store/provider";
+
+import { useLocale } from "next-intl";
+import { i18nImageOptions } from "../../i18n/options/image";
 
 export function ImageOptions() {
+  const locale = useLocale();
+  const t = i18nImageOptions[locale];
+
   return (
     <AccordionItem value="item-6">
-      <AccordionTrigger>Image Options</AccordionTrigger>
+      <AccordionTrigger>{t.sectionTitle}</AccordionTrigger>
+
       <AccordionContent className="space-y-4 px-4">
         <HideBackgroundDots />
-
         <ImageSize />
-
         <Margin />
       </AccordionContent>
     </AccordionItem>
@@ -25,10 +32,13 @@ export function ImageOptions() {
 
 const HideBackgroundDots = () => {
   const { options, setOptions } = useQRGenerator();
+  const locale = useLocale();
+  const t = i18nImageOptions[locale];
 
   return (
     <div className="flex gap-4">
-      <Label htmlFor="switch-bg">Background Dots</Label>
+      <Label htmlFor="switch-bg">{t.hideBackgroundDotsLabel}</Label>
+
       <Switch
         id="switch-bg"
         checked={options.imageOptions?.hideBackgroundDots}
@@ -48,9 +58,13 @@ const HideBackgroundDots = () => {
 
 const ImageSize = () => {
   const { options, setOptions } = useQRGenerator();
+  const locale = useLocale();
+  const t = i18nImageOptions[locale];
+
   return (
     <div className="space-y-4">
-      <Label>Image Size</Label>
+      <Label>{t.imageSizeLabel}</Label>
+
       <Input
         type="number"
         step={0.1}
@@ -71,9 +85,13 @@ const ImageSize = () => {
 
 const Margin = () => {
   const { options, setOptions } = useQRGenerator();
+  const locale = useLocale();
+  const t = i18nImageOptions[locale];
+
   return (
     <div className="space-y-4">
-      <Label>Margin</Label>
+      <Label>{t.marginLabel}</Label>
+
       <Input
         type="number"
         value={options.imageOptions?.margin}

@@ -1,11 +1,18 @@
+"use client";
 import { ToolCard } from "@/components/tools/tool-card";
 import { QRPreview } from "./qr-preview";
 import { QRData } from "./qr-data";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { QROptions } from "./options";
+import { useLocale } from "next-intl";
+import { FAQSection } from "@/components/atoms/faq-section";
+import { qrFAQ_en, qrFAQ_id } from "../i18n/faq";
 
 export function QRGenerator() {
+  const locale = useLocale()
   return (
+    <div>
+
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
       <ToolCard>
         <Tabs defaultValue="data">
@@ -24,6 +31,9 @@ export function QRGenerator() {
       <ToolCard>
         <QRPreview />
       </ToolCard>
+    </div>
+
+    <FAQSection items={locale === "en" ? qrFAQ_en : qrFAQ_id} />
     </div>
   );
 }

@@ -2,6 +2,7 @@
 
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
+
 import {
   Form,
   FormControl,
@@ -10,6 +11,7 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
+
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 
@@ -17,8 +19,14 @@ import { SubHeading } from "@/components/atoms/subHeading";
 import { vcardSchema, VCardSchemaType } from "../../schemas/v-card-schema";
 import { useQRGenerator } from "../../store/provider";
 
+import { useLocale } from "next-intl";
+import { i18nVCardForm } from "../../i18n/form/vcard";
+
 export function VCardForm() {
   const { setOptions } = useQRGenerator();
+  const locale = useLocale();
+  const t = i18nVCardForm[locale];
+
   const form = useForm<VCardSchemaType>({
     resolver: zodResolver(vcardSchema),
     defaultValues: {
@@ -34,26 +42,26 @@ export function VCardForm() {
   });
 
   const onSubmit = (values: VCardSchemaType) => {
-    const outputVCard = buildVCard(values);
-
-    setOptions((prev) => ({ ...prev, data: outputVCard }));
+    const output = buildVCard(values);
+    setOptions((prev) => ({ ...prev, data: output }));
   };
 
   return (
     <div>
-      <SubHeading>Contact / vCard</SubHeading>
+      <SubHeading>{t.heading}</SubHeading>
 
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+
           {/* First Name */}
           <FormField
             control={form.control}
             name="firstName"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Nama Depan</FormLabel>
+                <FormLabel>{t.firstName.label}</FormLabel>
                 <FormControl>
-                  <Input placeholder="Nama Depan..." {...field} />
+                  <Input placeholder={t.firstName.placeholder} {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -66,9 +74,9 @@ export function VCardForm() {
             name="lastName"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Nama Belakang</FormLabel>
+                <FormLabel>{t.lastName.label}</FormLabel>
                 <FormControl>
-                  <Input placeholder="Nama Belakang..." {...field} />
+                  <Input placeholder={t.lastName.placeholder} {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -81,9 +89,9 @@ export function VCardForm() {
             name="phone"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Nomor Telepon</FormLabel>
+                <FormLabel>{t.phone.label}</FormLabel>
                 <FormControl>
-                  <Input placeholder="+628123456789" {...field} />
+                  <Input placeholder={t.phone.placeholder} {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -96,9 +104,9 @@ export function VCardForm() {
             name="email"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Email</FormLabel>
+                <FormLabel>{t.email.label}</FormLabel>
                 <FormControl>
-                  <Input placeholder="example@mail.com" {...field} />
+                  <Input placeholder={t.email.placeholder} {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -111,9 +119,9 @@ export function VCardForm() {
             name="website"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Website</FormLabel>
+                <FormLabel>{t.website.label}</FormLabel>
                 <FormControl>
-                  <Input placeholder="https://your-web.com" {...field} />
+                  <Input placeholder={t.website.placeholder} {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -126,9 +134,9 @@ export function VCardForm() {
             name="organization"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Organisasi / Perusahaan</FormLabel>
+                <FormLabel>{t.organization.label}</FormLabel>
                 <FormControl>
-                  <Input placeholder="Your organization..." {...field} />
+                  <Input placeholder={t.organization.placeholder} {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -141,9 +149,9 @@ export function VCardForm() {
             name="title"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Jabatan</FormLabel>
+                <FormLabel>{t.title.label}</FormLabel>
                 <FormControl>
-                  <Input placeholder="Jabatan Anda...." {...field} />
+                  <Input placeholder={t.title.placeholder} {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -156,21 +164,25 @@ export function VCardForm() {
             name="address"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Alamat</FormLabel>
+                <FormLabel>{t.address.label}</FormLabel>
                 <FormControl>
-                  <Input placeholder="Jakarta Selatan" {...field} />
+                  <Input placeholder={t.address.placeholder} {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
             )}
           />
 
-          <Button type="submit">Submit</Button>
+          <Button type="submit">{t.submit}</Button>
         </form>
       </Form>
     </div>
   );
 }
+
+/* --------------------------
+  vCard Builder (unchanged)
+--------------------------- */
 
 function buildVCard(data: VCardSchemaType): string {
   const {
@@ -186,10 +198,8 @@ function buildVCard(data: VCardSchemaType): string {
 
   let vcard = "BEGIN:VCARD\nVERSION:3.0\n";
 
-  // Format name: N:Last;First;Middle;Prefix;Suffix
   vcard += `N:${escapeVCard(lastName)};${escapeVCard(firstName)};;;\n`;
 
-  // FN = Full Name (display name)
   const fullName = `${firstName}${lastName ? ` ${lastName}` : ""}`;
   vcard += `FN:${escapeVCard(fullName)}\n`;
 
@@ -198,21 +208,17 @@ function buildVCard(data: VCardSchemaType): string {
   if (phone) vcard += `TEL:${escapeVCard(phone)}\n`;
   if (email) vcard += `EMAIL:${escapeVCard(email)}\n`;
   if (website) vcard += `URL:${escapeVCard(website)}\n`;
-
-  // ADR Format: ADR:;;Street;City;State;Postal;Country
-  // Flowtooly only accepts a simple address text → put it on street field
   if (address) vcard += `ADR:;;${escapeVCard(address)};;;;\n`;
 
   vcard += "END:VCARD";
-
   return vcard;
 }
 
 function escapeVCard(value?: string): string {
   if (!value) return "";
   return value
-    .replace(/\\/g, "\\\\") // Backslash
-    .replace(/\n/g, "\\n") // New line
-    .replace(/;/g, "\\;") // Semicolon
-    .replace(/,/g, "\\,"); // Comma
+    .replace(/\\/g, "\\\\")
+    .replace(/\n/g, "\\n")
+    .replace(/;/g, "\\;")
+    .replace(/,/g, "\\,");
 }

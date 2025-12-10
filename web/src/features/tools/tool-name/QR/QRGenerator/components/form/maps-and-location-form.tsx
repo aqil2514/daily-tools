@@ -1,3 +1,5 @@
+"use client";
+
 import { useForm, useWatch } from "react-hook-form";
 import {
   mapLocationSchema,
@@ -22,10 +24,14 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+
 import { useState } from "react";
 import { IconSelector } from "./sub/IconSelector";
 import { UseLogoSwitcher } from "./sub/UseLogoSwitcher";
 import { useQRGenerator } from "../../store/provider";
+
+import { useLocale } from "next-intl";
+import { i18nMapsLocationForm } from "../../i18n/form/maps-location";
 
 type MapAndLocationName = "waze" | "google-maps";
 
@@ -47,6 +53,10 @@ const mapAndLocationItems: Items[] = [
 
 export function MapsAndLocationForm() {
   const { setOptions } = useQRGenerator();
+
+  const locale = useLocale();
+  const t = i18nMapsLocationForm[locale];
+
   const form = useForm<MapLocationSchemaType>({
     resolver: zodResolver(mapLocationSchema),
     defaultValues: {
@@ -66,14 +76,14 @@ export function MapsAndLocationForm() {
 
   const buildLink = (values: MapLocationSchemaType) => {
     if (values.source === "link") return;
-    let outputUrl: string = "";
 
-    if (mapApp === "google-maps")
-      outputUrl = `https://www.google.com/maps?q=${values.latitude},${values.longitude}`;
-    if (mapApp === "waze")
-      outputUrl = `https://waze.com/ul?ll=${values.latitude},${values.longitude}&navigate=yes`;
+    if (mapApp === "google-maps") {
+      return `https://www.google.com/maps?q=${values.latitude},${values.longitude}`;
+    }
 
-    return outputUrl;
+    if (mapApp === "waze") {
+      return `https://waze.com/ul?ll=${values.latitude},${values.longitude}&navigate=yes`;
+    }
   };
 
   const onSubmit = (values: MapLocationSchemaType) => {
@@ -85,7 +95,6 @@ export function MapsAndLocationForm() {
 
   const logoHandler = (checked: boolean) => {
     setWithLogo(checked);
-
     setOptions((prev) => ({
       ...prev,
       image: checked ? imageLogo : "",
@@ -94,7 +103,7 @@ export function MapsAndLocationForm() {
 
   return (
     <div>
-      <SubHeading>Map and Location Data</SubHeading>
+      <SubHeading>{t.heading}</SubHeading>
 
       <IconSelector
         iconName={mapApp}
@@ -109,28 +118,26 @@ export function MapsAndLocationForm() {
 
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-          {/** ----------------------------
-           * SELECT SOURCE
-           * ----------------------------- */}
+          {/* SOURCE SELECTION */}
           <FormField
             control={form.control}
             name="source"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Sumber</FormLabel>
+                <FormLabel>{t.source.label}</FormLabel>
                 <Select
                   onValueChange={field.onChange}
                   defaultValue={field.value}
                 >
                   <FormControl>
                     <SelectTrigger className="w-full">
-                      <SelectValue placeholder="Pilih sumber lokasi" />
+                      <SelectValue placeholder={t.source.placeholder} />
                     </SelectTrigger>
                   </FormControl>
 
                   <SelectContent className="w-(--radix-select-trigger-width)">
-                    <SelectItem value="link">Link Maps</SelectItem>
-                    <SelectItem value="coordinate">Koordinat</SelectItem>
+                    <SelectItem value="link">{t.source.link}</SelectItem>
+                    <SelectItem value="coordinate">{t.source.coordinate}</SelectItem>
                   </SelectContent>
                 </Select>
 
@@ -139,18 +146,16 @@ export function MapsAndLocationForm() {
             )}
           />
 
-          {/** ----------------------------
-           * INPUT LINK
-           * ----------------------------- */}
+          {/* INPUT LINK */}
           {source === "link" && (
             <FormField
               control={form.control}
               name="link"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Link</FormLabel>
+                  <FormLabel>{t.link.label}</FormLabel>
                   <FormControl>
-                    <Input placeholder="Link...." {...field} />
+                    <Input placeholder={t.link.placeholder} {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -158,23 +163,22 @@ export function MapsAndLocationForm() {
             />
           )}
 
-          {/** ----------------------------
-           * INPUT KOORDINAT
-           * ----------------------------- */}
+          {/* COORDINATES */}
           {source === "coordinate" && (
             <>
+              {/* LATITUDE */}
               <FormField
                 control={form.control}
                 name="latitude"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Latitude (Lintang)</FormLabel>
+                    <FormLabel>{t.latitude.label}</FormLabel>
                     <FormControl>
                       <Input
                         {...field}
                         onChange={(e) => field.onChange(e.target.valueAsNumber)}
                         type="number"
-                        placeholder="-6.200000"
+                        placeholder={t.latitude.placeholder}
                       />
                     </FormControl>
                     <FormMessage />
@@ -182,18 +186,19 @@ export function MapsAndLocationForm() {
                 )}
               />
 
+              {/* LONGITUDE */}
               <FormField
                 control={form.control}
                 name="longitude"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Longitude (Bujur)</FormLabel>
+                    <FormLabel>{t.longitude.label}</FormLabel>
                     <FormControl>
                       <Input
                         {...field}
                         onChange={(e) => field.onChange(e.target.valueAsNumber)}
                         type="number"
-                        placeholder="106.816666"
+                        placeholder={t.longitude.placeholder}
                       />
                     </FormControl>
                     <FormMessage />
@@ -203,8 +208,13 @@ export function MapsAndLocationForm() {
             </>
           )}
 
-          <UseLogoSwitcher onCheckedChange={logoHandler} withLogo={withLogo} />
-          <Button type="submit">Submit</Button>
+          {/* USE LOGO */}
+          <UseLogoSwitcher
+            withLogo={withLogo}
+            onCheckedChange={logoHandler}
+          />
+
+          <Button type="submit">{t.submit}</Button>
         </form>
       </Form>
     </div>

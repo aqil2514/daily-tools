@@ -30,10 +30,17 @@ import {
   SelectContent,
   SelectItem,
 } from "@/components/ui/select";
+
 import { useQRGenerator } from "../../store/provider";
+
+import { useLocale } from "next-intl";
+import { i18nEmailSmsForm } from "../../i18n/form/email-sms";
 
 export function EmailSmsForm() {
   const { setOptions } = useQRGenerator();
+  const locale = useLocale();
+  const t = i18nEmailSmsForm[locale];
+
   const form = useForm<EmailSmsSchemaType>({
     resolver: zodResolver(emailSmsSchema),
     defaultValues: {
@@ -56,30 +63,17 @@ export function EmailSmsForm() {
       let url = `mailto:${email}`;
       const params: string[] = [];
 
-      if (subject) {
-        params.push(`subject=${encodeURIComponent(subject)}`);
-      }
+      if (subject) params.push(`subject=${encodeURIComponent(subject)}`);
+      if (body) params.push(`body=${encodeURIComponent(body)}`);
 
-      if (body) {
-        params.push(`body=${encodeURIComponent(body)}`);
-      }
-
-      if (params.length > 0) {
-        url += `?${params.join("&")}`;
-      }
-
+      if (params.length > 0) url += `?${params.join("&")}`;
       return url;
     }
 
     if (values.mode === "sms") {
       const { phone, body } = values;
-
       let url = `sms:${phone}`;
-
-      if (body) {
-        url += `?body=${encodeURIComponent(body)}`;
-      }
-
+      if (body) url += `?body=${encodeURIComponent(body)}`;
       return url;
     }
 
@@ -88,41 +82,36 @@ export function EmailSmsForm() {
 
   const onSubmit = (values: EmailSmsSchemaType) => {
     const outputUrl = buildEmailSms(values);
-
     setOptions((prev) => ({ ...prev, data: outputUrl }));
   };
 
   return (
     <div>
-      <SubHeading>Email & SMS Data</SubHeading>
+      <SubHeading>{t.heading}</SubHeading>
 
       <Form {...form}>
         <form
           onSubmit={form.handleSubmit(onSubmit)}
           className="space-y-6 max-w-md"
         >
-          {/* ===============================
-              MODE SELECTOR (email / sms)
-             =============================== */}
+
+          {/* MODE SELECT */}
           <FormField
             control={form.control}
             name="mode"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Pilih Mode</FormLabel>
-                <Select
-                  onValueChange={field.onChange}
-                  defaultValue={field.value}
-                >
+                <FormLabel>{t.mode.label}</FormLabel>
+                <Select onValueChange={field.onChange} defaultValue={field.value}>
                   <FormControl>
                     <SelectTrigger>
-                      <SelectValue placeholder="Pilih tindakan" />
+                      <SelectValue placeholder={t.mode.placeholder} />
                     </SelectTrigger>
                   </FormControl>
 
                   <SelectContent className="w-(--radix-select-trigger-width)">
-                    <SelectItem value="email">Email</SelectItem>
-                    <SelectItem value="sms">SMS</SelectItem>
+                    <SelectItem value="email">{t.mode.email}</SelectItem>
+                    <SelectItem value="sms">{t.mode.sms}</SelectItem>
                   </SelectContent>
                 </Select>
                 <FormMessage />
@@ -130,9 +119,9 @@ export function EmailSmsForm() {
             )}
           />
 
-          {/* ===============================
-              EMAIL MODE
-             =============================== */}
+          {/* =======================
+                EMAIL MODE
+          ======================= */}
           {mode === "email" && (
             <>
               {/* Email */}
@@ -141,39 +130,48 @@ export function EmailSmsForm() {
                 name="email"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Alamat Email</FormLabel>
+                    <FormLabel>{t.email.address}</FormLabel>
                     <FormControl>
-                      <Input placeholder="example@mail.com" {...field} />
+                      <Input
+                        placeholder={t.email.addressPlaceholder}
+                        {...field}
+                      />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
                 )}
               />
 
-              {/* Subject (optional) */}
+              {/* Subject */}
               <FormField
                 control={form.control}
                 name="subject"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Subject (opsional)</FormLabel>
+                    <FormLabel>{t.email.subject}</FormLabel>
                     <FormControl>
-                      <Input placeholder="Judul email..." {...field} />
+                      <Input
+                        placeholder={t.email.subjectPlaceholder}
+                        {...field}
+                      />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
                 )}
               />
 
-              {/* Body (optional) */}
+              {/* Body */}
               <FormField
                 control={form.control}
                 name="body"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Isi Pesan (opsional)</FormLabel>
+                    <FormLabel>{t.email.body}</FormLabel>
                     <FormControl>
-                      <Textarea placeholder="Isi email..." {...field} />
+                      <Textarea
+                        placeholder={t.email.bodyPlaceholder}
+                        {...field}
+                      />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -182,9 +180,9 @@ export function EmailSmsForm() {
             </>
           )}
 
-          {/* ===============================
-              SMS MODE
-             =============================== */}
+          {/* =======================
+                SMS MODE
+          ======================= */}
           {mode === "sms" && (
             <>
               {/* Phone */}
@@ -193,24 +191,30 @@ export function EmailSmsForm() {
                 name="phone"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Nomor Telepon</FormLabel>
+                    <FormLabel>{t.sms.phone}</FormLabel>
                     <FormControl>
-                      <Input placeholder="+6281234567890" {...field} />
+                      <Input
+                        placeholder={t.sms.phonePlaceholder}
+                        {...field}
+                      />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
                 )}
               />
 
-              {/* Body (optional) */}
+              {/* Body */}
               <FormField
                 control={form.control}
                 name="body"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Isi Pesan (opsional)</FormLabel>
+                    <FormLabel>{t.sms.body}</FormLabel>
                     <FormControl>
-                      <Textarea placeholder="Isi pesan SMS..." {...field} />
+                      <Textarea
+                        placeholder={t.sms.bodyPlaceholder}
+                        {...field}
+                      />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -219,7 +223,7 @@ export function EmailSmsForm() {
             </>
           )}
 
-          <Button type="submit">Submit</Button>
+          <Button type="submit">{t.submit}</Button>
         </form>
       </Form>
     </div>

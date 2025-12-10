@@ -1,3 +1,5 @@
+"use client";
+
 import { SubHeading } from "@/components/atoms/subHeading";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
@@ -19,6 +21,9 @@ import { IconSelector } from "./sub/IconSelector";
 import { UseLogoSwitcher } from "./sub/UseLogoSwitcher";
 import { sosmedSchema, SosmedSchemaType } from "../../schemas/sosmed-schema";
 
+import { useLocale } from "next-intl";
+import { i18nSocialMediaForm } from "../../i18n/form/social-media";
+
 type SosmedName =
   | "facebook"
   | "instagram"
@@ -33,30 +38,12 @@ interface Items {
 }
 
 const sosmedItems: Items[] = [
-  {
-    image: "/logo/facebook.png",
-    value: "facebook",
-  },
-  {
-    image: "/logo/instagram.png",
-    value: "instagram",
-  },
-  {
-    image: "/logo/linkedin.png",
-    value: "linkedin",
-  },
-  {
-    image: "/logo/tiktok.png",
-    value: "tiktok",
-  },
-  {
-    image: "/logo/twitter.png",
-    value: "twitter",
-  },
-  {
-    image: "/logo/youtube.png",
-    value: "youtube",
-  },
+  { image: "/logo/facebook.png", value: "facebook" },
+  { image: "/logo/instagram.png", value: "instagram" },
+  { image: "/logo/linkedin.png", value: "linkedin" },
+  { image: "/logo/tiktok.png", value: "tiktok" },
+  { image: "/logo/twitter.png", value: "twitter" },
+  { image: "/logo/youtube.png", value: "youtube" },
 ];
 
 const prefixMapping: Record<SosmedName, string> = {
@@ -70,15 +57,17 @@ const prefixMapping: Record<SosmedName, string> = {
 
 export function SocialMediaForm() {
   const { setOptions } = useQRGenerator();
+
+  const locale = useLocale();
+  const t = i18nSocialMediaForm[locale];
+
   const [sosmed, setSosmed] = useState<SosmedName>("facebook");
   const [imageLogo, setImageLogo] = useState<string>("/logo/facebook.png");
   const [withLogo, setWithLogo] = useState<boolean>(false);
 
   const form = useForm<SosmedSchemaType>({
     resolver: zodResolver(sosmedSchema),
-    defaultValues: {
-      username: "",
-    },
+    defaultValues: { username: "" },
   });
 
   function onSubmit(values: SosmedSchemaType) {
@@ -87,6 +76,7 @@ export function SocialMediaForm() {
       ""
     )}`;
     setWithLogo(false);
+
     setOptions((prev) => ({
       ...prev,
       data: value,
@@ -96,7 +86,6 @@ export function SocialMediaForm() {
 
   const logoHandler = (checked: boolean) => {
     setWithLogo(checked);
-
     setOptions((prev) => ({
       ...prev,
       image: checked ? imageLogo : "",
@@ -105,7 +94,8 @@ export function SocialMediaForm() {
 
   return (
     <div>
-      <SubHeading>Social Media Data</SubHeading>
+      <SubHeading>{t.heading}</SubHeading>
+
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
           <IconSelector
@@ -120,18 +110,22 @@ export function SocialMediaForm() {
             name="username"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Username</FormLabel>
+                <FormLabel>{t.username.label}</FormLabel>
                 <FormControl>
-                  <Input placeholder="username123" {...field} />
+                  <Input placeholder={t.username.placeholder} {...field} />
                 </FormControl>
-                <FormDescription>Username without @</FormDescription>
+                <FormDescription>{t.username.description}</FormDescription>
                 <FormMessage />
               </FormItem>
             )}
           />
 
-          <UseLogoSwitcher onCheckedChange={logoHandler} withLogo={withLogo} />
-          <Button type="submit">Submit</Button>
+          <UseLogoSwitcher
+            onCheckedChange={logoHandler}
+            withLogo={withLogo}
+          />
+
+          <Button type="submit">{t.submit}</Button>
         </form>
       </Form>
     </div>

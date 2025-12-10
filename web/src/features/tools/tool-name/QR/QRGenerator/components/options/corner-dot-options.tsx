@@ -1,3 +1,5 @@
+"use client";
+
 import {
   AccordionContent,
   AccordionItem,
@@ -14,76 +16,68 @@ import {
 import { CornerDotType } from "qr-code-styling";
 import { useQRGenerator } from "../../store/provider";
 import { ColorOption } from "./sub/color-element";
-
-const cornerDotStyleItems: { value: CornerDotType; label: string }[] = [
-  {
-    value: "rounded",
-    label: "Rounded",
-  },
-  {
-    value: "dot",
-    label: "Dot",
-  },
-  {
-    value: "dots",
-    label: "Dots",
-  },
-  {
-    value: "classy",
-    label: "Classy",
-  },
-  {
-    value: "classy-rounded",
-    label: "Classy Rounded",
-  },
-  {
-    value: "extra-rounded",
-    label: "Extra Rounded",
-  },
-  {
-    value: "square",
-    label: "Square",
-  },
-];
+import { useLocale } from "next-intl";
+import { i18nCornerDotOptions } from "../../i18n/options/corner-dot";
 
 export function CornerDotOptions() {
-  return (
-      <AccordionItem value="item-4">
-        <AccordionTrigger>Corner Dot Options</AccordionTrigger>
-        <AccordionContent className="space-y-4">
-          <div className="space-y-4">
-            <Label>Corner Dot Style</Label>
-            <CornerDotStyle />
-          </div>
+  const locale = useLocale();
+  const t = i18nCornerDotOptions[locale];
 
-          <div className="space-y-4">
-            <div className="flex justify-between">
-              <Label>Corner Dot Color</Label>
-            </div>
-            <ColorOption colorKey="cornersDotOptions" />
+  return (
+    <AccordionItem value="item-4">
+      <AccordionTrigger>{t.sectionTitle}</AccordionTrigger>
+
+      <AccordionContent className="space-y-4">
+        {/* Dot Style */}
+        <div className="space-y-4">
+          <Label>{t.styleLabel}</Label>
+          <CornerDotStyle />
+        </div>
+
+        {/* Dot Color */}
+        <div className="space-y-4">
+          <div className="flex justify-between">
+            <Label>{t.colorLabel}</Label>
           </div>
-        </AccordionContent>
-      </AccordionItem>
+          <ColorOption colorKey="cornersDotOptions" />
+        </div>
+      </AccordionContent>
+    </AccordionItem>
   );
 }
 
 const CornerDotStyle = () => {
   const { options, setOptions } = useQRGenerator();
+
+  const locale = useLocale();
+  const t = i18nCornerDotOptions[locale];
+
+  const styleItems = [
+    { value: "rounded", label: t.styles.rounded },
+    { value: "dot", label: t.styles.dot },
+    { value: "dots", label: t.styles.dots },
+    { value: "classy", label: t.styles.classy },
+    { value: "classy-rounded", label: t.styles.classyRounded },
+    { value: "extra-rounded", label: t.styles.extraRounded },
+    { value: "square", label: t.styles.square },
+  ];
+
   return (
     <Select
       value={options.cornersDotOptions?.type}
       onValueChange={(e) => {
         setOptions((prev) => ({
           ...prev,
-          cornersDotOptions: { ...prev.cornersDotOptions, type: e as CornerDotType  },
+          cornersDotOptions: { ...prev.cornersDotOptions, type: e as CornerDotType },
         }));
       }}
     >
       <SelectTrigger className="w-[180px]">
-        <SelectValue placeholder="Corner Dot Style" />
+        <SelectValue placeholder={t.placeholder} />
       </SelectTrigger>
+
       <SelectContent>
-        {cornerDotStyleItems.map((item) => (
+        {styleItems.map((item) => (
           <SelectItem key={item.value} value={item.value}>
             {item.label}
           </SelectItem>

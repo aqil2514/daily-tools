@@ -1,3 +1,5 @@
+"use client";
+
 import { SubHeading } from "@/components/atoms/subHeading";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
@@ -15,9 +17,15 @@ import { Input } from "@/components/ui/input";
 import { useQRGenerator } from "../../store/provider";
 import { urlSchema, URLSchemaType } from "../../schemas/url-schema";
 
+import { useLocale } from "next-intl";
+import { i18nURLForm } from "../../i18n/form/url";
 
 export function URLForm() {
   const { setOptions } = useQRGenerator();
+
+  const locale = useLocale();
+  const t = i18nURLForm[locale];
+
   const form = useForm<URLSchemaType>({
     resolver: zodResolver(urlSchema),
     defaultValues: {
@@ -31,7 +39,8 @@ export function URLForm() {
 
   return (
     <div>
-      <SubHeading>URL Data</SubHeading>
+      <SubHeading>{t.heading}</SubHeading>
+
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
           <FormField
@@ -39,15 +48,16 @@ export function URLForm() {
             name="url"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>URL</FormLabel>
+                <FormLabel>{t.url.label}</FormLabel>
                 <FormControl>
-                  <Input placeholder="https://example.com..." {...field} />
+                  <Input placeholder={t.url.placeholder} {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
             )}
           />
-          <Button type="submit">Submit</Button>
+
+          <Button type="submit">{t.submit}</Button>
         </form>
       </Form>
     </div>

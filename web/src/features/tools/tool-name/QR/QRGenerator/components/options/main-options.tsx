@@ -1,3 +1,5 @@
+"use client";
+
 import {
   AccordionContent,
   AccordionItem,
@@ -10,39 +12,53 @@ import { SourceSelection } from "@/components/molecules/source-selection";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
 
+import { useLocale } from "next-intl";
+import { i18nMainOptions } from "../../i18n/options/main";
+
 export function MainOptions() {
   const { options, setOptions } = useQRGenerator();
   const [srcKey, setSrcKey] = useState<number>(0);
+
+  const locale = useLocale();
+  const t = i18nMainOptions[locale];
+
   return (
     <AccordionItem value="item-1">
-      <AccordionTrigger>Main Options</AccordionTrigger>
+      <AccordionTrigger>{t.sectionTitle}</AccordionTrigger>
+
       <AccordionContent className="space-y-4 px-4">
-        {!options.image && <SourceSelection
-          key={srcKey}
-          onFileSelected={(file) => {
-            if (!file) return;
-            setOptions((prev) => ({
-              ...prev,
-              image: URL.createObjectURL(file),
-            }));
-          }}
-          onUrlSelected={(url) =>
-            setOptions((prev) => ({ ...prev, image: url }))
-          }
-        />}
+        {/* SourceSelection or Delete Button */}
+        {!options.image && (
+          <SourceSelection
+            key={srcKey}
+            onFileSelected={(file) => {
+              if (!file) return;
+              setOptions((prev) => ({
+                ...prev,
+                image: URL.createObjectURL(file),
+              }));
+            }}
+            onUrlSelected={(url) =>
+              setOptions((prev) => ({ ...prev, image: url }))
+            }
+          />
+        )}
+
         {options.image && (
           <Button
-            variant={"destructive"}
+            variant="destructive"
             onClick={() => {
               setOptions((prev) => ({ ...prev, image: "" }));
               setSrcKey((prev) => prev + 1);
             }}
           >
-            Delete Image
+            {t.deleteImage}
           </Button>
         )}
+
+        {/* Width */}
         <div className="space-y-2">
-          <Label htmlFor="width">Width</Label>
+          <Label htmlFor="width">{t.widthLabel}</Label>
           <Input
             id="width"
             type="number"
@@ -55,8 +71,10 @@ export function MainOptions() {
             }
           />
         </div>
+
+        {/* Height */}
         <div className="space-y-2">
-          <Label htmlFor="height">Height</Label>
+          <Label htmlFor="height">{t.heightLabel}</Label>
           <Input
             id="height"
             type="number"

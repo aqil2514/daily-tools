@@ -1,7 +1,10 @@
+"use client";
+
 import { useForm } from "react-hook-form";
 import PhoneInput, { isValidPhoneNumber } from "react-phone-number-input";
 import "react-phone-number-input/style.css";
 import { zodResolver } from "@hookform/resolvers/zod";
+
 import { SubHeading } from "@/components/atoms/subHeading";
 import {
   Form,
@@ -11,14 +14,23 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
+
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
+import { Input } from "@/components/ui/input";
+
 import { useState } from "react";
 import { IconSelector } from "./sub/IconSelector";
-import { useQRGenerator } from "../../store/provider";
 import { UseLogoSwitcher } from "./sub/UseLogoSwitcher";
-import { Input } from "@/components/ui/input";
-import { whatsAppMessengerSchema, WhatsAppMessengerSchemaType } from "../../schemas/whatsapp-messenger-schema";
+import { useQRGenerator } from "../../store/provider";
+
+import {
+  whatsAppMessengerSchema,
+  WhatsAppMessengerSchemaType,
+} from "../../schemas/whatsapp-messenger-schema";
+
+import { useLocale } from "next-intl";
+import { i18nWhatsappMessengerForm } from "../../i18n/form/whatsapp-messenger";
 
 type MessageName = "whatsapp" | "telegram";
 
@@ -28,14 +40,8 @@ interface Items {
 }
 
 const messageItems: Items[] = [
-  {
-    image: "/logo/telegram.png",
-    value: "telegram",
-  },
-  {
-    image: "/logo/whatsapp.png",
-    value: "whatsapp",
-  },
+  { image: "/logo/telegram.png", value: "telegram" },
+  { image: "/logo/whatsapp.png", value: "whatsapp" },
 ];
 
 const prefixMapping: Record<MessageName, string> = {
@@ -43,12 +49,14 @@ const prefixMapping: Record<MessageName, string> = {
   telegram: "https://t.me/",
 };
 
-
 export function WhatsappAndMessengerForm() {
   const { setOptions } = useQRGenerator();
+  const locale = useLocale();
+  const t = i18nWhatsappMessengerForm[locale];
+
   const [message, setMessage] = useState<MessageName>("whatsapp");
-  const [messageLogo, setMessageLogo] = useState<string>("/logo/whatsapp.png");
-  const [withLogo, setWithLogo] = useState<boolean>(false);
+  const [messageLogo, setMessageLogo] = useState("/logo/whatsapp.png");
+  const [withLogo, setWithLogo] = useState(false);
 
   const form = useForm<WhatsAppMessengerSchemaType>({
     resolver: zodResolver(whatsAppMessengerSchema),
@@ -60,46 +68,49 @@ export function WhatsappAndMessengerForm() {
   });
 
   function onSubmit(values: WhatsAppMessengerSchemaType) {
+    // WhatsApp mode
     if (message === "whatsapp") {
       if (!values.phone || !isValidPhoneNumber(values.phone)) {
-        form.setError("phone", { message: "Nomor telepon tidak valid" });
+        form.setError("phone", { message: t.error.invalidPhone });
         return;
       }
 
-      const newPhone = values.phone.replaceAll("+", "");
-      const prefixUrl = prefixMapping[message];
-      const messageText = values.message;
+      const phoneNoPlus = values.phone.replaceAll("+", "");
+      const prefix = prefixMapping[message];
+      const msg = values.message;
 
-      const newUrl = `${prefixUrl}${newPhone}${
-        messageText ? `?text=${encodeURI(messageText)}` : ""
+      const url = `${prefix}${phoneNoPlus}${
+        msg ? `?text=${encodeURIComponent(msg)}` : ""
       }`;
-      setOptions((prev) => ({ ...prev, data: newUrl }));
+
+      setOptions((prev) => ({ ...prev, data: url }));
     }
 
+    // Telegram mode
     if (message === "telegram") {
       if (!values.username) {
-        form.setError("username", { message: "Username wajib diisi" });
+        form.setError("username", { message: t.error.usernameRequired });
         return;
       }
 
-      const prefixUrl = prefixMapping[message];
-      const newUrl = `${prefixUrl}${values.username.replaceAll("@", "")}`;
+      const prefix = prefixMapping[message];
+      const url = `${prefix}${values.username.replaceAll("@", "")}`;
 
-      setOptions((prev) => ({ ...prev, data: newUrl }));
+      setOptions((prev) => ({ ...prev, data: url }));
     }
   }
 
   const logoHandler = (checked: boolean) => {
     setWithLogo(checked);
-
     setOptions((prev) => ({
       ...prev,
       image: checked ? messageLogo : "",
     }));
   };
+
   return (
     <div>
-      <SubHeading>Whatsapp & Messenger Data</SubHeading>
+      <SubHeading>{t.heading}</SubHeading>
 
       <IconSelector
         iconName={message}
@@ -110,29 +121,34 @@ export function WhatsappAndMessengerForm() {
 
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+
+          {/* Telegram */}
           {message === "telegram" && (
             <FormField
               control={form.control}
               name="username"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Username Telegram</FormLabel>
+                  <FormLabel>{t.telegram.label}</FormLabel>
                   <FormControl>
-                    <Input {...field} />
+                    <Input placeholder={t.telegram.placeholder} {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
               )}
             />
           )}
-          {message == "whatsapp" && (
+
+          {/* WhatsApp */}
+          {message === "whatsapp" && (
             <>
+              {/* Phone */}
               <FormField
                 control={form.control}
                 name="phone"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Phone Number</FormLabel>
+                    <FormLabel>{t.whatsapp.phoneLabel}</FormLabel>
                     <FormControl>
                       <PhoneInput
                         {...field}
@@ -140,23 +156,28 @@ export function WhatsappAndMessengerForm() {
                         defaultCountry="ID"
                         international
                         withCountryCallingCode
-                        placeholder="Masukkan nomor telepon"
+                        placeholder={t.whatsapp.phonePlaceholder}
                         value={field.value || ""}
-                        onChange={(val) => field.onChange(val)}
+                        onChange={(v) => field.onChange(v)}
                       />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
                 )}
               />
+
+              {/* Message */}
               <FormField
                 control={form.control}
                 name="message"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Message</FormLabel>
+                    <FormLabel>{t.whatsapp.messageLabel}</FormLabel>
                     <FormControl>
-                      <Textarea {...field} />
+                      <Textarea
+                        placeholder={t.whatsapp.messagePlaceholder}
+                        {...field}
+                      />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -166,7 +187,7 @@ export function WhatsappAndMessengerForm() {
           )}
 
           <UseLogoSwitcher withLogo={withLogo} onCheckedChange={logoHandler} />
-          <Button type="submit">Submit</Button>
+          <Button type="submit">{t.submit}</Button>
         </form>
       </Form>
     </div>

@@ -30,11 +30,18 @@ import {
   SelectContent,
   SelectItem,
 } from "@/components/ui/select";
+
 import { buildEventICS } from "../../builder/event-calendar-builder";
 import { useQRGenerator } from "../../store/provider";
 
+import { useLocale } from "next-intl";
+import { i18nEventCalendarForm } from "../../i18n/form/event-calendar";
+
 export function EventCalendarForm() {
   const { setOptions } = useQRGenerator();
+  const locale = useLocale();
+  const t = i18nEventCalendarForm[locale];
+
   const form = useForm<EventCalendarSchemaType>({
     resolver: zodResolver(eventCalendarSchema),
     defaultValues: {
@@ -47,7 +54,6 @@ export function EventCalendarForm() {
     },
   });
 
-  // Determine if all-day or normal event
   const allDay = useWatch({
     control: form.control,
     name: "allDay",
@@ -55,38 +61,36 @@ export function EventCalendarForm() {
 
   const onSubmit = (values: EventCalendarSchemaType) => {
     const outputUrl = buildEventICS(values);
-
     setOptions((prev) => ({ ...prev, data: outputUrl }));
   };
 
   return (
     <div>
-      <SubHeading>Event Calendar</SubHeading>
+      <SubHeading>{t.heading}</SubHeading>
 
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-          {/* =========================
-              Event Type (all-day / timed)
-             ========================= */}
+
+          {/* EVENT TYPE */}
           <FormField
             control={form.control}
             name="allDay"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Jenis Acara</FormLabel>
+                <FormLabel>{t.type.label}</FormLabel>
                 <Select
                   onValueChange={(val) => field.onChange(val === "true")}
                   defaultValue={field.value ? "true" : "false"}
                 >
                   <FormControl>
                     <SelectTrigger className="w-full">
-                      <SelectValue placeholder="Pilih jenis acara" />
+                      <SelectValue placeholder={t.type.placeholder} />
                     </SelectTrigger>
                   </FormControl>
 
                   <SelectContent className="w-(--radix-select-trigger-width)">
-                    <SelectItem value="false">Event dengan Jam</SelectItem>
-                    <SelectItem value="true">All-Day Event</SelectItem>
+                    <SelectItem value="false">{t.type.timed}</SelectItem>
+                    <SelectItem value="true">{t.type.allDay}</SelectItem>
                   </SelectContent>
                 </Select>
 
@@ -95,33 +99,29 @@ export function EventCalendarForm() {
             )}
           />
 
-          {/* =========================
-              Title
-             ========================= */}
+          {/* TITLE */}
           <FormField
             control={form.control}
             name="title"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Judul Acara</FormLabel>
+                <FormLabel>{t.title.label}</FormLabel>
                 <FormControl>
-                  <Input placeholder="Meeting Penting" {...field} />
+                  <Input placeholder={t.title.placeholder} {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
             )}
           />
 
-          {/* =========================
-              ALL-DAY EVENT
-             ========================= */}
+          {/* ALL DAY EVENT */}
           {allDay && (
             <FormField
               control={form.control}
               name="date"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Tanggal</FormLabel>
+                  <FormLabel>{t.date.label}</FormLabel>
                   <FormControl>
                     <Input type="date" {...field} />
                   </FormControl>
@@ -131,9 +131,7 @@ export function EventCalendarForm() {
             />
           )}
 
-          {/* =========================
-              TIMED EVENT (start - end)
-             ========================= */}
+          {/* TIMED EVENT */}
           {!allDay && (
             <>
               <FormField
@@ -141,7 +139,7 @@ export function EventCalendarForm() {
                 name="start"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Waktu Mulai</FormLabel>
+                    <FormLabel>{t.time.start.label}</FormLabel>
                     <FormControl>
                       <Input type="datetime-local" {...field} />
                     </FormControl>
@@ -155,7 +153,7 @@ export function EventCalendarForm() {
                 name="end"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Waktu Selesai</FormLabel>
+                    <FormLabel>{t.time.end.label}</FormLabel>
                     <FormControl>
                       <Input type="datetime-local" {...field} />
                     </FormControl>
@@ -166,41 +164,37 @@ export function EventCalendarForm() {
             </>
           )}
 
-          {/* =========================
-              Location
-             ========================= */}
+          {/* LOCATION */}
           <FormField
             control={form.control}
             name="location"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Lokasi (opsional)</FormLabel>
+                <FormLabel>{t.location.label}</FormLabel>
                 <FormControl>
-                  <Input placeholder="Jakarta / Zoom / Online" {...field} />
+                  <Input placeholder={t.location.placeholder} {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
             )}
           />
 
-          {/* =========================
-              Description
-             ========================= */}
+          {/* DESCRIPTION */}
           <FormField
             control={form.control}
             name="description"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Deskripsi (opsional)</FormLabel>
+                <FormLabel>{t.description.label}</FormLabel>
                 <FormControl>
-                  <Textarea placeholder="Deskripsi acara..." {...field} />
+                  <Textarea placeholder={t.description.placeholder} {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
             )}
           />
 
-          <Button type="submit">Submit</Button>
+          <Button type="submit">{t.submit}</Button>
         </form>
       </Form>
     </div>

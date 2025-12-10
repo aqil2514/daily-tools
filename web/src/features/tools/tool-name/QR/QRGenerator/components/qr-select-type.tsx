@@ -1,5 +1,6 @@
-import { useQRGenerator } from "../store/provider";
+"use client";
 
+import { useQRGenerator } from "../store/provider";
 import {
   Select,
   SelectContent,
@@ -9,19 +10,16 @@ import {
 } from "@/components/ui/select";
 import { QRType } from "../types/qr-state";
 
-const qrTypeList: Record<QRType, string> = {
-  url: "URL",
-  "social-media": "Social Media",
-  "whatsapp-messenger": "Whatsapp and Messenger",
-  "maps-and-location": "Maps and Location",
-  wifi: "Wifi",
-  "v-card": "V Card",
-  "email-sms": "Email and SMS",
-  "event-calendar": "Event Calendar"
-};
+import { useLocale } from "next-intl";
+import { i18nQRType } from "../i18n/qr-type";
 
 export function QRSelectType() {
+  const locale = useLocale();
+  const t = i18nQRType[locale];
+
   const { qrType, updateQrType, setOptions } = useQRGenerator();
+
+  const qrTypeList = t.types;
 
   return (
     <Select
@@ -32,12 +30,13 @@ export function QRSelectType() {
       }}
     >
       <SelectTrigger className="w-[300px]">
-        <SelectValue placeholder="QR Type" />
+        <SelectValue placeholder={t.placeholder} />
       </SelectTrigger>
+
       <SelectContent>
-        {Object.keys(qrTypeList).map((list) => (
-          <SelectItem value={list} key={list}>
-            {qrTypeList[list as QRType]}
+        {Object.keys(qrTypeList).map((key) => (
+          <SelectItem value={key} key={key}>
+            {qrTypeList[key as QRType]}
           </SelectItem>
         ))}
       </SelectContent>
