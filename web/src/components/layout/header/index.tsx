@@ -39,15 +39,26 @@ const items: HeaderItem[] = [
 export default function Header() {
   const pathname = usePathname();
   return (
-    <header className="w-full bg-slate-800 text-amber-100 px-6 py-4 flex gap-8 justify-between lg:justify-start items-center z-10">
+    <header
+      className={cn(
+        "sticky top-0 w-full z-50",
+        "bg-slate-800/90 backdrop-blur supports-backdrop-filter:bg-slate-800",
+        "border-b border-white/10",
+        "text-amber-100 px-6 py-4",
+        "flex gap-8 justify-between lg:justify-start items-center"
+      )}
+    >
       <div className="flex gap-4">
         <SidebarTrigger className="hidden lg:block" />
-        <Link href="/" className={cn(fontLobster.className, "font-semibold text-2xl")}>
+        <Link
+          href="/"
+          className={cn(fontLobster.className, "font-semibold text-2xl")}
+        >
           FlowTooly
         </Link>
       </div>
 
-        <SidebarTrigger className="block lg:hidden" />
+      <SidebarTrigger className="block lg:hidden" />
 
       <NavigationMenu className="hidden lg:flex">
         <NavigationMenuList className="flex-wrap">
@@ -55,10 +66,14 @@ export default function Header() {
             const isActive = item.isDynamic
               ? pathname.startsWith(item.href)
               : pathname === item.href;
+
             return (
               <NavigationMenuItem
-                key={`menu-item-${i + 1}`}
-                className={cn(isActive && "text-black bg-white rounded-md")}
+                key={i}
+                className={cn(
+                  "px-3 py-1 rounded-md",
+                  isActive && "bg-white text-black"
+                )}
               >
                 <NavigationMenuLink asChild>
                   <Link href={item.href}>{item.label}</Link>
@@ -66,9 +81,6 @@ export default function Header() {
               </NavigationMenuItem>
             );
           })}
-
-          {/* <ToolsImage />
-          <ToolsPDF /> */}
         </NavigationMenuList>
       </NavigationMenu>
     </header>
