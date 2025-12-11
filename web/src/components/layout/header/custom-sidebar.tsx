@@ -12,14 +12,19 @@ interface Props {
 export function CustomSidebarTrigger({ className }: Props) {
   const { toggleSidebar, open, openMobile } = useSidebar();
 
+  const isMobile =
+    typeof window !== "undefined" && window.innerWidth < 768;
+
+  const isOpen = isMobile ? openMobile : open;
+
   return (
     <Button
-      variant={"ghost"}
-      size={"icon-lg"}
+      variant="ghost"
+      size="icon-lg"
       onClick={toggleSidebar}
       className={cn(className)}
     >
-      {open || openMobile ? <X /> : <Menu />}
+      {isOpen ? <X /> : <Menu />}
     </Button>
   );
 }
