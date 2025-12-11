@@ -1,6 +1,10 @@
 import React from "react";
 
-export type DeveloperToolName = "password-generator" | "jwt-decoder" | "uuid-generator";
+export type DeveloperToolName =
+  | "password-generator"
+  | "jwt-decoder"
+  | "uuid-generator"
+  | "base64-encoder";
 
 export type FinancialToolName =
   | "cash-counter"

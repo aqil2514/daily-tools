@@ -1,7 +1,7 @@
 import { DeveloperToolName, ToolRegistryItem } from "@/@types/Tools";
 import dynamic from "next/dynamic";
 
-export const developerRegistry01: Record<DeveloperToolName, ToolRegistryItem> =
+export const developerRegistry01: Partial<Record<DeveloperToolName, ToolRegistryItem>> =
   {
     "jwt-decoder": {
       Component: dynamic(
@@ -35,7 +35,6 @@ export const developerRegistry01: Record<DeveloperToolName, ToolRegistryItem> =
           "jwt header payload",
         ],
       },
-      messagePath: "tools.developer.jwt-decoder",
     },
     "password-generator": {
       Component: dynamic(
@@ -104,4 +103,40 @@ export const developerRegistry01: Record<DeveloperToolName, ToolRegistryItem> =
         ],
       },
     },
+
+    "base64-encoder": {
+  Component: dynamic(
+    () => import("@/features/tools/tool-name/Developer/Base64Encoder")
+  ),
+  href: "/tools/base64-encoder",
+  category: "developer",
+  title: {
+    en: "Base64 Encoder & Decoder",
+    id: "Encoder & Decoder Base64",
+  },
+  description: {
+    en: "Encode or decode Base64 instantly in your browser. Supports text conversion with no data uploaded.",
+    id: "Encode atau decode Base64 secara instan langsung di browser Anda. Mendukung konversi teks tanpa mengunggah data.",
+  },
+  keywords: {
+    en: [
+      "base64 encoder",
+      "base64 decoder",
+      "encode base64 online",
+      "decode base64 online",
+      "developer tools",
+      "text encoding",
+    ],
+    id: [
+      "encoder base64",
+      "decoder base64",
+      "encode base64 online",
+      "decode base64 online",
+      "alat developer",
+      "encoding teks",
+    ],
+  },
+  messagePath: "tools.developer.base64-encoder",
+},
+
   };

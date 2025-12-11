@@ -8,7 +8,7 @@ uuid-generator ✅
 
 slug-generator ✅
 
-base64-encoder-decoder
+base64-encoder-decoder ✅
 
 url-encoder-decoder
 
