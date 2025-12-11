@@ -7,7 +7,8 @@ export type DeveloperToolName =
   | "base64-encoder"
   | "url-encoder"
   | "json-formatter"
-  | "yaml-json-converter";
+  | "yaml-json-converter"
+  | "html-escape";
 
 export type FinancialToolName =
   | "cash-counter"

@@ -9,6 +9,8 @@
 
 ===== 02-developer-registry.ts =====
 01. JSON Formatter & Validator (Formatter & Validator JSON)
+02. YAML ⇄ JSON Converter (Konverter YAML ⇄ JSON)
+03. HTML Escape & Unescape (Escape & Unescape HTML)
 
 ---
 > ⚠️ **Catatan:** File ini dihasilkan secara otomatis oleh script generator.
