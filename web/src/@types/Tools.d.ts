@@ -5,7 +5,8 @@ export type DeveloperToolName =
   | "jwt-decoder"
   | "uuid-generator"
   | "base64-encoder"
-  | "url-encoder";
+  | "url-encoder"
+  | "json-formatter";
 
 export type FinancialToolName =
   | "cash-counter"

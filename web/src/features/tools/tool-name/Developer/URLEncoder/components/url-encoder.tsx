@@ -21,6 +21,8 @@ import { i18nURLEncoder } from "../i18n/url-encoder";
 import { urlDecode, urlEncode } from "../utils/encode-decode";
 import { baseURLEncodeSamples } from "../data/encode-sample";
 import { baseURLDecodeSamples } from "../data/decode-sample";
+import { FAQSection } from "@/components/atoms/faq-section";
+import { urlFAQ_en, urlFAQ_id } from "../data/faq-data";
 
 export function URLEncoder() {
   const locale = useLocale();
@@ -50,6 +52,7 @@ export function URLEncoder() {
     mode === "encode" ? baseURLEncodeSamples : baseURLDecodeSamples;
 
   return (
+    <div>
     <div className="grid lg:grid-cols-2 gap-4">
       {/* INPUT SECTION */}
       <ToolCard>
@@ -121,6 +124,9 @@ export function URLEncoder() {
           "
         />
       </ToolCard>
+    </div>
+
+<FAQSection items={locale === "en" ? urlFAQ_en : urlFAQ_id } />
     </div>
   );
 }

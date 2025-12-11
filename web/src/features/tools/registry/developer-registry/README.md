@@ -7,6 +7,9 @@
 04. Base64 Encoder & Decoder (Encoder & Decoder Base64)
 05. URL Encoder & Decoder (Encoder & Decoder URL)
 
+===== 02-developer-registry.ts =====
+01. JSON Formatter & Validator (Formatter & Validator JSON)
+
 ---
 > ⚠️ **Catatan:** File ini dihasilkan secara otomatis oleh script generator.
 > Jangan diedit manual karena setiap perubahan akan ditimpa.

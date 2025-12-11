@@ -12,7 +12,7 @@ base64-encoder-decoder ✅
 
 url-encoder-decoder ✅
 
-json-formatter
+json-formatter ✅
 
 yaml-json-converter
 
