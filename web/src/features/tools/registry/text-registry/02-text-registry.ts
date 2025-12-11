@@ -1,9 +1,7 @@
-import { ToolRegistryItem } from "@/@types/Tools";
+import { TextToolName, ToolRegistryItem } from "@/@types/Tools";
 import dynamic from "next/dynamic";
 
-type TextRegistry02 = "slug-generator"
-
-export const textRegistry02: Record<TextRegistry02, ToolRegistryItem> = {
+export const textRegistry02: Partial<Record<TextToolName, ToolRegistryItem>> = {
   "slug-generator": {
     title: {
       en: "Slug Generator",
@@ -38,5 +36,41 @@ export const textRegistry02: Record<TextRegistry02, ToolRegistryItem> = {
         "pembuat url bersih",
       ],
     },
+  },
+  "lorem-ipsum-generator": {
+    Component: dynamic(
+      () => import("@/features/tools/tool-name/Text/LoremIpsumGenerator")
+    ),
+    href: "/tools/lorem-ipsum-generator",
+    category: "text",
+    title: {
+      en: "Lorem Ipsum Generator",
+      id: "Generator Lorem Ipsum",
+    },
+    description: {
+      en: "Generate random Lorem Ipsum text instantly. Perfect for designers, developers, and anyone needing placeholder content.",
+      id: "Hasilkan teks Lorem Ipsum secara instan. Cocok untuk desainer, developer, atau siapa pun yang membutuhkan konten dummy.",
+    },
+    keywords: {
+      en: [
+        "lorem ipsum generator",
+        "dummy text",
+        "placeholder text",
+        "random text generator",
+        "lorem ipsum online",
+        "content filler",
+        "ui testing text",
+      ],
+      id: [
+        "generator lorem ipsum",
+        "teks dummy",
+        "teks placeholder",
+        "generator teks acak",
+        "lorem ipsum online",
+        "pengisi konten",
+        "teks untuk uji tampilan",
+      ],
+    },
+    messagePath: "tools.text.lorem-ipsum-generator",
   },
 };

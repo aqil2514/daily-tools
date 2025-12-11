@@ -41,7 +41,8 @@ export type TextToolName =
   | "case-converter"
   | "text-diff"
   | "url-extractor"
-  | "slug-generator";
+  | "slug-generator"
+  | "lorem-ipsum-generator";
 
 export type ToolName =
   | DeveloperToolName

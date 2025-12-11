@@ -1,14 +1,7 @@
-import { ToolRegistryItem } from "@/@types/Tools";
+import { TextToolName, ToolRegistryItem } from "@/@types/Tools";
 import dynamic from "next/dynamic";
 
-type TextRegistry01 =
-  | "case-converter"
-  | "word-counter"
-  | "remove-duplicate-lines"
-  | "text-diff"
-  | "url-extractor";
-
-export const textRegistry01: Record<TextRegistry01, ToolRegistryItem> = {
+export const textRegistry01: Partial<Record<TextToolName, ToolRegistryItem>> = {
   "case-converter": {
     title: {
       en: "Case Converter",
