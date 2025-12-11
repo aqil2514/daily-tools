@@ -6,7 +6,8 @@ export type DeveloperToolName =
   | "uuid-generator"
   | "base64-encoder"
   | "url-encoder"
-  | "json-formatter";
+  | "json-formatter"
+  | "yaml-json-converter";
 
 export type FinancialToolName =
   | "cash-counter"

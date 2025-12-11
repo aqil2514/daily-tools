@@ -43,4 +43,47 @@ export const developerRegistry02: Partial<
       ],
     },
   },
+  "yaml-json-converter": {
+  Component: dynamic(
+    () => import("@/features/tools/tool-name/Developer/YAMLJSONConverter")
+  ),
+  href: "/tools/yaml-json-converter",
+  category: "developer",
+  title: {
+    en: "YAML ⇄ JSON Converter",
+    id: "Konverter YAML ⇄ JSON",
+  },
+  description: {
+    en: "Convert YAML to JSON or JSON to YAML instantly in your browser. Perfect for DevOps, backend developers, and configuration files.",
+    id: "Konversi YAML ke JSON atau JSON ke YAML secara instan langsung di browser Anda. Cocok untuk DevOps, backend developer, dan kebutuhan konfigurasi.",
+  },
+  keywords: {
+    en: [
+      "yaml to json",
+      "json to yaml",
+      "yaml json converter",
+      "convert yaml",
+      "convert json",
+      "yaml parser",
+      "json parser",
+      "kubernetes yaml convert",
+      "docker compose yaml",
+      "developer tools",
+      "devops tools",
+    ],
+    id: [
+      "yaml ke json",
+      "json ke yaml",
+      "konverter yaml json",
+      "ubah yaml",
+      "ubah json",
+      "parser yaml",
+      "parser json",
+      "konversi yaml kubernetes",
+      "yaml docker compose",
+      "alat developer",
+      "alat devops",
+    ],
+  },
+},
 };
