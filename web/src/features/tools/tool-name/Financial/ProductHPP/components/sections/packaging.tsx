@@ -102,8 +102,8 @@ export function PackagingSection() {
           </div>
 
           {/* Table */}
-          <div className="border rounded-lg overflow-hidden">
-            <table className="w-full text-sm">
+          <div className="w-full overflow-x-auto">
+            <table className="min-w-[750px] w-full text-sm">
               <thead className="bg-muted/40">
                 <tr>
                   <th className="p-2 text-left">{t.table.name}</th>
@@ -137,10 +137,18 @@ export function PackagingSection() {
                       Rp {calcCost(item).toLocaleString()}
                     </td>
                     <td className="p-2 flex gap-2">
-                      <Button variant="ghost" size="icon" onClick={() => startEdit(item)}>
+                      <Button
+                        variant="ghost"
+                        size="icon"
+                        onClick={() => startEdit(item)}
+                      >
                         <Pencil size={16} />
                       </Button>
-                      <Button variant="ghost" size="icon" onClick={() => removePackaging(item.id)}>
+                      <Button
+                        variant="ghost"
+                        size="icon"
+                        onClick={() => removePackaging(item.id)}
+                      >
                         <X size={16} />
                       </Button>
                     </td>
@@ -153,7 +161,10 @@ export function PackagingSection() {
           {/* Total */}
           <div className="text-right text-sm font-medium">
             {t.totalLabel}
-            <span className="font-semibold"> Rp {totalPackagingCost.toLocaleString()}</span>
+            <span className="font-semibold">
+              {" "}
+              Rp {totalPackagingCost.toLocaleString()}
+            </span>
           </div>
         </CardContent>
       </Card>

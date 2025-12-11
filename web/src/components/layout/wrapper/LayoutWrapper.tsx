@@ -1,10 +1,10 @@
-import { ScrollArea } from "@/components/ui/scroll-area";
 import { InitialLoader } from "./InitialLoader";
 
 export function LayoutWrapper({ children }: { children: React.ReactNode }) {
   return (
     <InitialLoader>
-      <ScrollArea className="h-[calc(100vh-64px)] w-full">
+      <div className="overflow-y-auto">
+
         <div
           className="
             px-4 sm:px-6 lg:px-8 xl:px-12
@@ -15,7 +15,7 @@ export function LayoutWrapper({ children }: { children: React.ReactNode }) {
         >
           {children}
         </div>
-      </ScrollArea>
+      </div>
     </InitialLoader>
   );
 }

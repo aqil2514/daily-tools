@@ -107,15 +107,13 @@ export function IngredientsSection() {
       {/* INGREDIENT CARD */}
       <Card className="border rounded-xl">
         <CardHeader>
-          <CardTitle className="text-lg font-semibold">
-            {t.cardTitle}
-          </CardTitle>
+          <CardTitle className="text-lg font-semibold">{t.cardTitle}</CardTitle>
           <CardDescription className="text-sm text-muted-foreground">
             {t.cardDescription}
           </CardDescription>
         </CardHeader>
 
-        <CardContent className="space-y-6">
+        <CardContent className="space-y-6 overflow-visible!">
           {/* BUTTON ADD */}
           <div>
             <Button size="sm" variant="outline" onClick={() => setOpen(true)}>
@@ -124,23 +122,38 @@ export function IngredientsSection() {
           </div>
 
           {/* LIST TABLE */}
-          <div className="border rounded-lg overflow-hidden">
-            <table className="w-full text-sm">
+          <div className="w-full overflow-x-auto">
+            <table className="min-w-[750px] w-full text-sm">
               <thead className="bg-muted/40">
                 <tr>
-                  <th className="p-2 text-left">{t.table.name}</th>
-                  <th className="p-2 text-left">{t.table.purchasePrice}</th>
-                  <th className="p-2 text-left">{t.table.purchaseQty}</th>
-                  <th className="p-2 text-left">{t.table.usage}</th>
-                  <th className="p-2 text-left">{t.table.cost}</th>
-                  <th className="p-2 text-left">{t.table.actions}</th>
+                  <th className="p-2 text-left whitespace-nowrap">
+                    {t.table.name}
+                  </th>
+                  <th className="p-2 text-left whitespace-nowrap">
+                    {t.table.purchasePrice}
+                  </th>
+                  <th className="p-2 text-left whitespace-nowrap">
+                    {t.table.purchaseQty}
+                  </th>
+                  <th className="p-2 text-left whitespace-nowrap">
+                    {t.table.usage}
+                  </th>
+                  <th className="p-2 text-left whitespace-nowrap">
+                    {t.table.cost}
+                  </th>
+                  <th className="p-2 text-left whitespace-nowrap">
+                    {t.table.actions}
+                  </th>
                 </tr>
               </thead>
 
               <tbody>
                 {ingredients.length === 0 && (
                   <tr>
-                    <td colSpan={6} className="text-center py-4 text-muted-foreground">
+                    <td
+                      colSpan={6}
+                      className="text-center py-4 text-muted-foreground"
+                    >
                       {t.empty}
                     </td>
                   </tr>
@@ -149,28 +162,31 @@ export function IngredientsSection() {
                 {ingredients.map((item) => (
                   <tr key={item.id} className="border-t">
                     <td className="p-2">{item.name}</td>
-
                     <td className="p-2">
                       Rp {item.purchasePrice.toLocaleString()}
                     </td>
-
                     <td className="p-2">
                       {item.purchaseQuantity} {item.unit}
                     </td>
-
                     <td className="p-2">
                       {item.usage} {item.unit}
                     </td>
-
                     <td className="p-2 font-medium">
                       Rp {calcCost(item).toLocaleString()}
                     </td>
-
                     <td className="p-2 flex gap-2">
-                      <Button variant="ghost" size="icon" onClick={() => startEdit(item)}>
+                      <Button
+                        variant="ghost"
+                        size="icon"
+                        onClick={() => startEdit(item)}
+                      >
                         <Pencil size={16} />
                       </Button>
-                      <Button variant="ghost" size="icon" onClick={() => removeIngredient(item.id)}>
+                      <Button
+                        variant="ghost"
+                        size="icon"
+                        onClick={() => removeIngredient(item.id)}
+                      >
                         <X size={16} />
                       </Button>
                     </td>
@@ -273,7 +289,12 @@ export function IngredientsSection() {
                   const value = e.target.valueAsNumber;
 
                   if (value > form.purchaseQuantity) {
-                    setError(t.fields.errorUsageExceeded(form.purchaseQuantity, form.unit));
+                    setError(
+                      t.fields.errorUsageExceeded(
+                        form.purchaseQuantity,
+                        form.unit
+                      )
+                    );
                     return;
                   }
 
