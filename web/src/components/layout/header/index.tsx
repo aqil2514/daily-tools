@@ -6,10 +6,10 @@ import {
   NavigationMenuLink,
   NavigationMenuList,
 } from "@/components/ui/navigation-menu";
-import { SidebarTrigger } from "@/components/ui/sidebar";
 import { fontLobster } from "@/constants/fonts";
 import { usePathname, Link } from "@/i18n/navigation";
 import { cn } from "@/lib/utils";
+import { CustomSidebarTrigger } from "./custom-sidebar";
 
 export interface MenuItem {
   title: string;
@@ -49,7 +49,7 @@ export default function Header() {
       )}
     >
       <div className="flex gap-4">
-        <SidebarTrigger className="hidden lg:block" />
+        <CustomSidebarTrigger className="hidden lg:flex" />
         <Link
           href="/"
           className={cn(fontLobster.className, "font-semibold text-2xl")}
@@ -58,7 +58,7 @@ export default function Header() {
         </Link>
       </div>
 
-      <SidebarTrigger className="block lg:hidden" />
+      <CustomSidebarTrigger className="flex lg:hidden" />
 
       <NavigationMenu className="hidden lg:flex">
         <NavigationMenuList className="flex-wrap">
