@@ -1,7 +1,7 @@
 import { FinancialToolName, ToolRegistryItem } from "@/@types/Tools";
 import dynamic from "next/dynamic";
 
-export const financialRegistry01: Record<FinancialToolName, ToolRegistryItem> = {
+export const financialRegistry01: Partial<Record<FinancialToolName, ToolRegistryItem>> = {
   "cash-counter": {
     Component: dynamic(() => import("@/features/tools/tool-name/Financial/CashCounter")),
     href: "/tools/cash-counter",
@@ -64,6 +64,46 @@ export const financialRegistry01: Record<FinancialToolName, ToolRegistryItem> = 
       ],
     },
   },
+  "product-hpp-calculator": {
+  Component: dynamic(() =>
+    import("@/features/tools/tool-name/Financial/ProductHPP")
+  ),
+  href: "/tools/product-hpp-calculator",
+  category: "financial",
+
+  title: {
+    en: "Product HPP Calculator",
+    id: "Kalkulator HPP Produk",
+  },
+
+  description: {
+    en: "Calculate product cost of goods sold (COGS) based on materials, packaging, labor, and overhead. Ideal for SMEs, food businesses, and handmade creators.",
+    id: "Hitung HPP suatu produk berdasarkan bahan baku, kemasan, tenaga kerja, dan biaya overhead. Cocok untuk UMKM, bisnis makanan, dan produk handmade.",
+  },
+
+  keywords: {
+    en: [
+      "product hpp calculator",
+      "cogs calculator",
+      "product cost calculator",
+      "cost of goods sold tool",
+      "calculate production cost",
+      "pricing calculator",
+      "food cost calculator",
+      "handmade cost calculator",
+    ],
+    id: [
+      "kalkulator HPP produk",
+      "kalkulator modal usaha",
+      "hitung HPP makanan",
+      "hitung biaya produksi",
+      "kalkulator harga pokok produksi",
+      "kalkulator modal produk handmade",
+      "harga pokok penjualan",
+      "kalkulator biaya bahan baku",
+    ],
+  },
+},
   "financial-simulator": {
     Component: dynamic(
       () => import("@/features/tools/tool-name/Financial/FinancialSimulator")

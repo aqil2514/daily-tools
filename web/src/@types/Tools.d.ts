@@ -5,7 +5,8 @@ export type DeveloperToolName = "password-generator" | "jwt-decoder" | "uuid-gen
 export type FinancialToolName =
   | "cash-counter"
   | "cogs-margin-tool"
-  | "financial-simulator";
+  | "financial-simulator"
+  | "product-hpp-calculator";
 
 export type ImageToolName =
   | "image-converter"
