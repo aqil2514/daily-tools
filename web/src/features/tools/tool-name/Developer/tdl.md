@@ -10,7 +10,7 @@ slug-generator ✅
 
 base64-encoder-decoder ✅
 
-url-encoder-decoder
+url-encoder-decoder ✅
 
 json-formatter
 

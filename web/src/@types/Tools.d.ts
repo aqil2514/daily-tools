@@ -4,7 +4,8 @@ export type DeveloperToolName =
   | "password-generator"
   | "jwt-decoder"
   | "uuid-generator"
-  | "base64-encoder";
+  | "base64-encoder"
+  | "url-encoder";
 
 export type FinancialToolName =
   | "cash-counter"
