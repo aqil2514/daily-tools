@@ -8,7 +8,8 @@ export type DeveloperToolName =
   | "url-encoder"
   | "json-formatter"
   | "yaml-json-converter"
-  | "html-escape";
+  | "html-escape"
+  | "regex-tester";
 
 export type FinancialToolName =
   | "cash-counter"

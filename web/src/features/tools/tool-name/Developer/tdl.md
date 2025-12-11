@@ -20,7 +20,7 @@ jwt-decoder (tanpa secret, hanya payload) ✅
 
 regex-tester
 
-html-escape-unescape
+html-escape-unescape ✅
 
 lorem-ipsum-generator
 

@@ -11,6 +11,7 @@
 01. JSON Formatter & Validator (Formatter & Validator JSON)
 02. YAML ⇄ JSON Converter (Konverter YAML ⇄ JSON)
 03. HTML Escape & Unescape (Escape & Unescape HTML)
+04. Regex Tester (Penguji Regex)
 
 ---
 > ⚠️ **Catatan:** File ini dihasilkan secara otomatis oleh script generator.

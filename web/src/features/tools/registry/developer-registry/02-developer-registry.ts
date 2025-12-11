@@ -125,4 +125,43 @@ export const developerRegistry02: Partial<
       ],
     },
   },
+  "regex-tester": {
+    Component: dynamic(
+      () => import("@/features/tools/tool-name/Developer/RegexTester")
+    ),
+    href: "/tools/regex-tester",
+    category: "developer",
+    title: {
+      en: "Regex Tester",
+      id: "Penguji Regex",
+    },
+    description: {
+      en: "Test and debug regular expressions instantly in your browser. Supports flags, match highlighting, and live results.",
+      id: "Uji dan debug regular expression secara instan langsung di browser Anda. Mendukung flags, highlight hasil, dan pembaruan otomatis.",
+    },
+    keywords: {
+      en: [
+        "regex tester",
+        "regular expression tester",
+        "regex online",
+        "regex test tool",
+        "javascript regex",
+        "debug regex",
+        "regex flags",
+        "regex match tool",
+        "regex pattern tester",
+      ],
+      id: [
+        "penguji regex",
+        "tes regex",
+        "regex online",
+        "alat uji regex",
+        "regex javascript",
+        "debug regex",
+        "regex flags",
+        "alat pencocokan regex",
+        "uji pola regex",
+      ],
+    },
+  },
 };
