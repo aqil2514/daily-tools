@@ -18,10 +18,12 @@ export function toJsonLdSEO(
 
   const jsonLd: Record<string, unknown> = {
     "@context": "https://schema.org",
-    "@type": schema.schemaType ?? "Tool",
+    "@type": schema.schemaType ?? "WebApplication",
     name,
     description,
     url,
+    applicationCategory: "Utility",
+    operatingSystem: "Web",
   };
 
   if (schema.lastUpdated) {
