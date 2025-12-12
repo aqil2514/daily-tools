@@ -9,6 +9,7 @@
 
 ===== 02-text-registry.ts =====
 01. Slug Generator (Generator Slug)
+02. Lorem Ipsum Generator (Generator Lorem Ipsum)
 
 ---
 > ⚠️ **Catatan:** File ini dihasilkan secara otomatis oleh script generator.

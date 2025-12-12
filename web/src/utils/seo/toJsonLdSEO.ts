@@ -12,7 +12,7 @@ export function toJsonLdSEO(
 ) {
   const { locale, baseUrl } = opts;
 
-  const url = `${baseUrl}/tools/${meta.slug}`;
+  const url = `${baseUrl}/${locale}/tools/${meta.slug}`;
   const name = meta.title[locale];
   const description = meta.description[locale];
 
