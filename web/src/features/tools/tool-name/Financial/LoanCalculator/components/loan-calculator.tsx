@@ -10,6 +10,7 @@ import { useLocale } from "next-intl";
 const defaultInput: LoanCalculatorInput = {
   amount: 10000000,
   annualInterestRate: 12,
+  monthlyInterestRate: 1,
   tenorMonths: 12,
   loanType: "flat",
   currency: "IDR",
@@ -21,7 +22,7 @@ export function LoanCalculator() {
   const locale = useLocale();
   return (
     <div>
-      <div className="grid grid-cols-2 gap-4">
+      <div className="grid lg:grid-cols-2 gap-4">
         <LoanInput inputData={inputData} setInputData={setInputData} />
         <LoanOutput inputData={inputData} />
       </div>

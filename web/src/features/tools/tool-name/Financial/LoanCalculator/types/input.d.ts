@@ -10,6 +10,8 @@ export interface LoanCalculatorInput {
   /** Tenor dalam bulan */
   tenorMonths: number;
 
+  monthlyInterestRate: number;
+
   /** flat = bunga flat, effective = bunga anuitas */
   loanType: LoanType;
 

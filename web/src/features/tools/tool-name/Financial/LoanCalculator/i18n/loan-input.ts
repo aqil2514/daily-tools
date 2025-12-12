@@ -12,6 +12,11 @@ export const i18nLoanInput = {
       placeholder: "e.g. 12",
     },
 
+    monthlyInterestRate: {
+      label: "Monthly Interest Rate (%)",
+      placeholder: "e.g. 1.5",
+    },
+
     tenorMonths: {
       label: "Tenor (months)",
       placeholder: "e.g. 12",
@@ -38,6 +43,13 @@ export const i18nLoanInput = {
     annualInterestRate: {
       label: "Bunga Tahunan (%)",
       placeholder: "Misal: 12",
+    },
+
+    
+
+       monthlyInterestRate: {
+      label: "Bunga Per Bulan (%)",
+      placeholder: "Misal: 1.5",
     },
 
     tenorMonths: {
