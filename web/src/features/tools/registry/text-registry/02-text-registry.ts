@@ -71,6 +71,5 @@ export const textRegistry02: Partial<Record<TextToolName, ToolRegistryItem>> = {
         "teks untuk uji tampilan",
       ],
     },
-    messagePath: "tools.text.lorem-ipsum-generator",
   },
 };

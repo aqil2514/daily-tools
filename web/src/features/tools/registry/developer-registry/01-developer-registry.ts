@@ -1,5 +1,7 @@
 import { DeveloperToolName, ToolRegistryItem } from "@/@types/Tools";
 import dynamic from "next/dynamic";
+import { base64MetadataSEO } from "../../tool-name/Developer/Base64Encoder/seo/metadata";
+import { base64JsonLdSEO } from "../../tool-name/Developer/Base64Encoder/seo/jsonld";
 
 export const developerRegistry01: Partial<
   Record<DeveloperToolName, ToolRegistryItem>
@@ -137,7 +139,11 @@ export const developerRegistry01: Partial<
         "encoding teks",
       ],
     },
-    messagePath: "tools.developer.base64-encoder",
+
+    seo: {
+      metadata: base64MetadataSEO,
+      jsonLd: base64JsonLdSEO,
+    },
   },
 
   "url-encoder": {

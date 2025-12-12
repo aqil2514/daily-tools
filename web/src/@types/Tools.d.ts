@@ -1,4 +1,5 @@
 import React from "react";
+import { JsonLdSEO, MetadataSEO } from "./metadata";
 
 export type DeveloperToolName =
   | "password-generator"
@@ -57,7 +58,10 @@ export interface ToolRegistryItem {
   href: `/tools/${ToolName}`;
   category: "image" | "pdf" | "qr" | "financial" | "developer" | "text";
 
-  messagePath?: string;
+  seo?: {
+    metadata: MetadataSEO;
+    jsonLd: JsonLdSEO;
+  };
 
   description: {
     en: string;

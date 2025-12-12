@@ -2,6 +2,8 @@ import { ToolName } from "@/@types/Tools";
 import { JsonLdTool } from "@/components/seo/json-ld-tool";
 import { SEO_CONFIG } from "@/constants/seo";
 import { toolsRegistry } from "@/features/tools/registry";
+import { toJsonLdSEO } from "@/utils/seo/toJsonLdSEO";
+import { toNextMetadata } from "@/utils/seo/toNextMetadata";
 import { Metadata } from "next";
 import { getLocale, getTranslations } from "next-intl/server";
 
@@ -21,6 +23,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description: t("Misc.notfound-description"),
     };
   }
+
+  if (tool.seo)
+    return toNextMetadata(tool.seo.metadata, {
+      baseUrl: SEO_CONFIG.siteUrl,
+      locale,
+    });
 
   return {
     title: `${tool.title[locale]} | Flowtooly`,
@@ -42,14 +50,29 @@ export default async function ConvertCategoryPage({ params }: Props) {
   const ToolsComponent = tool.Component;
 
   const urlJsonLd = `${SEO_CONFIG.siteUrl}/${locale}${tool.href}`;
+  let jsonLdData = null;
+
+  if (tool.seo) {
+    jsonLdData = toJsonLdSEO(tool.seo.metadata, tool.seo.jsonLd, {
+      baseUrl: SEO_CONFIG.siteUrl,
+      locale,
+    });
+  }
 
   return (
     <>
-      <JsonLdTool
-        url={urlJsonLd}
-        description={tool.description[locale]}
-        name={tool.title[locale]}
-      />
+      {jsonLdData ? (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdData) }}
+        />
+      ) : (
+        <JsonLdTool
+          url={urlJsonLd}
+          description={tool.description[locale]}
+          name={tool.title[locale]}
+        />
+      )}
       <ToolsComponent />
     </>
   );
