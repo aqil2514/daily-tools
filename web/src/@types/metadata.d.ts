@@ -47,11 +47,11 @@ export interface LocalizedFAQ {
   id: FAQItem[];
 }
 
-export type SchemaType =
+export type JsonSchemaType =
   | "FAQPage"
+  | "WebApplication"
   | "SoftwareApplication"
-  | "Tool"
-  | "Calculator";
+  | "WebPage";
 
 export interface MetadataSEO {
   /** <title> tag */
@@ -72,7 +72,7 @@ export interface MetadataSEO {
 
 export interface JsonLdSEO {
   /** schema.org type: Tool, SoftwareApplication, FAQPage, Calculator */
-  schemaType?: SchemaType;
+  schemaType?: JsonSchemaType;
 
   /** FAQ for FAQPage JSON-LD */
   faq?: LocalizedFAQ;

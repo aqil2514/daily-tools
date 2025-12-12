@@ -4,7 +4,7 @@ import faq from "./faq";
 export const base64JsonLdSEO: JsonLdSEO = {
   slug: "base64-encoder",
 
-  schemaType: "Tool",
+  schemaType: "WebApplication",
 
   faq,
 
