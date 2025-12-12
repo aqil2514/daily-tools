@@ -17,7 +17,7 @@ export function toNextMetadata(
   const keywords = data.keywords?.[locale];
   const canonical = data.canonicalSlug ?? data.slug;
 
-  const canonicalUrl = `${baseUrl}/tools/${canonical}`;
+  const canonicalUrl = `${baseUrl}/${locale}/tools/${canonical}`;
 
   return {
     title,
