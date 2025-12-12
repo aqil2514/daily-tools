@@ -11,7 +11,7 @@ export function JsonLdToolsList({ locale }: { locale: Locale }) {
       "position": index + 1,
       "url": `${siteUrl}/${locale}${tool.href}`,
       "name": tool.title[locale],
-      "description": tool.description[locale],
+      "description": tool.description![locale],
     })
   );
 

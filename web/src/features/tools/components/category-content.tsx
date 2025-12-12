@@ -71,7 +71,7 @@ export function CategoryContent({
               </h3>
 
               <p className="text-sm text-slate-500 mt-1 leading-relaxed">
-                {tool.description[locale]}
+                {tool.description![locale]}
               </p>
             </div>
           </Link>

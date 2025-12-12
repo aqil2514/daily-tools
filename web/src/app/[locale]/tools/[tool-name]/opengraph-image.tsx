@@ -25,9 +25,9 @@ export default async function OpengraphImage({ params }: Props) {
     // TODO Nanti hapus kalo semuanya udah ada seo
   return await generateOg({
     enTitle: tool.title.en,
-    enDesc: tool.description.en,
+    enDesc: tool.description!.en,
 
     idTitle: tool.title.id,
-    idDesc: tool.description.id,
+    idDesc: tool.description!.id,
   });
 }

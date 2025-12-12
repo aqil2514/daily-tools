@@ -18,12 +18,12 @@ export default function ToolsTemplate() {
   const filteredTools = search.trim()
     ? allTools.filter((tool) => {
         const localeTitle = tool.title[locale];
-        const localeDesc = tool.description[locale];
+        const localeDesc = tool.description![locale];
 
         return (
           localeTitle.toLowerCase().includes(search.toLowerCase()) ||
           localeDesc.toLowerCase().includes(search.toLowerCase()) ||
-          tool.keywords[locale].some((kw) =>
+          tool.keywords![locale].some((kw) =>
             kw.toLowerCase().includes(search.toLowerCase())
           )
         );

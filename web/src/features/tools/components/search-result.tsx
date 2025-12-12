@@ -36,7 +36,7 @@ export function SearchResults({ tools }: { tools: ToolRegistryItem[] }) {
               </h3>
 
               <p className="text-sm text-slate-500 mt-1">
-                {tool.description[locale]}
+                {tool.description![locale]}
               </p>
             </div>
           </Link>

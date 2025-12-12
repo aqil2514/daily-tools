@@ -35,8 +35,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   return {
     title: `${tool.title[locale]} | Flowtooly`,
-    description: tool.description[locale],
-    keywords: tool.keywords[locale],
+    description: tool.description![locale],
+    keywords: tool.keywords![locale],
   };
 }
 
@@ -72,7 +72,7 @@ export default async function ConvertCategoryPage({ params }: Props) {
       ) : (
         <JsonLdTool
           url={urlJsonLd}
-          description={tool.description[locale]}
+          description={tool.description![locale]}
           name={tool.title[locale]}
         />
       )}
