@@ -6,9 +6,9 @@ Anda sudah punya 3 tools strong. Ini bisa diperluas ke suite lengkap “Financia
 
 loan-calculator (cicilan, bunga efektif, flat) ✅
 
-investment-return-calculator (CAGR)
+investment-return-calculator (CAGR) ✅
 
-savings-goal-calculator
+savings-goal-calculator ✅
 
 retirement-calculator
 

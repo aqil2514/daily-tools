@@ -53,4 +53,43 @@ export const financialRegistry02: Partial<
       jsonLd: investmentReturnJsonLdSEO,
     },
   },
+  "savings-goal-calculator": {
+    Component: dynamic(
+      () => import("@/features/tools/tool-name/Financial/SavingsGoalCalculator")
+    ),
+
+    href: "/tools/savings-goal-calculator",
+    category: "financial",
+
+    title: {
+      en: "Savings Goal Calculator",
+      id: "Kalkulator Tujuan Tabungan",
+    },
+
+    description: {
+      en: "Calculate how much you need to save each month to reach your financial goal. Supports optional interest growth for more accurate planning.",
+      id: "Hitung berapa yang perlu Anda tabung setiap bulan untuk mencapai tujuan keuangan Anda. Mendukung perhitungan bunga opsional untuk perencanaan yang lebih akurat.",
+    },
+
+    keywords: {
+      en: [
+        "savings goal calculator",
+        "monthly savings calculator",
+        "financial planning",
+        "saving calculator",
+        "goal calculator",
+        "compound savings calculator",
+        "future value calculator",
+      ],
+      id: [
+        "kalkulator tujuan tabungan",
+        "kalkulator tabungan bulanan",
+        "perencanaan keuangan",
+        "kalkulator menabung",
+        "kalkulator target tabungan",
+        "kalkulator tabungan majemuk",
+        "kalkulator nilai masa depan",
+      ],
+    },
+  },
 };

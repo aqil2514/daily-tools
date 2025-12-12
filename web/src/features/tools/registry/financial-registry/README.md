@@ -7,6 +7,10 @@
 04. Financial Simulator (Simulasi Keuangan)
 05. Loan Calculator (Kalkulator Pinjaman)
 
+===== 02-financial-registry.ts =====
+01. Investment Return Calculator (CAGR) (Kalkulator Return Investasi (CAGR))
+02. Savings Goal Calculator (Kalkulator Tujuan Tabungan)
+
 ---
 > ⚠️ **Catatan:** File ini dihasilkan secara otomatis oleh script generator.
 > Jangan diedit manual karena setiap perubahan akan ditimpa.
