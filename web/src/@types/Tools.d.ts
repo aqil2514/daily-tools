@@ -68,14 +68,16 @@ export interface ToolRegistryItem {
 
   relatedTools?: ToolName[];
 
-  description: {
+  description?: {
     en: string;
     id: string;
   };
-  keywords: {
+
+  keywords?: {
     en: string[];
     id: string[];
   };
+  
   title: { en: string; id: string };
 }
 

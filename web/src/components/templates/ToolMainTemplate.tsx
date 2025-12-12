@@ -11,8 +11,6 @@ interface Props {
   MainComponent: React.ComponentType;
 }
 
-// TODO : Integrasi ke Page
-
 export default async function ToolMainTemplate({
   MainComponent,
   toolName,
@@ -20,12 +18,14 @@ export default async function ToolMainTemplate({
   const locale = await getLocale();
   const tool = toolsRegistry[toolName];
 
+  const title = tool.seo ? tool.seo.metadata.title[locale] : tool.title[locale];
+  const description = tool.seo
+    ? tool.seo.metadata.description[locale]
+    : tool.description![locale];
+
   return (
     <div>
-      <SectionHeader
-        title={tool.title[locale]}
-        description={tool.description[locale]}
-      />
+      <SectionHeader title={title} description={description} />
 
       <MainComponent />
 
