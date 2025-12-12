@@ -30,6 +30,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       locale,
     });
 
+    // TODO Nanti hapus kalo semuanya udah ada seo
+
   return {
     title: `${tool.title[locale]} | Flowtooly`,
     description: tool.description[locale],

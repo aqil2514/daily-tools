@@ -1,9 +1,15 @@
 import { FinancialToolName, ToolRegistryItem } from "@/@types/Tools";
 import dynamic from "next/dynamic";
+import loanCalculatorJsonLdSEO from "../../tool-name/Financial/LoanCalculator/seo/jsonld";
+import loanCalculatorMetadataSEO from "../../tool-name/Financial/LoanCalculator/seo/metadata";
 
-export const financialRegistry01: Partial<Record<FinancialToolName, ToolRegistryItem>> = {
+export const financialRegistry01: Partial<
+  Record<FinancialToolName, ToolRegistryItem>
+> = {
   "cash-counter": {
-    Component: dynamic(() => import("@/features/tools/tool-name/Financial/CashCounter")),
+    Component: dynamic(
+      () => import("@/features/tools/tool-name/Financial/CashCounter")
+    ),
     href: "/tools/cash-counter",
     category: "financial",
 
@@ -33,7 +39,9 @@ export const financialRegistry01: Partial<Record<FinancialToolName, ToolRegistry
     },
   },
   "cogs-margin-tool": {
-    Component: dynamic(() => import("@/features/tools/tool-name/Financial/COGSMargin")),
+    Component: dynamic(
+      () => import("@/features/tools/tool-name/Financial/COGSMargin")
+    ),
     href: "/tools/cogs-margin-tool",
     category: "financial",
 
@@ -65,45 +73,45 @@ export const financialRegistry01: Partial<Record<FinancialToolName, ToolRegistry
     },
   },
   "product-hpp-calculator": {
-  Component: dynamic(() =>
-    import("@/features/tools/tool-name/Financial/ProductHPP")
-  ),
-  href: "/tools/product-hpp-calculator",
-  category: "financial",
+    Component: dynamic(
+      () => import("@/features/tools/tool-name/Financial/ProductHPP")
+    ),
+    href: "/tools/product-hpp-calculator",
+    category: "financial",
 
-  title: {
-    en: "Product HPP Calculator",
-    id: "Kalkulator HPP Produk",
-  },
+    title: {
+      en: "Product HPP Calculator",
+      id: "Kalkulator HPP Produk",
+    },
 
-  description: {
-    en: "Calculate product cost of goods sold (COGS) based on materials, packaging, labor, and overhead. Ideal for SMEs, food businesses, and handmade creators.",
-    id: "Hitung HPP suatu produk berdasarkan bahan baku, kemasan, tenaga kerja, dan biaya overhead. Cocok untuk UMKM, bisnis makanan, dan produk handmade.",
-  },
+    description: {
+      en: "Calculate product cost of goods sold (COGS) based on materials, packaging, labor, and overhead. Ideal for SMEs, food businesses, and handmade creators.",
+      id: "Hitung HPP suatu produk berdasarkan bahan baku, kemasan, tenaga kerja, dan biaya overhead. Cocok untuk UMKM, bisnis makanan, dan produk handmade.",
+    },
 
-  keywords: {
-    en: [
-      "product hpp calculator",
-      "cogs calculator",
-      "product cost calculator",
-      "cost of goods sold tool",
-      "calculate production cost",
-      "pricing calculator",
-      "food cost calculator",
-      "handmade cost calculator",
-    ],
-    id: [
-      "kalkulator HPP produk",
-      "kalkulator modal usaha",
-      "hitung HPP makanan",
-      "hitung biaya produksi",
-      "kalkulator harga pokok produksi",
-      "kalkulator modal produk handmade",
-      "harga pokok penjualan",
-      "kalkulator biaya bahan baku",
-    ],
+    keywords: {
+      en: [
+        "product hpp calculator",
+        "cogs calculator",
+        "product cost calculator",
+        "cost of goods sold tool",
+        "calculate production cost",
+        "pricing calculator",
+        "food cost calculator",
+        "handmade cost calculator",
+      ],
+      id: [
+        "kalkulator HPP produk",
+        "kalkulator modal usaha",
+        "hitung HPP makanan",
+        "hitung biaya produksi",
+        "kalkulator harga pokok produksi",
+        "kalkulator modal produk handmade",
+        "harga pokok penjualan",
+        "kalkulator biaya bahan baku",
+      ],
+    },
   },
-},
   "financial-simulator": {
     Component: dynamic(
       () => import("@/features/tools/tool-name/Financial/FinancialSimulator")
@@ -138,6 +146,51 @@ export const financialRegistry01: Partial<Record<FinancialToolName, ToolRegistry
         "alat keuangan",
         "manajemen uang",
       ],
+    },
+  },
+  "loan-calculator": {
+    Component: dynamic(
+      () => import("@/features/tools/tool-name/Financial/LoanCalculator")
+    ),
+    href: "/tools/loan-calculator",
+    category: "financial",
+
+    title: {
+      en: "Loan Calculator",
+      id: "Kalkulator Pinjaman",
+    },
+
+    description: {
+      en: "Calculate monthly installments, total interest, and overall repayment for flat or effective (annuity) loan types.",
+      id: "Hitung cicilan bulanan, total bunga, dan total pembayaran untuk pinjaman dengan bunga flat atau efektif (anuitas).",
+    },
+
+    keywords: {
+      en: [
+        "loan calculator",
+        "installment calculator",
+        "flat interest loan",
+        "effective interest loan",
+        "annuity loan",
+        "monthly installment",
+        "loan interest calculator",
+        "loan repayment calculator",
+      ],
+      id: [
+        "kalkulator pinjaman",
+        "kalkulator cicilan",
+        "pinjaman bunga flat",
+        "pinjaman bunga efektif",
+        "pinjaman anuitas",
+        "cicilan bulanan",
+        "kalkulator bunga pinjaman",
+        "kalkulator pembayaran pinjaman",
+      ],
+    },
+
+    seo: {
+      jsonLd: loanCalculatorJsonLdSEO,
+      metadata: loanCalculatorMetadataSEO,
     },
   },
 };

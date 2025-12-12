@@ -16,7 +16,8 @@ export type FinancialToolName =
   | "cash-counter"
   | "cogs-margin-tool"
   | "financial-simulator"
-  | "product-hpp-calculator";
+  | "product-hpp-calculator"
+  | "loan-calculator";
 
 export type ImageToolName =
   | "image-converter"
