@@ -8,7 +8,7 @@ import {
 } from "@/components/ui/accordion";
 import { ToolCard } from "../tools/tool-card";
 import { SubHeading } from "./subHeading";
-import ReactMarkdown from "react-markdown";
+import { MarkdownStyled } from "./markdown-styled";
 
 export interface FAQItem {
   question: string;
@@ -31,7 +31,8 @@ export function FAQSection({ items }: FAQSectionProps) {
                 {item.question}
               </AccordionTrigger>
               <AccordionContent>
-                <ReactMarkdown>{item.answer}</ReactMarkdown>
+                <MarkdownStyled>{item.answer}</MarkdownStyled>
+
               </AccordionContent>
             </AccordionItem>
           ))}

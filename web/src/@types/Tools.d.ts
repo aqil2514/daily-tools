@@ -17,7 +17,8 @@ export type FinancialToolName =
   | "cogs-margin-tool"
   | "financial-simulator"
   | "product-hpp-calculator"
-  | "loan-calculator";
+  | "loan-calculator"
+  | "investment-return-calculator";
 
 export type ImageToolName =
   | "image-converter"

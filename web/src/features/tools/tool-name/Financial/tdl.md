@@ -4,7 +4,7 @@ Anda sudah punya 3 tools strong. Ini bisa diperluas ke suite lengkap “Financia
 
 📈 Tambahan yang paling cocok:
 
-loan-calculator (cicilan, bunga efektif, flat)
+loan-calculator (cicilan, bunga efektif, flat) ✅
 
 investment-return-calculator (CAGR)
 
