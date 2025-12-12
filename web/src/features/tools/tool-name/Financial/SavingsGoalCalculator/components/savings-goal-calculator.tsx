@@ -14,7 +14,7 @@ export function SavingsGoalCalculator() {
   const locale = useLocale()
   return (
     <div>
-      <div className="grid grid-cols-2 gap-4">
+      <div className="grid lg:grid-cols-2 gap-4">
         <SavingsGoalInputComp
           inputData={inputData}
           setInputData={setInputData}
