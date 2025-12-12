@@ -1,7 +1,10 @@
 "use client";
 
 import { ToolCard } from "@/components/tools/tool-card";
-import { usePasswordGenerator } from "../store/provider";
+import {
+  PasswordGeneratorProvider,
+  usePasswordGenerator,
+} from "../store/provider";
 import { Input } from "@/components/ui/input";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Button } from "@/components/ui/button";
@@ -15,6 +18,14 @@ import { useTranslations } from "next-intl";
 import { SecurityTips } from "./security-tips";
 
 export default function PasswordGenerator() {
+  return (
+    <PasswordGeneratorProvider>
+      <InnerTemplate />
+    </PasswordGeneratorProvider>
+  );
+}
+
+const InnerTemplate = () => {
   const { state, setSetting } = usePasswordGenerator();
   const [result, setResult] = useState("");
   const t = useTranslations("tools-developer.password-generator");
@@ -139,4 +150,4 @@ export default function PasswordGenerator() {
       <SecurityTips />
     </div>
   );
-}
+};

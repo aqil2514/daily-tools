@@ -1,3 +1,4 @@
+"use client";
 import { TextEditor } from "@/components/atoms/text-editor";
 import { ToolCard } from "@/components/tools/tool-card";
 import { useTranslations } from "next-intl";

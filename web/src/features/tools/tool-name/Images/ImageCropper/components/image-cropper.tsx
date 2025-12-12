@@ -1,6 +1,10 @@
 "use client";
 import { ToolCard } from "@/components/tools/tool-card";
-import { defaultCropState, useImageCroper } from "../provider";
+import {
+  defaultCropState,
+  ImageCropperProvider,
+  useImageCroper,
+} from "../provider";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { SourceSelection } from "@/components/molecules/source-selection";
 import { CropperUI } from "./cropper-ui";
@@ -10,6 +14,14 @@ import { Button } from "@/components/ui/button";
 import { CropperAction } from "./cropper-action";
 
 export function ImageCropperComp() {
+  return (
+    <ImageCropperProvider>
+      <InnerTemplate />
+    </ImageCropperProvider>
+  );
+}
+
+const InnerTemplate = () => {
   const { setImageUrl, setCropState, imageUrl } = useImageCroper();
 
   const fileSelectedHandler = async (file: File | null) => {
@@ -58,4 +70,4 @@ export function ImageCropperComp() {
       </ToolCard>
     </div>
   );
-}
+};

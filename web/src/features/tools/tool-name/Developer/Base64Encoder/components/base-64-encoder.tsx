@@ -18,8 +18,6 @@ import {
 } from "@/components/ui/select";
 import { useLocale } from "next-intl";
 import { i18nBase64 } from "../i18n/base-64-encoder";
-import { FAQSection } from "@/components/atoms/faq-section";
-import { base64FAQ_en, base64FAQ_id } from "../data/faq-data";
 
 export function Base64Encoder() {
   const locale = useLocale();
@@ -50,66 +48,62 @@ export function Base64Encoder() {
 
   return (
     <div>
-    <div className="grid lg:grid-cols-2 gap-4">
-      {/* INPUT */}
-      <ToolCard>
-        <div className="flex justify-between items-center mb-4">
-          <h2 className="text-lg font-medium">{t.input}</h2>
+      <div className="grid lg:grid-cols-2 gap-4">
+        {/* INPUT */}
+        <ToolCard>
+          <div className="flex justify-between items-center mb-4">
+            <h2 className="text-lg font-medium">{t.input}</h2>
 
-          {/* Mode Selector */}
-          <Select
-            value={mode}
-            onValueChange={(val: "encode" | "decode") => {
-              setText("");
-              setMode(val);
-            }}
-          >
-            <SelectTrigger className="w-[130px]">
-              <SelectValue placeholder={t["mode-label"]} />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="encode">{t.encode}</SelectItem>
-              <SelectItem value="decode">{t.decode}</SelectItem>
-            </SelectContent>
-          </Select>
-        </div>
+            {/* Mode Selector */}
+            <Select
+              value={mode}
+              onValueChange={(val: "encode" | "decode") => {
+                setText("");
+                setMode(val);
+              }}
+            >
+              <SelectTrigger className="w-[130px]">
+                <SelectValue placeholder={t["mode-label"]} />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="encode">{t.encode}</SelectItem>
+                <SelectItem value="decode">{t.decode}</SelectItem>
+              </SelectContent>
+            </Select>
+          </div>
 
-        {/* SAMPLE DATA */}
-        <div className="mb-4">
-          <SampleDataComponent sampleData={sampleData} setText={setText} />
-        </div>
+          {/* SAMPLE DATA */}
+          <div className="mb-4">
+            <SampleDataComponent sampleData={sampleData} setText={setText} />
+          </div>
 
-        {/* TEXT EDITOR */}
-        <TextEditor
-          title={t["text-editor"]}
-          text={text}
-          setText={setText}
-        />
-      </ToolCard>
+          {/* TEXT EDITOR */}
+          <TextEditor title={t["text-editor"]} text={text} setText={setText} />
+        </ToolCard>
 
-      {/* OUTPUT */}
-      <ToolCard>
-        <div className="flex justify-between items-center mb-4">
-          <h2 className="text-lg font-medium">{t.output}</h2>
+        {/* OUTPUT */}
+        <ToolCard>
+          <div className="flex justify-between items-center mb-4">
+            <h2 className="text-lg font-medium">{t.output}</h2>
 
-          <Button
-            variant="outline"
-            size="sm"
-            className="flex items-center gap-2"
-            onClick={handleCopy}
-            disabled={!output}
-          >
-            <Copy size={16} />
-            {copied ? t.copied : t.copy}
-          </Button>
-        </div>
+            <Button
+              variant="outline"
+              size="sm"
+              className="flex items-center gap-2"
+              onClick={handleCopy}
+              disabled={!output}
+            >
+              <Copy size={16} />
+              {copied ? t.copied : t.copy}
+            </Button>
+          </div>
 
-        {/* OUTPUT BOX */}
-        <textarea
-          readOnly
-          value={output}
-          placeholder={t.empty}
-          className="
+          {/* OUTPUT BOX */}
+          <textarea
+            readOnly
+            value={output}
+            placeholder={t.empty}
+            className="
             w-full 
             h-[300px] 
             p-3 
@@ -122,12 +116,9 @@ export function Base64Encoder() {
             focus-visible:ring-1 
             focus-visible:ring-ring
           "
-        />
-      </ToolCard>
-    </div>
-
-    <FAQSection items={locale === "en" ? base64FAQ_en : base64FAQ_id } />
-
+          />
+        </ToolCard>
+      </div>
     </div>
   );
 }

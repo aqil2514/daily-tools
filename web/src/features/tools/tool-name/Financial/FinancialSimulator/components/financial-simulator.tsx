@@ -6,8 +6,17 @@ import TransactionsTab from "./transactions";
 import SummaryTab from "./summary";
 import ChartTab from "./chart";
 import { useTranslations } from "next-intl";
+import { FinancialSimulatorProvider } from "../store/provider";
 
 export function FinancialSimulatorComponent() {
+  return (
+    <FinancialSimulatorProvider>
+      <InnerTemplate />
+    </FinancialSimulatorProvider>
+  );
+}
+
+const InnerTemplate = () => {
   const t = useTranslations("tools-registry.financial.financial-simulator");
   return (
     <ToolCard>
@@ -71,4 +80,4 @@ export function FinancialSimulatorComponent() {
       </Tabs>
     </ToolCard>
   );
-}
+};

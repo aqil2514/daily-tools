@@ -1,3 +1,4 @@
+"use client";
 import { ToolCard } from "@/components/tools/tool-card";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";

@@ -1,9 +1,17 @@
+"use client";
 import { UploadPDF } from "@/components/atoms/upload-pdf";
-import { usePDFMerge } from "../store/provider";
+import { PdfMergeProvider, usePDFMerge } from "../store/provider";
 import { PDFSetting } from "./pdf-setting";
 import { PDFPreview } from "./pdf-preview";
 
 export function PDFMerge() {
+  return (
+    <PdfMergeProvider>
+      <InnerTemplate />
+    </PdfMergeProvider>
+  );
+}
+const InnerTemplate = () => {
   const { files, addFiles } = usePDFMerge();
 
   if (files.length < 1)
@@ -14,4 +22,4 @@ export function PDFMerge() {
       <PDFSetting />
     </div>
   );
-}
+};

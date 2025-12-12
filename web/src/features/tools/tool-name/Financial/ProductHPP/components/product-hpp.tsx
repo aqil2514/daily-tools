@@ -9,15 +9,23 @@ import { OutputSummarySection } from "./output/output-summary";
 
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { SampleHppData } from "./sample-hpp-data";
-import { useProductHPP } from "../store/provider";
+import { ProductHPPProvider, useProductHPP } from "../store/provider";
 import { Button } from "@/components/ui/button";
 import { FAQSection } from "@/components/atoms/faq-section";
 import { useLocale } from "next-intl";
 import { productHppFAQ } from "../i18n/faq";
 
 export function ProductHpp() {
+  return (
+    <ProductHPPProvider>
+      <InnerTemplate />
+    </ProductHPPProvider>
+  );
+}
+
+const InnerTemplate = () => {
   const { resetAll } = useProductHPP();
-  const locale = useLocale()
+  const locale = useLocale();
   return (
     <ToolCard>
       <SampleHppData />
@@ -59,4 +67,4 @@ export function ProductHpp() {
       </Tabs>
     </ToolCard>
   );
-}
+};

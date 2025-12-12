@@ -5,10 +5,18 @@ import { COGSItem } from "./cogs-item";
 import { COGSDetailDialog } from "./cogs-dialog";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Button } from "@/components/ui/button";
-import { useCogsMargin } from "../store/provider";
+import { CogsMarginProvider, useCogsMargin } from "../store/provider";
 import { useTranslations } from "next-intl";
 
 export function COGSMarginComponent() {
+  return (
+    <CogsMarginProvider>
+      <InnerTemplate />
+    </CogsMarginProvider>
+  );
+}
+
+const InnerTemplate = () => {
   const { clearItem, items } = useCogsMargin();
   const t = useTranslations();
   return (
@@ -40,4 +48,4 @@ export function COGSMarginComponent() {
       <COGSDetailDialog />
     </>
   );
-}
+};

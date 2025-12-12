@@ -1,11 +1,19 @@
 "use client";
 import { ToolCard } from "@/components/tools/tool-card";
-import { useImageToPDF } from "../provider";
+import { ImageToPDFProvider, useImageToPDF } from "../provider";
 import { PDFPreview } from "./pdf-preview";
 import { SourceSelection } from "@/components/molecules/source-selection-v2";
 import { PDFSetting } from "./pdf-settings";
 
 export function ImageToPDFComponent() {
+  return (
+    <ImageToPDFProvider>
+      <InnerTemplate />
+    </ImageToPDFProvider>
+  );
+}
+
+const InnerTemplate = () => {
   const { images, addImage } = useImageToPDF();
 
   if (images.length < 1)
@@ -32,4 +40,4 @@ export function ImageToPDFComponent() {
       </ToolCard>
     </div>
   );
-}
+};

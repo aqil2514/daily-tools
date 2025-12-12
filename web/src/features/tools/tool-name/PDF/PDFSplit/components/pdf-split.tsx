@@ -1,9 +1,18 @@
+"use client";
 import { UploadPDF } from "@/components/atoms/upload-pdf";
-import { usePdfSplit } from "../store/provider";
+import { PdfSplitProvider, usePdfSplit } from "../store/provider";
 import { PDFPreview } from "./pdf-preview";
 import { PDFSetting } from "./pdf-setting";
 
 export function PDFSplit() {
+  return (
+    <PdfSplitProvider>
+      <InnerTemplate />
+    </PdfSplitProvider>
+  );
+}
+
+const InnerTemplate = () => {
   const { file, setFile } = usePdfSplit();
 
   if (!file)
@@ -20,4 +29,4 @@ export function PDFSplit() {
       <PDFSetting />
     </div>
   );
-}
+};

@@ -1,8 +1,7 @@
 "use client";
 
 import { ToolCard } from "@/components/tools/tool-card";
-// import { SourceSelection } from "./source-selection";
-import { useImageConverter } from "../provider";
+import { ImageConverterProvider, useImageConverter } from "../provider";
 import { OutputFormatSelect } from "./output-format";
 import { DownloadButton } from "@/components/tools/download-button";
 import { SourceSelection } from "@/components/molecules/source-selection";
@@ -11,6 +10,14 @@ import { mapUrlToImageItem } from "@/utils/mapper/urlToImageItem";
 import { ImageBeforeAfterPreview } from "@/components/molecules/image-before-after-preview";
 
 export function ImageConverter() {
+  return (
+    <ImageConverterProvider>
+      <InnerTemplate />
+    </ImageConverterProvider>
+  );
+}
+
+const InnerTemplate = () => {
   const { items, convertedUrl, outputFormat, setItems, setConvertedUrl } =
     useImageConverter();
 
@@ -25,7 +32,7 @@ export function ImageConverter() {
     items.length > 0 && outputFormat
       ? `${getCleanFileName(items[0].fileName)}.${outputFormat}`
       : "";
-      
+
   return (
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
       <ToolCard>
@@ -63,4 +70,4 @@ export function ImageConverter() {
       />
     </div>
   );
-}
+};

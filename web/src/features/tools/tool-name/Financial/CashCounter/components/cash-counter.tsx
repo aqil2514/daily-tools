@@ -10,11 +10,19 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { ShortcutHint } from "./shortcut-hint";
-import { useCashCounter } from "../store/provider";
+import { CashCounterProvider, useCashCounter } from "../store/provider";
 import { Button } from "@/components/ui/button";
 import { useTranslations } from "next-intl";
 
 export function CashCounterComponent() {
+  return (
+    <CashCounterProvider>
+      <InnerTemplate />
+    </CashCounterProvider>
+  );
+}
+
+const InnerTemplate = () => {
   const { resetAll } = useCashCounter();
   const t = useTranslations("tools-registry.financial.cash-counter");
 
@@ -40,9 +48,7 @@ export function CashCounterComponent() {
 
       {/* Summary Section */}
       <ToolCard>
-        <p className="text-gray-500 text-2xl font-semibold">
-          {t("summary")}
-        </p>
+        <p className="text-gray-500 text-2xl font-semibold">{t("summary")}</p>
 
         <CashSummary />
 
@@ -61,4 +67,4 @@ export function CashCounterComponent() {
       </ToolCard>
     </div>
   );
-}
+};

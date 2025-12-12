@@ -1,5 +1,5 @@
 import { ToolName } from "@/@types/Tools";
-import { JSX } from "react";
+import React from "react";
 import { SectionHeader } from "../molecules/section-header";
 import { getLocale } from "next-intl/server";
 import { toolsRegistry } from "@/features/tools/registry";
@@ -8,7 +8,7 @@ import { RelatedToolsSection } from "../organisms/related-tools-section";
 
 interface Props {
   toolName: ToolName;
-  MainComponent: JSX.Element;
+  MainComponent: React.ComponentType;
 }
 
 // TODO : Integrasi ke Page
@@ -27,7 +27,7 @@ export default async function ToolMainTemplate({
         description={tool.description[locale]}
       />
 
-      {MainComponent}
+      <MainComponent />
 
       {tool.seo && tool.seo.jsonLd.faq && (
         <FAQSection items={tool.seo.jsonLd.faq[locale]} />

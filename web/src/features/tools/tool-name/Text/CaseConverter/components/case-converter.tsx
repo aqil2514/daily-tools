@@ -1,3 +1,4 @@
+"use client";
 import { ToolCard } from "@/components/tools/tool-card";
 import { TextEditor } from "./text-editor";
 import { useState } from "react";

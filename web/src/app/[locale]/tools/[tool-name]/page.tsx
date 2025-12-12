@@ -1,5 +1,6 @@
 import { ToolName } from "@/@types/Tools";
 import { JsonLdTool } from "@/components/seo/json-ld-tool";
+import ToolMainTemplate from "@/components/templates/ToolMainTemplate";
 import { SEO_CONFIG } from "@/constants/seo";
 import { toolsRegistry } from "@/features/tools/registry";
 import { toJsonLdSEO } from "@/utils/seo/toJsonLdSEO";
@@ -75,7 +76,7 @@ export default async function ConvertCategoryPage({ params }: Props) {
           name={tool.title[locale]}
         />
       )}
-      <ToolsComponent />
+      <ToolMainTemplate MainComponent={ToolsComponent} toolName={toolName} />
     </>
   );
 }
