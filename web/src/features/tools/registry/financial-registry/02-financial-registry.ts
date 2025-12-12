@@ -2,6 +2,8 @@ import { FinancialToolName, ToolRegistryItem } from "@/@types/Tools";
 import dynamic from "next/dynamic";
 import investmentReturnMetadataSEO from "../../tool-name/Financial/InvestmentReturnCalculator/seo/metadata";
 import investmentReturnJsonLdSEO from "../../tool-name/Financial/InvestmentReturnCalculator/seo/jsonld";
+import savingsGoalMetadataSEO from "../../tool-name/Financial/SavingsGoalCalculator/seo/metadata";
+import savingsGoalJsonLdSEO from "../../tool-name/Financial/SavingsGoalCalculator/seo/jsonld";
 
 export const financialRegistry02: Partial<
   Record<FinancialToolName, ToolRegistryItem>
@@ -61,6 +63,12 @@ export const financialRegistry02: Partial<
     href: "/tools/savings-goal-calculator",
     category: "financial",
 
+    relatedTools: [
+      "investment-return-calculator",
+      "financial-simulator",
+      "loan-calculator",
+    ],
+
     title: {
       en: "Savings Goal Calculator",
       id: "Kalkulator Tujuan Tabungan",
@@ -90,6 +98,11 @@ export const financialRegistry02: Partial<
         "kalkulator tabungan majemuk",
         "kalkulator nilai masa depan",
       ],
+    },
+
+    seo: {
+      jsonLd: savingsGoalJsonLdSEO,
+      metadata: savingsGoalMetadataSEO,
     },
   },
 };

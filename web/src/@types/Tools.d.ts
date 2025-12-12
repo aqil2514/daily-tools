@@ -66,6 +66,8 @@ export interface ToolRegistryItem {
     jsonLd: JsonLdSEO;
   };
 
+  relatedTools?: ToolName[];
+
   description: {
     en: string;
     id: string;
