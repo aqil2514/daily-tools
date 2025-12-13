@@ -8,6 +8,8 @@ import cogsMarginJsonLdSEO from "../../tool-name/Financial/COGSMargin/seo/jsonld
 import cogsMarginMetadataSEO from "../../tool-name/Financial/COGSMargin/seo/metadata";
 import productHPPMetadataSEO from "../../tool-name/Financial/ProductHPP/seo/metadata";
 import productHPPJsonLdSEO from "../../tool-name/Financial/ProductHPP/seo/jsonld";
+import financialSimulatorMetadataSEO from "../../tool-name/Financial/FinancialSimulator/seo/metadata";
+import financialSimulatorJsonLdSEO from "../../tool-name/Financial/FinancialSimulator/seo/jsonld";
 
 export const financialRegistry01: Partial<
   Record<FinancialToolName, ToolRegistryItem>
@@ -185,6 +187,17 @@ export const financialRegistry01: Partial<
         "alat keuangan",
         "manajemen uang",
       ],
+    },
+
+    relatedTools: [
+      "product-hpp-calculator",
+      "loan-calculator",
+      "cogs-margin-tool",
+    ],
+
+    seo: {
+      metadata: financialSimulatorMetadataSEO,
+      jsonLd: financialSimulatorJsonLdSEO,
     },
   },
   "loan-calculator": {

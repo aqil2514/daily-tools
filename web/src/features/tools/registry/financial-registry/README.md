@@ -10,6 +10,8 @@
 ===== 02-financial-registry.ts =====
 01. Investment Return Calculator (CAGR) (Kalkulator Return Investasi (CAGR))
 02. Savings Goal Calculator (Kalkulator Tujuan Tabungan)
+03. Retirement Savings Estimator (Estimator Tabungan Pensiun)
+04. Asset Allocation Calculator (Kalkulator Alokasi Aset)
 
 ---
 > ⚠️ **Catatan:** File ini dihasilkan secara otomatis oleh script generator.
