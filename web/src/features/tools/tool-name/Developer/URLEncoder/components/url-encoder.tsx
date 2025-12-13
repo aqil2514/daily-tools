@@ -21,8 +21,6 @@ import { i18nURLEncoder } from "../i18n/url-encoder";
 import { urlDecode, urlEncode } from "../utils/encode-decode";
 import { baseURLEncodeSamples } from "../data/encode-sample";
 import { baseURLDecodeSamples } from "../data/decode-sample";
-import { FAQSection } from "@/components/atoms/faq-section";
-import { urlFAQ_en, urlFAQ_id } from "../data/faq-data";
 
 export function URLEncoder() {
   const locale = useLocale();
@@ -53,63 +51,59 @@ export function URLEncoder() {
 
   return (
     <div>
-    <div className="grid lg:grid-cols-2 gap-4">
-      {/* INPUT SECTION */}
-      <ToolCard>
-        <div className="flex justify-between items-center mb-4">
-          <h2 className="text-lg font-medium">{t.input}</h2>
+      <div className="grid lg:grid-cols-2 gap-4">
+        {/* INPUT SECTION */}
+        <ToolCard>
+          <div className="flex justify-between items-center mb-4">
+            <h2 className="text-lg font-medium">{t.input}</h2>
 
-          <Select
-            value={mode}
-            onValueChange={(val: "encode" | "decode") => {
-              setText("");
-              setMode(val);
-            }}
-          >
-            <SelectTrigger className="w-[130px]">
-              <SelectValue placeholder={t["mode-label"]} />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="encode">{t.encode}</SelectItem>
-              <SelectItem value="decode">{t.decode}</SelectItem>
-            </SelectContent>
-          </Select>
-        </div>
+            <Select
+              value={mode}
+              onValueChange={(val: "encode" | "decode") => {
+                setText("");
+                setMode(val);
+              }}
+            >
+              <SelectTrigger className="w-[130px]">
+                <SelectValue placeholder={t["mode-label"]} />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="encode">{t.encode}</SelectItem>
+                <SelectItem value="decode">{t.decode}</SelectItem>
+              </SelectContent>
+            </Select>
+          </div>
 
-        {/* SAMPLE DATA */}
-        <div className="mb-4">
-          <SampleDataComponent setText={setText} sampleData={sampleData} />
-        </div>
+          {/* SAMPLE DATA */}
+          <div className="mb-4">
+            <SampleDataComponent setText={setText} sampleData={sampleData} />
+          </div>
 
-        <TextEditor
-          title={t["text-editor"]}
-          text={text}
-          setText={setText}
-        />
-      </ToolCard>
+          <TextEditor title={t["text-editor"]} text={text} setText={setText} />
+        </ToolCard>
 
-      {/* OUTPUT SECTION */}
-      <ToolCard>
-        <div className="flex justify-between items-center mb-4">
-          <h2 className="text-lg font-medium">{t.output}</h2>
+        {/* OUTPUT SECTION */}
+        <ToolCard>
+          <div className="flex justify-between items-center mb-4">
+            <h2 className="text-lg font-medium">{t.output}</h2>
 
-          <Button
-            size="sm"
-            variant="outline"
-            className="flex items-center gap-2"
-            onClick={handleCopy}
-            disabled={!output}
-          >
-            <Copy size={16} />
-            {copied ? t.copied : t.copy}
-          </Button>
-        </div>
+            <Button
+              size="sm"
+              variant="outline"
+              className="flex items-center gap-2"
+              onClick={handleCopy}
+              disabled={!output}
+            >
+              <Copy size={16} />
+              {copied ? t.copied : t.copy}
+            </Button>
+          </div>
 
-        <textarea
-          readOnly
-          value={output}
-          placeholder={t.empty}
-          className="
+          <textarea
+            readOnly
+            value={output}
+            placeholder={t.empty}
+            className="
             w-full 
             h-[300px] 
             p-3 
@@ -122,11 +116,9 @@ export function URLEncoder() {
             focus-visible:ring-1 
             focus-visible:ring-ring
           "
-        />
-      </ToolCard>
-    </div>
-
-<FAQSection items={locale === "en" ? urlFAQ_en : urlFAQ_id } />
+          />
+        </ToolCard>
+      </div>
     </div>
   );
 }

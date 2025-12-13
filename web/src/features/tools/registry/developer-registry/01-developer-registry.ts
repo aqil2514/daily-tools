@@ -8,6 +8,8 @@ import passwordGeneratorJsonLdSEO from "../../tool-name/Developer/PasswordGenera
 import passwordGeneratorMetadataSEO from "../../tool-name/Developer/PasswordGenerator/seo/metadata";
 import uuidGeneratorJsonLdSEO from "../../tool-name/Developer/UUIDGenerator/seo/jsonld";
 import uuidGeneratorMetadataSEO from "../../tool-name/Developer/UUIDGenerator/seo/metadata";
+import urlEncoderJsonLdSEO from "../../tool-name/Developer/URLEncoder/seo/jsonld";
+import urlEncoderMetadataSEO from "../../tool-name/Developer/URLEncoder/seo/metadata";
 
 export const developerRegistry01: Partial<
   Record<DeveloperToolName, ToolRegistryItem>
@@ -126,7 +128,7 @@ export const developerRegistry01: Partial<
       ],
     },
 
-    relatedTools: ["uuid-generator"],
+    relatedTools: ["password-generator", "jwt-decoder"],
     seo: {
       jsonLd: uuidGeneratorJsonLdSEO,
       metadata: uuidGeneratorMetadataSEO,
@@ -188,6 +190,7 @@ export const developerRegistry01: Partial<
       en: "Encode or decode URLs instantly in your browser. Useful for debugging query strings, web development, and API integrations.",
       id: "Encode atau decode URL secara instan langsung di browser Anda. Berguna untuk debugging query string, pengembangan web, dan integrasi API.",
     },
+
     keywords: {
       en: [
         "url encoder",
@@ -215,6 +218,13 @@ export const developerRegistry01: Partial<
         "decoder uri",
         "encoding query string",
       ],
+    },
+
+    relatedTools: ["url-parser"],
+
+    seo: {
+      jsonLd: urlEncoderJsonLdSEO,
+      metadata: urlEncoderMetadataSEO,
     },
   },
 };
