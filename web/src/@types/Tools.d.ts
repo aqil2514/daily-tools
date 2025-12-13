@@ -27,8 +27,6 @@ export type FinancialToolName =
 export type ImageToolName =
   | "image-converter"
   | "image-resizer"
-  // TODO : Nanti kalo Python udah siap
-  // | "image-compressor"
   | "image-cropper"
   | "image-rotate"
   | "image-to-pdf";
@@ -36,8 +34,6 @@ export type ImageToolName =
 export type PDFToolName =
   | "pdf-merge"
   | "pdf-split"
-  // TODO : Nanti kalo Python udah siap
-  // | "pdf-compress"
   | "pdf-generator";
 
 export type QRToolName = "qr-generator";
@@ -59,10 +55,19 @@ export type ToolName =
   | QRToolName
   | TextToolName;
 
+export type ToolCategory =
+  | "image"
+  | "pdf"
+  | "qr"
+  | "financial"
+  | "developer"
+  | "text"
+  | "math";
+
 export interface ToolRegistryItem {
   Component: React.ComponentType;
   href: `/tools/${ToolName}`;
-  category: "image" | "pdf" | "qr" | "financial" | "developer" | "text";
+  category: ToolCategory;
 
   seo?: {
     metadata: MetadataSEO;

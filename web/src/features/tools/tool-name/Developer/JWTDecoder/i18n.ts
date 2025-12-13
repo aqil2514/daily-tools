@@ -16,23 +16,6 @@ const enMessage = {
 
   copy: "Copy",
   copied: "Copied!",
-
-  faq: {
-    q1: "Is it safe to paste my JWT here?",
-    a1: "Yes. This tool works 100% in your browser. Your JWT and secret key are never sent to any server.",
-
-    q2: "Why can my JWT be read in plain text?",
-    a2: "JWT payload is only Base64URL encoded, not encrypted. Anyone with the token can read the header and payload.",
-
-    q3: "Can this tool verify signatures?",
-    a3: "Only for HMAC algorithms (HS256, HS384, HS512). Public-key algorithms such as RS256 require a public key.",
-
-    q4: "Why is my signature invalid?",
-    a4: "Common reasons include using the wrong secret key, different algorithm, or token tampering.",
-
-    q5: "Does decoding a JWT mean authentication?",
-    a5: "No. Decoding only reads the data. It does not verify identity or access permissions.",
-  },
 } as const;
 
 const idMessage = {
@@ -53,22 +36,6 @@ const idMessage = {
 
   copy: "Salin",
   copied: "Disalin!",
-  faq: {
-    q1: "Apakah aman menempelkan JWT saya di sini?",
-    a1: "Aman. Semua proses dilakukan 100% di browser Anda. JWT dan secret key tidak pernah dikirim ke server mana pun.",
-
-    q2: "Kenapa JWT saya terlihat seperti teks biasa?",
-    a2: "Payload JWT hanya di-encode Base64URL, bukan dienkripsi. Bagian header dan payload bisa dibaca siapa saja.",
-
-    q3: "Apakah tool ini dapat memverifikasi signature?",
-    a3: "Hanya untuk algoritma HMAC (HS256, HS384, HS512). Algoritma public key seperti RS256 membutuhkan public key.",
-
-    q4: "Kenapa signature saya tidak valid?",
-    a4: "Biasanya karena secret key salah, algoritma berbeda, atau token telah dimodifikasi.",
-
-    q5: "Apakah decode JWT berarti otentikasi?",
-    a5: "Tidak. Decode hanya membaca data. Bukan verifikasi identitas atau hak akses.",
-  },
 } as const;
 
 export const i18nJwtDecoder = {

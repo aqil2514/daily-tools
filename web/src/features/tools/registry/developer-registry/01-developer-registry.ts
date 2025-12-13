@@ -2,6 +2,8 @@ import { DeveloperToolName, ToolRegistryItem } from "@/@types/Tools";
 import dynamic from "next/dynamic";
 import { base64MetadataSEO } from "../../tool-name/Developer/Base64Encoder/seo/metadata";
 import { base64JsonLdSEO } from "../../tool-name/Developer/Base64Encoder/seo/jsonld";
+import jwtDecoderJsonLdSEO from "../../tool-name/Developer/JWTDecoder/seo/jsonld";
+import jwtDecoderMetadataSEO from "../../tool-name/Developer/JWTDecoder/seo/metadata";
 
 export const developerRegistry01: Partial<
   Record<DeveloperToolName, ToolRegistryItem>
@@ -38,7 +40,14 @@ export const developerRegistry01: Partial<
         "jwt header payload",
       ],
     },
+
+    relatedTools:["json-formatter", "base64-encoder"],
+    seo:{
+      jsonLd: jwtDecoderJsonLdSEO,
+      metadata: jwtDecoderMetadataSEO
+    }
   },
+
   "password-generator": {
     Component: dynamic(
       () => import("@/features/tools/tool-name/Developer/PasswordGenerator")
