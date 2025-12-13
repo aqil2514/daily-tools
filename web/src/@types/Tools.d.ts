@@ -19,7 +19,8 @@ export type FinancialToolName =
   | "product-hpp-calculator"
   | "loan-calculator"
   | "investment-return-calculator"
-  | "savings-goal-calculator";
+  | "savings-goal-calculator"
+  | "retirement-savings-estimator";
 
 export type ImageToolName =
   | "image-converter"

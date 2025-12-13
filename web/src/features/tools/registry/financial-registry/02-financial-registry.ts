@@ -4,6 +4,8 @@ import investmentReturnMetadataSEO from "../../tool-name/Financial/InvestmentRet
 import investmentReturnJsonLdSEO from "../../tool-name/Financial/InvestmentReturnCalculator/seo/jsonld";
 import savingsGoalMetadataSEO from "../../tool-name/Financial/SavingsGoalCalculator/seo/metadata";
 import savingsGoalJsonLdSEO from "../../tool-name/Financial/SavingsGoalCalculator/seo/jsonld";
+import retirementSavingsMetadataSEO from "../../tool-name/Financial/RetirementSavingsEstimator/seo/metadata";
+import retirementSavingsJsonLdSEO from "../../tool-name/Financial/RetirementSavingsEstimator/seo/jsonld";
 
 export const financialRegistry02: Partial<
   Record<FinancialToolName, ToolRegistryItem>
@@ -103,6 +105,57 @@ export const financialRegistry02: Partial<
     seo: {
       jsonLd: savingsGoalJsonLdSEO,
       metadata: savingsGoalMetadataSEO,
+    },
+  },
+   "retirement-savings-estimator": {
+    Component: dynamic(
+      () =>
+        import(
+          "@/features/tools/tool-name/Financial/RetirementSavingsEstimator"
+        )
+    ),
+
+    href: "/tools/retirement-savings-estimator",
+    category: "financial",
+
+    relatedTools: [
+      "savings-goal-calculator",
+      "investment-return-calculator",
+      "financial-simulator",
+    ],
+
+    title: {
+      en: "Retirement Savings Estimator",
+      id: "Estimator Tabungan Pensiun",
+    },
+
+    description: {
+      en: "Estimate how much you need to save each month to reach your retirement goal based on your current age, target retirement age, existing savings, and expected annual return.",
+      id: "Perkirakan berapa yang perlu Anda tabung setiap bulan untuk mencapai dana pensiun berdasarkan usia saat ini, target usia pensiun, tabungan yang sudah ada, dan estimasi return tahunan.",
+    },
+
+    keywords: {
+      en: [
+        "retirement savings estimator",
+        "retirement calculator",
+        "pension savings calculator",
+        "retirement planning",
+        "monthly retirement savings",
+        "future retirement fund",
+      ],
+      id: [
+        "kalkulator tabungan pensiun",
+        "estimator dana pensiun",
+        "perencanaan pensiun",
+        "kalkulator pensiun",
+        "tabungan pensiun bulanan",
+        "target dana pensiun",
+      ],
+    },
+
+    seo: {
+      metadata: retirementSavingsMetadataSEO,
+      jsonLd: retirementSavingsJsonLdSEO,
     },
   },
 };
