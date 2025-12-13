@@ -12,6 +12,7 @@
 02. YAML ⇄ JSON Converter (Konverter YAML ⇄ JSON)
 03. HTML Escape & Unescape (Escape & Unescape HTML)
 04. Regex Tester (Penguji Regex)
+05. URL Parser (Parser URL)
 
 ---
 > ⚠️ **Catatan:** File ini dihasilkan secara otomatis oleh script generator.

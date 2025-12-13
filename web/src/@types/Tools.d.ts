@@ -10,7 +10,8 @@ export type DeveloperToolName =
   | "json-formatter"
   | "yaml-json-converter"
   | "html-escape"
-  | "regex-tester";
+  | "regex-tester"
+  | "url-parser";
 
 export type FinancialToolName =
   | "cash-counter"

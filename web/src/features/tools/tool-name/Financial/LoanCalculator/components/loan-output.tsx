@@ -39,9 +39,6 @@ export function LoanOutput({ inputData }: Props) {
           <p className="text-2xl font-bold text-primary">
             {formatCurrency(result.monthlyInstallment, currency, 0)}
           </p>
-          {/* <p className="text-muted-foreground">
-            {t.perMonth.}
-          </p> */}
         </InfoBlock>
 
         {/* Secondary Results */}

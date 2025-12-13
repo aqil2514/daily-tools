@@ -1,5 +1,7 @@
 import { DeveloperToolName, ToolRegistryItem } from "@/@types/Tools";
 import dynamic from "next/dynamic";
+import urlParserMetadataSEO from "../../tool-name/Developer/UrlParser/seo/metadata";
+import urlParserJsonLdSEO from "../../tool-name/Developer/UrlParser/seo/jsonld";
 
 export const developerRegistry02: Partial<
   Record<DeveloperToolName, ToolRegistryItem>
@@ -162,6 +164,49 @@ export const developerRegistry02: Partial<
         "alat pencocokan regex",
         "uji pola regex",
       ],
+    },
+  },
+  "url-parser": {
+    Component: dynamic(
+      () => import("@/features/tools/tool-name/Developer/UrlParser")
+    ),
+
+    href: "/tools/url-parser",
+    category: "developer",
+
+    title: {
+      en: "URL Parser",
+      id: "Parser URL",
+    },
+
+    description: {
+      en: "Parse a URL into its components, query parameters, and fragments instantly. Analyze URL structure directly in your browser with no data sent to a server.",
+      id: "Uraikan URL menjadi komponen, parameter query, dan fragmen secara instan. Analisis struktur URL langsung di browser tanpa data dikirim ke server.",
+    },
+
+    keywords: {
+      en: [
+        "url parser",
+        "parse url online",
+        "url components",
+        "query string parser",
+        "url analyzer",
+        "developer tools",
+      ],
+      id: [
+        "parser url",
+        "urai url",
+        "komponen url",
+        "parser query string",
+        "alat developer",
+      ],
+    },
+
+    relatedTools: ["url-encoder", "base64-encoder", "json-formatter"],
+
+    seo: {
+      metadata: urlParserMetadataSEO,
+      jsonLd: urlParserJsonLdSEO,
     },
   },
 };

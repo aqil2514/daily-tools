@@ -7,9 +7,10 @@ interface Props {
   title: string;
   text: string;
   setText: Dispatch<SetStateAction<string>>;
+  placeholder?:string;
 }
 
-export function TextEditor({ setText, text, title }: Props) {
+export function TextEditor({ setText, text, title, placeholder }: Props) {
   const fileInputRef = useRef<HTMLInputElement | null>(null);
 
   function handleFileSelect(e: React.ChangeEvent<HTMLInputElement>) {
@@ -82,6 +83,7 @@ export function TextEditor({ setText, text, title }: Props) {
   "
         value={text}
         onChange={(e) => setText(e.target.value)}
+        placeholder={placeholder}
       />
     </div>
   );
