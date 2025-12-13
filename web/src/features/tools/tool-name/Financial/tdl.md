@@ -10,7 +10,7 @@ investment-return-calculator (CAGR) ✅
 
 savings-goal-calculator ✅
 
-retirement-calculator
+retirement-calculator ✅
 
 currency-converter (client, simple)
 

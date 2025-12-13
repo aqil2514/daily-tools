@@ -6,6 +6,8 @@ import savingsGoalMetadataSEO from "../../tool-name/Financial/SavingsGoalCalcula
 import savingsGoalJsonLdSEO from "../../tool-name/Financial/SavingsGoalCalculator/seo/jsonld";
 import retirementSavingsMetadataSEO from "../../tool-name/Financial/RetirementSavingsEstimator/seo/metadata";
 import retirementSavingsJsonLdSEO from "../../tool-name/Financial/RetirementSavingsEstimator/seo/jsonld";
+import assetAllocationMetadataSEO from "../../tool-name/Financial/AssetAllocationCalculator/seo/metadata";
+import assetAllocationJsonLdSEO from "../../tool-name/Financial/AssetAllocationCalculator/seo/jsonld";
 
 export const financialRegistry02: Partial<
   Record<FinancialToolName, ToolRegistryItem>
@@ -156,6 +158,55 @@ export const financialRegistry02: Partial<
     seo: {
       metadata: retirementSavingsMetadataSEO,
       jsonLd: retirementSavingsJsonLdSEO,
+    },
+  },
+  "asset-allocation-calculator": {
+    Component: dynamic(
+      () =>
+        import(
+          "@/features/tools/tool-name/Financial/AssetAllocationCalculator"
+        )
+    ),
+
+    href: "/tools/asset-allocation-calculator",
+    category: "financial",
+
+    relatedTools: [
+      "investment-return-calculator",
+      "savings-goal-calculator",
+      "financial-simulator",
+    ],
+
+    title: {
+      en: "Asset Allocation Calculator",
+      id: "Kalkulator Alokasi Aset",
+    },
+
+    description: {
+      en: "Visualize how your assets are distributed across categories and see their percentage composition based on your inputs.",
+      id: "Visualisasikan pembagian aset Anda ke dalam berbagai kategori dan lihat komposisi persentasenya berdasarkan data yang Anda masukkan.",
+    },
+
+    keywords: {
+      en: [
+        "asset allocation calculator",
+        "portfolio allocation",
+        "asset distribution",
+        "financial overview",
+        "portfolio percentage",
+      ],
+      id: [
+        "kalkulator alokasi aset",
+        "pembagian aset",
+        "komposisi aset",
+        "ringkasan keuangan",
+        "persentase aset",
+      ],
+    },
+
+    seo: {
+      metadata: assetAllocationMetadataSEO,
+      jsonLd: assetAllocationJsonLdSEO,
     },
   },
 };

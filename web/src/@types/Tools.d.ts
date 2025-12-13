@@ -20,7 +20,8 @@ export type FinancialToolName =
   | "loan-calculator"
   | "investment-return-calculator"
   | "savings-goal-calculator"
-  | "retirement-savings-estimator";
+  | "retirement-savings-estimator"
+  | "asset-allocation-calculator";
 
 export type ImageToolName =
   | "image-converter"
@@ -78,7 +79,7 @@ export interface ToolRegistryItem {
     en: string[];
     id: string[];
   };
-  
+
   title: { en: string; id: string };
 }
 
