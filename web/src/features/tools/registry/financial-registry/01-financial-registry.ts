@@ -6,6 +6,8 @@ import cashCounterJsonLdSEO from "../../tool-name/Financial/CashCounter/seo/json
 import cashCounterMetadataSEO from "../../tool-name/Financial/CashCounter/seo/metadata";
 import cogsMarginJsonLdSEO from "../../tool-name/Financial/COGSMargin/seo/jsonld";
 import cogsMarginMetadataSEO from "../../tool-name/Financial/COGSMargin/seo/metadata";
+import productHPPMetadataSEO from "../../tool-name/Financial/ProductHPP/seo/metadata";
+import productHPPJsonLdSEO from "../../tool-name/Financial/ProductHPP/seo/jsonld";
 
 export const financialRegistry01: Partial<
   Record<FinancialToolName, ToolRegistryItem>
@@ -136,6 +138,17 @@ export const financialRegistry01: Partial<
         "harga pokok penjualan",
         "kalkulator biaya bahan baku",
       ],
+    },
+
+    relatedTools: [
+      "cogs-margin-tool",
+      "financial-simulator",
+      "loan-calculator",
+    ],
+
+    seo: {
+      metadata: productHPPMetadataSEO,
+      jsonLd: productHPPJsonLdSEO,
     },
   },
   "financial-simulator": {
