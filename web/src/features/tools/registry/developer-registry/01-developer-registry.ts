@@ -6,6 +6,8 @@ import jwtDecoderJsonLdSEO from "../../tool-name/Developer/JWTDecoder/seo/jsonld
 import jwtDecoderMetadataSEO from "../../tool-name/Developer/JWTDecoder/seo/metadata";
 import passwordGeneratorJsonLdSEO from "../../tool-name/Developer/PasswordGenerator/seo/jsonld";
 import passwordGeneratorMetadataSEO from "../../tool-name/Developer/PasswordGenerator/seo/metadata";
+import uuidGeneratorJsonLdSEO from "../../tool-name/Developer/UUIDGenerator/seo/jsonld";
+import uuidGeneratorMetadataSEO from "../../tool-name/Developer/UUIDGenerator/seo/metadata";
 
 export const developerRegistry01: Partial<
   Record<DeveloperToolName, ToolRegistryItem>
@@ -122,6 +124,12 @@ export const developerRegistry01: Partial<
         "alat developer",
         "alat uuid online",
       ],
+    },
+
+    relatedTools: ["uuid-generator"],
+    seo: {
+      jsonLd: uuidGeneratorJsonLdSEO,
+      metadata: uuidGeneratorMetadataSEO,
     },
   },
 
