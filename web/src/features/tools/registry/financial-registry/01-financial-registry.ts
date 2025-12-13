@@ -240,6 +240,12 @@ export const financialRegistry01: Partial<
       ],
     },
 
+    relatedTools: [
+      "financial-simulator",
+      "case-converter",
+      "product-hpp-calculator",
+    ],
+
     seo: {
       jsonLd: loanCalculatorJsonLdSEO,
       metadata: loanCalculatorMetadataSEO,

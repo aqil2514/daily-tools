@@ -54,6 +54,12 @@ export const financialRegistry02: Partial<
       ],
     },
 
+    relatedTools: [
+      "savings-goal-calculator",
+      "retirement-savings-estimator",
+      "asset-allocation-calculator",
+    ],
+
     seo: {
       metadata: investmentReturnMetadataSEO,
       jsonLd: investmentReturnJsonLdSEO,
@@ -66,12 +72,6 @@ export const financialRegistry02: Partial<
 
     href: "/tools/savings-goal-calculator",
     category: "financial",
-
-    relatedTools: [
-      "investment-return-calculator",
-      "financial-simulator",
-      "loan-calculator",
-    ],
 
     title: {
       en: "Savings Goal Calculator",
@@ -104,12 +104,18 @@ export const financialRegistry02: Partial<
       ],
     },
 
+    relatedTools: [
+      "investment-return-calculator",
+      "financial-simulator",
+      "loan-calculator",
+    ],
+
     seo: {
       jsonLd: savingsGoalJsonLdSEO,
       metadata: savingsGoalMetadataSEO,
     },
   },
-   "retirement-savings-estimator": {
+  "retirement-savings-estimator": {
     Component: dynamic(
       () =>
         import(
@@ -163,9 +169,7 @@ export const financialRegistry02: Partial<
   "asset-allocation-calculator": {
     Component: dynamic(
       () =>
-        import(
-          "@/features/tools/tool-name/Financial/AssetAllocationCalculator"
-        )
+        import("@/features/tools/tool-name/Financial/AssetAllocationCalculator")
     ),
 
     href: "/tools/asset-allocation-calculator",
