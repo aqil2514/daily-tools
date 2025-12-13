@@ -31,7 +31,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       locale,
     });
 
-    // TODO Nanti hapus kalo semuanya udah ada seo
+  // TODO Nanti hapus kalo semuanya udah ada seo
 
   return {
     title: `${tool.title[locale]} | Flowtooly`,
@@ -49,8 +49,6 @@ export default async function ConvertCategoryPage({ params }: Props) {
   if (!tool) {
     return <div>{t("Misc.notfound-title")}</div>;
   }
-
-  const ToolsComponent = tool.Component;
 
   const urlJsonLd = `${SEO_CONFIG.siteUrl}/${locale}${tool.href}`;
   let jsonLdData = null;
@@ -76,7 +74,7 @@ export default async function ConvertCategoryPage({ params }: Props) {
           name={tool.title[locale]}
         />
       )}
-      <ToolMainTemplate MainComponent={ToolsComponent} toolName={toolName} />
+      <ToolMainTemplate toolName={toolName} />
     </>
   );
 }

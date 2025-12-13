@@ -1,24 +1,19 @@
-"use client";
-
 import { SubHeading } from "@/components/atoms/subHeading";
 import { ToolCard } from "@/components/tools/tool-card";
-import { useLocale } from "next-intl";
+import { Locale } from "next-intl";
 import { toolsRegistry } from "@/features/tools/registry";
 import { Link } from "@/i18n/navigation";
 import { ToolName } from "@/@types/Tools";
 
 interface Props {
   toolsName?: ToolName[];
+  locale: Locale;
 }
 
-export function RelatedToolsSection({ toolsName }: Props) {
-  const locale = useLocale();
-
+export function RelatedToolsSection({ toolsName, locale }: Props) {
   if (!toolsName?.length) return null;
 
-  const tools = toolsName
-    .map((name) => toolsRegistry[name])
-    .filter(Boolean);
+  const tools = toolsName.map((name) => toolsRegistry[name]).filter(Boolean);
 
   return (
     <section className="mt-12">

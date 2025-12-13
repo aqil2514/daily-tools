@@ -1,5 +1,3 @@
-"use client";
-
 import {
   Accordion,
   AccordionItem,
@@ -20,6 +18,7 @@ interface FAQSectionProps {
 }
 
 export function FAQSection({ items }: FAQSectionProps) {
+  console.log(typeof window)
   return (
     <div className="mt-10">
       <ToolCard>
