@@ -2,6 +2,8 @@ import { FinancialToolName, ToolRegistryItem } from "@/@types/Tools";
 import dynamic from "next/dynamic";
 import loanCalculatorJsonLdSEO from "../../tool-name/Financial/LoanCalculator/seo/jsonld";
 import loanCalculatorMetadataSEO from "../../tool-name/Financial/LoanCalculator/seo/metadata";
+import cashCounterJsonLdSEO from "../../tool-name/Financial/CashCounter/seo/jsonld";
+import cashCounterMetadataSEO from "../../tool-name/Financial/CashCounter/seo/metadata";
 
 export const financialRegistry01: Partial<
   Record<FinancialToolName, ToolRegistryItem>
@@ -37,6 +39,17 @@ export const financialRegistry01: Partial<
         "kalkulator denominasi",
       ],
     },
+
+    seo: {
+      jsonLd: cashCounterJsonLdSEO,
+      metadata: cashCounterMetadataSEO,
+    },
+
+    relatedTools: [
+      "financial-simulator",
+      "loan-calculator",
+      "product-hpp-calculator",
+    ],
   },
   "cogs-margin-tool": {
     Component: dynamic(
