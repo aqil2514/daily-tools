@@ -4,6 +4,8 @@ import squareJsonLdSEO from "../../tool-name/Math/GeometrySquare/seo/jsonld";
 import squareMetadataSEO from "../../tool-name/Math/GeometrySquare/seo/metadata";
 import rectangleMetadataSEO from "../../tool-name/Math/GeometryRectangle/seo/metadata";
 import rectangleJsonLdSEO from "../../tool-name/Math/GeometryRectangle/seo/jsonld";
+import triangleJsonLdSEO from "../../tool-name/Math/GeometryTriangle/seo/jsonld";
+import triangleMetadataSEO from "../../tool-name/Math/GeometryTriangle/seo/metadata";
 
 export const mathRegistry01: Partial<Record<MathToolName, ToolRegistryItem>> = {
   "geometry-square": {
@@ -77,6 +79,39 @@ export const mathRegistry01: Partial<Record<MathToolName, ToolRegistryItem>> = {
     seo: {
       jsonLd: rectangleJsonLdSEO,
       metadata: rectangleMetadataSEO,
+    },
+  },
+  "geometry-triangle": {
+    Component: dynamic(
+      () => import("@/features/tools/tool-name/Math/GeometryTriangle")
+    ),
+    href: "/tools/geometry-triangle",
+    category: "math",
+    title: {
+      en: "Triangle Calculator",
+      id: "Kalkulator Segitiga",
+    },
+    description: {
+      en: "Calculate the area and perimeter of a right triangle using base and height.",
+      id: "Hitung luas dan keliling segitiga siku-siku menggunakan alas dan tinggi.",
+    },
+    keywords: {
+      en: [
+        "triangle calculator",
+        "right triangle area",
+        "triangle perimeter",
+        "triangle geometry",
+      ],
+      id: [
+        "kalkulator segitiga",
+        "luas segitiga",
+        "keliling segitiga",
+        "segitiga siku-siku",
+      ],
+    },
+    seo: {
+      jsonLd: triangleJsonLdSEO,
+      metadata: triangleMetadataSEO,
     },
   },
 };
