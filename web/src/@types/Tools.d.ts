@@ -51,7 +51,8 @@ export type MathToolName =
   | "geometry-circle"
   | "geometry-trapezoid"
   | "geometry-parallelogram"
-  | "geometry-rhombus";
+  | "geometry-rhombus"
+  | "geometry-kite";
 
 export type ToolName =
   | DeveloperToolName

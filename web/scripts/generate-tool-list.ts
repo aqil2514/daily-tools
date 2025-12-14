@@ -58,7 +58,7 @@ export function generateToolList() {
     md += `## ${label} (${tools.length})\n`;
 
     tools.forEach((tool, index) => {
-      md += `${index + 1}. ${tool.title.en}\n`;
+      md += `${index + 1}. ${tool.title.en} | ${tool.title.id}\n`;
     });
 
     md += `\n`;

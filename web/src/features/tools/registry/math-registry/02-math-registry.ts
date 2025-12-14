@@ -4,6 +4,8 @@ import parallelogramJsonLdSEO from "../../tool-name/Math/GeometryParallelogram/s
 import parallelogramMetadataSEO from "../../tool-name/Math/GeometryParallelogram/seo/metadata";
 import rhombusJsonLdSEO from "../../tool-name/Math/GeometryRhombus/seo/jsonld";
 import rhombusMetadataSEO from "../../tool-name/Math/GeometryRhombus/seo/metadata";
+import kiteJsonLdSEO from "../../tool-name/Math/GeometryKite/seo/jsonld";
+import kiteMetadataSEO from "../../tool-name/Math/GeometryKite/seo/metadata";
 
 export const mathRegistry02: Partial<Record<MathToolName, ToolRegistryItem>> = {
   "geometry-parallelogram": {
@@ -71,6 +73,39 @@ export const mathRegistry02: Partial<Record<MathToolName, ToolRegistryItem>> = {
     seo: {
       jsonLd: rhombusJsonLdSEO,
       metadata: rhombusMetadataSEO,
+    },
+  },
+  "geometry-kite": {
+    Component: dynamic(
+      () => import("@/features/tools/tool-name/Math/GeometryKite")
+    ),
+    href: "/tools/geometry-kite",
+    category: "math",
+    title: {
+      en: "Kite Calculator",
+      id: "Kalkulator Layang-layang",
+    },
+    description: {
+      en: "Calculate the area and perimeter of a kite using diagonals and side lengths.",
+      id: "Hitung luas dan keliling layang-layang menggunakan diagonal dan panjang sisi.",
+    },
+    keywords: {
+      en: [
+        "kite calculator",
+        "area of kite",
+        "perimeter of kite",
+        "kite geometry",
+      ],
+      id: [
+        "kalkulator layang-layang",
+        "luas layang-layang",
+        "keliling layang-layang",
+        "bangun datar layang-layang",
+      ],
+    },
+    seo: {
+      jsonLd: kiteJsonLdSEO,
+      metadata: kiteMetadataSEO,
     },
   },
 };

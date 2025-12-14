@@ -9,6 +9,8 @@
 
 ===== 02-math-registry.ts =====
 01. Parallelogram Calculator (Kalkulator Jajar Genjang)
+02. Rhombus Calculator (Kalkulator Belah Ketupat)
+03. Kite Calculator (Kalkulator Layang-layang)
 
 ---
 > ⚠️ **Catatan:** File ini dihasilkan secara otomatis oleh script generator.
