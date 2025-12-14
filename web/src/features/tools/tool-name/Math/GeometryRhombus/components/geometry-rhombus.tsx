@@ -4,6 +4,8 @@ import { useState } from "react";
 import { RhombusInput } from "./rhombus-input";
 import { RhombusOutput } from "./rhombus-output";
 import { RhombusSimulation } from "./rhombus-simulation";
+import { RelatedToolSelect } from "@/components/molecules/select/related-tool-select";
+import { geometryRelatedTools } from "../../misc";
 
 export function GeometryRhombus() {
   const [d1, setD1] = useState(10);
@@ -12,6 +14,8 @@ export function GeometryRhombus() {
 
   return (
     <div className="space-y-6">
+            <RelatedToolSelect relatedTools={geometryRelatedTools} />
+      
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <RhombusInput
           d1={d1}

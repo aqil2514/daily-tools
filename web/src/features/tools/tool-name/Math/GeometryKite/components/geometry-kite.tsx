@@ -4,6 +4,8 @@ import { useState } from "react";
 import { KiteInput } from "./kite-input";
 import { KiteOutput } from "./kite-output";
 import { KiteSimulation } from "./kite-simulation";
+import { geometryRelatedTools } from "../../misc";
+import { RelatedToolSelect } from "@/components/molecules/select/related-tool-select";
 
 export function GeometryKite() {
   const [d1, setD1] = useState(12);
@@ -13,6 +15,8 @@ export function GeometryKite() {
 
   return (
     <div className="space-y-6">
+      <RelatedToolSelect relatedTools={geometryRelatedTools} />
+
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <KiteInput
           d1={d1}
