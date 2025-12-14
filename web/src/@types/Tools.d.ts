@@ -44,7 +44,10 @@ export type TextToolName =
   | "slug-generator"
   | "lorem-ipsum-generator";
 
-export type MathToolName = "geometry-square";
+export type MathToolName =
+  | "geometry-square"
+  | "geometry-rectangle";
+
 
 export type ToolName =
   | DeveloperToolName
