@@ -4,6 +4,8 @@ import { useState } from "react";
 import { TrapezoidInput } from "./trapezoid-input";
 import { TrapezoidOutput } from "./trapezoid-output";
 import { TrapezoidSimulation } from "./trapezoid-simulation";
+import { RelatedToolSelect } from "@/components/molecules/select/related-tool-select";
+import { geometryRelatedTools } from "../../misc";
 
 export function GeometryTrapezoid() {
   const [a, setA] = useState(8); // alas atas
@@ -14,6 +16,7 @@ export function GeometryTrapezoid() {
 
   return (
     <div className="space-y-6">
+      <RelatedToolSelect relatedTools={geometryRelatedTools} />
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <TrapezoidInput
           a={a}
