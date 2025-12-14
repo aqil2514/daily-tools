@@ -7,6 +7,9 @@
 04. Circle Calculator (Kalkulator Lingkaran)
 05. Trapezoid Calculator (Kalkulator Trapesium)
 
+===== 02-math-registry.ts =====
+01. Parallelogram Calculator (Kalkulator Jajar Genjang)
+
 ---
 > ⚠️ **Catatan:** File ini dihasilkan secara otomatis oleh script generator.
 > Jangan diedit manual karena setiap perubahan akan ditimpa.

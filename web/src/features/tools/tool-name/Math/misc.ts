@@ -6,4 +6,5 @@ export const geometryRelatedTools: ToolName[] = [
   "geometry-square",
   "geometry-trapezoid",
   "geometry-triangle",
+  "geometry-parallelogram"
 ];

@@ -1,5 +1,5 @@
 # Tool List (Internal)
-Total tools: 40
+Total tools: 41
 
 ## Developer Tools (10)
 1. JWT Decoder
@@ -48,12 +48,13 @@ Total tools: 40
 6. Slug Generator
 7. Lorem Ipsum Generator
 
-## Math Tools (5)
+## Math Tools (6)
 1. Square Calculator
 2. Rectangle Calculator
 3. Triangle Calculator
 4. Circle Calculator
 5. Trapezoid Calculator
+6. Parallelogram Calculator
 
 ---
 ⚠️ File ini dihasilkan secara otomatis.
