@@ -5,6 +5,7 @@ import developerConfig from "./generate/configs/developer.config";
 import imageConfig from "./generate/configs/image.config";
 import pdfConfig from "./generate/configs/pdf.config";
 import qrConfig from "./generate/configs/qr.config";
+import mathConfig from "./generate/configs/math.config";
 
 const arg = process.argv[2];
 
@@ -33,6 +34,10 @@ switch (arg) {
     generateRegistry(qrConfig);
     break;
 
+  case "math":
+    generateRegistry(qrConfig);
+    break;
+
   case "all":
     generateRegistry(textConfig);
     generateRegistry(financialConfig);
@@ -40,6 +45,7 @@ switch (arg) {
     generateRegistry(imageConfig);
     generateRegistry(pdfConfig);
     generateRegistry(qrConfig);
+    generateRegistry(mathConfig);
     break;
 
   default:
@@ -49,6 +55,9 @@ Usage:
   tsx scripts/cli.ts financial
   tsx scripts/cli.ts developer
   tsx scripts/cli.ts image
+  tsx scripts/cli.ts pdf
+  tsx scripts/cli.ts qr
+  tsx scripts/cli.ts math
   tsx scripts/cli.ts all
 `);
 }
