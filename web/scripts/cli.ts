@@ -6,6 +6,7 @@ import imageConfig from "./generate/configs/image.config";
 import pdfConfig from "./generate/configs/pdf.config";
 import qrConfig from "./generate/configs/qr.config";
 import mathConfig from "./generate/configs/math.config";
+import { generateToolList } from "./generate-tool-list";
 
 const arg = process.argv[2];
 
@@ -46,6 +47,8 @@ switch (arg) {
     generateRegistry(pdfConfig);
     generateRegistry(qrConfig);
     generateRegistry(mathConfig);
+
+    generateToolList();
     break;
 
   default:
