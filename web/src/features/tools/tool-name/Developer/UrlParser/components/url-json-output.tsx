@@ -1,7 +1,7 @@
 "use client";
 
 import { ParsedUrlResult } from "../types/output";
-import { ToolCard } from "@/components/tools/tool-card";
+import { ToolCard } from "@/components/molecules/card/tool-card";
 import { SubHeading } from "@/components/atoms/subHeading";
 import { Button } from "@/components/ui/button";
 import { Copy, Check } from "lucide-react";

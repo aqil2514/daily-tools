@@ -1,10 +1,10 @@
 "use client";
 
-import { ToolCard } from "@/components/tools/tool-card";
+import { ToolCard } from "@/components/molecules/card/tool-card";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { CurrencyField } from "@/components/atoms/currency-field";
+import { CurrencyField } from "@/components/molecules/input/currency-field";
 import { SubHeading } from "@/components/atoms/subHeading";
 import { Plus, Trash2 } from "lucide-react";
 import { AssetAllocationInput, AssetItem } from "../types/input";

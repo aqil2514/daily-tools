@@ -1,6 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { SummaryRow } from "./summary-row";
-import { formatCurrency } from "@/utils/formatCurrency";
+import { formatCurrency } from "@/utils/formatter/formatCurrency";
 import { useFinancialSimulator } from "../../store/provider";
 import { useFinancialComputed } from "../../hooks/useFinancialComputed";
 import { Button } from "@/components/ui/button";

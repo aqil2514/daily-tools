@@ -1,6 +1,6 @@
 "use client";
 import { TextEditor } from "@/components/atoms/text-editor";
-import { ToolCard } from "@/components/tools/tool-card";
+import { ToolCard } from "@/components/molecules/card/tool-card";
 import { useTranslations } from "next-intl";
 import { useState } from "react";
 import { URLExtractorPreview } from "./url-result";

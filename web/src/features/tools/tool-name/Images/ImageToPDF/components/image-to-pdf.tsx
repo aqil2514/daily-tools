@@ -1,5 +1,5 @@
 "use client";
-import { ToolCard } from "@/components/tools/tool-card";
+import { ToolCard } from "@/components/molecules/card/tool-card";
 import { ImageToPDFProvider, useImageToPDF } from "../provider";
 import { PDFPreview } from "./pdf-preview";
 import { SourceSelection } from "@/components/molecules/source-selection-v2";

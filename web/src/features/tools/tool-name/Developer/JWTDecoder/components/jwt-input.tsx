@@ -1,6 +1,6 @@
 import { SampleDataComponent } from "@/components/atoms/sample-data";
 import { TextEditor } from "@/components/atoms/text-editor";
-import { ToolCard } from "@/components/tools/tool-card";
+import { ToolCard } from "@/components/molecules/card/tool-card";
 import { jwtSampleData } from "../data/sample-data";
 import { useLocale } from "next-intl";
 import { Dispatch, SetStateAction } from "react";

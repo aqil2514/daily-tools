@@ -1,6 +1,6 @@
 "use client";
 
-import { ToolCard } from "@/components/tools/tool-card";
+import { ToolCard } from "@/components/molecules/card/tool-card";
 
 import { SourceSelection } from "@/components/molecules/source-selection";
 import { ImageBeforeAfterPreview } from "@/components/molecules/image-before-after-preview";

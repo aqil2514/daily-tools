@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { PDFDocument, StandardFonts, rgb } from "pdf-lib";
-import { formatCurrency } from "@/utils/formatCurrency";
+import { formatCurrency } from "@/utils/formatter/formatCurrency";
 import { FinancialSimulatorSettings } from "../types/interface";
 
 interface PdfParams {

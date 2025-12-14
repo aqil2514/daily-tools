@@ -1,7 +1,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { computeCategoryTotals } from "./helper";
 import { useFinancialSimulator } from "../../store/provider";
-import { formatCurrency } from "@/utils/formatCurrency";
+import { formatCurrency } from "@/utils/formatter/formatCurrency";
 import { useTranslations } from "next-intl";
 
 export function CategoryTotals() {

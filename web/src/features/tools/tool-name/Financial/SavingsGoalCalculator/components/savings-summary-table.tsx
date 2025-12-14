@@ -1,4 +1,4 @@
-import { formatCurrency } from "@/utils/formatCurrency";
+import { formatCurrency } from "@/utils/formatter/formatCurrency";
 import { SavingsGoalInput } from "../types/input";
 import { SavingsGoalResult } from "../types/output";
 import { useLocale } from "next-intl";

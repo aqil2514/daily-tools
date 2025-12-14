@@ -1,9 +1,9 @@
 "use client";
 
 import { SubHeading } from "@/components/atoms/subHeading";
-import { ToolCard } from "@/components/tools/tool-card";
+import { ToolCard } from "@/components/molecules/card/tool-card";
 import { InfoBlock } from "@/components/atoms/info-block";
-import { formatCurrency } from "@/utils/formatCurrency";
+import { formatCurrency } from "@/utils/formatter/formatCurrency";
 import { calculateSavingsGoal } from "../utils/calculate-savings-goal";
 import { SavingsGoalInput } from "../types/input";
 import { SavingsSummaryTable } from "./savings-summary-table";

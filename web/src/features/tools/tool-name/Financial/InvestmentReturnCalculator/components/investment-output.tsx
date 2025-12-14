@@ -1,11 +1,11 @@
 "use client";
 
 import { SubHeading } from "@/components/atoms/subHeading";
-import { ToolCard } from "@/components/tools/tool-card";
+import { ToolCard } from "@/components/molecules/card/tool-card";
 import { InvestmentReturnInput } from "../types/input";
 import { calculateCAGR } from "../utils/calculate-cagr";
 import { InvestmentSummaryTable } from "./investment-summary-table";
-import { formatCurrency } from "@/utils/formatCurrency";
+import { formatCurrency } from "@/utils/formatter/formatCurrency";
 import { useLocale } from "next-intl";
 import { i18nInvestmentOutput } from "../i18n/investment-output";
 

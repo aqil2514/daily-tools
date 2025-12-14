@@ -1,5 +1,5 @@
 "use client";
-import { ToolCard } from "@/components/tools/tool-card";
+import { ToolCard } from "@/components/molecules/card/tool-card";
 import { TextEditor } from "./text-editor";
 import { Summary } from "./summary";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";

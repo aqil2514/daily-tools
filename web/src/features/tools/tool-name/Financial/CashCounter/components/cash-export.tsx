@@ -2,7 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 import { useCashCounter } from "../store/provider";
-import { formatCurrency } from "@/utils/formatCurrency";
+import { formatCurrency } from "@/utils/formatter/formatCurrency";
 import { PDFDocument, StandardFonts, rgb } from "pdf-lib";
 import { Braces, FileSpreadsheet, FileText } from "lucide-react";
 

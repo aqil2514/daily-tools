@@ -3,7 +3,7 @@
 import { useProductHPP } from "../../store/provider";
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
-import { CurrencyField } from "@/components/atoms/currency-field";
+import { CurrencyField } from "@/components/molecules/input/currency-field";
 
 import { useLocale } from "next-intl";
 import { additionalCostI18n } from "../../i18n/sections/additional-cost";

@@ -6,10 +6,10 @@ import {
 } from "lucide-react";
 
 import { SubHeading } from "@/components/atoms/subHeading";
-import { ToolCard } from "@/components/tools/tool-card";
+import { ToolCard } from "@/components/molecules/card/tool-card";
 import { LoanCalculatorInput } from "../types/input";
 import { calculateLoan } from "../utils/calculate-loan";
-import { formatCurrency } from "@/utils/formatCurrency";
+import { formatCurrency } from "@/utils/formatter/formatCurrency";
 import { LoanSummaryTable } from "./loan-summary-table";
 import { useLocale } from "next-intl";
 import { i18nLoanOutput } from "../i18n/loan-output";

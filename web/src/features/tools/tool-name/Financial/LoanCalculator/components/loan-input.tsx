@@ -1,8 +1,8 @@
 "use client";
 
-import { CurrencyField } from "@/components/atoms/currency-field";
+import { CurrencyField } from "@/components/molecules/input/currency-field";
 import { SubHeading } from "@/components/atoms/subHeading";
-import { ToolCard } from "@/components/tools/tool-card";
+import { ToolCard } from "@/components/molecules/card/tool-card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import {

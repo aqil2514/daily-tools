@@ -13,7 +13,8 @@
       "pdf-tool": "PDF Tools",
       "qr-tool": "QR Tools",
       "developer-tool": "Developer Tools",
-      "text-tool": "Text Tools"
+      "text-tool": "Text Tools",
+      "math-tools": "Math Tools"
     },
     "searchPlaceholder": "Search tools that you need"
   },

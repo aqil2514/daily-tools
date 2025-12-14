@@ -1,4 +1,4 @@
-import { ToolCard } from "@/components/tools/tool-card";
+import { ToolCard } from "@/components/molecules/card/tool-card";
 import { usePDFMerge } from "../store/provider";
 import { SubHeading } from "@/components/atoms/subHeading";
 import { Separator } from "@/components/ui/separator";

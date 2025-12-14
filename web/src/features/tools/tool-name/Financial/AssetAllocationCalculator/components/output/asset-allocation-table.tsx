@@ -1,6 +1,6 @@
 "use client";
 
-import { formatCurrency } from "@/utils/formatCurrency";
+import { formatCurrency } from "@/utils/formatter/formatCurrency";
 import { AssetAllocationResult } from "../../types/output";
 import { useLocale } from "next-intl";
 import { assetAllocationTableI18n } from "../../i18n/output/asset-allocation-table";

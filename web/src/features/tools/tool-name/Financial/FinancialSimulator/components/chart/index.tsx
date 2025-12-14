@@ -15,7 +15,7 @@ import {
   ResponsiveContainer,
 } from "recharts";
 import { FinancialSimulatorSettings, FinancialTransaction } from "../../types/interface";
-import { formatCurrency } from "@/utils/formatCurrency";
+import { formatCurrency } from "@/utils/formatter/formatCurrency";
 import { useTranslations } from "next-intl";
 
 /* Helper: Generate chart-friendly data */

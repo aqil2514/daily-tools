@@ -1,4 +1,4 @@
-import { ToolCard } from "@/components/tools/tool-card";
+import { ToolCard } from "@/components/molecules/card/tool-card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { FinancialSetting } from "./financial-setting";
 import OverviewTab from "./overview";

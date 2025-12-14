@@ -17,7 +17,7 @@ import {
   justifyCenter,
 } from "@/modules/pdf-templates/_shared/styles/pdfUtils";
 import { PDFDocumentProps } from "./PDFDocument";
-import { formatCurrency } from "@/utils/formatCurrency";
+import { formatCurrency } from "@/utils/formatter/formatCurrency";
 
 const headerHeight = 24;
 const rowHeight = 24;

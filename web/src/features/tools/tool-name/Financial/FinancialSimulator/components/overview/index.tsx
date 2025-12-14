@@ -4,7 +4,7 @@ import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { AddTransactionModal } from "../add-transaction";
 import { useFinancialSimulator } from "../../store/provider";
 import { useFinancialComputed } from "../../hooks/useFinancialComputed";
-import { formatCurrency } from "@/utils/formatCurrency";
+import { formatCurrency } from "@/utils/formatter/formatCurrency";
 import { useTranslations } from "next-intl";
 
 export default function OverviewTab() {

@@ -1,7 +1,7 @@
 "use client";
 
 import { useCashCounter } from "../store/provider";
-import { formatCurrency } from "@/utils/formatCurrency";
+import { formatCurrency } from "@/utils/formatter/formatCurrency";
 import { CashExport } from "./cash-export";
 import { useTranslations } from "next-intl";
 

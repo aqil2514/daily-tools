@@ -1,4 +1,4 @@
-import { formatCurrency } from "@/utils/formatCurrency";
+import { formatCurrency } from "@/utils/formatter/formatCurrency";
 import { LoanCalculatorInput } from "../types/input";
 import { LoanCalculationResult } from "../types/output";
 import { useLocale } from "next-intl";

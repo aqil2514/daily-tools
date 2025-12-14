@@ -1,7 +1,7 @@
 import { useWordCounter } from "../store/provider";
 import { SubHeading } from "@/components/atoms/subHeading";
 import { useTranslations } from "next-intl";
-import { formatNumber } from "@/utils/formatNumber";
+import { formatNumber } from "@/utils/formatter/formatNumber";
 import { useState } from "react";
 import { X } from "lucide-react";
 import { ScrollArea } from "@/components/ui/scroll-area";

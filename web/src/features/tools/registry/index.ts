@@ -5,6 +5,7 @@ import { qrRegistry, qrToolNames } from "./qr-registry";
 import { financialRegistry, financialToolNames } from "./financial-registry";
 import { developerRegistry, developerToolNames } from "./developer-registry";
 import { textRegistry, textToolName } from "./text-registry";
+import { mathRegistry, mathToolNames } from "./math-registry";
 
 export const toolsCategory: ToolRegistryItem["category"][] = [
   "developer",
@@ -23,6 +24,7 @@ export const toolsRegistry: ToolRegistry = {
   ...qrRegistry,
   ...financialRegistry,
   ...textRegistry,
+  ...mathRegistry
 };
 
 export const allToolNames = [
@@ -32,6 +34,7 @@ export const allToolNames = [
   ...qrToolNames,
   ...financialToolNames,
   ...textToolName,
+  ...mathToolNames
 ] as ToolName[];
 
 export const toolList = {
@@ -45,6 +48,7 @@ export const toolList = {
   pdf: Object.values(toolsRegistry).filter((t) => t.category === "pdf"),
   qr: Object.values(toolsRegistry).filter((t) => t.category === "qr"),
   text: Object.values(textRegistry).filter((t) => t.category === "text"),
+  math: Object.values(mathRegistry).filter((t) => t.category === "math"),
 };
 
 export const sidebarSections = [
@@ -77,5 +81,10 @@ export const sidebarSections = [
     sectionTitle: "tools.category.text-tool",
     sectionCategory: "text",
     sectionItem: toolList.text,
+  },
+  {
+    sectionTitle: "tools.category.math-tools",
+    sectionCategory: "math",
+    sectionItem: toolList.math,
   },
 ] as const;

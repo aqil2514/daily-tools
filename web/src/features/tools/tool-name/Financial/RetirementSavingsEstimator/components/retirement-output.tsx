@@ -1,6 +1,6 @@
 "use client";
 
-import { ToolCard } from "@/components/tools/tool-card";
+import { ToolCard } from "@/components/molecules/card/tool-card";
 import { SubHeading } from "@/components/atoms/subHeading";
 import { InfoBlock } from "@/components/atoms/info-block";
 import {
@@ -14,7 +14,7 @@ import {
   RetirementCalculationStatus,
   RetirementSavingsResult,
 } from "../types/output";
-import { formatCurrency } from "@/utils/formatCurrency";
+import { formatCurrency } from "@/utils/formatter/formatCurrency";
 import { useLocale } from "next-intl";
 import { retirementOutputI18n } from "../i18n/output/retirement-output";
 

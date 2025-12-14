@@ -1,7 +1,7 @@
 "use client";
 import { ImageBeforeAfterPreview } from "@/components/molecules/image-before-after-preview";
 import { SourceSelection } from "@/components/molecules/source-selection";
-import { ToolCard } from "@/components/tools/tool-card";
+import { ToolCard } from "@/components/molecules/card/tool-card";
 import { ScrollArea } from "@radix-ui/react-scroll-area";
 import { QualitySelector } from "./quality-selector";
 import { useImageCompressor } from "../provider";

@@ -1,4 +1,4 @@
-import { formatCurrency } from "@/utils/formatCurrency";
+import { formatCurrency } from "@/utils/formatter/formatCurrency";
 import { InvestmentReturnInput } from "../types/input";
 import { InvestmentReturnResult } from "../types/output";
 import { useLocale } from "next-intl";

@@ -1,7 +1,7 @@
 "use client";
 
 import { ParsedUrlInsights } from "../types/output";
-import { ToolCard } from "@/components/tools/tool-card";
+import { ToolCard } from "@/components/molecules/card/tool-card";
 import { SubHeading } from "@/components/atoms/subHeading";
 import { Badge } from "@/components/ui/badge";
 import { useLocale } from "next-intl";

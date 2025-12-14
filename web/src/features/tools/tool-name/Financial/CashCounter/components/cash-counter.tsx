@@ -1,5 +1,5 @@
 "use client";
-import { ToolCard } from "@/components/tools/tool-card";
+import { ToolCard } from "@/components/molecules/card/tool-card";
 import { CashTable } from "./cash-table";
 import { CashSummary } from "./cash-summary";
 import { CashSettings } from "./cash-settings";

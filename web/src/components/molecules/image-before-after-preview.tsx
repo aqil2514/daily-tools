@@ -1,5 +1,5 @@
 import { ImagePreview, ImagePreviewProps } from "../tools/image-preview";
-import { ToolCard } from "../tools/tool-card";
+import { ToolCard } from "./card/tool-card";
 import { ScrollArea } from "../ui/scroll-area";
 
 interface ImageBeforeAfterPreviewProps {

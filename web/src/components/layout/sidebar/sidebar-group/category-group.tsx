@@ -20,6 +20,7 @@ import {
   QrCode,
   Code,
   Text,
+  Sigma,
 } from "lucide-react";
 import { ScrollArea } from "@/components/ui/scroll-area";
 
@@ -40,6 +41,7 @@ const categoryIcons = {
   qr: QrCode,
   developer: Code,
   text: Text,
+  math: Sigma
 };
 
 export function CategoryGroup() {

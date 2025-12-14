@@ -1,6 +1,6 @@
 "use client";
 
-import { ToolCard } from "@/components/tools/tool-card";
+import { ToolCard } from "@/components/molecules/card/tool-card";
 import { ImageConverterProvider, useImageConverter } from "../provider";
 import { OutputFormatSelect } from "./output-format";
 import { DownloadButton } from "@/components/tools/download-button";

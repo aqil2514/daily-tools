@@ -1,5 +1,5 @@
 "use client";
-import { formatCurrency } from "@/utils/formatCurrency";
+import { formatCurrency } from "@/utils/formatter/formatCurrency";
 import { useCashCounter } from "../store/provider";
 import { useTranslations } from "next-intl";
 

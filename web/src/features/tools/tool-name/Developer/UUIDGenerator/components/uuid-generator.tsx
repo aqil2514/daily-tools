@@ -1,5 +1,5 @@
 "use client";
-import { ToolCard } from "@/components/tools/tool-card";
+import { ToolCard } from "@/components/molecules/card/tool-card";
 import { UUIDController } from "./uuid-controller";
 import { UUIDFormat } from "./uuid-format";
 import { UUIDOutput } from "./uuid-output";

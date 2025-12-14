@@ -1,6 +1,6 @@
 "use client";
 
-import { ToolCard } from "@/components/tools/tool-card";
+import { ToolCard } from "@/components/molecules/card/tool-card";
 import { safeDecodeJwt } from "../utils/decode-jwt";
 import { Button } from "@/components/ui/button";
 import { Copy, AlertTriangle } from "lucide-react";

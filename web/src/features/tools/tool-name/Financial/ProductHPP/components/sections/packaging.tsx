@@ -22,7 +22,7 @@ import {
   DialogFooter,
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
-import { CurrencyField } from "@/components/atoms/currency-field";
+import { CurrencyField } from "@/components/molecules/input/currency-field";
 
 import { useLocale } from "next-intl";
 import { packagingI18n } from "../../i18n/sections/packaging";

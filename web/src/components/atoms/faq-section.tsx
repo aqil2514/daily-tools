@@ -4,7 +4,7 @@ import {
   AccordionTrigger,
   AccordionContent,
 } from "@/components/ui/accordion";
-import { ToolCard } from "../tools/tool-card";
+import { ToolCard } from "../molecules/card/tool-card";
 import { SubHeading } from "./subHeading";
 import { MarkdownStyled } from "./markdown-styled";
 

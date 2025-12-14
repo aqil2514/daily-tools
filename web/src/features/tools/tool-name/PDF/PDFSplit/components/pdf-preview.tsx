@@ -1,7 +1,7 @@
 "use client";
 
 import { SubHeading } from "@/components/atoms/subHeading";
-import { ToolCard } from "@/components/tools/tool-card";
+import { ToolCard } from "@/components/molecules/card/tool-card";
 
 import { Document, Page, pdfjs } from "react-pdf";
 import { usePdfSplit } from "../store/provider";

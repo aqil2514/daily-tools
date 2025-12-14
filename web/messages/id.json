@@ -13,7 +13,8 @@
       "pdf-tool": "Alat PDF",
       "qr-tool": "Alat QR",
       "developer-tool": "Alat Developer",
-      "text-tool": "Alat Teks"
+      "text-tool": "Alat Teks",
+      "math-tools": "Alat Matematika"
     },
     "searchPlaceholder": "Temukan alat yang anda butuhkan..."
   },

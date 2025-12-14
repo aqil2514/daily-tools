@@ -1,7 +1,7 @@
 "use client";
 
 import { TextEditor } from "@/components/atoms/text-editor";
-import { ToolCard } from "@/components/tools/tool-card";
+import { ToolCard } from "@/components/molecules/card/tool-card";
 import { Button } from "@/components/ui/button";
 import { Copy } from "lucide-react";
 import { useState, useMemo } from "react";

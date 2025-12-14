@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useProductHPP } from "../../store/provider";
 import { IngredientItem, PackagingItem } from "../../types/input";
 import { Label } from "@/components/ui/label";
-import { CurrencyField } from "@/components/atoms/currency-field";
+import { CurrencyField } from "@/components/molecules/input/currency-field";
 
 import {
   Package,

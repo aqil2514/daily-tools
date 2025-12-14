@@ -8,6 +8,7 @@ import {
   LucideIcon,
   Code,
   Text,
+  Sigma,
 } from "lucide-react";
 
 const categoryIcons: Record<string, LucideIcon> = {
@@ -17,6 +18,7 @@ const categoryIcons: Record<string, LucideIcon> = {
   qr: QrCode,
   developer: Code,
   text: Text,
+  math: Sigma,
 };
 
 export function CategoryList({

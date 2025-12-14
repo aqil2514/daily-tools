@@ -1,6 +1,6 @@
 "use client";
 
-import { ToolCard } from "@/components/tools/tool-card";
+import { ToolCard } from "@/components/molecules/card/tool-card";
 import { BasicInfo } from "./sections/basic-info";
 import { IngredientsSection } from "./sections/ingredients";
 import { PackagingSection } from "./sections/packaging";
