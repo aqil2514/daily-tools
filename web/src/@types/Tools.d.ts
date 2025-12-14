@@ -50,8 +50,8 @@ export type MathToolName =
   | "geometry-triangle"
   | "geometry-circle"
   | "geometry-trapezoid"
-  | "geometry-parallelogram";
-
+  | "geometry-parallelogram"
+  | "geometry-rhombus";
 
 export type ToolName =
   | DeveloperToolName

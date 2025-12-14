@@ -73,7 +73,7 @@ export const parallelogramFAQ: LocalizedFAQ = {
     {
       question: "Di mana saya bisa belajar lebih lanjut tentang jajar genjang?",
       answer:
-        "Anda dapat mempelajari lebih lanjut melalui sumber berikut:\n\n- [Wikipedia](https://id.wikipedia.org/wiki/Jajar_genjang)\n- [Rumus Matematika](https://www.ruangguru.com/blog/rumus-luas-dan-keliling-jajar-genjang/)",
+        "Anda dapat mempelajari lebih lanjut melalui sumber berikut:\n\n- [Wikipedia](https://id.wikipedia.org/wiki/Jajar_genjang)\n- [Rumus Matematika](https://www.gramedia.com/literasi/rumus-jajar-genjang/)",
     },
   ],
 };
