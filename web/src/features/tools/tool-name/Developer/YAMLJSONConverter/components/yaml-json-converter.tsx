@@ -27,8 +27,6 @@ import {
   SelectContent,
   SelectItem,
 } from "@/components/ui/select";
-import { FAQSection } from "@/components/atoms/faq-section";
-import { yamlJsonFAQ_en, yamlJsonFAQ_id } from "../data/faq-data";
 
 export function YAMLJSONConverter() {
   const locale = useLocale();
@@ -64,7 +62,6 @@ export function YAMLJSONConverter() {
   const sampleData = mode === "yaml-to-json" ? sampleYAML : sampleJSON;
 
   return (
-    <div>
       <div className="grid lg:grid-cols-2 gap-4">
         <ToolCard>
           <div className="flex justify-between mb-4">
@@ -120,7 +117,5 @@ export function YAMLJSONConverter() {
         </ToolCard>
       </div>
 
-      <FAQSection items={locale === "en" ? yamlJsonFAQ_en : yamlJsonFAQ_id} />
-    </div>
   );
 }

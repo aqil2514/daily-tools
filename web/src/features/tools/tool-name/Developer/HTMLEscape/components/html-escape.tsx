@@ -21,8 +21,6 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { FAQSection } from "@/components/atoms/faq-section";
-import { htmlFAQ_en, htmlFAQ_id } from "../data/faq-data";
 
 export function HTMLEscapeTool() {
   const locale = useLocale();
@@ -48,8 +46,6 @@ export function HTMLEscapeTool() {
     mode === "escape" ? htmlEscapeSamples : htmlUnescapeSamples;
 
   return (
-    <div>
-
     <div className="grid lg:grid-cols-2 gap-4">
       {/* INPUT */}
       <ToolCard>
@@ -106,9 +102,6 @@ export function HTMLEscapeTool() {
           className="w-full h-[300px] p-3 border rounded bg-muted font-mono text-sm resize-none"
         />
       </ToolCard>
-    </div>
-
-    <FAQSection items={locale === "en" ? htmlFAQ_en :  htmlFAQ_id } />
     </div>
   );
 }

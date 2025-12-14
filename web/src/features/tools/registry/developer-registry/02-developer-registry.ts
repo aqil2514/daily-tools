@@ -4,6 +4,10 @@ import urlParserMetadataSEO from "../../tool-name/Developer/UrlParser/seo/metada
 import urlParserJsonLdSEO from "../../tool-name/Developer/UrlParser/seo/jsonld";
 import jsonFormatterJsonLdSEO from "../../tool-name/Developer/JSONFormatter/seo/jsonld";
 import jsonFormatterMetadataSEO from "../../tool-name/Developer/JSONFormatter/seo/metadata";
+import yamlJsonConverterJsonLdSEO from "../../tool-name/Developer/YAMLJSONConverter/seo/jsonld";
+import yamlJsonConverterMetadataSEO from "../../tool-name/Developer/YAMLJSONConverter/seo/metadata";
+import htmlEscapeJsonLdSEO from "../../tool-name/Developer/HTMLEscape/seo/jsonld";
+import htmlEscapeMetadataSEO from "../../tool-name/Developer/HTMLEscape/seo/metadata";
 
 export const developerRegistry02: Partial<
   Record<DeveloperToolName, ToolRegistryItem>
@@ -96,6 +100,13 @@ export const developerRegistry02: Partial<
         "alat devops",
       ],
     },
+
+    relatedTools: ["json-formatter"],
+
+    seo: {
+      jsonLd: yamlJsonConverterJsonLdSEO,
+      metadata: yamlJsonConverterMetadataSEO,
+    },
   },
   "html-escape": {
     Component: dynamic(
@@ -134,6 +145,11 @@ export const developerRegistry02: Partial<
         "alat developer html",
         "encode html online",
       ],
+    },
+    relatedTools: ["json-formatter", "regex-tester"],
+    seo: {
+      jsonLd: htmlEscapeJsonLdSEO,
+      metadata: htmlEscapeMetadataSEO,
     },
   },
   "regex-tester": {
