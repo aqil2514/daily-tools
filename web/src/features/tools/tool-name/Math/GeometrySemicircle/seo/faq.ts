@@ -73,7 +73,7 @@ export const semicircleFAQ: LocalizedFAQ = {
     {
       question: "Di mana saya bisa belajar lebih lanjut tentang setengah lingkaran?",
       answer:
-        "Anda dapat mempelajari lebih lanjut melalui sumber berikut:\n\n- [Wikipedia](https://id.wikipedia.org/wiki/Lingkaran)\n- [Rumus Matematika](https://www.ruangguru.com/blog/rumus-luas-dan-keliling-lingkaran/)",
+        "Anda dapat mempelajari lebih lanjut melalui sumber berikut:\n\n- [Wikipedia](https://id.wikipedia.org/wiki/Lingkaran)\n- [Rumus Matematika](https://www.zenius.net/blog/rumus-luas-dan-keliling-setengah-lingkaran//)",
     },
   ],
 };
