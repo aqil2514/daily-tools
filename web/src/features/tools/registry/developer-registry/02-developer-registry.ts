@@ -8,6 +8,8 @@ import yamlJsonConverterJsonLdSEO from "../../tool-name/Developer/YAMLJSONConver
 import yamlJsonConverterMetadataSEO from "../../tool-name/Developer/YAMLJSONConverter/seo/metadata";
 import htmlEscapeJsonLdSEO from "../../tool-name/Developer/HTMLEscape/seo/jsonld";
 import htmlEscapeMetadataSEO from "../../tool-name/Developer/HTMLEscape/seo/metadata";
+import regexTesterJsonLdSEO from "../../tool-name/Developer/RegexTester/seo/jsonld";
+import regexTesterMetadataSEO from "../../tool-name/Developer/RegexTester/seo/metadata";
 
 export const developerRegistry02: Partial<
   Record<DeveloperToolName, ToolRegistryItem>
@@ -189,6 +191,11 @@ export const developerRegistry02: Partial<
         "alat pencocokan regex",
         "uji pola regex",
       ],
+    },
+    relatedTools: ["json-formatter", "html-escape"],
+    seo: {
+      jsonLd: regexTesterJsonLdSEO,
+      metadata: regexTesterMetadataSEO,
     },
   },
   "url-parser": {

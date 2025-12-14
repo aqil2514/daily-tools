@@ -12,8 +12,6 @@ import { useLocale } from "next-intl";
 import { i18nRegexTester } from "../i18n/regex-tester";
 import { RegexSampleDataComponent } from "./regex-sample-data";
 import { RegexFlagsSelector } from "./regex-flags";
-import { FAQSection } from "@/components/atoms/faq-section";
-import { regexFAQ_en, regexFAQ_id } from "../data/faq-data";
 
 export function RegexTester() {
   const locale = useLocale();
@@ -33,63 +31,59 @@ export function RegexTester() {
   };
 
   return (
-    <div>
-      <div className="grid lg:grid-cols-2 gap-4">
-        {/* LEFT SIDE */}
-        <ToolCard>
-          <h2 className="text-lg font-semibold mb-3">{t.pattern}</h2>
+    <div className="grid lg:grid-cols-2 gap-4">
+      {/* LEFT SIDE */}
+      <ToolCard>
+        <h2 className="text-lg font-semibold mb-3">{t.pattern}</h2>
 
-          <input
-            className="border rounded p-2 mb-3 w-full"
-            placeholder={t["pattern-placeholder"]}
-            value={pattern}
-            onChange={(e) => setPattern(e.target.value)}
-          />
+        <input
+          className="border rounded p-2 mb-3 w-full"
+          placeholder={t["pattern-placeholder"]}
+          value={pattern}
+          onChange={(e) => setPattern(e.target.value)}
+        />
 
-          <RegexFlagsSelector flags={flags} setFlags={setFlags} />
+        <RegexFlagsSelector flags={flags} setFlags={setFlags} />
 
-          <RegexSampleDataComponent
-            sampleData={regexSamples}
-            setPattern={setPattern}
-            setText={setText}
-          />
+        <RegexSampleDataComponent
+          sampleData={regexSamples}
+          setPattern={setPattern}
+          setText={setText}
+        />
 
-          <TextEditor title={t.input} text={text} setText={setText} />
-        </ToolCard>
+        <TextEditor title={t.input} text={text} setText={setText} />
+      </ToolCard>
 
-        {/* RIGHT SIDE */}
-        <ToolCard>
-          <div className="flex justify-between mb-3">
-            <h2 className="text-lg font-semibold">{t.output}</h2>
+      {/* RIGHT SIDE */}
+      <ToolCard>
+        <div className="flex justify-between mb-3">
+          <h2 className="text-lg font-semibold">{t.output}</h2>
 
-            <Button
-              variant="outline"
-              size="sm"
-              disabled={!result.matches.length}
-              onClick={handleCopy}
-            >
-              <Copy size={16} className="mr-2" />
-              {copied ? t.copied : t.copy}
-            </Button>
-          </div>
+          <Button
+            variant="outline"
+            size="sm"
+            disabled={!result.matches.length}
+            onClick={handleCopy}
+          >
+            <Copy size={16} className="mr-2" />
+            {copied ? t.copied : t.copy}
+          </Button>
+        </div>
 
-          {result.error ? (
-            <p className="text-red-500">
-              {t["error-invalid"]}: {result.error}
-            </p>
-          ) : result.matches.length === 0 ? (
-            <p>{t["matches-none"]}</p>
-          ) : (
-            <ul className="list-disc ml-4">
-              {result.matches.map((match, i) => (
-                <li key={i}>{match}</li>
-              ))}
-            </ul>
-          )}
-        </ToolCard>
-      </div>
-
-      <FAQSection items={locale === "en" ? regexFAQ_en : regexFAQ_id } />
+        {result.error ? (
+          <p className="text-red-500">
+            {t["error-invalid"]}: {result.error}
+          </p>
+        ) : result.matches.length === 0 ? (
+          <p>{t["matches-none"]}</p>
+        ) : (
+          <ul className="list-disc ml-4">
+            {result.matches.map((match, i) => (
+              <li key={i}>{match}</li>
+            ))}
+          </ul>
+        )}
+      </ToolCard>
     </div>
   );
 }
