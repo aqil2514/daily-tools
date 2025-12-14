@@ -31,10 +31,7 @@ export type ImageToolName =
   | "image-rotate"
   | "image-to-pdf";
 
-export type PDFToolName =
-  | "pdf-merge"
-  | "pdf-split"
-  | "pdf-generator";
+export type PDFToolName = "pdf-merge" | "pdf-split" | "pdf-generator";
 
 export type QRToolName = "qr-generator";
 
@@ -47,13 +44,16 @@ export type TextToolName =
   | "slug-generator"
   | "lorem-ipsum-generator";
 
+export type MathToolName = "geometry-square";
+
 export type ToolName =
   | DeveloperToolName
   | FinancialToolName
   | ImageToolName
   | PDFToolName
   | QRToolName
-  | TextToolName;
+  | TextToolName
+  | MathToolName;
 
 export type ToolCategory =
   | "image"

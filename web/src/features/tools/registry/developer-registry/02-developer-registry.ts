@@ -2,6 +2,8 @@ import { DeveloperToolName, ToolRegistryItem } from "@/@types/Tools";
 import dynamic from "next/dynamic";
 import urlParserMetadataSEO from "../../tool-name/Developer/UrlParser/seo/metadata";
 import urlParserJsonLdSEO from "../../tool-name/Developer/UrlParser/seo/jsonld";
+import jsonFormatterJsonLdSEO from "../../tool-name/Developer/JSONFormatter/seo/jsonld";
+import jsonFormatterMetadataSEO from "../../tool-name/Developer/JSONFormatter/seo/metadata";
 
 export const developerRegistry02: Partial<
   Record<DeveloperToolName, ToolRegistryItem>
@@ -43,6 +45,13 @@ export const developerRegistry02: Partial<
         "parser json",
         "cek json valid",
       ],
+    },
+
+    relatedTools: ["jwt-decoder", "yaml-json-converter"],
+
+    seo: {
+      jsonLd: jsonFormatterJsonLdSEO,
+      metadata: jsonFormatterMetadataSEO,
     },
   },
   "yaml-json-converter": {

@@ -20,8 +20,6 @@ import {
   SelectValue,
   SelectItem,
 } from "@/components/ui/select";
-import { FAQSection } from "@/components/atoms/faq-section";
-import { jsonFAQ_en, jsonFAQ_id } from "../data/faq-data";
 
 export function JSONFormatter() {
   const locale = useLocale();
@@ -52,58 +50,57 @@ export function JSONFormatter() {
   };
 
   return (
-    <div>
-      <div className="grid lg:grid-cols-2 gap-4">
-        {/* INPUT */}
-        <ToolCard>
-          <div className="flex justify-between items-center mb-4">
-            <h2 className="text-lg font-medium">{t.input}</h2>
+    <div className="grid lg:grid-cols-2 gap-4">
+      {/* INPUT */}
+      <ToolCard>
+        <div className="flex justify-between items-center mb-4">
+          <h2 className="text-lg font-medium">{t.input}</h2>
 
-            <Select
-              value={mode}
-              onValueChange={(val: "format" | "minify") => {
-                setText("");
-                setMode(val);
-              }}
-            >
-              <SelectTrigger className="w-[130px]">
-                <SelectValue placeholder={t["mode-label"]} />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="format">{t.format}</SelectItem>
-                <SelectItem value="minify">{t.minify}</SelectItem>
-              </SelectContent>
-            </Select>
-          </div>
+          <Select
+            value={mode}
+            onValueChange={(val: "format" | "minify") => {
+              setText("");
+              setMode(val);
+            }}
+          >
+            <SelectTrigger className="w-[130px]">
+              <SelectValue placeholder={t["mode-label"]} />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="format">{t.format}</SelectItem>
+              <SelectItem value="minify">{t.minify}</SelectItem>
+            </SelectContent>
+          </Select>
+        </div>
 
-          <div className="mb-4">
-            <SampleDataComponent setText={setText} sampleData={jsonSamples} />
-          </div>
+        <div className="mb-4">
+          <SampleDataComponent setText={setText} sampleData={jsonSamples} />
+        </div>
 
-          <TextEditor title={t["text-editor"]} text={text} setText={setText} />
-        </ToolCard>
+        <TextEditor title={t["text-editor"]} text={text} setText={setText} />
+      </ToolCard>
 
-        {/* OUTPUT */}
-        <ToolCard>
-          <div className="flex justify-between items-center mb-4">
-            <h2 className="text-lg font-medium">{t.output}</h2>
-            <Button
-              variant="outline"
-              size="sm"
-              className="flex items-center gap-2"
-              onClick={handleCopy}
-              disabled={!output}
-            >
-              <Copy size={16} />
-              {copied ? t.copied : t.copy}
-            </Button>
-          </div>
+      {/* OUTPUT */}
+      <ToolCard>
+        <div className="flex justify-between items-center mb-4">
+          <h2 className="text-lg font-medium">{t.output}</h2>
+          <Button
+            variant="outline"
+            size="sm"
+            className="flex items-center gap-2"
+            onClick={handleCopy}
+            disabled={!output}
+          >
+            <Copy size={16} />
+            {copied ? t.copied : t.copy}
+          </Button>
+        </div>
 
-          <textarea
-            readOnly
-            value={output}
-            placeholder={t.empty}
-            className="
+        <textarea
+          readOnly
+          value={output}
+          placeholder={t.empty}
+          className="
             w-full 
             h-[300px] 
             p-3 
@@ -116,11 +113,8 @@ export function JSONFormatter() {
             focus-visible:ring-1 
             focus-visible:ring-ring
           "
-          />
-        </ToolCard>
-      </div>
-
-      <FAQSection items={locale === "en" ? jsonFAQ_en : jsonFAQ_id} />
+        />
+      </ToolCard>
     </div>
   );
 }
