@@ -8,6 +8,8 @@ import triangleJsonLdSEO from "../../tool-name/Math/GeometryTriangle/seo/jsonld"
 import triangleMetadataSEO from "../../tool-name/Math/GeometryTriangle/seo/metadata";
 import circleJsonLdSEO from "../../tool-name/Math/GeometryCircle/seo/jsonld";
 import circleMetadataSEO from "../../tool-name/Math/GeometryCircle/seo/metadata";
+import trapezoidJsonLdSEO from "../../tool-name/Math/GeometryTrapezoid/seo/jsonld";
+import trapezoidMetadataSEO from "../../tool-name/Math/GeometryTrapezoid/seo/metadata";
 
 export const mathRegistry01: Partial<Record<MathToolName, ToolRegistryItem>> = {
   "geometry-square": {
@@ -146,10 +148,44 @@ export const mathRegistry01: Partial<Record<MathToolName, ToolRegistryItem>> = {
         "rumus lingkaran",
       ],
     },
-    
+
     seo: {
       jsonLd: circleJsonLdSEO,
       metadata: circleMetadataSEO,
+    },
+  },
+  "geometry-trapezoid": {
+    Component: dynamic(
+      () => import("@/features/tools/tool-name/Math/GeometryTrapezoid")
+    ),
+    href: "/tools/geometry-trapezoid",
+    category: "math",
+    title: {
+      en: "Trapezoid Calculator",
+      id: "Kalkulator Trapesium",
+    },
+    description: {
+      en: "Calculate the area and perimeter of a trapezoid using parallel sides, height, and non-parallel sides.",
+      id: "Hitung luas dan keliling trapesium menggunakan sisi sejajar, tinggi, dan sisi miring.",
+    },
+    keywords: {
+      en: [
+        "trapezoid calculator",
+        "area of trapezoid",
+        "perimeter of trapezoid",
+        "trapezoid geometry",
+      ],
+      id: [
+        "kalkulator trapesium",
+        "luas trapesium",
+        "keliling trapesium",
+        "bangun datar trapesium",
+      ],
+    },
+
+    seo: {
+      jsonLd: trapezoidJsonLdSEO,
+      metadata: trapezoidMetadataSEO,
     },
   },
 };

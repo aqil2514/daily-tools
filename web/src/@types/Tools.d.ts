@@ -48,7 +48,8 @@ export type MathToolName =
   | "geometry-square"
   | "geometry-rectangle"
   | "geometry-triangle"
-  | "geometry-circle";
+  | "geometry-circle"
+  | "geometry-trapezoid";
 
 
 export type ToolName =
