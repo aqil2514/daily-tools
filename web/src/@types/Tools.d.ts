@@ -47,7 +47,8 @@ export type TextToolName =
 export type MathToolName =
   | "geometry-square"
   | "geometry-rectangle"
-  | "geometry-triangle";
+  | "geometry-triangle"
+  | "geometry-circle";
 
 
 export type ToolName =

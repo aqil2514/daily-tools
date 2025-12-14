@@ -6,6 +6,8 @@ import rectangleMetadataSEO from "../../tool-name/Math/GeometryRectangle/seo/met
 import rectangleJsonLdSEO from "../../tool-name/Math/GeometryRectangle/seo/jsonld";
 import triangleJsonLdSEO from "../../tool-name/Math/GeometryTriangle/seo/jsonld";
 import triangleMetadataSEO from "../../tool-name/Math/GeometryTriangle/seo/metadata";
+import circleJsonLdSEO from "../../tool-name/Math/GeometryCircle/seo/jsonld";
+import circleMetadataSEO from "../../tool-name/Math/GeometryCircle/seo/metadata";
 
 export const mathRegistry01: Partial<Record<MathToolName, ToolRegistryItem>> = {
   "geometry-square": {
@@ -112,6 +114,42 @@ export const mathRegistry01: Partial<Record<MathToolName, ToolRegistryItem>> = {
     seo: {
       jsonLd: triangleJsonLdSEO,
       metadata: triangleMetadataSEO,
+    },
+  },
+  "geometry-circle": {
+    Component: dynamic(
+      () => import("@/features/tools/tool-name/Math/GeometryCircle")
+    ),
+    href: "/tools/geometry-circle",
+    category: "math",
+    title: {
+      en: "Circle Calculator",
+      id: "Kalkulator Lingkaran",
+    },
+    description: {
+      en: "Calculate the area and circumference of a circle using its radius.",
+      id: "Hitung luas dan keliling lingkaran menggunakan jari-jari.",
+    },
+    keywords: {
+      en: [
+        "circle calculator",
+        "area of circle",
+        "circumference of circle",
+        "circle geometry",
+        "radius circle",
+      ],
+      id: [
+        "kalkulator lingkaran",
+        "luas lingkaran",
+        "keliling lingkaran",
+        "jari-jari lingkaran",
+        "rumus lingkaran",
+      ],
+    },
+    
+    seo: {
+      jsonLd: circleJsonLdSEO,
+      metadata: circleMetadataSEO,
     },
   },
 };
