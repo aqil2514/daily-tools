@@ -6,6 +6,8 @@ import rhombusJsonLdSEO from "../../tool-name/Math/GeometryRhombus/seo/jsonld";
 import rhombusMetadataSEO from "../../tool-name/Math/GeometryRhombus/seo/metadata";
 import kiteJsonLdSEO from "../../tool-name/Math/GeometryKite/seo/jsonld";
 import kiteMetadataSEO from "../../tool-name/Math/GeometryKite/seo/metadata";
+import semicircleJsonLdSEO from "../../tool-name/Math/GeometrySemicircle/seo/jsonld";
+import semicircleMetadataSEO from "../../tool-name/Math/GeometrySemicircle/seo/metadata";
 
 export const mathRegistry02: Partial<Record<MathToolName, ToolRegistryItem>> = {
   "geometry-parallelogram": {
@@ -106,6 +108,39 @@ export const mathRegistry02: Partial<Record<MathToolName, ToolRegistryItem>> = {
     seo: {
       jsonLd: kiteJsonLdSEO,
       metadata: kiteMetadataSEO,
+    },
+  },
+  "geometry-semicircle": {
+    Component: dynamic(
+      () => import("@/features/tools/tool-name/Math/GeometrySemicircle")
+    ),
+    href: "/tools/geometry-semicircle",
+    category: "math",
+    title: {
+      en: "Semicircle Calculator",
+      id: "Kalkulator Setengah Lingkaran",
+    },
+    description: {
+      en: "Calculate the area and perimeter of a semicircle based on its radius.",
+      id: "Hitung luas dan keliling setengah lingkaran berdasarkan jari-jari.",
+    },
+    keywords: {
+      en: [
+        "semicircle calculator",
+        "area of semicircle",
+        "perimeter of semicircle",
+        "half circle geometry",
+      ],
+      id: [
+        "kalkulator setengah lingkaran",
+        "luas setengah lingkaran",
+        "keliling setengah lingkaran",
+        "bangun datar setengah lingkaran",
+      ],
+    },
+    seo: {
+      jsonLd: semicircleJsonLdSEO,
+      metadata: semicircleMetadataSEO,
     },
   },
 };

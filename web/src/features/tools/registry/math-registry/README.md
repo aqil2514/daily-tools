@@ -11,6 +11,7 @@
 01. Parallelogram Calculator (Kalkulator Jajar Genjang)
 02. Rhombus Calculator (Kalkulator Belah Ketupat)
 03. Kite Calculator (Kalkulator Layang-layang)
+04. Semicircle Calculator (Kalkulator Setengah Lingkaran)
 
 ---
 > ⚠️ **Catatan:** File ini dihasilkan secara otomatis oleh script generator.

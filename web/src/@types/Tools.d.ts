@@ -52,7 +52,8 @@ export type MathToolName =
   | "geometry-trapezoid"
   | "geometry-parallelogram"
   | "geometry-rhombus"
-  | "geometry-kite";
+  | "geometry-kite"
+  | "geometry-semicircle";
 
 export type ToolName =
   | DeveloperToolName
