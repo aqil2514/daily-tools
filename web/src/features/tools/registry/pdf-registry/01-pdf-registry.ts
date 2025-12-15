@@ -1,4 +1,5 @@
-import { PDFToolName, ToolRegistryItem } from "@/@types/Tools";
+import { ToolRegistryItem } from "@/@types/Tools";
+import { PDFToolName } from "@/@types/tools/pdf";
 import dynamic from "next/dynamic";
 
 export const pdfRegistry01: Record<PDFToolName, ToolRegistryItem> = {

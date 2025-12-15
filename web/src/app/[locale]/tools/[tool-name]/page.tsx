@@ -1,4 +1,4 @@
-import { ToolName } from "@/@types/Tools";
+import { ToolName } from "@/@types/tools/index";
 import { JsonLdTool } from "@/components/seo/json-ld-tool";
 import ToolMainTemplate from "@/components/templates/ToolMainTemplate";
 import { SEO_CONFIG } from "@/constants/seo";

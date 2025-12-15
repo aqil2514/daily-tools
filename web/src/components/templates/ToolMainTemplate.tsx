@@ -1,9 +1,8 @@
-import { ToolName } from "@/@types/Tools";
-import React from "react";
 import { SectionHeader } from "../molecules/section-header";
 import { getLocale } from "next-intl/server";
 import { toolsRegistry } from "@/features/tools/registry";
 import { ToolClient } from "./ToolClient";
+import { ToolName } from "@/@types/tools/index";
 
 interface Props {
   toolName: ToolName;

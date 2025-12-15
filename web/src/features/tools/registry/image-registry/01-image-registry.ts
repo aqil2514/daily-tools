@@ -1,4 +1,5 @@
-import { ImageToolName, ToolRegistryItem } from "@/@types/Tools";
+import { ToolRegistryItem } from "@/@types/Tools";
+import { ImageToolName } from "@/@types/tools/image";
 import dynamic from "next/dynamic";
 
 export const imageRegistry01: Record<ImageToolName, ToolRegistryItem> = {

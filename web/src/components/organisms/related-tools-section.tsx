@@ -3,7 +3,7 @@ import { ToolCard } from "@/components/molecules/card/tool-card";
 import { Locale } from "next-intl";
 import { toolsRegistry } from "@/features/tools/registry";
 import { Link } from "@/i18n/navigation";
-import { ToolName } from "@/@types/Tools";
+import { ToolName } from "@/@types/tools/index";
 
 interface Props {
   toolsName?: ToolName[];

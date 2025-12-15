@@ -1,4 +1,4 @@
-import { DeveloperToolName, ToolRegistryItem } from "@/@types/Tools";
+import {  ToolRegistryItem } from "@/@types/Tools";
 import dynamic from "next/dynamic";
 import urlParserMetadataSEO from "../../tool-name/Developer/UrlParser/seo/metadata";
 import urlParserJsonLdSEO from "../../tool-name/Developer/UrlParser/seo/jsonld";
@@ -10,6 +10,7 @@ import htmlEscapeJsonLdSEO from "../../tool-name/Developer/HTMLEscape/seo/jsonld
 import htmlEscapeMetadataSEO from "../../tool-name/Developer/HTMLEscape/seo/metadata";
 import regexTesterJsonLdSEO from "../../tool-name/Developer/RegexTester/seo/jsonld";
 import regexTesterMetadataSEO from "../../tool-name/Developer/RegexTester/seo/metadata";
+import { DeveloperToolName } from "@/@types/tools/developer";
 
 export const developerRegistry02: Partial<
   Record<DeveloperToolName, ToolRegistryItem>

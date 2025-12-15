@@ -1,4 +1,3 @@
-import { DeveloperToolName, ToolRegistryItem } from "@/@types/Tools";
 import dynamic from "next/dynamic";
 import { base64MetadataSEO } from "../../tool-name/Developer/Base64Encoder/seo/metadata";
 import { base64JsonLdSEO } from "../../tool-name/Developer/Base64Encoder/seo/jsonld";
@@ -10,6 +9,8 @@ import uuidGeneratorJsonLdSEO from "../../tool-name/Developer/UUIDGenerator/seo/
 import uuidGeneratorMetadataSEO from "../../tool-name/Developer/UUIDGenerator/seo/metadata";
 import urlEncoderJsonLdSEO from "../../tool-name/Developer/URLEncoder/seo/jsonld";
 import urlEncoderMetadataSEO from "../../tool-name/Developer/URLEncoder/seo/metadata";
+import { DeveloperToolName } from "@/@types/tools/developer";
+import { ToolRegistryItem } from "@/@types/Tools";
 
 export const developerRegistry01: Partial<
   Record<DeveloperToolName, ToolRegistryItem>

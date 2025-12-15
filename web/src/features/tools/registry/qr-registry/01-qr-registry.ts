@@ -1,4 +1,5 @@
-import { QRToolName, ToolRegistryItem } from "@/@types/Tools";
+import {  ToolRegistryItem } from "@/@types/Tools";
+import { QRToolName } from "@/@types/tools/qr";
 import dynamic from "next/dynamic";
 
 export const qrRegistry01: Record<QRToolName, ToolRegistryItem> = {

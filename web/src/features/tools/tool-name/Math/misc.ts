@@ -1,4 +1,4 @@
-import { ToolName } from "@/@types/Tools";
+import { ToolName } from "@/@types/tools/index";
 
 export const geometryRelatedTools: ToolName[] = [
   "geometry-circle",

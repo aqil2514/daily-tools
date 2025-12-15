@@ -1,4 +1,4 @@
-import { MathToolName, ToolRegistryItem } from "@/@types/Tools";
+import { ToolRegistryItem } from "@/@types/Tools";
 import dynamic from "next/dynamic";
 import parallelogramJsonLdSEO from "../../tool-name/Math/GeometryParallelogram/seo/jsonld";
 import parallelogramMetadataSEO from "../../tool-name/Math/GeometryParallelogram/seo/metadata";
@@ -8,6 +8,8 @@ import kiteJsonLdSEO from "../../tool-name/Math/GeometryKite/seo/jsonld";
 import kiteMetadataSEO from "../../tool-name/Math/GeometryKite/seo/metadata";
 import semicircleJsonLdSEO from "../../tool-name/Math/GeometrySemicircle/seo/jsonld";
 import semicircleMetadataSEO from "../../tool-name/Math/GeometrySemicircle/seo/metadata";
+import { MathToolName } from "@/@types/tools/math";
+
 
 export const mathRegistry02: Partial<Record<MathToolName, ToolRegistryItem>> = {
   "geometry-parallelogram": {

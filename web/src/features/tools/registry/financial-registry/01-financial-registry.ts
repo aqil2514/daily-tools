@@ -1,4 +1,4 @@
-import { FinancialToolName, ToolRegistryItem } from "@/@types/Tools";
+import {  ToolRegistryItem } from "@/@types/Tools";
 import dynamic from "next/dynamic";
 import loanCalculatorJsonLdSEO from "../../tool-name/Financial/LoanCalculator/seo/jsonld";
 import loanCalculatorMetadataSEO from "../../tool-name/Financial/LoanCalculator/seo/metadata";
@@ -10,6 +10,7 @@ import productHPPMetadataSEO from "../../tool-name/Financial/ProductHPP/seo/meta
 import productHPPJsonLdSEO from "../../tool-name/Financial/ProductHPP/seo/jsonld";
 import financialSimulatorMetadataSEO from "../../tool-name/Financial/FinancialSimulator/seo/metadata";
 import financialSimulatorJsonLdSEO from "../../tool-name/Financial/FinancialSimulator/seo/jsonld";
+import { FinancialToolName } from "@/@types/tools/financial";
 
 export const financialRegistry01: Partial<
   Record<FinancialToolName, ToolRegistryItem>

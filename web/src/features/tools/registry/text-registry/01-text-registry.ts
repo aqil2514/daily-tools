@@ -1,4 +1,5 @@
-import { TextToolName, ToolRegistryItem } from "@/@types/Tools";
+import {  ToolRegistryItem } from "@/@types/Tools";
+import { TextToolName } from "@/@types/tools/text";
 import dynamic from "next/dynamic";
 
 export const textRegistry01: Partial<Record<TextToolName, ToolRegistryItem>> = {

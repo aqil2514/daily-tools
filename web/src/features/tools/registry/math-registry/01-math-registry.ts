@@ -1,4 +1,4 @@
-import { MathToolName, ToolRegistryItem } from "@/@types/Tools";
+import { ToolRegistryItem } from "@/@types/Tools";
 import dynamic from "next/dynamic";
 import squareJsonLdSEO from "../../tool-name/Math/GeometrySquare/seo/jsonld";
 import squareMetadataSEO from "../../tool-name/Math/GeometrySquare/seo/metadata";
@@ -10,6 +10,7 @@ import circleJsonLdSEO from "../../tool-name/Math/GeometryCircle/seo/jsonld";
 import circleMetadataSEO from "../../tool-name/Math/GeometryCircle/seo/metadata";
 import trapezoidJsonLdSEO from "../../tool-name/Math/GeometryTrapezoid/seo/jsonld";
 import trapezoidMetadataSEO from "../../tool-name/Math/GeometryTrapezoid/seo/metadata";
+import { MathToolName } from "@/@types/tools/math";
 
 export const mathRegistry01: Partial<Record<MathToolName, ToolRegistryItem>> = {
   "geometry-square": {

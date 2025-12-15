@@ -1,4 +1,3 @@
-import { ToolCategory } from "@/@types/Tools";
 import {
   Accordion,
   AccordionContent,
@@ -23,6 +22,7 @@ import {
   Sigma,
 } from "lucide-react";
 import { ScrollArea } from "@/components/ui/scroll-area";
+import { ToolCategory } from "@/@types/tools/categories";
 
 const categoryTitleMapper: Record<ToolCategory, string> = {
   financial: "Financial",

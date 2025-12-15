@@ -1,7 +1,8 @@
-import { TextToolName, ToolRegistryItem } from "@/@types/Tools";
+import {  ToolRegistryItem } from "@/@types/Tools";
+import { TextToolName } from "@/@types/tools/text";
 import dynamic from "next/dynamic";
 
-export const textRegistry02: Partial<Record<TextToolName, ToolRegistryItem>> = {
+export const textRegistry02: Partial<Record<TextToolName , ToolRegistryItem>> = {
   "slug-generator": {
     title: {
       en: "Slug Generator",

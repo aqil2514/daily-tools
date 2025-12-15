@@ -1,4 +1,4 @@
-import { ToolName } from "@/@types/Tools";
+import { ToolName } from "@/@types/tools/index";
 import { generateOg } from "@/constants/og-generator";
 import { toolsRegistry } from "@/features/tools/registry";
 import { Locale } from "next-intl";

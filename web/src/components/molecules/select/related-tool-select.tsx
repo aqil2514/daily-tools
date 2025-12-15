@@ -1,7 +1,6 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { ToolName } from "@/@types/Tools";
 import {
   Select,
   SelectContent,
@@ -14,6 +13,7 @@ import { Label } from "@/components/ui/label";
 import { toolsRegistry } from "@/features/tools/registry";
 import { useLocale } from "next-intl";
 import { useRouter, usePathname } from "@/i18n/navigation";
+import { ToolName } from "@/@types/tools/index";
 
 interface Props {
   relatedTools: ToolName[];

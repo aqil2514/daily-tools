@@ -4,9 +4,9 @@ import { Locale } from "next-intl";
 import { toolsRegistry } from "@/features/tools/registry";
 import { FAQSection } from "../atoms/faq-section";
 import { RelatedToolsSection } from "../organisms/related-tools-section";
-import { ToolName } from "@/@types/Tools";
 import { useHydration } from "@/hooks/use-hydration";
 import { Loader } from "../layout/wrapper/Loader";
+import { ToolName } from "@/@types/tools/index";
 
 export function ToolClient({
   toolName,

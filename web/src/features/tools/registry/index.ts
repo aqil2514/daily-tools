@@ -1,4 +1,4 @@
-import { ToolName, ToolRegistry, ToolRegistryItem } from "@/@types/Tools";
+import {  ToolRegistry, ToolRegistryItem } from "@/@types/Tools";
 import { imageRegistry, imageToolNames } from "./image-registry";
 import { pdfRegistry, pdfToolNames } from "./pdf-registry";
 import { qrRegistry, qrToolNames } from "./qr-registry";
@@ -6,6 +6,7 @@ import { financialRegistry, financialToolNames } from "./financial-registry";
 import { developerRegistry, developerToolNames } from "./developer-registry";
 import { textRegistry, textToolName } from "./text-registry";
 import { mathRegistry, mathToolNames } from "./math-registry";
+import { ToolName } from "@/@types/tools/index";
 
 export const toolsCategory: ToolRegistryItem["category"][] = [
   "developer",

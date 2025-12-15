@@ -1,4 +1,4 @@
-import { FinancialToolName, ToolRegistryItem } from "@/@types/Tools";
+import { ToolRegistryItem } from "@/@types/Tools";
 import dynamic from "next/dynamic";
 import investmentReturnMetadataSEO from "../../tool-name/Financial/InvestmentReturnCalculator/seo/metadata";
 import investmentReturnJsonLdSEO from "../../tool-name/Financial/InvestmentReturnCalculator/seo/jsonld";
@@ -8,6 +8,7 @@ import retirementSavingsMetadataSEO from "../../tool-name/Financial/RetirementSa
 import retirementSavingsJsonLdSEO from "../../tool-name/Financial/RetirementSavingsEstimator/seo/jsonld";
 import assetAllocationMetadataSEO from "../../tool-name/Financial/AssetAllocationCalculator/seo/metadata";
 import assetAllocationJsonLdSEO from "../../tool-name/Financial/AssetAllocationCalculator/seo/jsonld";
+import { FinancialToolName } from "@/@types/tools/financial";
 
 export const financialRegistry02: Partial<
   Record<FinancialToolName, ToolRegistryItem>
