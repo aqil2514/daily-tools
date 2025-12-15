@@ -8,6 +8,7 @@ import { textRegistry } from "./text-registry";
 import { mathRegistry } from "./math-registry";
 import { utilityRegistry } from "./utility-registry";
 import { conversionRegistry } from "./conversion-registry";
+import { healthRegistry } from "./health-registry";
 
 //  --- COMBINED REGISTRY ---
 export const toolsRegistry: ToolRegistry = {
@@ -20,4 +21,5 @@ export const toolsRegistry: ToolRegistry = {
   ...mathRegistry,
   ...utilityRegistry,
   ...conversionRegistry,
+  ...healthRegistry,
 };

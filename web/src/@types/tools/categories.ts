@@ -19,7 +19,8 @@ export const TOOL_CATEGORIES = [
   "text",
   "math",
   "utility",
-  "conversion"
+  "conversion",
+  "health"
 ] as const;
 
 export type ToolCategoryName = (typeof TOOL_CATEGORIES)[number];

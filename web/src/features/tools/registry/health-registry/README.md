@@ -1,8 +1,7 @@
-# Conversion Tools
+# Health Tools
 
-===== 01-conversion-registry.ts =====
-01. Temperature Converter (Konverter Suhu)
-02. Length Converter (Konverter Panjang)
+===== 01-health-registry.ts =====
+01. BMI Calculator (Kalkulator BMI)
 
 ---
 > ⚠️ **Catatan:** File ini dihasilkan secara otomatis oleh script generator.

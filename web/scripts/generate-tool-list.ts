@@ -16,6 +16,7 @@ const CATEGORY_ORDER:ToolCategoryName[] = [
   "developer",
   "image",
   "financial",
+  'health',
   "math",
   "pdf",
   "qr",
@@ -29,6 +30,7 @@ const CATEGORY_LABEL: Record<string, string> = {
   pdf: "PDF Tools",
   qr: "QR Tools",
   financial: "Financial Tools",
+  health: "Health Tools",
   text: "Text Tools",
   math: "Math Tools",
 };

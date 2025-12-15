@@ -9,6 +9,7 @@ import mathConfig from "./generate/configs/math.config";
 import { generateToolList } from "./generate-tool-list";
 import conversionConfig from "./generate/configs/conversion.config";
 import utilityConfig from "./generate/configs/utility.config";
+import healthConfig from "./generate/configs/health.config";
 
 const arg = process.argv[2];
 
@@ -49,6 +50,10 @@ switch (arg) {
     generateRegistry(utilityConfig);
     break;
 
+  case "health":
+    generateRegistry(healthConfig);
+    break;
+
   case "all":
     generateRegistry(textConfig);
     generateRegistry(financialConfig);
@@ -59,6 +64,7 @@ switch (arg) {
     generateRegistry(mathConfig);
     generateRegistry(conversionConfig);
     generateRegistry(utilityConfig);
+    generateRegistry(healthConfig);
 
     generateToolList();
     break;
