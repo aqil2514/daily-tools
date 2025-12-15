@@ -4,9 +4,9 @@ import { Header } from "./components/header";
 import { CategoryList } from "./components/category-list";
 import { useState } from "react";
 import { CategoryContent } from "./components/category-content";
-import { sidebarSections } from "./registry";
 import { useLocale } from "next-intl";
 import { SearchResults } from "./components/search-result";
+import { sidebarSections } from "@/registry/sidebar.registry";
 
 export default function ToolsTemplate() {
   const [selectedCategory, setSelectedCategory] = useState<string>("");

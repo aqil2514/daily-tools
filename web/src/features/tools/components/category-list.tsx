@@ -1,25 +1,6 @@
-import { sidebarSections } from "../registry";
-import { useTranslations } from "next-intl";
-import {
-  Calculator,
-  ImageIcon,
-  FileText,
-  QrCode,
-  LucideIcon,
-  Code,
-  Text,
-  Sigma,
-} from "lucide-react";
-
-const categoryIcons: Record<string, LucideIcon> = {
-  financial: Calculator,
-  image: ImageIcon,
-  pdf: FileText,
-  qr: QrCode,
-  developer: Code,
-  text: Text,
-  math: Sigma,
-};
+import { useLocale } from "next-intl";
+import { sidebarSections } from "@/registry/sidebar.registry";
+import { CATEGORY_REGISTRY } from "@/registry/categories.registry";
 
 export function CategoryList({
   onSelect,
@@ -28,13 +9,17 @@ export function CategoryList({
   onSelect: (category: string) => void;
   selectedCategory: string;
 }) {
-  const t = useTranslations();
+  const locale = useLocale();
 
   return (
     <div className="px-4 md:px-8 lg:px-16 py-8">
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
         {sidebarSections.map((item) => {
-          const Icon = categoryIcons[item.sectionCategory];
+          // const Icon = categoryIcons[item.sectionCategory];
+          const Icon = CATEGORY_REGISTRY[item.sectionCategory].Icon;
+          const title = CATEGORY_REGISTRY[item.sectionCategory].title[locale];
+          const sectionTitle =
+            locale === "en" ? `${title} Tools` : `Alat ${title}`;
           const isActive = selectedCategory === item.sectionCategory;
 
           return (
@@ -63,7 +48,7 @@ export function CategoryList({
                     isActive ? "text-blue-700" : "text-slate-800"
                   }`}
                 >
-                  {t(item.sectionTitle)}
+                  {sectionTitle}
                 </h3>
               </div>
 

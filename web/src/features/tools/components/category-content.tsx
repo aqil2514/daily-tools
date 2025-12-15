@@ -1,7 +1,7 @@
 import { useLocale } from "next-intl";
-import { sidebarSections } from "../registry";
 import { Button } from "@/components/ui/button";
 import { Link } from "@/i18n/navigation";
+import { sidebarSections } from "@/registry/sidebar.registry";
 
 interface Props {
   selectedCategory: string;

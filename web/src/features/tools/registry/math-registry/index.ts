@@ -8,5 +8,3 @@ export const mathRegistry = {
   ...mathRegistry01,
   ...mathRegistry02,
 } as Record<MathToolName, ToolRegistryItem>;
-
-export const mathToolNames = Object.keys(mathRegistry) as MathToolName[];

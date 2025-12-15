@@ -5,9 +5,5 @@ import { DeveloperToolName } from "@/@types/tools/developer";
 
 export const developerRegistry = {
   ...developerRegistry01,
-  ...developerRegistry02
+  ...developerRegistry02,
 } as Record<DeveloperToolName, ToolRegistryItem>;
-
-export const developerToolNames = Object.keys(
-  developerRegistry
-) as DeveloperToolName[];

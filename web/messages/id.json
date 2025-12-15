@@ -7,15 +7,6 @@
   "tools": {
     "title": "Kumpulan Tools",
     "subtitle": "Temukan alat yang cocok untuk anda",
-    "category": {
-      "financial-tool": "Alat Finansial",
-      "image-tool": "Alat Gambar",
-      "pdf-tool": "Alat PDF",
-      "qr-tool": "Alat QR",
-      "developer-tool": "Alat Developer",
-      "text-tool": "Alat Teks",
-      "math-tools": "Alat Matematika"
-    },
     "searchPlaceholder": "Temukan alat yang anda butuhkan..."
   },
   "tools-registry": {

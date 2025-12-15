@@ -8,4 +8,3 @@ export const textRegistry = {
   ...textRegistry02,
 } as Record<TextToolName, ToolRegistryItem>;
 
-export const textToolName = Object.keys(textRegistry) as TextToolName[];

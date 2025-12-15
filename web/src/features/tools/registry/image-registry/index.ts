@@ -5,5 +5,3 @@ import { ImageToolName } from "@/@types/tools/image";
 export const imageRegistry: Record<ImageToolName, ToolRegistryItem> = {
   ...imageRegistry01,
 };
-
-export const imageToolNames = Object.keys(imageRegistry) as ImageToolName[];
