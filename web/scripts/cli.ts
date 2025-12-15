@@ -7,6 +7,8 @@ import pdfConfig from "./generate/configs/pdf.config";
 import qrConfig from "./generate/configs/qr.config";
 import mathConfig from "./generate/configs/math.config";
 import { generateToolList } from "./generate-tool-list";
+import conversionConfig from "./generate/configs/conversion.config";
+import utilityConfig from "./generate/configs/utility.config";
 
 const arg = process.argv[2];
 
@@ -39,6 +41,14 @@ switch (arg) {
     generateRegistry(qrConfig);
     break;
 
+  case "conversion":
+    generateRegistry(conversionConfig);
+    break;
+
+  case "utility":
+    generateRegistry(utilityConfig);
+    break;
+
   case "all":
     generateRegistry(textConfig);
     generateRegistry(financialConfig);
@@ -47,6 +57,8 @@ switch (arg) {
     generateRegistry(pdfConfig);
     generateRegistry(qrConfig);
     generateRegistry(mathConfig);
+    generateRegistry(conversionConfig);
+    generateRegistry(utilityConfig);
 
     generateToolList();
     break;

@@ -23,6 +23,7 @@ export function CategoryGroup() {
     s.sectionItem.some((tool) => tool.href === pathname)
   );
 
+
   const currentCategory = activeSection?.sectionCategory ?? "";
 
   return (

@@ -1,12 +1,11 @@
 import React from "react";
 import { JsonLdSEO, MetadataSEO } from "./metadata";
-import { ToolCategory } from "./tools/categories";
-import { ToolName } from "./tools";
+import { ToolCategoryName, ToolName } from "./tools/index";
 
 export interface ToolRegistryItem {
   Component: React.ComponentType;
   href: `/tools/${ToolName}`;
-  category: ToolCategory;
+  category: ToolCategoryName;
 
   seo?: {
     metadata: MetadataSEO;

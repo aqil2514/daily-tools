@@ -6,6 +6,8 @@ export * from "./qr";
 export * from "./text";
 export * from "./math";
 export * from "./categories";
+export * from "./utility";
+export * from "./conversion";
 
 import type { DeveloperToolName } from "./developer";
 import type { FinancialToolName } from "./financial";
@@ -14,6 +16,8 @@ import type { PDFToolName } from "./pdf";
 import type { QRToolName } from "./qr";
 import type { TextToolName } from "./text";
 import type { MathToolName } from "./math";
+import type { UtilityToolName } from "./utility";
+import { ConversionToolName } from "./conversion";
 
 export type ToolName =
   | DeveloperToolName
@@ -22,4 +26,6 @@ export type ToolName =
   | PDFToolName
   | QRToolName
   | TextToolName
-  | MathToolName;
+  | MathToolName
+  | UtilityToolName
+  | ConversionToolName;

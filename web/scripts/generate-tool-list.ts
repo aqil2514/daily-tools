@@ -1,3 +1,4 @@
+import { ToolCategoryName } from "@/@types/tools/categories";
 import { toolsRegistry } from "@/features/tools/registry";
 import fs from "fs";
 import path from "path";
@@ -10,14 +11,16 @@ type Tool = {
   };
 };
 
-const CATEGORY_ORDER = [
+const CATEGORY_ORDER:ToolCategoryName[] = [
+  "conversion",
   "developer",
   "image",
+  "financial",
+  "math",
   "pdf",
   "qr",
-  "financial",
   "text",
-  "math",
+  "utility"
 ];
 
 const CATEGORY_LABEL: Record<string, string> = {

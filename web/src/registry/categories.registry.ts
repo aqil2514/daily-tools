@@ -7,6 +7,7 @@ import {
   Text,
   Sigma,
   Calendar1,
+  Scale,
 } from "lucide-react";
 
 import {
@@ -57,5 +58,10 @@ export const CATEGORY_REGISTRY: Record<
     name: "utility",
     title: { en: "Utility", id: "Utilitas" },
     Icon: Calendar1,
+  },
+  conversion: {
+    name: "conversion",
+    title: { en: "Conversion", id: "Konversi" },
+    Icon: Scale,
   },
 };

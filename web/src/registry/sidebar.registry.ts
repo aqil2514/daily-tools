@@ -11,7 +11,6 @@ export interface SidebarSection {
 export function generateSidebarSections(): SidebarSection[] {
   const sectionsMap = new Map<ToolCategoryName, SidebarSection>();
 
-  // init all categories (biar urut & konsisten)
   (Object.keys(CATEGORY_REGISTRY) as ToolCategoryName[]).forEach((category) => {
     sectionsMap.set(category, {
       sectionCategory: category,
@@ -19,7 +18,6 @@ export function generateSidebarSections(): SidebarSection[] {
     });
   });
 
-  // group tools by category
   Object.values(toolsRegistry).forEach((tool) => {
     const section = sectionsMap.get(tool.category);
     if (!section) return;

@@ -1,5 +1,8 @@
 # Tool List (Internal)
-Total tools: 44
+Total tools: 46
+
+## conversion (1)
+1. Temperature Converter | Konverter Suhu
 
 ## Developer Tools (10)
 1. JWT Decoder | Dekoder JWT
@@ -20,14 +23,6 @@ Total tools: 44
 4. Image Rotate | Pemutar Gambar
 5. Image to PDF | Gambar ke PDF
 
-## PDF Tools (3)
-1. PDF Merge | Gabung PDF
-2. PDF Split | Pisah PDF
-3. PDF Generator | Generator PDF
-
-## QR Tools (1)
-1. QR Generator | Generator QR
-
 ## Financial Tools (9)
 1. Cash Counter | Penghitung Uang Tunai
 2. COGS Calculator | Profit Margin Kalkulator
@@ -39,15 +34,6 @@ Total tools: 44
 8. Retirement Savings Estimator | Estimator Tabungan Pensiun
 9. Asset Allocation Calculator | Kalkulator Alokasi Aset
 
-## Text Tools (7)
-1. Case Converter | Pengubah Huruf
-2. Word Counter | Penghitung Kata
-3. Remove Duplicate Lines | Hapus Baris Duplikat
-4. Text Diff | Pembanding Teks
-5. URL Extractor | Ekstraktor URL
-6. Slug Generator | Generator Slug
-7. Lorem Ipsum Generator | Generator Lorem Ipsum
-
 ## Math Tools (9)
 1. Square Calculator | Kalkulator Persegi
 2. Rectangle Calculator | Kalkulator Persegi Panjang
@@ -58,6 +44,26 @@ Total tools: 44
 7. Rhombus Calculator | Kalkulator Belah Ketupat
 8. Kite Calculator | Kalkulator Layang-layang
 9. Semicircle Calculator | Kalkulator Setengah Lingkaran
+
+## PDF Tools (3)
+1. PDF Merge | Gabung PDF
+2. PDF Split | Pisah PDF
+3. PDF Generator | Generator PDF
+
+## QR Tools (1)
+1. QR Generator | Generator QR
+
+## Text Tools (7)
+1. Case Converter | Pengubah Huruf
+2. Word Counter | Penghitung Kata
+3. Remove Duplicate Lines | Hapus Baris Duplikat
+4. Text Diff | Pembanding Teks
+5. URL Extractor | Ekstraktor URL
+6. Slug Generator | Generator Slug
+7. Lorem Ipsum Generator | Generator Lorem Ipsum
+
+## utility (1)
+1. Age Calculator | Kalkulator Usia
 
 ---
 ⚠️ File ini dihasilkan secara otomatis.
