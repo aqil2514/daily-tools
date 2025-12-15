@@ -12,41 +12,13 @@ import {
 import { sidebarSections } from "@/features/tools/registry";
 import { Link, usePathname } from "@/i18n/navigation";
 import { useLocale } from "next-intl";
-import {
-  Calculator,
-  ImageIcon,
-  FileText,
-  QrCode,
-  Code,
-  Text,
-  Sigma,
-} from "lucide-react";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { ToolCategory } from "@/@types/tools/categories";
-
-const categoryTitleMapper: Record<ToolCategory, string> = {
-  financial: "Financial",
-  image: "Image",
-  pdf: "PDF",
-  qr: "QR",
-  developer: "Developer",
-  text: "Text",
-  math: "Math",
-};
-
-const categoryIcons = {
-  financial: Calculator,
-  image: ImageIcon,
-  pdf: FileText,
-  qr: QrCode,
-  developer: Code,
-  text: Text,
-  math: Sigma
-};
+import { CATEGORY_REGISTRY } from "@/registry/categories/sidebar";
 
 export function CategoryGroup() {
   const locale = useLocale();
   const pathname = usePathname();
+
   const activeSection = sidebarSections.find((s) =>
     s.sectionItem.some((tool) => tool.href === pathname)
   );
@@ -60,17 +32,20 @@ export function CategoryGroup() {
 
         <Accordion type="single" collapsible defaultValue={currentCategory}>
           {sidebarSections.map((item) => {
-            const Icon = categoryIcons[item.sectionCategory];
+            const category =
+              CATEGORY_REGISTRY[item.sectionCategory];
+
+            const Icon = category.Icon;
 
             return (
               <AccordionItem
-                value={item.sectionCategory}
-                key={item.sectionCategory}
+                key={category.name}
+                value={category.name}
               >
                 <AccordionTrigger>
                   <div className="flex gap-1 items-center">
                     <Icon className="h-4 w-4 mr-2" />
-                    <p>{categoryTitleMapper[item.sectionCategory]}</p>
+                    <p>{category.title[locale]}</p>
                   </div>
                 </AccordionTrigger>
 
@@ -79,13 +54,15 @@ export function CategoryGroup() {
                     .sort((a, b) =>
                       a.title[locale].localeCompare(b.title[locale])
                     )
-                    .map((tool, i) => (
+                    .map((tool) => (
                       <SidebarMenuButton
-                        key={`${item.sectionCategory}-tool-${i}`}
+                        key={tool.href}
                         asChild
                         isActive={tool.href === pathname}
                       >
-                        <Link href={tool.href}>{tool.title[locale]}</Link>
+                        <Link href={tool.href}>
+                          {tool.title[locale]}
+                        </Link>
                       </SidebarMenuButton>
                     ))}
                 </AccordionContent>

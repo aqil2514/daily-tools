@@ -1,3 +1,6 @@
+import { ComponentType, SVGProps } from "react";
+import { LocalizedText } from "../metadata";
+
 export const TOOL_CATEGORIES = [
   "developer",
   "financial",
@@ -8,4 +11,10 @@ export const TOOL_CATEGORIES = [
   "math",
 ] as const;
 
-export type ToolCategory = typeof TOOL_CATEGORIES[number];
+export type ToolCategoryName = (typeof TOOL_CATEGORIES)[number];
+
+export interface ToolCategoryDefinition {
+  name: ToolCategoryName;
+  title: LocalizedText;
+  Icon: ComponentType<SVGProps<SVGSVGElement>>;
+}
