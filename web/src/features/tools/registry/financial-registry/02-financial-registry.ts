@@ -9,6 +9,8 @@ import retirementSavingsJsonLdSEO from "../../tool-name/Financial/RetirementSavi
 import assetAllocationMetadataSEO from "../../tool-name/Financial/AssetAllocationCalculator/seo/metadata";
 import assetAllocationJsonLdSEO from "../../tool-name/Financial/AssetAllocationCalculator/seo/jsonld";
 import { FinancialToolName } from "@/@types/tools/financial";
+import percentageCalculatorJsonLdSEO from "../../tool-name/Financial/PercentageCalculator/seo/jsonld";
+import percentageCalculatorMetadataSEO from "../../tool-name/Financial/PercentageCalculator/seo/metadata";
 
 export const financialRegistry02: Partial<
   Record<FinancialToolName, ToolRegistryItem>
@@ -213,5 +215,54 @@ export const financialRegistry02: Partial<
       metadata: assetAllocationMetadataSEO,
       jsonLd: assetAllocationJsonLdSEO,
     },
+  },
+  "percentage-calculator": {
+    Component: dynamic(
+      () => import("@/features/tools/tool-name/Financial/PercentageCalculator")
+    ),
+
+    href: "/tools/percentage-calculator",
+
+    category: "financial",
+
+    title: {
+      en: "Percentage Calculator",
+      id: "Kalkulator Persentase",
+    },
+
+    description: {
+      en: "Calculate percentages easily, including percentage of a value, increase, decrease, and percentage difference. Useful for business, finance, and education.",
+      id: "Hitung persentase dengan mudah, termasuk persentase dari suatu nilai, kenaikan, penurunan, dan selisih persentase. Berguna untuk bisnis, keuangan, dan pendidikan.",
+    },
+
+    keywords: {
+      en: [
+        "percentage calculator",
+        "percent calculator",
+        "percentage increase",
+        "percentage decrease",
+        "percentage difference",
+        "calculate percentage",
+      ],
+      id: [
+        "kalkulator persentase",
+        "hitung persentase",
+        "kenaikan persentase",
+        "penurunan persentase",
+        "selisih persentase",
+        "rumus persentase",
+      ],
+    },
+
+    seo: {
+      jsonLd: percentageCalculatorJsonLdSEO,
+      metadata: percentageCalculatorMetadataSEO,
+    },
+
+    relatedTools: [
+      "cogs-margin-tool",
+      "financial-simulator",
+      // "discount-calculator", // future
+    ],
   },
 };

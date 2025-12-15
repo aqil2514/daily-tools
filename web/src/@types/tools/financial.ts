@@ -8,6 +8,7 @@ export const FINANCIAL_TOOLS = [
   "savings-goal-calculator",
   "retirement-savings-estimator",
   "asset-allocation-calculator",
+  "percentage-calculator",
 ] as const;
 
-export type FinancialToolName = typeof FINANCIAL_TOOLS[number];
+export type FinancialToolName = (typeof FINANCIAL_TOOLS)[number];
