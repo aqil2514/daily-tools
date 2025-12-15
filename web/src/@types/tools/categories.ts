@@ -9,6 +9,7 @@ export const TOOL_CATEGORIES = [
   "qr",
   "text",
   "math",
+  "utility"
 ] as const;
 
 export type ToolCategoryName = (typeof TOOL_CATEGORIES)[number];
