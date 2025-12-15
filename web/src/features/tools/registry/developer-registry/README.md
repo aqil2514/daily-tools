@@ -14,6 +14,9 @@
 04. Regex Tester (Penguji Regex)
 05. URL Parser (Parser URL)
 
+===== 03-developer-registry.ts =====
+01. Color Converter (Konverter Warna)
+
 ---
 > ⚠️ **Catatan:** File ini dihasilkan secara otomatis oleh script generator.
 > Jangan diedit manual karena setiap perubahan akan ditimpa.

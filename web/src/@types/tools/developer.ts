@@ -9,6 +9,7 @@ export const DEVELOPER_TOOLS = [
   "html-escape",
   "regex-tester",
   "url-parser",
+  "color-converter"
 ] as const;
 
 export type DeveloperToolName = typeof DEVELOPER_TOOLS[number];

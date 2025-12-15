@@ -12,6 +12,7 @@
 02. Savings Goal Calculator (Kalkulator Tujuan Tabungan)
 03. Retirement Savings Estimator (Estimator Tabungan Pensiun)
 04. Asset Allocation Calculator (Kalkulator Alokasi Aset)
+05. Percentage Calculator (Kalkulator Persentase)
 
 ---
 > ⚠️ **Catatan:** File ini dihasilkan secara otomatis oleh script generator.

@@ -1,11 +1,11 @@
 # Tool List (Internal)
-Total tools: 48
+Total tools: 50
 
 ## conversion (2)
 1. Temperature Converter | Konverter Suhu
 2. Length Converter | Konverter Panjang
 
-## Developer Tools (10)
+## Developer Tools (11)
 1. JWT Decoder | Dekoder JWT
 2. Password Generator | Generator Password
 3. UUID Generator | Generator UUID
@@ -16,6 +16,7 @@ Total tools: 48
 8. HTML Escape & Unescape | Escape & Unescape HTML
 9. Regex Tester | Penguji Regex
 10. URL Parser | Parser URL
+11. Color Converter | Konverter Warna
 
 ## Image Tools (5)
 1. Image Converter | Konverter Gambar
@@ -24,7 +25,7 @@ Total tools: 48
 4. Image Rotate | Pemutar Gambar
 5. Image to PDF | Gambar ke PDF
 
-## Financial Tools (9)
+## Financial Tools (10)
 1. Cash Counter | Penghitung Uang Tunai
 2. COGS Calculator | Profit Margin Kalkulator
 3. Product HPP Calculator | Kalkulator HPP Produk
@@ -34,6 +35,7 @@ Total tools: 48
 7. Savings Goal Calculator | Kalkulator Tujuan Tabungan
 8. Retirement Savings Estimator | Estimator Tabungan Pensiun
 9. Asset Allocation Calculator | Kalkulator Alokasi Aset
+10. Percentage Calculator | Kalkulator Persentase
 
 ## Health Tools (1)
 1. BMI Calculator | Kalkulator BMI
