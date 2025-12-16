@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
-import { Search } from "lucide-react";
+import { Search, X } from "lucide-react";
 
 import {
   Sheet,
@@ -22,6 +22,8 @@ import { SearchResultGroup } from "@/features/search/components/SearchResultGrou
 import { groupByCategory } from "@/features/search/utils/group-by-category";
 import { flattenResults } from "@/features/search/utils/flatten-results";
 import { useCommandShortcut } from "@/hooks/use-command-shortcut";
+import { cn } from "@/lib/utils";
+import { useRouter } from "@/i18n/navigation";
 
 interface SearchSheetProps {
   compact?: boolean;
@@ -35,6 +37,7 @@ export function SearchSheet({ compact = false }: SearchSheetProps) {
   const itemRefs = useRef<(HTMLAnchorElement | null)[]>([]);
   const inputRef = useRef<HTMLInputElement | null>(null);
   const scrollAreaRef = useRef<HTMLDivElement | null>(null);
+  const router = useRouter();
   const t = useTranslations("search");
 
   useEffect(() => {
@@ -119,13 +122,23 @@ export function SearchSheet({ compact = false }: SearchSheetProps) {
           <SheetTitle>{t("title")}</SheetTitle>
         </SheetHeader>
 
-        <div className="mt-6">
+        <div className="relative">
+          {query.length > 0 && (
+            <Button
+              size={"icon-sm"}
+              variant={"ghost"}
+              className="absolute top-1/2 -translate-y-1/2 left-1"
+              onClick={() => setQuery("")}
+            >
+              <X />
+            </Button>
+          )}
           <Input
             autoFocus
             ref={inputRef}
             placeholder={t("placeholder")}
             value={query}
-            className="h-12 text-base"
+            className={cn("h-12 text-base", query.length > 0 && "pl-9")}
             onChange={(e) => setQuery(e.target.value)}
             onKeyDown={(e) => {
               if (!flatResults.length) return;
@@ -155,10 +168,19 @@ export function SearchSheet({ compact = false }: SearchSheetProps) {
             }}
           />
         </div>
+        {query.length > 0 && (
+          <Button
+            size={"sm"}
+            variant={"outline"}
+            onClick={() => router.push(`/search?q=${query}`)}
+          >
+            {t("search-on-search-page")}
+          </Button>
+        )}
 
         <ScrollArea
           ref={scrollAreaRef}
-          className="mt-6 h-[calc(60vh-140px)] pr-2"
+          className="mt-6 h-[calc(60vh-140px)] pr-2 pb-20"
         >
           {query && results.length === 0 && (
             <div className="px-3 py-6 text-sm text-muted-foreground">
@@ -179,7 +201,10 @@ export function SearchSheet({ compact = false }: SearchSheetProps) {
                   activeIndex={activeIndex}
                   startIndex={groupStart}
                   onHover={setActiveIndex}
-                  onSelect={() => setOpen(false)}
+                  onSelect={() => {
+                    setOpen(false);
+                    setQuery("");
+                  }}
                   setItemRef={(index, el) => {
                     itemRefs.current[index] = el;
                   }}

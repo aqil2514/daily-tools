@@ -25,7 +25,6 @@
     "why": {
       "title": "Kenapa Flowtooly?",
       "description": "Dibuat untuk efisiensi, privasi, dan kemudahan penggunaan",
-
       "fast": {
         "title": "Cepat & Ringan",
         "description": "Semua tools berjalan langsung di browser Anda."
@@ -56,18 +55,15 @@
   "Footer": {
     "description": "Kumpulan tools online gratis untuk berbagai kebutuhan digital. Cepat, ringan, dan langsung digunakan di browser.",
     "rights": "Hak cipta dilindungi.",
-
     "product": {
       "title": "Produk",
       "allTools": "Semua Tools",
       "categories": "Kategori"
     },
-
     "resources": {
       "title": "Resource",
       "sitemap": "Sitemap"
     },
-
     "legal": {
       "title": "Legal",
       "privacy": "Kebijakan Privasi",
@@ -77,9 +73,7 @@
   "Privacy": {
     "title": "Kebijakan Privasi",
     "updated": "Terakhir diperbarui: 16 Desember 2025",
-
     "intro": "Flowtooly menghormati privasi Anda dan berkomitmen untuk melindunginya. Kebijakan Privasi ini menjelaskan bagaimana kami menangani informasi saat Anda menggunakan website dan tools kami.",
-
     "sections": {
       "noCollect": {
         "title": "Informasi yang Tidak Kami Kumpulkan",
@@ -118,9 +112,7 @@
   "Terms": {
     "title": "Syarat dan Ketentuan",
     "updated": "Terakhir diperbarui: 16 Desember 2025",
-
     "intro": "Dengan mengakses atau menggunakan Flowtooly, Anda menyetujui untuk terikat oleh Syarat dan Ketentuan ini.",
-
     "sections": {
       "use": {
         "title": "Penggunaan Layanan",
@@ -168,7 +160,8 @@
     "trigger": "Cari tools…",
     "title": "Pencarian Tools",
     "placeholder": "Cari tools, kata kunci, atau kategori…",
-    "empty": "Tidak ada tools yang ditemukan."
+    "empty": "Tidak ada tools yang ditemukan.",
+    "search-on-search-page": "Cari di Halaman Pencarian"
   },
   "tools": {
     "title": "Kumpulan Tools",

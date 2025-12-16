@@ -25,7 +25,6 @@
     "why": {
       "title": "Why Flowtooly?",
       "description": "Built for speed, privacy, and ease of use",
-
       "fast": {
         "title": "Fast & Lightweight",
         "description": "All tools run directly in your browser for instant results."
@@ -56,18 +55,15 @@
   "Footer": {
     "description": "A collection of free online tools for everyday digital needs. Fast, lightweight, and runs directly in your browser.",
     "rights": "All rights reserved.",
-
     "product": {
       "title": "Product",
       "allTools": "All Tools",
       "categories": "Categories"
     },
-
     "resources": {
       "title": "Resources",
       "sitemap": "Sitemap"
     },
-
     "legal": {
       "title": "Legal",
       "privacy": "Privacy Policy",
@@ -77,9 +73,7 @@
   "Privacy": {
     "title": "Privacy Policy",
     "updated": "Last updated: December 16, 2025",
-
     "intro": "Flowtooly respects your privacy and is committed to protecting it. This Privacy Policy explains how we handle information when you use our website and tools.",
-
     "sections": {
       "noCollect": {
         "title": "Information We Do Not Collect",
@@ -118,9 +112,7 @@
   "Terms": {
     "title": "Terms of Service",
     "updated": "Last updated: December 16, 2025",
-
     "intro": "By accessing or using Flowtooly, you agree to be bound by these Terms of Service.",
-
     "sections": {
       "use": {
         "title": "Use of the Service",
@@ -168,7 +160,8 @@
     "trigger": "Search tools…",
     "title": "Search Tools",
     "placeholder": "Search tools, keywords, categories…",
-    "empty": "No tools found."
+    "empty": "No tools found.",
+    "search-on-search-page": "Search on searching page"
   },
   "tools": {
     "title": "Tools",
