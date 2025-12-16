@@ -172,7 +172,11 @@ export function SearchSheet({ compact = false }: SearchSheetProps) {
           <Button
             size={"sm"}
             variant={"outline"}
-            onClick={() => router.push(`/search?q=${query}`)}
+            onClick={() => {
+              router.push(`/search?q=${query}`);
+              setOpen(false);
+              setQuery("");
+            }}
           >
             {t("search-on-search-page")}
           </Button>

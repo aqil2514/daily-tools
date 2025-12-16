@@ -36,7 +36,7 @@ export function useQueryParams() {
       const params = getParams();
       params.set(key, value);
 
-      router.replace(`${pathname}?${params.toString()}`, { scroll: false } );
+      router.replace(`${pathname}?${params.toString()}`, { scroll: false });
     },
     [router, pathname, getParams]
   );
@@ -123,11 +123,11 @@ export function useQueryParams() {
   return {
     get,
     set,
-    setMany, // ← Added
+    setMany,
     remove,
-    removeMany, // ← Added
+    removeMany,
     clear,
     replaceAll,
-    all: searchParams, // read-only
+    all: searchParams,
   };
 }

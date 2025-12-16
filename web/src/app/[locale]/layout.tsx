@@ -1,8 +1,8 @@
 import "../globals.css";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { Toaster } from "@/components/ui/sonner";
-import { Analytics } from "@vercel/analytics/next"
-import { SpeedInsights } from "@vercel/speed-insights/next"
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 import { Metadata } from "next";
 import { routing } from "@/i18n/routing";
@@ -15,6 +15,7 @@ import Header from "@/components/layout/header";
 import { LayoutWrapper } from "@/components/layout/wrapper/LayoutWrapper";
 import { canonicalUrl, getHreflangs } from "@/constants/seo";
 import { Footer } from "@/components/layout/footer";
+import { cookies } from "next/headers";
 
 export async function generateMetadata(): Promise<Metadata> {
   const locale = await getLocale();
@@ -35,6 +36,9 @@ type Props = {
 };
 
 export default async function LocaleLayout({ children, params }: Props) {
+  const cookieStore = await cookies();
+  const defaultOpen = cookieStore.get("sidebar_state")?.value === "true";
+
   const { locale } = await params;
   if (!hasLocale(routing.locales, locale)) {
     notFound();
@@ -44,7 +48,7 @@ export default async function LocaleLayout({ children, params }: Props) {
     <html lang={locale}>
       <body className={` antialiased bg-zinc-50 dark:bg-black`}>
         <NextIntlClientProvider>
-          <SidebarProvider>
+          <SidebarProvider defaultOpen={defaultOpen}>
             <AppSidebar />
             <main className="w-full">
               <Header />

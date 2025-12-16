@@ -1,9 +1,13 @@
-import { Metadata } from "next";
+import SearchPageTemplate from "@/features/search-page";
+import { searchMetadata } from "@/features/search-page/seo/metadata";
+import { getLocale } from "next-intl/server";
 
-export const metadata: Metadata = {
-  title: "Search | FlowTooly",
-};
+export async function generateMetadata() {
+  const locale = (await getLocale()) as "en" | "id";
+  return searchMetadata[locale];
+}
+
 
 export default function SearchPage() {
-  return <div>HALAMAN PENCARIAN...</div>;
+  return <SearchPageTemplate />
 }

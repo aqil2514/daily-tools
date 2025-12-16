@@ -420,5 +420,11 @@
       "download-empty-error": "Anda tidak memiliki data URL",
       "download-success": "Unduh berhasil"
     }
+  },
+  "SearchPage": {
+    "title": "Cari Tools Online Gratis",
+    "subtitle": "Cari tools dari bidang developer, finansial, gambar, PDF, dan masih banyak lagi di FlowTooly",
+    "placeholder": "Cari alat...",
+    "not-found": "Alat tidak ditemukan.  Coba cari gambar, pdf, dan lain sebagainya."
   }
 }

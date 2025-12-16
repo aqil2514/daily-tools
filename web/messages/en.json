@@ -423,5 +423,11 @@
       "download-empty-error": "You don't have any URL",
       "download-success": "Download success"
     }
+  },
+  "SearchPage": {
+    "title": "Search Free Online Tools",
+    "subtitle": "Explore developer, finance, image, PDF, and text tools available on Flowtooly.",
+    "placeholder": "Search tools...",
+    "not-found": " No tools found. Try searching for image, pdf, or calculator"
   }
 }

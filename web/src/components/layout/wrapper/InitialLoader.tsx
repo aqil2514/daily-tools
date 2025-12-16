@@ -12,7 +12,7 @@ export function InitialLoader({ children }: { children: React.ReactNode }) {
   }, []);
 
   return (
-    <div className="relative w-full h-full">
+    <div className="relative w-full">
       {isLoading && <Loader /> }
 
       <div
