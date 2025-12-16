@@ -90,9 +90,19 @@ export default function Header() {
           </NavigationMenu>
         </div>
 
-        <div className="flex items-center">
-          <SearchSheet />
+        <div className="flex items-center gap-2">
+          {/* Desktop */}
+          <div className="hidden lg:block">
+            <SearchSheet />
+          </div>
+
+          {/* Mobile */}
+          <div className="block lg:hidden">
+            <SearchSheet compact />
+          </div>
+
           <LanguageSwitcher />
+
           {pathname !== "/" && (
             <CustomSidebarTrigger className="flex lg:hidden" />
           )}

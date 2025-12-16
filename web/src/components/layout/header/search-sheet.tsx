@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
-import { useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { Search } from "lucide-react";
 
 import {
@@ -23,7 +23,11 @@ import { groupByCategory } from "@/features/search/utils/group-by-category";
 import { flattenResults } from "@/features/search/utils/flatten-results";
 import { useCommandShortcut } from "@/hooks/use-command-shortcut";
 
-export function SearchSheet() {
+interface SearchSheetProps {
+  compact?: boolean;
+}
+
+export function SearchSheet({ compact = false }: SearchSheetProps) {
   const locale = useLocale() as "en" | "id";
   const [query, setQuery] = useState("");
   const [activeIndex, setActiveIndex] = useState(0);
@@ -31,6 +35,7 @@ export function SearchSheet() {
   const itemRefs = useRef<(HTMLAnchorElement | null)[]>([]);
   const inputRef = useRef<HTMLInputElement | null>(null);
   const scrollAreaRef = useRef<HTMLDivElement | null>(null);
+  const t = useTranslations("search");
 
   useEffect(() => {
     // eslint-disable-next-line react-hooks/set-state-in-effect
@@ -90,29 +95,35 @@ export function SearchSheet() {
   return (
     <Sheet open={open} onOpenChange={setOpen}>
       <SheetTrigger asChild>
-        <Button
-          variant="outline"
-          size="sm"
-          className="gap-2 text-muted-foreground"
-        >
-          <Search className="h-4 w-4" />
-          <span>Search tools…</span>
-          <kbd className="ml-2 rounded border bg-muted px-1.5 text-[10px]">
-            ⌘K
-          </kbd>
-        </Button>
+        {compact ? (
+          <Button variant="ghost" size="icon" aria-label="Search">
+            <Search className="h-5 w-5" />
+          </Button>
+        ) : (
+          <Button
+            variant="outline"
+            size="sm"
+            className="gap-2 text-muted-foreground"
+          >
+            <Search className="h-4 w-4" />
+            <span>{t("trigger")}</span>
+            <kbd className="ml-2 rounded border bg-muted px-1.5 text-[10px]">
+              ⌘K
+            </kbd>
+          </Button>
+        )}
       </SheetTrigger>
 
       <SheetContent side="top" className="h-[60vh] overflow-hidden px-4 pb-6">
         <SheetHeader>
-          <SheetTitle>Search Tools</SheetTitle>
+          <SheetTitle>{t("title")}</SheetTitle>
         </SheetHeader>
 
         <div className="mt-6">
           <Input
             autoFocus
             ref={inputRef}
-            placeholder="Search tools, keywords, categories…"
+            placeholder={t("placeholder")}
             value={query}
             className="h-12 text-base"
             onChange={(e) => setQuery(e.target.value)}
@@ -151,7 +162,7 @@ export function SearchSheet() {
         >
           {query && results.length === 0 && (
             <div className="px-3 py-6 text-sm text-muted-foreground">
-              No tools found.
+              {t("empty")}
             </div>
           )}
 

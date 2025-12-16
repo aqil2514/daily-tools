@@ -164,6 +164,12 @@
       }
     }
   },
+  "search": {
+    "trigger": "Search tools…",
+    "title": "Search Tools",
+    "placeholder": "Search tools, keywords, categories…",
+    "empty": "No tools found."
+  },
   "tools": {
     "title": "Tools",
     "subtitle": "Find the tools that suit you",

@@ -164,6 +164,12 @@
       }
     }
   },
+  "search": {
+    "trigger": "Cari tools…",
+    "title": "Pencarian Tools",
+    "placeholder": "Cari tools, kata kunci, atau kategori…",
+    "empty": "Tidak ada tools yang ditemukan."
+  },
   "tools": {
     "title": "Kumpulan Tools",
     "subtitle": "Temukan alat yang cocok untuk anda",
