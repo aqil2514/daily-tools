@@ -11,6 +11,7 @@ import { usePathname, Link } from "@/i18n/navigation";
 import { cn } from "@/lib/utils";
 import { CustomSidebarTrigger } from "./custom-sidebar";
 import { LanguageSwitcher } from "./language-switcher";
+import { SearchSheet } from "./search-sheet";
 
 export interface MenuItem {
   title: string;
@@ -90,6 +91,7 @@ export default function Header() {
         </div>
 
         <div className="flex items-center">
+          <SearchSheet />
           <LanguageSwitcher />
           {pathname !== "/" && (
             <CustomSidebarTrigger className="flex lg:hidden" />
