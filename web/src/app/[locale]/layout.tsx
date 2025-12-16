@@ -14,6 +14,7 @@ import AppSidebar from "@/components/layout/sidebar";
 import Header from "@/components/layout/header";
 import { LayoutWrapper } from "@/components/layout/wrapper/LayoutWrapper";
 import { canonicalUrl, getHreflangs } from "@/constants/seo";
+import { Footer } from "@/components/layout/footer";
 
 export async function generateMetadata(): Promise<Metadata> {
   const locale = await getLocale();
@@ -48,6 +49,7 @@ export default async function LocaleLayout({ children, params }: Props) {
             <main className="w-full">
               <Header />
               <LayoutWrapper>{children}</LayoutWrapper>
+              <Footer />
             </main>
             <Toaster richColors position="top-center" />
           </SidebarProvider>

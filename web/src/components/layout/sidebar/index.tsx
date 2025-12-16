@@ -11,8 +11,12 @@ import { cn } from "@/lib/utils";
 import { LocaleSwitcher } from "./switch-changer";
 import { MainGroup } from "./sidebar-group/main-group";
 import { CategoryGroup } from "./sidebar-group/category-group";
+import { usePathname } from "@/i18n/navigation";
 
 export default function AppSidebar() {
+  const pathname = usePathname();
+
+  if (pathname === "/") return null;
   return (
     <Sidebar>
       <SidebarHeader>

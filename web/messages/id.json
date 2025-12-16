@@ -2,7 +2,167 @@
   "HomePage": {
     "greetings": "Selamat datang di",
     "description": "Kumpulan tools utilitas online yang simpel, cepat, dan gratis untuk membantu tugas sehari-hari. Konversi, kreasi, kalkuasi, dan manajemen apa pun — Semua dalam satu tempat.",
-    "explore": "Jelajahi Tools"
+    "explore": "Jelajahi Tools",
+    "hero": {
+      "title": "Semua Tools dalam Satu Tempat",
+      "description": "{count} tools gratis untuk developer, keuangan, gambar, PDF, teks, dan matematika. Berjalan langsung di browser",
+      "ctaPrimary": "Jelajahi Tools",
+      "tools": "{count} Tools",
+      "categories": "{count} Kategori",
+      "noLogin": "Tanpa Login",
+      "free": "Gratis",
+      "use-directly": "Digunakan langsung di browser. Tidak ada data yang diunggah atau disimpan."
+    },
+    "categories": {
+      "title": "Kategori Tools",
+      "description": "Temukan tools berdasarkan kebutuhan Anda"
+    },
+    "popularTools": {
+      "title": "Tools Populer",
+      "description": "Tools yang paling sering digunakan dan berguna untuk berbagai kebutuhan",
+      "viewAll": "Lihat semua"
+    },
+    "why": {
+      "title": "Kenapa Flowtooly?",
+      "description": "Dibuat untuk efisiensi, privasi, dan kemudahan penggunaan",
+
+      "fast": {
+        "title": "Cepat & Ringan",
+        "description": "Semua tools berjalan langsung di browser Anda."
+      },
+      "privacy": {
+        "title": "Privasi Terjaga",
+        "description": "Data tidak diunggah atau disimpan di server."
+      },
+      "noLogin": {
+        "title": "Tanpa Login",
+        "description": "Gunakan semua tools tanpa perlu akun."
+      },
+      "allInOne": {
+        "title": "All-in-One",
+        "description": "Berbagai tools dalam satu tempat."
+      },
+      "multilingual": {
+        "title": "Multibahasa",
+        "description": "Tersedia dalam Bahasa Indonesia dan Inggris."
+      }
+    },
+    "cta": {
+      "title": "Siap Mulai Menggunakan Tools?",
+      "description": "Jelajahi semua tools dan temukan solusi yang Anda butuhkan dalam satu tempat.",
+      "button": "Jelajahi Semua Tools"
+    }
+  },
+  "Footer": {
+    "description": "Kumpulan tools online gratis untuk berbagai kebutuhan digital. Cepat, ringan, dan langsung digunakan di browser.",
+    "rights": "Hak cipta dilindungi.",
+
+    "product": {
+      "title": "Produk",
+      "allTools": "Semua Tools",
+      "categories": "Kategori"
+    },
+
+    "resources": {
+      "title": "Resource",
+      "sitemap": "Sitemap"
+    },
+
+    "legal": {
+      "title": "Legal",
+      "privacy": "Kebijakan Privasi",
+      "terms": "Syarat & Ketentuan"
+    }
+  },
+  "Privacy": {
+    "title": "Kebijakan Privasi",
+    "updated": "Terakhir diperbarui: 16 Desember 2025",
+
+    "intro": "Flowtooly menghormati privasi Anda dan berkomitmen untuk melindunginya. Kebijakan Privasi ini menjelaskan bagaimana kami menangani informasi saat Anda menggunakan website dan tools kami.",
+
+    "sections": {
+      "noCollect": {
+        "title": "Informasi yang Tidak Kami Kumpulkan",
+        "content": "Flowtooly tidak mewajibkan pengguna membuat akun atau memberikan informasi pribadi. Kami tidak meminta nama, alamat email, atau data identitas lainnya. Data yang Anda masukkan ke dalam tools tidak disimpan di server kami."
+      },
+      "autoCollect": {
+        "title": "Informasi yang Dikumpulkan Secara Otomatis",
+        "content": "Saat Anda mengunjungi Flowtooly, informasi teknis tertentu dapat dikumpulkan secara otomatis oleh penyedia hosting dan infrastruktur kami, seperti alamat IP, jenis browser, perangkat, dan halaman yang dikunjungi. Informasi ini digunakan hanya untuk menjaga keamanan dan performa website."
+      },
+      "cookies": {
+        "title": "Cookies",
+        "content": "Flowtooly dapat menggunakan cookies esensial untuk fungsi dasar website, seperti pengaturan bahasa dan keamanan. Kami tidak menggunakan cookies untuk pelacakan personal atau iklan."
+      },
+      "processing": {
+        "title": "Pemrosesan dan Penyimpanan Data",
+        "content": "Semua proses perhitungan dan pengolahan data dilakukan secara langsung di browser Anda. Flowtooly tidak menyimpan hasil perhitungan atau data input pengguna."
+      },
+      "thirdParty": {
+        "title": "Layanan Pihak Ketiga",
+        "content": "Flowtooly dapat menggunakan layanan pihak ketiga seperti hosting atau CDN untuk menjalankan website. Layanan ini dapat memproses data teknis terbatas sesuai dengan kebijakan privasi mereka masing-masing."
+      },
+      "children": {
+        "title": "Privasi Anak",
+        "content": "Flowtooly tidak ditujukan untuk anak-anak di bawah usia 13 tahun dan kami tidak secara sadar mengumpulkan informasi pribadi dari anak-anak."
+      },
+      "changes": {
+        "title": "Perubahan Kebijakan Privasi",
+        "content": "Kami dapat memperbarui Kebijakan Privasi ini dari waktu ke waktu. Setiap perubahan akan dipublikasikan di halaman ini dengan tanggal pembaruan terbaru."
+      },
+      "contact": {
+        "title": "Hubungi Kami",
+        "content": "Jika Anda memiliki pertanyaan mengenai Kebijakan Privasi ini, silakan hubungi kami melalui email: support@flowtooly.com (Akan tersedia saat perilisan resmi)"
+      }
+    }
+  },
+  "Terms": {
+    "title": "Syarat dan Ketentuan",
+    "updated": "Terakhir diperbarui: 16 Desember 2025",
+
+    "intro": "Dengan mengakses atau menggunakan Flowtooly, Anda menyetujui untuk terikat oleh Syarat dan Ketentuan ini.",
+
+    "sections": {
+      "use": {
+        "title": "Penggunaan Layanan",
+        "content": "Flowtooly menyediakan berbagai tools online untuk tujuan informasi dan utilitas umum. Anda setuju untuk menggunakan layanan ini secara sah dan tidak menyalahgunakan atau mengganggu fungsi website."
+      },
+      "noAdvice": {
+        "title": "Bukan Nasihat Profesional",
+        "content": "Flowtooly tidak memberikan nasihat keuangan, medis, hukum, atau profesional lainnya. Semua tools dan hasil yang ditampilkan hanya untuk tujuan informasi."
+      },
+      "privacy": {
+        "title": "Data dan Privasi",
+        "content": "Flowtooly tidak mewajibkan pengguna membuat akun dan tidak menyimpan data input pengguna. Silakan lihat Kebijakan Privasi kami untuk informasi lebih lanjut."
+      },
+      "accuracy": {
+        "title": "Akurasi Informasi",
+        "content": "Kami tidak menjamin keakuratan, kelengkapan, atau keandalan hasil dari tools yang tersedia. Pengguna disarankan untuk melakukan verifikasi secara mandiri."
+      },
+      "liability": {
+        "title": "Batasan Tanggung Jawab",
+        "content": "Flowtooly tidak bertanggung jawab atas kerugian langsung maupun tidak langsung yang timbul akibat penggunaan atau ketidakmampuan menggunakan website atau tools. Penggunaan layanan sepenuhnya menjadi tanggung jawab pengguna."
+      },
+      "availability": {
+        "title": "Ketersediaan Layanan",
+        "content": "Flowtooly dapat mengubah, menangguhkan, atau menghentikan sebagian atau seluruh layanan kapan saja tanpa pemberitahuan sebelumnya."
+      },
+      "ip": {
+        "title": "Hak Kekayaan Intelektual",
+        "content": "Seluruh konten, desain, dan identitas visual di Flowtooly merupakan milik Flowtooly, kecuali dinyatakan lain."
+      },
+      "thirdParty": {
+        "title": "Tautan Pihak Ketiga",
+        "content": "Flowtooly dapat menyertakan tautan ke website pihak ketiga. Kami tidak bertanggung jawab atas konten, kebijakan, atau praktik dari layanan pihak ketiga tersebut."
+      },
+      "changes": {
+        "title": "Perubahan Syarat dan Ketentuan",
+        "content": "Syarat dan Ketentuan ini dapat diperbarui dari waktu ke waktu. Setiap perubahan akan dipublikasikan di halaman ini."
+      },
+      "contact": {
+        "title": "Kontak",
+        "content": "Jika Anda memiliki pertanyaan terkait Syarat dan Ketentuan ini, silakan hubungi kami melalui email di support@flowtooly.com. (Akan tersedia saat perilisan resmi)"
+      }
+    }
   },
   "tools": {
     "title": "Kumpulan Tools",

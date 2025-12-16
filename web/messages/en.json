@@ -2,7 +2,167 @@
   "HomePage": {
     "greetings": "Welcome to",
     "description": "A collection of simple, fast, and free online tools for your daily tasks. Convert, create, calculate, and manage everything — all in one place.",
-    "explore": "Explore Tools"
+    "explore": "Explore Tools",
+    "hero": {
+      "title": "All-in-One Online Tools",
+      "description": "{count} free tools for developers, finance, image, PDF, text, and math. Runs locally in your browser.",
+      "ctaPrimary": "Explore Tools",
+      "tools": "{count} Tools",
+      "categories": "{count} Categories",
+      "free": "Free",
+      "use-directly": "Use directly in your browser! No data uploaded or stored",
+      "noLogin": "No Login"
+    },
+    "categories": {
+      "title": "Tools Categories",
+      "description": "Find some tools that you need"
+    },
+    "popularTools": {
+      "title": "Popular Tools",
+      "description": "Frequently used tools to help you get things done faster",
+      "viewAll": "View All"
+    },
+    "why": {
+      "title": "Why Flowtooly?",
+      "description": "Built for speed, privacy, and ease of use",
+
+      "fast": {
+        "title": "Fast & Lightweight",
+        "description": "All tools run directly in your browser for instant results."
+      },
+      "privacy": {
+        "title": "Privacy First",
+        "description": "Your data is never uploaded or stored on our servers."
+      },
+      "noLogin": {
+        "title": "No Sign-Up Required",
+        "description": "Use all tools instantly without creating an account."
+      },
+      "allInOne": {
+        "title": "All-in-One Tools",
+        "description": "A wide range of tools available in one place."
+      },
+      "multilingual": {
+        "title": "Multilingual",
+        "description": "Available in both English and Indonesian."
+      }
+    },
+    "cta": {
+      "title": "Ready to Get Started?",
+      "description": "Explore all tools and find the solution you need in one place.",
+      "button": "Explore All Tools"
+    }
+  },
+  "Footer": {
+    "description": "A collection of free online tools for everyday digital needs. Fast, lightweight, and runs directly in your browser.",
+    "rights": "All rights reserved.",
+
+    "product": {
+      "title": "Product",
+      "allTools": "All Tools",
+      "categories": "Categories"
+    },
+
+    "resources": {
+      "title": "Resources",
+      "sitemap": "Sitemap"
+    },
+
+    "legal": {
+      "title": "Legal",
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Service"
+    }
+  },
+  "Privacy": {
+    "title": "Privacy Policy",
+    "updated": "Last updated: December 16, 2025",
+
+    "intro": "Flowtooly respects your privacy and is committed to protecting it. This Privacy Policy explains how we handle information when you use our website and tools.",
+
+    "sections": {
+      "noCollect": {
+        "title": "Information We Do Not Collect",
+        "content": "Flowtooly does not require users to create an account or provide personal information. We do not ask for your name, email address, or any form of personal identification. Data entered into our tools is not stored on our servers."
+      },
+      "autoCollect": {
+        "title": "Information Collected Automatically",
+        "content": "When you visit Flowtooly, certain technical information may be collected automatically by our hosting and infrastructure providers, such as IP address, browser type, device information, and pages visited. This information is used solely to maintain website performance and security."
+      },
+      "cookies": {
+        "title": "Cookies",
+        "content": "Flowtooly may use essential cookies required for basic website functionality, such as language preferences and security. We do not use cookies for personalized tracking or advertising."
+      },
+      "processing": {
+        "title": "Data Processing and Storage",
+        "content": "All data processing and calculations are performed directly in your browser. Flowtooly does not store calculation results or user input on its servers."
+      },
+      "thirdParty": {
+        "title": "Third-Party Services",
+        "content": "Flowtooly may use third-party services such as hosting providers or CDNs to operate the website. These services may process limited technical data in accordance with their own privacy policies."
+      },
+      "children": {
+        "title": "Children’s Privacy",
+        "content": "Flowtooly is not intended for children under the age of 13. We do not knowingly collect personal information from children."
+      },
+      "changes": {
+        "title": "Changes to This Privacy Policy",
+        "content": "We may update this Privacy Policy from time to time. Any changes will be posted on this page along with an updated revision date."
+      },
+      "contact": {
+        "title": "Contact Us",
+        "content": "If you have any questions about this Privacy Policy, please contact us via email at: support@flowtooly.app (will be available upon official launch)"
+      }
+    }
+  },
+  "Terms": {
+    "title": "Terms of Service",
+    "updated": "Last updated: December 16, 2025",
+
+    "intro": "By accessing or using Flowtooly, you agree to be bound by these Terms of Service.",
+
+    "sections": {
+      "use": {
+        "title": "Use of the Service",
+        "content": "Flowtooly provides online tools for general informational and utility purposes only. You agree to use the service lawfully and not attempt to misuse or disrupt the website."
+      },
+      "noAdvice": {
+        "title": "No Professional Advice",
+        "content": "Flowtooly does not provide financial, medical, legal, or professional advice. All tools and results are provided for informational purposes only."
+      },
+      "privacy": {
+        "title": "Data and Privacy",
+        "content": "Flowtooly does not require user accounts and does not store user input. Please refer to our Privacy Policy for more information."
+      },
+      "accuracy": {
+        "title": "Accuracy of Information",
+        "content": "We do not guarantee the accuracy, completeness, or reliability of any tool output. Results should be independently verified."
+      },
+      "liability": {
+        "title": "Limitation of Liability",
+        "content": "Flowtooly shall not be liable for any damages arising from the use or inability to use the website or tools. Use of the service is at your own risk."
+      },
+      "availability": {
+        "title": "Service Availability",
+        "content": "Flowtooly may modify, suspend, or discontinue any part of the service at any time without notice."
+      },
+      "ip": {
+        "title": "Intellectual Property",
+        "content": "All content and branding on Flowtooly are the property of Flowtooly unless otherwise stated."
+      },
+      "thirdParty": {
+        "title": "Third-Party Links",
+        "content": "Flowtooly may include links to third-party websites. We are not responsible for their content or practices."
+      },
+      "changes": {
+        "title": "Changes to These Terms",
+        "content": "These Terms of Service may be updated from time to time. Updates will be posted on this page."
+      },
+      "contact": {
+        "title": "Contact",
+        "content": "If you have any questions regarding these Terms of Service, please contact us at support@flowtooly.com. (will be available upon official launch)"
+      }
+    }
   },
   "tools": {
     "title": "Tools",
