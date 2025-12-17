@@ -5,24 +5,31 @@ import {
   SidebarMenuButton,
 } from "@/components/ui/sidebar";
 import { Link, usePathname } from "@/i18n/navigation";
-import { Home, Pickaxe } from "lucide-react";
+import { BadgeInfo, Home, Pickaxe } from "lucide-react";
 import { SidebarItem } from "../interface";
-
-const sidebarItems: SidebarItem[] = [
-  {
-    href: "/",
-    icon: Home,
-    label: "Home",
-  },
-  {
-    href: "/tools",
-    icon: Pickaxe,
-    label: "Tools",
-  },
-];
+import { useLocale } from "next-intl";
 
 export function MainGroup() {
   const pathname = usePathname();
+  const locale = useLocale();
+  
+  const sidebarItems: SidebarItem[] = [
+    {
+      href: "/",
+      icon: Home,
+      label: locale === "id" ? "Beranda" : "Home",
+    },
+    {
+      href: "/tools",
+      icon: Pickaxe,
+      label: locale === "id" ? "Alat" : "Tools",
+    },
+    {
+      href: "/about",
+      icon: BadgeInfo,
+      label: locale === "id" ? "Tentang" : "About",
+    },
+  ];
   return (
     <SidebarGroup>
       <SidebarGroupLabel>Main</SidebarGroupLabel>
