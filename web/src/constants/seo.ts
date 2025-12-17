@@ -1,7 +1,7 @@
 import { Locale } from "next-intl";
 
 export const SEO_CONFIG = {
-  siteUrl: "https://flowtooly.vercel.app",
+  siteUrl: "https://flowtooly.vercel.app" as const,
   defaultLocale: "en",
   locales: ["en", "id"],
 };

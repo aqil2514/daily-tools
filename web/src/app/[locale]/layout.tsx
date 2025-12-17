@@ -16,6 +16,7 @@ import { LayoutWrapper } from "@/components/layout/wrapper/LayoutWrapper";
 import { canonicalUrl, getHreflangs } from "@/constants/seo";
 import { Footer } from "@/components/layout/footer";
 import { cookies } from "next/headers";
+import { getGlobalJsonLd } from "@/components/seo/layout/global-jsonld";
 
 export async function generateMetadata(): Promise<Metadata> {
   const locale = await getLocale();
@@ -27,6 +28,13 @@ export async function generateMetadata(): Promise<Metadata> {
       canonical: canonicalUrl(locale),
       languages: getHreflangs(),
     },
+    robots: {
+      index: true,
+      follow: true,
+    },
+    applicationName: "Flowtooly",
+    generator: "Next.js",
+    category: "Utility",
   };
 }
 
@@ -46,6 +54,15 @@ export default async function LocaleLayout({ children, params }: Props) {
 
   return (
     <html lang={locale}>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(getGlobalJsonLd(locale)).replace(
+            /</g,
+            "\\u003c"
+          ),
+        }}
+      />
       <body className={` antialiased bg-zinc-50 dark:bg-black`}>
         <NextIntlClientProvider>
           <SidebarProvider defaultOpen={defaultOpen}>

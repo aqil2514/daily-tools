@@ -162,6 +162,7 @@ export function SearchSheet({ compact = false }: SearchSheetProps) {
                 const tool = flatResults[activeIndex];
                 if (tool) {
                   setOpen(false);
+                  setQuery("");
                   router.push(tool.href);
                 }
               }
