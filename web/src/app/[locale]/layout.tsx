@@ -55,19 +55,16 @@ export default async function LocaleLayout({ children, params }: Props) {
 
   return (
     <html lang={locale}>
-      <Head key={"built-in-head"}>
-
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(getGlobalJsonLd(locale)).replace(
-            /</g,
-            "\\u003c"
-          ),
-        }}
-      />
-      </Head>
       <body className={` antialiased bg-zinc-50 dark:bg-black`}>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(getGlobalJsonLd(locale)).replace(
+              /</g,
+              "\\u003c"
+            ),
+          }}
+        />
         <NextIntlClientProvider>
           <SidebarProvider defaultOpen={defaultOpen}>
             <AppSidebar />
