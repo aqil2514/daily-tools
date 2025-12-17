@@ -1,24 +1,32 @@
+import { SEO_CONFIG } from "@/constants/seo";
+
 export async function GET() {
   const urls = [
-    "https://flowtooly.vercel.app/en",
-    "https://flowtooly.vercel.app/id",
-    "https://flowtooly.vercel.app/en/tools",
-    "https://flowtooly.vercel.app/id/tools",
+    "/en",
+    "/id",
+    "/en/tools",
+    "/id/tools",
+    "/en/privacy",
+    "/id/privacy",
+    "/en/terms",
+    "/id/terms",
   ];
 
+  const now = new Date().toISOString();
+
   const xml = `
-    <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-      ${urls
-        .map(
-          (url) => `
-        <url>
-          <loc>${url}</loc>
-          <lastmod>${new Date().toISOString()}</lastmod>
-        </url>
-      `
-        )
-        .join("")}
-    </urlset>
+  <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    ${urls
+      .map(
+        (path) => `
+      <url>
+        <loc>${SEO_CONFIG.siteUrl}${path}</loc>
+        <lastmod>${now}</lastmod>
+      </url>
+    `
+      )
+      .join("")}
+  </urlset>
   `.trim();
 
   return new Response(xml, {
