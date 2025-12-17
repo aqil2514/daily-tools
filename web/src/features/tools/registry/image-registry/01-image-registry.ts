@@ -3,6 +3,8 @@ import { ImageToolName } from "@/@types/tools/image";
 import dynamic from "next/dynamic";
 import imageConverterMetadataSEO from "../../tool-name/Images/ImageConverter/seo/metadata";
 import imageConverterJsonLdSEO from "../../tool-name/Images/ImageConverter/seo/jsonld";
+import imageResizerJsonLdSEO from "../../tool-name/Images/ImageResizer/seo/jsonld";
+import imageResizerMetadataSEO from "../../tool-name/Images/ImageResizer/seo/metadata";
 
 export const imageRegistry01: Record<ImageToolName, ToolRegistryItem> = {
   "image-converter": {
@@ -32,10 +34,10 @@ export const imageRegistry01: Record<ImageToolName, ToolRegistryItem> = {
 
     relatedTools: ["image-resizer", "image-cropper", "image-to-pdf"],
 
-    seo:{
+    seo: {
       jsonLd: imageConverterJsonLdSEO,
-      metadata: imageConverterMetadataSEO
-    }
+      metadata: imageConverterMetadataSEO,
+    },
   },
 
   "image-resizer": {
@@ -61,6 +63,13 @@ export const imageRegistry01: Record<ImageToolName, ToolRegistryItem> = {
         "ubah ukuran foto",
         "dimensi gambar",
       ],
+    },
+
+    relatedTools: ["image-converter", "image-cropper"],
+
+    seo: {
+      jsonLd: imageResizerJsonLdSEO,
+      metadata: imageResizerMetadataSEO,
     },
   },
 
