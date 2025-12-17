@@ -1,13 +1,32 @@
-import { getTranslations } from "next-intl/server";
+import { getLocale, getTranslations } from "next-intl/server";
 import { fontPoppins } from "@/constants/fonts";
 import { cn } from "@/lib/utils";
 import { Metadata } from "next";
+import { canonicalUrl } from "@/constants/seo";
 
-export const metadata: Metadata = {
-  title: "Privacy Policy | Flowtooly",
-  description:
-    "Learn how Flowtooly handles privacy and data. All tools run in your browser and user data is not stored.",
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const locale = await getLocale();
+  const isId = locale === "id";
+
+  return {
+    title: isId
+      ? "Kebijakan Privasi | Flowtooly"
+      : "Privacy Policy | Flowtooly",
+
+    description: isId
+      ? "Kebijakan privasi Flowtooly yang menjelaskan bagaimana kami menangani data pengguna dan menjaga privasi Anda."
+      : "Flowtooly privacy policy explaining how we handle user data and protect your privacy.",
+
+    alternates: {
+      canonical: canonicalUrl(locale, "/privacy"),
+    },
+
+    robots: {
+      index: true,
+      follow: true,
+    },
+  };
+}
 
 export default async function PrivacyPage() {
   const t = await getTranslations("Privacy");

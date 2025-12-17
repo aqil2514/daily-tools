@@ -33,5 +33,10 @@ export function toNextMetadata(
       slug: data.slug,
       locale,
     },
+
+    robots: {
+      index: true,
+      follow: true,
+    },
   };
 }

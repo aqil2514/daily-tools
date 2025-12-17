@@ -1,13 +1,33 @@
-import { getTranslations } from "next-intl/server";
+import { getLocale, getTranslations } from "next-intl/server";
 import { fontPoppins } from "@/constants/fonts";
 import { cn } from "@/lib/utils";
 import { Metadata } from "next";
+import { canonicalUrl, getHreflangs } from "@/constants/seo";
 
-export const metadata: Metadata = {
-  title: "Terms of Service | Flowtooly",
-  description:
-    "Read the Terms of Service for Flowtooly. Learn about usage rules, limitations, and responsibilities when using our tools.",
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const locale = await getLocale();
+  const isId = locale === "id";
+
+  return {
+    title: isId
+      ? "Syarat & Ketentuan | Flowtooly"
+      : "Terms of Service | Flowtooly",
+
+    description: isId
+      ? "Syarat dan ketentuan penggunaan Flowtooly yang mengatur penggunaan layanan, hak, dan kewajiban pengguna."
+      : "Flowtooly terms of service outlining the rules, rights, and responsibilities when using our tools.",
+
+    alternates: {
+      canonical: canonicalUrl(locale, "/terms"),
+      languages: getHreflangs("/terms"),
+    },
+
+    robots: {
+      index: true,
+      follow: true,
+    },
+  };
+}
 
 export default async function TermsPage() {
   const t = await getTranslations("Terms");
