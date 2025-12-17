@@ -4,9 +4,6 @@ import { QRPreview } from "./qr-preview";
 import { QRData } from "./qr-data";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { QROptions } from "./options";
-import { useLocale } from "next-intl";
-import { FAQSection } from "@/components/atoms/faq-section";
-import { qrFAQ_en, qrFAQ_id } from "../i18n/faq";
 import { QRGeneratorProvider } from "../store/provider";
 
 export function QRGenerator() {
@@ -18,7 +15,6 @@ export function QRGenerator() {
 }
 
 const InnerTemplate = () => {
-  const locale = useLocale();
   return (
     <div>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
@@ -40,8 +36,6 @@ const InnerTemplate = () => {
           <QRPreview />
         </ToolCard>
       </div>
-
-      <FAQSection items={locale === "en" ? qrFAQ_en : qrFAQ_id} />
     </div>
   );
 };

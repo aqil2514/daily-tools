@@ -35,7 +35,7 @@ export function LanguageSwitcher() {
       </PopoverTrigger>
       <PopoverContent>
         <p className={cn(fontPoppins.className, "text-foreground text-center")}>
-          Language
+          {locale === "id" ? "Bahasa" : "Language"}
         </p>
         <Separator />
         <div className="grid grid-cols-2 gap-4 mt-4">

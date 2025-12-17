@@ -1,14 +1,17 @@
-import {  ToolRegistryItem } from "@/@types/Tools";
+import { ToolRegistryItem } from "@/@types/Tools";
 import { QRToolName } from "@/@types/tools/qr";
 import dynamic from "next/dynamic";
+import qrGeneratorJsonLdSEO from "../../tool-name/QR/QRGenerator/seo/jsonld";
+import qrGeneratorMetadataSEO from "../../tool-name/QR/QRGenerator/seo/metadata";
 
 export const qrRegistry01: Record<QRToolName, ToolRegistryItem> = {
   "qr-generator": {
-    Component: dynamic(() => import("@/features/tools/tool-name/QR/QRGenerator")),
+    Component: dynamic(
+      () => import("@/features/tools/tool-name/QR/QRGenerator")
+    ),
     href: "/tools/qr-generator",
     category: "qr",
 
-    // --- Lokalisasi Langsung ---
     title: {
       en: "QR Generator",
       id: "Generator QR",
@@ -32,6 +35,11 @@ export const qrRegistry01: Record<QRToolName, ToolRegistryItem> = {
         "buat qr",
         "alat kode qr",
       ],
+    },
+
+    seo: {
+      jsonLd: qrGeneratorJsonLdSEO,
+      metadata: qrGeneratorMetadataSEO,
     },
   },
 };
