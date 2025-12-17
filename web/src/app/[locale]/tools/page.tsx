@@ -1,4 +1,5 @@
 import { JsonLdToolsList } from "@/components/seo/json-ld-tools-list";
+import { canonicalUrl, getHreflangs } from "@/constants/seo";
 import ToolsTemplate from "@/features/tools";
 import { getLocalizedMetadata } from "@/utils/localization/getLocalizedMetadata";
 import { Metadata } from "next";
@@ -13,6 +14,14 @@ export async function generateMetadata(): Promise<Metadata> {
     title: metadata.title,
     description: metadata.description,
     keywords: metadata.keywords,
+    alternates: {
+      canonical: canonicalUrl(locale, "/tools"),
+      languages: getHreflangs("/tools"),
+    },
+    robots: {
+      index: true,
+      follow: true,
+    },
   };
 }
 

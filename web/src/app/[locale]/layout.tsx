@@ -17,7 +17,6 @@ import { canonicalUrl, getHreflangs } from "@/constants/seo";
 import { Footer } from "@/components/layout/footer";
 import { cookies } from "next/headers";
 import { getGlobalJsonLd } from "@/components/seo/layout/global-jsonld";
-import Head from "next/head";
 
 export async function generateMetadata(): Promise<Metadata> {
   const locale = await getLocale();
