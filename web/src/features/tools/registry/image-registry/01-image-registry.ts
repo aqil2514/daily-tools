@@ -7,6 +7,10 @@ import imageResizerJsonLdSEO from "../../tool-name/Images/ImageResizer/seo/jsonl
 import imageResizerMetadataSEO from "../../tool-name/Images/ImageResizer/seo/metadata";
 import imageCropperJsonLdSEO from "../../tool-name/Images/ImageCropper/seo/jsonld";
 import imageCropperMetadataSEO from "../../tool-name/Images/ImageCropper/seo/metadata";
+import imageRotateJsonLdSEO from "../../tool-name/Images/ImageRotate/seo/jsonld";
+import imageRotateMetadataSEO from "../../tool-name/Images/ImageRotate/seo/metadata";
+import imageToPdfJsonLdSEO from "../../tool-name/Images/ImageToPDF/seo/jsonld";
+import imageToPdfMetadataSEO from "../../tool-name/Images/ImageToPDF/seo/metadata";
 
 export const imageRegistry01: Record<ImageToolName, ToolRegistryItem> = {
   "image-converter": {
@@ -122,6 +126,13 @@ export const imageRegistry01: Record<ImageToolName, ToolRegistryItem> = {
       en: ["image rotate", "rotate photo", "rotate picture", "flip image"],
       id: ["pemutar gambar", "putar foto", "putar gambar", "balik gambar"],
     },
+
+    relatedTools: ["image-cropper", "image-resizer"],
+
+    seo: {
+      jsonLd: imageRotateJsonLdSEO,
+      metadata: imageRotateMetadataSEO,
+    },
   },
 
   "image-to-pdf": {
@@ -147,6 +158,13 @@ export const imageRegistry01: Record<ImageToolName, ToolRegistryItem> = {
         "jpg ke pdf",
         "png ke pdf",
       ],
+    },
+
+    relatedTools: ["image-converter", "image-resizer", "image-rotate"],
+
+    seo: {
+      jsonLd: imageToPdfJsonLdSEO,
+      metadata: imageToPdfMetadataSEO,
     },
   },
 };
