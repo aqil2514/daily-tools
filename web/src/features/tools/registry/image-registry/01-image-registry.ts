@@ -5,6 +5,8 @@ import imageConverterMetadataSEO from "../../tool-name/Images/ImageConverter/seo
 import imageConverterJsonLdSEO from "../../tool-name/Images/ImageConverter/seo/jsonld";
 import imageResizerJsonLdSEO from "../../tool-name/Images/ImageResizer/seo/jsonld";
 import imageResizerMetadataSEO from "../../tool-name/Images/ImageResizer/seo/metadata";
+import imageCropperJsonLdSEO from "../../tool-name/Images/ImageCropper/seo/jsonld";
+import imageCropperMetadataSEO from "../../tool-name/Images/ImageCropper/seo/metadata";
 
 export const imageRegistry01: Record<ImageToolName, ToolRegistryItem> = {
   "image-converter": {
@@ -91,6 +93,13 @@ export const imageRegistry01: Record<ImageToolName, ToolRegistryItem> = {
     keywords: {
       en: ["image cropper", "crop image", "photo crop", "crop tool"],
       id: ["pemotong gambar", "potong gambar", "potong foto", "alat potong"],
+    },
+
+    relatedTools: ["image-resizer", "image-converter"],
+
+    seo: {
+      jsonLd: imageCropperJsonLdSEO,
+      metadata: imageCropperMetadataSEO,
     },
   },
 
