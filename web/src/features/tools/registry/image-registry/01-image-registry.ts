@@ -1,10 +1,14 @@
 import { ToolRegistryItem } from "@/@types/Tools";
 import { ImageToolName } from "@/@types/tools/image";
 import dynamic from "next/dynamic";
+import imageConverterMetadataSEO from "../../tool-name/Images/ImageConverter/seo/metadata";
+import imageConverterJsonLdSEO from "../../tool-name/Images/ImageConverter/seo/jsonld";
 
 export const imageRegistry01: Record<ImageToolName, ToolRegistryItem> = {
   "image-converter": {
-    Component: dynamic(() => import("@/features/tools/tool-name/Images/ImageConverter")),
+    Component: dynamic(
+      () => import("@/features/tools/tool-name/Images/ImageConverter")
+    ),
     href: "/tools/image-converter",
     category: "image",
 
@@ -25,10 +29,19 @@ export const imageRegistry01: Record<ImageToolName, ToolRegistryItem> = {
         "konverter webp",
       ],
     },
+
+    relatedTools: ["image-resizer", "image-cropper", "image-to-pdf"],
+
+    seo:{
+      jsonLd: imageConverterJsonLdSEO,
+      metadata: imageConverterMetadataSEO
+    }
   },
 
   "image-resizer": {
-    Component: dynamic(() => import("@/features/tools/tool-name/Images/ImageResizer")),
+    Component: dynamic(
+      () => import("@/features/tools/tool-name/Images/ImageResizer")
+    ),
     href: "/tools/image-resizer",
     category: "image",
 
@@ -52,7 +65,9 @@ export const imageRegistry01: Record<ImageToolName, ToolRegistryItem> = {
   },
 
   "image-cropper": {
-    Component: dynamic(() => import("@/features/tools/tool-name/Images/ImageCropper")),
+    Component: dynamic(
+      () => import("@/features/tools/tool-name/Images/ImageCropper")
+    ),
     href: "/tools/image-cropper",
     category: "image",
 
@@ -71,7 +86,9 @@ export const imageRegistry01: Record<ImageToolName, ToolRegistryItem> = {
   },
 
   "image-rotate": {
-    Component: dynamic(() => import("@/features/tools/tool-name/Images/ImageRotate")),
+    Component: dynamic(
+      () => import("@/features/tools/tool-name/Images/ImageRotate")
+    ),
     href: "/tools/image-rotate",
     category: "image",
 
@@ -90,7 +107,9 @@ export const imageRegistry01: Record<ImageToolName, ToolRegistryItem> = {
   },
 
   "image-to-pdf": {
-    Component: dynamic(() => import("@/features/tools/tool-name/Images/ImageToPDF")),
+    Component: dynamic(
+      () => import("@/features/tools/tool-name/Images/ImageToPDF")
+    ),
     href: "/tools/image-to-pdf",
     category: "image",
 
