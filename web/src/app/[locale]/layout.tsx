@@ -17,6 +17,7 @@ import { canonicalUrl, getHreflangs } from "@/constants/seo";
 import { Footer } from "@/components/layout/footer";
 import { cookies } from "next/headers";
 import { getGlobalJsonLd } from "@/components/seo/layout/global-jsonld";
+import Head from "next/head";
 
 export async function generateMetadata(): Promise<Metadata> {
   const locale = await getLocale();
@@ -54,6 +55,8 @@ export default async function LocaleLayout({ children, params }: Props) {
 
   return (
     <html lang={locale}>
+      <Head key={"built-in-head"}>
+
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -63,6 +66,7 @@ export default async function LocaleLayout({ children, params }: Props) {
           ),
         }}
       />
+      </Head>
       <body className={` antialiased bg-zinc-50 dark:bg-black`}>
         <NextIntlClientProvider>
           <SidebarProvider defaultOpen={defaultOpen}>
