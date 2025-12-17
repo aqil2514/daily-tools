@@ -12,6 +12,7 @@ import { cn } from "@/lib/utils";
 import { CustomSidebarTrigger } from "./custom-sidebar";
 import { LanguageSwitcher } from "./language-switcher";
 import { SearchSheet } from "./search-sheet";
+import { useLocale } from "next-intl";
 
 export interface MenuItem {
   title: string;
@@ -25,21 +26,26 @@ interface HeaderItem {
   isDynamic: boolean;
 }
 
-const items: HeaderItem[] = [
-  {
-    href: "/",
-    label: "Home",
-    isDynamic: false,
-  },
-  {
-    href: "/tools",
-    label: "Tools",
-    isDynamic: true,
-  },
-];
-
 export default function Header() {
   const pathname = usePathname();
+  const locale = useLocale();
+  const items: HeaderItem[] = [
+    {
+      href: "/",
+      label: locale === "id" ? "Beranda" : "Home",
+      isDynamic: false,
+    },
+    {
+      href: "/tools",
+      label: locale == "id" ? "Alat" : "Tools",
+      isDynamic: true,
+    },
+    {
+      href: "/about",
+      label: locale === "id" ? "Tentang" : "About",
+      isDynamic: true,
+    },
+  ];
   return (
     <header
       className={cn(

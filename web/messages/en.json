@@ -70,45 +70,6 @@
       "terms": "Terms of Service"
     }
   },
-  "Privacy": {
-    "title": "Privacy Policy",
-    "updated": "Last updated: December 16, 2025",
-    "intro": "Flowtooly respects your privacy and is committed to protecting it. This Privacy Policy explains how we handle information when you use our website and tools.",
-    "sections": {
-      "noCollect": {
-        "title": "Information We Do Not Collect",
-        "content": "Flowtooly does not require users to create an account or provide personal information. We do not ask for your name, email address, or any form of personal identification. Data entered into our tools is not stored on our servers."
-      },
-      "autoCollect": {
-        "title": "Information Collected Automatically",
-        "content": "When you visit Flowtooly, certain technical information may be collected automatically by our hosting and infrastructure providers, such as IP address, browser type, device information, and pages visited. This information is used solely to maintain website performance and security."
-      },
-      "cookies": {
-        "title": "Cookies",
-        "content": "Flowtooly may use essential cookies required for basic website functionality, such as language preferences and security. We do not use cookies for personalized tracking or advertising."
-      },
-      "processing": {
-        "title": "Data Processing and Storage",
-        "content": "All data processing and calculations are performed directly in your browser. Flowtooly does not store calculation results or user input on its servers."
-      },
-      "thirdParty": {
-        "title": "Third-Party Services",
-        "content": "Flowtooly may use third-party services such as hosting providers or CDNs to operate the website. These services may process limited technical data in accordance with their own privacy policies."
-      },
-      "children": {
-        "title": "Children’s Privacy",
-        "content": "Flowtooly is not intended for children under the age of 13. We do not knowingly collect personal information from children."
-      },
-      "changes": {
-        "title": "Changes to This Privacy Policy",
-        "content": "We may update this Privacy Policy from time to time. Any changes will be posted on this page along with an updated revision date."
-      },
-      "contact": {
-        "title": "Contact Us",
-        "content": "If you have any questions about this Privacy Policy, please contact us via email at: support@flowtooly.app (will be available upon official launch)"
-      }
-    }
-  },
   "Terms": {
     "title": "Terms of Service",
     "updated": "Last updated: December 16, 2025",

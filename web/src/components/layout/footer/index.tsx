@@ -14,9 +14,7 @@ export function Footer() {
         <div className="grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-4">
           {/* Brand */}
           <div>
-            <h3 className="text-lg font-semibold text-amber-100">
-              Flowtooly
-            </h3>
+            <h3 className="text-lg font-semibold text-amber-100">Flowtooly</h3>
 
             <p
               className={cn(
@@ -43,15 +41,6 @@ export function Footer() {
                   {t("product.allTools")}
                 </Link>
               </li>
-
-              <li>
-                <Link
-                  href="/tools"
-                  className="text-slate-300 transition hover:text-amber-200"
-                >
-                  {t("product.categories")}
-                </Link>
-              </li>
             </ul>
           </div>
 
@@ -63,12 +52,13 @@ export function Footer() {
 
             <ul className="mt-4 space-y-2 text-sm">
               <li>
-                <Link
+                <a
+                  target="_blank"
                   href="/sitemap.xml"
                   className="text-slate-300 transition hover:text-amber-200"
                 >
                   {t("resources.sitemap")}
-                </Link>
+                </a>
               </li>
             </ul>
           </div>

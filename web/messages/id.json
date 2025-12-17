@@ -70,45 +70,6 @@
       "terms": "Syarat & Ketentuan"
     }
   },
-  "Privacy": {
-    "title": "Kebijakan Privasi",
-    "updated": "Terakhir diperbarui: 16 Desember 2025",
-    "intro": "Flowtooly menghormati privasi Anda dan berkomitmen untuk melindunginya. Kebijakan Privasi ini menjelaskan bagaimana kami menangani informasi saat Anda menggunakan website dan tools kami.",
-    "sections": {
-      "noCollect": {
-        "title": "Informasi yang Tidak Kami Kumpulkan",
-        "content": "Flowtooly tidak mewajibkan pengguna membuat akun atau memberikan informasi pribadi. Kami tidak meminta nama, alamat email, atau data identitas lainnya. Data yang Anda masukkan ke dalam tools tidak disimpan di server kami."
-      },
-      "autoCollect": {
-        "title": "Informasi yang Dikumpulkan Secara Otomatis",
-        "content": "Saat Anda mengunjungi Flowtooly, informasi teknis tertentu dapat dikumpulkan secara otomatis oleh penyedia hosting dan infrastruktur kami, seperti alamat IP, jenis browser, perangkat, dan halaman yang dikunjungi. Informasi ini digunakan hanya untuk menjaga keamanan dan performa website."
-      },
-      "cookies": {
-        "title": "Cookies",
-        "content": "Flowtooly dapat menggunakan cookies esensial untuk fungsi dasar website, seperti pengaturan bahasa dan keamanan. Kami tidak menggunakan cookies untuk pelacakan personal atau iklan."
-      },
-      "processing": {
-        "title": "Pemrosesan dan Penyimpanan Data",
-        "content": "Semua proses perhitungan dan pengolahan data dilakukan secara langsung di browser Anda. Flowtooly tidak menyimpan hasil perhitungan atau data input pengguna."
-      },
-      "thirdParty": {
-        "title": "Layanan Pihak Ketiga",
-        "content": "Flowtooly dapat menggunakan layanan pihak ketiga seperti hosting atau CDN untuk menjalankan website. Layanan ini dapat memproses data teknis terbatas sesuai dengan kebijakan privasi mereka masing-masing."
-      },
-      "children": {
-        "title": "Privasi Anak",
-        "content": "Flowtooly tidak ditujukan untuk anak-anak di bawah usia 13 tahun dan kami tidak secara sadar mengumpulkan informasi pribadi dari anak-anak."
-      },
-      "changes": {
-        "title": "Perubahan Kebijakan Privasi",
-        "content": "Kami dapat memperbarui Kebijakan Privasi ini dari waktu ke waktu. Setiap perubahan akan dipublikasikan di halaman ini dengan tanggal pembaruan terbaru."
-      },
-      "contact": {
-        "title": "Hubungi Kami",
-        "content": "Jika Anda memiliki pertanyaan mengenai Kebijakan Privasi ini, silakan hubungi kami melalui email: support@flowtooly.com (Akan tersedia saat perilisan resmi)"
-      }
-    }
-  },
   "Terms": {
     "title": "Syarat dan Ketentuan",
     "updated": "Terakhir diperbarui: 16 Desember 2025",
