@@ -5,6 +5,8 @@ import pdfMergeJsonLdSEO from "../../tool-name/PDF/PDFMerge/seo/jsonld";
 import pdfMergeMetadataSEO from "../../tool-name/PDF/PDFMerge/seo/metadata";
 import pdfSplitJsonLdSEO from "../../tool-name/PDF/PDFSplit/seo/jsonld";
 import pdfSplitMetadataSEO from "../../tool-name/PDF/PDFSplit/seo/metadata";
+import pdfGeneratorJsonLdSEO from "../../tool-name/PDF/PDFGenerator/seo/jsonld";
+import pdfGeneratorMetadataSEO from "../../tool-name/PDF/PDFGenerator/seo/metadata";
 
 export const pdfRegistry01: Record<PDFToolName, ToolRegistryItem> = {
   "pdf-merge": {
@@ -95,6 +97,12 @@ export const pdfRegistry01: Record<PDFToolName, ToolRegistryItem> = {
         "buat sertifikat",
         "pembuat pdf kustom",
       ],
+    },
+    relatedTools: ["pdf-split", "pdf-merge", "image-to-pdf"],
+
+    seo: {
+      jsonLd: pdfGeneratorJsonLdSEO,
+      metadata: pdfGeneratorMetadataSEO,
     },
   },
 };
