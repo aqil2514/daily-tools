@@ -1,5 +1,5 @@
 # Tool List (Internal)
-Total tools: 50
+Total tools: 51
 
 ## conversion (2)
 1. Temperature Converter | Konverter Suhu
@@ -18,12 +18,13 @@ Total tools: 50
 10. URL Parser | Parser URL
 11. Color Converter | Konverter Warna
 
-## Image Tools (5)
+## Image Tools (6)
 1. Image Converter | Konverter Gambar
 2. Image Resizer | Pengubah Ukuran Gambar
 3. Image Cropper | Pemotong Gambar
 4. Image Rotate | Pemutar Gambar
 5. Image to PDF | Gambar ke PDF
+6. Image Metadata Viewer | Lihat Metadata Gambar
 
 ## Financial Tools (10)
 1. Cash Counter | Penghitung Uang Tunai

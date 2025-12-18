@@ -1,6 +1,8 @@
 import { ToolRegistryItem } from "@/@types/Tools";
 import { PDFToolName } from "@/@types/tools/pdf";
 import dynamic from "next/dynamic";
+import pdfMergeJsonLdSEO from "../../tool-name/PDF/PDFMerge/seo/jsonld";
+import pdfMergeMetadataSEO from "../../tool-name/PDF/PDFMerge/seo/metadata";
 
 export const pdfRegistry01: Record<PDFToolName, ToolRegistryItem> = {
   "pdf-merge": {
@@ -25,6 +27,13 @@ export const pdfRegistry01: Record<PDFToolName, ToolRegistryItem> = {
         "merge documents",
       ],
       id: ["gabung pdf", "menggabungkan pdf", "satukan pdf", "gabung dokumen"],
+    },
+
+    relatedTools: ["pdf-split", "pdf-generator", "image-to-pdf"],
+
+    seo: {
+      jsonLd: pdfMergeJsonLdSEO,
+      metadata: pdfMergeMetadataSEO,
     },
   },
 
