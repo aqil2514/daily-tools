@@ -1,5 +1,7 @@
 import { Styles } from "@react-pdf/renderer";
 
+export const HEADER_MARGIN_BOTTOM = -38;
+
 export const headerStyles: Styles = {
   container: {
     flexDirection: "row",
@@ -18,7 +20,7 @@ export const headerStyles: Styles = {
     width: 148,
     height: 105,
     justifyContent: "flex-end",
-    marginBottom: -38,
+    marginBottom: HEADER_MARGIN_BOTTOM,
   },
 
   logo: {

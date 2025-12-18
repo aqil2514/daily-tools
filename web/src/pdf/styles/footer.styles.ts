@@ -1,5 +1,7 @@
 import { StyleSheet } from "@react-pdf/renderer";
 
+export const FOOTER_HEIGHT = 48;
+
 export const footer = StyleSheet.create({
   container: {
     position: "absolute",
@@ -17,7 +19,7 @@ export const footer = StyleSheet.create({
   },
 
   bottomRow: {
-    alignItems: "center", // 🔥 URL di tengah
+    alignItems: "center",
   },
 
   left: {

@@ -106,6 +106,7 @@ export function useImageMetadata() {
     file,
     setFile,
     data,
+    setData,
     loading,
     query,
     setQuery,
