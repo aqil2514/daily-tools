@@ -2,12 +2,15 @@
 
 import { Button } from "@/components/ui/button";
 import { useCashCounter } from "../store/provider";
-import { formatCurrency } from "@/utils/formatter/formatCurrency";
-import { PDFDocument, StandardFonts, rgb } from "pdf-lib";
 import { Braces, FileSpreadsheet, FileText } from "lucide-react";
+import { CashCounterDocument } from "@/pdf/documents/CashCounterDocument";
+import { useLocale } from "next-intl";
+import { usePdfExport } from "@/hooks/pdf/use-pdf-export";
 
 export function CashExport() {
   const { denoms, settings, totalCash, difference } = useCashCounter();
+  const { exportPdf } = usePdfExport();
+  const locale = useLocale();
 
   /* ---------------------------------------
       EXPORT JSON
@@ -38,136 +41,54 @@ export function CashExport() {
   /* ---------------------------------------
       EXPORT PDF USING PDF-LIB
   ---------------------------------------- */
-  const exportPDF = async () => {
-    const pdfDoc = await PDFDocument.create();
-    const page = pdfDoc.addPage([595, 842]); // A4
-    const font = await pdfDoc.embedFont(StandardFonts.Helvetica);
 
-    const margin = 40;
-    let y = 800;
-    const rowHeight = 24;
+  const exportPdfHandler = async () => {
+    const component = (
+      <CashCounterDocument
+        data={denoms}
+        settings={settings}
+        locale={locale}
+        title={
+          locale === "id" ? "Laporan Penghitung Uang" : "Cash Counter Report"
+        }
+        subject={
+          locale === "id"
+            ? "Laporan perhitungan uang tunai"
+            : "Cash counter report"
+        }
+        keywords="cash counter, laporan kas, flowtooly"
+      />
+    );
 
-    const drawText = (
-      text: string,
-      x: number,
-      y: number,
-      size = 11,
-      align: "left" | "center" | "right" = "left"
-    ) => {
-      const width = font.widthOfTextAtSize(text, size);
-
-      if (align === "right") x -= width;
-      if (align === "center") x -= width / 2;
-
-      page.drawText(text, {
-        x,
-        y,
-        size,
-        font,
-        color: rgb(0, 0, 0),
-      });
-    };
-
-    const drawRect = (x: number, y: number, width: number, height: number) => {
-      page.drawRectangle({
-        x,
-        y: y - height,
-        width,
-        height,
-        borderWidth: 1,
-        borderColor: rgb(0.75, 0.75, 0.75),
-      });
-    };
-
-    // Title
-    drawText("Cash Counter Report", margin, y, 18);
-    y -= 30;
-
-    // Table columns
-    const colNominal = margin;
-    const colQty = margin + 260;
-    const colSubtotal = margin + 350;
-
-    // HEADER ROW
-    drawRect(margin, y, 515, rowHeight);
-    drawText("Nominal", colNominal + 5, y - 16);
-    drawText("Qty", colQty + 20, y - 16, 11, "center");
-    drawText("Subtotal", colSubtotal + 90, y - 16, 11, "right");
-
-    y -= rowHeight;
-
-    // TABLE ROWS
-    denoms.forEach((d) => {
-      drawRect(margin, y, 515, rowHeight);
-
-      drawText(d.label, colNominal + 5, y - 16);
-
-      drawText(String(d.quantity), colQty + 20, y - 16, 11, "center");
-
-      drawText(
-        formatCurrency(d.value * d.quantity, settings.currency.toUpperCase()),
-        colSubtotal + 90,
-        y - 16,
-        11,
-        "right"
-      );
-
-      y -= rowHeight;
+    await exportPdf(component, {
+      fileName:
+        locale === "id" ? "Laporan Penghitung Uang" : "Cash Counter Report",
     });
 
-    y -= 20;
+    // const blob = await pdf(
+    //   <CashCounterDocument
+    //     data={denoms}
+    //     settings={settings}
+    //     locale={locale}
+    //     title={
+    //       locale === "id" ? "Laporan Penghitung Uang" : "Cash Counter Report"
+    //     }
+    //     subject={
+    //       locale === "id"
+    //         ? "Laporan perhitungan uang tunai"
+    //         : "Cash counter report"
+    //     }
+    //     keywords="cash counter, laporan kas, flowtooly"
+    //   />
+    // ).toBlob();
 
-    // SUMMARY SECTION BOX
-    drawText("Summary", margin, y, 14);
-    y -= 20;
-
-    const summaryRow = (label: string, value: string) => {
-      drawRect(margin, y, 515, rowHeight);
-
-      drawText(label, margin + 5, y - 16);
-      drawText(value, margin + 505, y - 16, 11, "right");
-
-      y -= rowHeight;
-    };
-
-    summaryRow(
-      "Total Cash",
-      formatCurrency(totalCash, settings.currency.toUpperCase())
-    );
-
-    summaryRow(
-      "Receivables",
-      formatCurrency(settings.receivables, settings.currency.toUpperCase())
-    );
-
-    summaryRow(
-      "Other People Cash",
-      formatCurrency(settings.otherPeopleCash, settings.currency.toUpperCase())
-    );
-
-    summaryRow(
-      "Cash In Data",
-      formatCurrency(settings.cashInData, settings.currency.toUpperCase())
-    );
-
-    summaryRow(
-      "Difference",
-      formatCurrency(difference, settings.currency.toUpperCase())
-    );
-
-    // Save
-    const pdfBytes = await pdfDoc.save();
-    const arrayBuffer = pdfBytes.slice().buffer;
-
-    const blob = new Blob([arrayBuffer], { type: "application/pdf" });
-    const url = URL.createObjectURL(blob);
-    const link = document.createElement("a");
-    link.href = url;
-    link.download = "cash-counter.pdf";
-    link.click();
-    URL.revokeObjectURL(url);
+    // const url = URL.createObjectURL(blob);
+    // const link = document.createElement("a");
+    // link.href = url;
+    // link.download = "cash-counter.pdf";
+    // link.click();
+    // URL.revokeObjectURL(url);
   };
-
   /* ---------------------------------------
       EXPORT CSV
   ---------------------------------------- */
@@ -237,24 +158,40 @@ export function CashExport() {
     URL.revokeObjectURL(url);
   };
 
-   return (
+  return (
     <div className="grid grid-cols-2 lg:grid-cols-4 gap-2">
-      <Button onClick={exportPDF} variant="default" className="flex gap-2 items-center">
+      <Button
+        onClick={exportPdfHandler}
+        variant="default"
+        className="flex gap-2 items-center"
+      >
         <FileText className="w-4 h-4" />
         Export PDF
       </Button>
 
-      <Button onClick={exportExcel} variant="secondary" className="flex gap-2 items-center">
+      <Button
+        onClick={exportExcel}
+        variant="secondary"
+        className="flex gap-2 items-center"
+      >
         <FileSpreadsheet className="w-4 h-4" />
         Export Excel
       </Button>
 
-      <Button onClick={exportCSV} variant="outline" className="flex gap-2 items-center">
+      <Button
+        onClick={exportCSV}
+        variant="outline"
+        className="flex gap-2 items-center"
+      >
         <FileSpreadsheet className="w-4 h-4" />
         Export CSV
       </Button>
 
-      <Button onClick={exportJSON} variant="outline" className="flex gap-2 items-center">
+      <Button
+        onClick={exportJSON}
+        variant="outline"
+        className="flex gap-2 items-center"
+      >
         <Braces className="w-4 h-4" />
         Export JSON
       </Button>

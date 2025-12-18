@@ -5,7 +5,7 @@ import { Currency, Denomination } from "../types/interface";
 import { denominations as allDenoms } from "../config/denominations";
 import { toast } from "sonner";
 
-interface CashCounterSetting {
+export interface CashCounterSetting {
   cashInData: number;
   receivables: number;
   otherPeopleCash: number;
