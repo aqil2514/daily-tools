@@ -11,7 +11,7 @@ import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { SampleHppData } from "./sample-hpp-data";
 import { ProductHPPProvider, useProductHPP } from "../store/provider";
 import { Button } from "@/components/ui/button";
-import { FAQSection } from "@/components/atoms/faq-section";
+import { FAQSection } from "@/components/organisms/faq-section";
 import { useLocale } from "next-intl";
 import { productHppFAQ } from "../i18n/faq";
 

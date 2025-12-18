@@ -1,6 +1,6 @@
 "use client";
 
-import { SubHeading } from "@/components/atoms/subHeading";
+import { SubHeading } from "@/components/atoms/text/subHeading";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 

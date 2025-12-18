@@ -1,6 +1,6 @@
 "use client";
 
-import { SubHeading } from "@/components/atoms/subHeading";
+import { SubHeading } from "@/components/atoms/text/subHeading";
 import { useTranslations } from "next-intl";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";

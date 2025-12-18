@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Paragraph } from "../atoms/paragraph";
+import { Paragraph } from "../atoms/text/paragraph";
 
 export interface ImagePreviewProps {
   src?: string;

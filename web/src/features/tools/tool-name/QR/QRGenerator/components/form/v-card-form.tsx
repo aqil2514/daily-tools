@@ -15,7 +15,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 
-import { SubHeading } from "@/components/atoms/subHeading";
+import { SubHeading } from "@/components/atoms/text/subHeading";
 import { vcardSchema, VCardSchemaType } from "../../schemas/v-card-schema";
 import { useQRGenerator } from "../../store/provider";
 

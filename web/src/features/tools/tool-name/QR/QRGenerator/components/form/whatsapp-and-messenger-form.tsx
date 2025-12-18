@@ -5,7 +5,7 @@ import PhoneInput, { isValidPhoneNumber } from "react-phone-number-input";
 import "react-phone-number-input/style.css";
 import { zodResolver } from "@hookform/resolvers/zod";
 
-import { SubHeading } from "@/components/atoms/subHeading";
+import { SubHeading } from "@/components/atoms/text/subHeading";
 import {
   Form,
   FormControl,

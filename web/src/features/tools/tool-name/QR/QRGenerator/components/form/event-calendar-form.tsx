@@ -9,7 +9,7 @@ import {
 
 import { useWatch } from "react-hook-form";
 
-import { SubHeading } from "@/components/atoms/subHeading";
+import { SubHeading } from "@/components/atoms/text/subHeading";
 import {
   Form,
   FormField,

@@ -5,7 +5,7 @@ import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { CurrencyField } from "@/components/molecules/input/currency-field";
-import { SubHeading } from "@/components/atoms/subHeading";
+import { SubHeading } from "@/components/atoms/text/subHeading";
 import { Plus, Trash2 } from "lucide-react";
 import { AssetAllocationInput, AssetItem } from "../types/input";
 import { Dispatch, SetStateAction } from "react";

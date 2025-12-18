@@ -6,7 +6,7 @@ import {
   MapLocationSchemaType,
 } from "../../schemas/map-location-schema";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { SubHeading } from "@/components/atoms/subHeading";
+import { SubHeading } from "@/components/atoms/text/subHeading";
 import {
   Form,
   FormControl,

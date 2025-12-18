@@ -3,7 +3,7 @@
 import { useLocale } from "next-intl";
 
 import { ToolCard } from "@/components/molecules/card/tool-card";
-import { SubHeading } from "@/components/atoms/subHeading";
+import { SubHeading } from "@/components/atoms/text/subHeading";
 
 import { ColorValue } from "../types/color-types";
 import { colorPreviewText } from "../i18n/color-preview";

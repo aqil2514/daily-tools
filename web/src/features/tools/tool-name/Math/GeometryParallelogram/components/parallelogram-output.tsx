@@ -2,7 +2,7 @@
 
 import { ParallelogramSVG } from "./parallelogram-svg";
 import { calculateParallelogram } from "../utils/calculate-parallelogram";
-import { SubHeading } from "@/components/atoms/subHeading";
+import { SubHeading } from "@/components/atoms/text/subHeading";
 import { formatMeasurement } from "@/utils/formatter/formatMeasurement";
 import { ToolCard } from "@/components/molecules/card/tool-card";
 import { ResultCard } from "@/components/molecules/card/result-card";

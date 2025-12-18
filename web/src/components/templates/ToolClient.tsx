@@ -2,7 +2,7 @@
 
 import { Locale } from "next-intl";
 import { toolsRegistry } from "@/features/tools/registry";
-import { FAQSection } from "../atoms/faq-section";
+import { FAQSection } from "../organisms/faq-section";
 import { RelatedToolsSection } from "../organisms/related-tools-section";
 import { useHydration } from "@/hooks/use-hydration";
 import { Loader } from "../layout/wrapper/Loader";

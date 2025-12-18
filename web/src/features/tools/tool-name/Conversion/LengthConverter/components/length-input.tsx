@@ -2,7 +2,7 @@
 
 import { useLocale } from "next-intl";
 
-import { SubHeading } from "@/components/atoms/subHeading";
+import { SubHeading } from "@/components/atoms/text/subHeading";
 import { ToolCard } from "@/components/molecules/card/tool-card";
 
 import { Input } from "@/components/ui/input";

@@ -8,7 +8,7 @@ import {
 } from "@/components/ui/select";
 import { useImageConverter } from "../provider";
 import { useState } from "react";
-import { Paragraph } from "@/components/atoms/paragraph";
+import { Paragraph } from "@/components/atoms/text/paragraph";
 import { convertImageFormat } from "@/utils/convertImageFormat";
 import { ImageOutputFormat } from "@/@types/Images";
 

@@ -1,6 +1,6 @@
 import { ToolCard } from "@/components/molecules/card/tool-card";
 import { usePDFMerge } from "../store/provider";
-import { SubHeading } from "@/components/atoms/subHeading";
+import { SubHeading } from "@/components/atoms/text/subHeading";
 import { Separator } from "@/components/ui/separator";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";

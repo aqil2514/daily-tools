@@ -1,7 +1,7 @@
 "use client";
 
 import { ToolCard } from "@/components/molecules/card/tool-card";
-import { SubHeading } from "@/components/atoms/subHeading";
+import { SubHeading } from "@/components/atoms/text/subHeading";
 import { Separator } from "@/components/ui/separator";
 import { usePdfSplit } from "../store/provider";
 import { Input } from "@/components/ui/input";

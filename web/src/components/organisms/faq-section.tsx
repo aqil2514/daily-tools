@@ -5,8 +5,8 @@ import {
   AccordionContent,
 } from "@/components/ui/accordion";
 import { ToolCard } from "../molecules/card/tool-card";
-import { SubHeading } from "./subHeading";
-import { MarkdownStyled } from "./markdown-styled";
+import { MarkdownStyled } from "../atoms/markdown-styled";
+import { SubHeading } from "../atoms/text/subHeading";
 
 export interface FAQItem {
   question: string;

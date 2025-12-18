@@ -1,7 +1,7 @@
 "use client";
 
 import { ToolCard } from "@/components/molecules/card/tool-card";
-import { SubHeading } from "@/components/atoms/subHeading";
+import { SubHeading } from "@/components/atoms/text/subHeading";
 import { InfoBlock } from "@/components/atoms/info-block";
 import {
   Calendar,

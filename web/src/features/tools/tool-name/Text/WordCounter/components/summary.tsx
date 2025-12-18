@@ -1,4 +1,4 @@
-import { SubHeading } from "@/components/atoms/subHeading";
+import { SubHeading } from "@/components/atoms/text/subHeading";
 import { useTranslations } from "next-intl";
 import { useWordCounter } from "../store/provider";
 import { formatNumber } from "@/utils/formatter/formatNumber";

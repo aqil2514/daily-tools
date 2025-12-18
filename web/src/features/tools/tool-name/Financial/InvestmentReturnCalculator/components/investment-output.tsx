@@ -1,6 +1,6 @@
 "use client";
 
-import { SubHeading } from "@/components/atoms/subHeading";
+import { SubHeading } from "@/components/atoms/text/subHeading";
 import { ToolCard } from "@/components/molecules/card/tool-card";
 import { InvestmentReturnInput } from "../types/input";
 import { calculateCAGR } from "../utils/calculate-cagr";

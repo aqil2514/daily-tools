@@ -1,6 +1,6 @@
 "use client";
 
-import { SubHeading } from "@/components/atoms/subHeading";
+import { SubHeading } from "@/components/atoms/text/subHeading";
 import { ToolCard } from "@/components/molecules/card/tool-card";
 import { MathNumberInput } from "@/components/molecules/input/math-number-input";
 import { Dispatch, SetStateAction } from "react";

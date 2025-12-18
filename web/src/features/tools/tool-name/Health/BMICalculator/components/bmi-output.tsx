@@ -8,7 +8,7 @@ import {
   XCircle,
 } from "lucide-react";
 
-import { SubHeading } from "@/components/atoms/subHeading";
+import { SubHeading } from "@/components/atoms/text/subHeading";
 import { ToolCard } from "@/components/molecules/card/tool-card";
 import { Separator } from "@/components/ui/separator";
 import { Badge } from "@/components/ui/badge";

@@ -12,7 +12,7 @@ import imageRotateMetadataSEO from "../../tool-name/Images/ImageRotate/seo/metad
 import imageToPdfJsonLdSEO from "../../tool-name/Images/ImageToPDF/seo/jsonld";
 import imageToPdfMetadataSEO from "../../tool-name/Images/ImageToPDF/seo/metadata";
 
-export const imageRegistry01: Record<ImageToolName, ToolRegistryItem> = {
+export const imageRegistry01: Partial<Record<ImageToolName, ToolRegistryItem>> = {
   "image-converter": {
     Component: dynamic(
       () => import("@/features/tools/tool-name/Images/ImageConverter")

@@ -37,6 +37,7 @@
     "clsx": "^2.1.1",
     "date-fns": "^4.1.0",
     "diff": "^8.0.2",
+    "exifreader": "^4.33.1",
     "fuse.js": "^7.1.0",
     "jszip": "^3.10.1",
     "lodash.set": "^4.3.2",
@@ -62,6 +63,7 @@
     "schema-dts": "^1.1.5",
     "sonner": "^2.0.7",
     "tailwind-merge": "^3.4.0",
+    "xlsx": "^0.18.5",
     "yaml": "^2.8.2",
     "zod": "^4.1.13",
     "zxcvbn": "^4.4.2"

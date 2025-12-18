@@ -1,6 +1,6 @@
 "use client";
 
-import { SubHeading } from "@/components/atoms/subHeading";
+import { SubHeading } from "@/components/atoms/text/subHeading";
 import { ToolCard } from "@/components/molecules/card/tool-card";
 import { InfoBlock } from "@/components/atoms/info-block";
 import { formatCurrency } from "@/utils/formatter/formatCurrency";

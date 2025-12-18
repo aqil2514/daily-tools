@@ -1,6 +1,6 @@
 import { cn } from "@/lib/utils";
 import { Heading } from "../atoms/heading";
-import { Paragraph } from "../atoms/paragraph";
+import { Paragraph } from "../atoms/text/paragraph";
 
 interface SectionHeaderProps {
   title: string;

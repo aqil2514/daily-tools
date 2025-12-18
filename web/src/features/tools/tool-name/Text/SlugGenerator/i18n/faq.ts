@@ -1,4 +1,4 @@
-import { FAQItem } from "@/components/atoms/faq-section";
+import { FAQItem } from "@/components/organisms/faq-section";
 
 export const slugFAQ_en: FAQItem[] = [
   {

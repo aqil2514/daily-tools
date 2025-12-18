@@ -7,7 +7,7 @@ import {
   RgbColorPicker,
 } from "react-colorful";
 
-import { SubHeading } from "@/components/atoms/subHeading";
+import { SubHeading } from "@/components/atoms/text/subHeading";
 import { ToolCard } from "@/components/molecules/card/tool-card";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";

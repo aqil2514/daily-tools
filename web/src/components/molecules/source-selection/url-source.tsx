@@ -1,4 +1,4 @@
-import { Paragraph } from "@/components/atoms/paragraph";
+import { Paragraph } from "@/components/atoms/text/paragraph";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { TabsContent } from "@/components/ui/tabs";

@@ -2,7 +2,7 @@
 
 import { ParsedUrlQuery } from "../types/output";
 import { ToolCard } from "@/components/molecules/card/tool-card";
-import { SubHeading } from "@/components/atoms/subHeading";
+import { SubHeading } from "@/components/atoms/text/subHeading";
 import { Button } from "@/components/ui/button";
 import { Copy } from "lucide-react";
 import { useLocale } from "next-intl";

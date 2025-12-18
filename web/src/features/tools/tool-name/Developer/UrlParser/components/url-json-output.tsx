@@ -2,7 +2,7 @@
 
 import { ParsedUrlResult } from "../types/output";
 import { ToolCard } from "@/components/molecules/card/tool-card";
-import { SubHeading } from "@/components/atoms/subHeading";
+import { SubHeading } from "@/components/atoms/text/subHeading";
 import { Button } from "@/components/ui/button";
 import { Copy, Check } from "lucide-react";
 import { useState } from "react";

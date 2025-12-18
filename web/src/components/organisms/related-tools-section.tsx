@@ -1,4 +1,4 @@
-import { SubHeading } from "@/components/atoms/subHeading";
+import { SubHeading } from "@/components/atoms/text/subHeading";
 import { ToolCard } from "@/components/molecules/card/tool-card";
 import { Locale } from "next-intl";
 import { toolsRegistry } from "@/features/tools/registry";

@@ -1,4 +1,4 @@
-import { SubHeading } from "@/components/atoms/subHeading";
+import { SubHeading } from "@/components/atoms/text/subHeading";
 import { Button } from "@/components/ui/button";
 import { Trash, Upload } from "lucide-react"; // atau icon lain
 import { Dispatch, SetStateAction, useRef } from "react";

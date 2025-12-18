@@ -15,7 +15,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { useLocale } from "next-intl";
 import { i18nLoremIpsum } from "../i18n/lorem-ipsum";
 import { generateLorem, LoremMode } from "../utils/lorem-utils";
-import { FAQSection } from "@/components/atoms/faq-section";
+import { FAQSection } from "@/components/organisms/faq-section";
 import { loremFAQ_en, loremFAQ_id } from "../data/faq-data";
 
 export function LoremIpsumGenerator() {

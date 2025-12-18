@@ -2,7 +2,7 @@
 
 import { ParsedUrlInsights } from "../types/output";
 import { ToolCard } from "@/components/molecules/card/tool-card";
-import { SubHeading } from "@/components/atoms/subHeading";
+import { SubHeading } from "@/components/atoms/text/subHeading";
 import { Badge } from "@/components/ui/badge";
 import { useLocale } from "next-intl";
 import { urlInsightsOutputI18n } from "../i18n/insights-output";

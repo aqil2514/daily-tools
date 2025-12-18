@@ -9,7 +9,7 @@ import {
   RetirementSavingsInput,
 } from "../types/input";
 import { Dispatch, SetStateAction } from "react";
-import { SubHeading } from "@/components/atoms/subHeading";
+import { SubHeading } from "@/components/atoms/text/subHeading";
 import { Button } from "@/components/ui/button";
 import { useLocale } from "next-intl";
 import { retirementInputI18n } from "../i18n/input/retirement-input";

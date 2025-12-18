@@ -1,5 +1,5 @@
 import { useWordCounter } from "../store/provider";
-import { SubHeading } from "@/components/atoms/subHeading";
+import { SubHeading } from "@/components/atoms/text/subHeading";
 import { useTranslations } from "next-intl";
 import { formatNumber } from "@/utils/formatter/formatNumber";
 import { useState } from "react";

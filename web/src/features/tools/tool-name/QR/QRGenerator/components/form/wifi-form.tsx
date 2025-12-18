@@ -3,7 +3,7 @@
 import { useForm, useWatch } from "react-hook-form";
 import { wifiSchema, WifiSchemaType } from "../../schemas/wifi-schema";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { SubHeading } from "@/components/atoms/subHeading";
+import { SubHeading } from "@/components/atoms/text/subHeading";
 
 import {
   Form,

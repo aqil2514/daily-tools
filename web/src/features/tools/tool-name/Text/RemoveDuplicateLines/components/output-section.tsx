@@ -1,4 +1,4 @@
-import { SubHeading } from "@/components/atoms/subHeading";
+import { SubHeading } from "@/components/atoms/text/subHeading";
 import { useTranslations } from "next-intl";
 import { useRemoveDuplicateLines } from "../store/provider";
 import { Textarea } from "@/components/ui/textarea";

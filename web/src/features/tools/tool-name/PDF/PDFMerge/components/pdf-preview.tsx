@@ -2,7 +2,7 @@
 
 import { ToolCard } from "@/components/molecules/card/tool-card";
 import { usePDFMerge } from "../store/provider";
-import { SubHeading } from "@/components/atoms/subHeading";
+import { SubHeading } from "@/components/atoms/text/subHeading";
 import { Separator } from "@/components/ui/separator";
 import { Button } from "@/components/ui/button";
 import { useTranslations } from "next-intl";

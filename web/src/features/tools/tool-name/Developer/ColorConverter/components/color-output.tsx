@@ -5,7 +5,7 @@ import { useLocale } from "next-intl";
 import { Check, Copy } from "lucide-react";
 
 import { ToolCard } from "@/components/molecules/card/tool-card";
-import { SubHeading } from "@/components/atoms/subHeading";
+import { SubHeading } from "@/components/atoms/text/subHeading";
 import { Button } from "@/components/ui/button";
 
 import { ColorValue } from "../types/color-types";

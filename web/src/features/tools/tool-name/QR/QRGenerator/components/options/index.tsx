@@ -1,4 +1,4 @@
-import { SubHeading } from "@/components/atoms/subHeading";
+import { SubHeading } from "@/components/atoms/text/subHeading";
 import { Separator } from "@/components/ui/separator";
 import { MainOptions } from "./main-options";
 import { ScrollArea } from "@/components/ui/scroll-area";

@@ -5,7 +5,7 @@ import {
   FileText,
 } from "lucide-react";
 
-import { SubHeading } from "@/components/atoms/subHeading";
+import { SubHeading } from "@/components/atoms/text/subHeading";
 import { ToolCard } from "@/components/molecules/card/tool-card";
 import { LoanCalculatorInput } from "../types/input";
 import { calculateLoan } from "../utils/calculate-loan";
