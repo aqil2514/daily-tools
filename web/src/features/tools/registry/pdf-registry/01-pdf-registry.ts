@@ -3,6 +3,8 @@ import { PDFToolName } from "@/@types/tools/pdf";
 import dynamic from "next/dynamic";
 import pdfMergeJsonLdSEO from "../../tool-name/PDF/PDFMerge/seo/jsonld";
 import pdfMergeMetadataSEO from "../../tool-name/PDF/PDFMerge/seo/metadata";
+import pdfSplitJsonLdSEO from "../../tool-name/PDF/PDFSplit/seo/jsonld";
+import pdfSplitMetadataSEO from "../../tool-name/PDF/PDFSplit/seo/metadata";
 
 export const pdfRegistry01: Record<PDFToolName, ToolRegistryItem> = {
   "pdf-merge": {
@@ -53,6 +55,13 @@ export const pdfRegistry01: Record<PDFToolName, ToolRegistryItem> = {
     keywords: {
       en: ["pdf split", "split pdf", "separate pdf", "extract pdf pages"],
       id: ["pisah pdf", "memisahkan pdf", "ekstrak halaman pdf"],
+    },
+
+    relatedTools: ["pdf-generator", "pdf-merge", "image-to-pdf"],
+
+    seo: {
+      jsonLd: pdfSplitJsonLdSEO,
+      metadata: pdfSplitMetadataSEO,
     },
   },
 
