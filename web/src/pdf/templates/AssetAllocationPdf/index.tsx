@@ -67,7 +67,7 @@ export function AssetAllocationTable({
         <View style={styles.table}>
           <View style={styles.row}>
             <Text style={styles.headerCell}>{t.name}</Text>
-            <Text style={styles.headerCell}>{t.subCategory}</Text>
+            <Text style={styles.headerCell}>{t.category}</Text>
             <Text style={styles.headerCell}>{t.amount}</Text>
             <Text style={styles.headerCell}>{t.percentage}</Text>
           </View>
@@ -75,7 +75,7 @@ export function AssetAllocationTable({
           {data.assetAllocations.map((item, i) => (
             <View style={styles.row} key={i}>
               <Text style={styles.cell}>{item.name ?? "-"}</Text>
-              <Text style={styles.cell}>{item.subCategory ?? "-"}</Text>
+              <Text style={styles.cell}>{item.categoryName ?? "-"}</Text>
               <Text style={styles.cell}>
                 {formatCurrency(item.amount, "IDR")}
               </Text>
