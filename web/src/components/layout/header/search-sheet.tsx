@@ -82,6 +82,7 @@ export function SearchSheet({ compact = false }: SearchSheetProps) {
   }, [activeIndex]);
 
   useCommandShortcut(() => {
+    if(compact) return;
     setOpen((v) => !v);
   });
 

@@ -46,6 +46,7 @@ export default function Header() {
       isDynamic: true,
     },
   ];
+  
   return (
     <header
       className={cn(

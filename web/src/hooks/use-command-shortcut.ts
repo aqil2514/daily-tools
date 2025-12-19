@@ -15,6 +15,8 @@ export function useCommandShortcut(
     if (!enabled) return;
 
     function handler(e: KeyboardEvent) {
+      if (e.repeat) return;
+
       const isMac = navigator.platform.toUpperCase().includes("MAC");
       const modKey = isMac ? e.metaKey : e.ctrlKey;
 
@@ -23,22 +25,16 @@ export function useCommandShortcut(
       const target = e.target as HTMLElement;
       const tag = target.tagName.toLowerCase();
 
-      if (
-        tag === "input" ||
-        tag === "textarea" ||
-        target.isContentEditable
-      ) {
+      if (tag === "input" || tag === "textarea" || target.isContentEditable) {
         return;
       }
 
-      if (preventDefault) {
-        e.preventDefault();
-      }
+      if (preventDefault) e.preventDefault();
 
       onTrigger();
     }
 
-    window.addEventListener("keydown", handler);
-    return () => window.removeEventListener("keydown", handler);
-  }, [onTrigger, enabled, preventDefault]);
+    document.addEventListener("keydown", handler);
+    return () => document.removeEventListener("keydown", handler);
+  }, [enabled, preventDefault, onTrigger]);
 }
