@@ -39,6 +39,7 @@
     "diff": "^8.0.2",
     "exifreader": "^4.33.1",
     "fuse.js": "^7.1.0",
+    "html-to-image": "^1.11.13",
     "jszip": "^3.10.1",
     "lodash.set": "^4.3.2",
     "lottie-react": "^2.4.1",

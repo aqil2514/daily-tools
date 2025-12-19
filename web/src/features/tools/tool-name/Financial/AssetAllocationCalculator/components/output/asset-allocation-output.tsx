@@ -2,49 +2,35 @@
 
 import { ToolCard } from "@/components/molecules/card/tool-card";
 import { SubHeading } from "@/components/atoms/text/subHeading";
-import {
-  Tabs,
-  TabsList,
-  TabsTrigger,
-  TabsContent,
-} from "@/components/ui/tabs";
-import { AssetAllocationResult } from "../../types/output";
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { AssetAllocationTable } from "./asset-allocation-table";
 import { AssetAllocationPieChart } from "./asset-allocation-pie-chart";
 import { useLocale } from "next-intl";
 import { assetAllocationOutputI18n } from "../../i18n/output/asset-allocation-output";
 
-interface Props {
-  result: AssetAllocationResult;
-}
-
-export function AssetAllocationOutput({ result }: Props) {
+export function AssetAllocationOutput() {
   const locale = useLocale();
   const t = assetAllocationOutputI18n[locale];
 
   return (
     <ToolCard>
       <div className="space-y-6">
-        <SubHeading className="mt-0">
-          {t.heading}
-        </SubHeading>
+        <div className="flex justify-between">
+          <SubHeading className="mt-0">{t.heading}</SubHeading>
+        </div>
 
         <Tabs defaultValue="table" className="w-full">
           <TabsList>
-            <TabsTrigger value="table">
-              {t.tabs.table}
-            </TabsTrigger>
-            <TabsTrigger value="chart">
-              {t.tabs.chart}
-            </TabsTrigger>
+            <TabsTrigger value="table">{t.tabs.table}</TabsTrigger>
+            <TabsTrigger value="chart">{t.tabs.chart}</TabsTrigger>
           </TabsList>
 
           <TabsContent value="table">
-            <AssetAllocationTable result={result} />
+            <AssetAllocationTable />
           </TabsContent>
 
           <TabsContent value="chart">
-            <AssetAllocationPieChart result={result} />
+            <AssetAllocationPieChart />
           </TabsContent>
         </Tabs>
 

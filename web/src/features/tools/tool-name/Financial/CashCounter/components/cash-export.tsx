@@ -6,10 +6,13 @@ import { Braces, FileSpreadsheet, FileText } from "lucide-react";
 import { CashCounterDocument } from "@/pdf/documents/CashCounterDocument";
 import { useLocale } from "next-intl";
 import { usePdfExport } from "@/hooks/pdf/use-pdf-export";
+import { useExcelExport } from "@/hooks/excel/use-excel-export";
+import { formatCurrency } from "@/utils/formatter/formatCurrency";
 
 export function CashExport() {
   const { denoms, settings, totalCash, difference } = useCashCounter();
   const { exportPdf } = usePdfExport();
+  const { exportToExcel } = useExcelExport();
   const locale = useLocale();
 
   /* ---------------------------------------
@@ -37,10 +40,6 @@ export function CashExport() {
     link.click();
     URL.revokeObjectURL(url);
   };
-
-  /* ---------------------------------------
-      EXPORT PDF USING PDF-LIB
-  ---------------------------------------- */
 
   const exportPdfHandler = async () => {
     const component = (
@@ -119,43 +118,24 @@ export function CashExport() {
     URL.revokeObjectURL(url);
   };
 
-  /* ---------------------------------------
-      EXPORT EXCEL (HTML/XLS)
-  ---------------------------------------- */
   const exportExcel = () => {
-    const table = `
-      <table border="1">
-        <tr><th>Nominal</th><th>Qty</th><th>Subtotal</th></tr>
-        ${denoms
-          .map(
-            (d) =>
-              `<tr><td>${d.label}</td><td>${d.quantity}</td><td>${
-                d.value * d.quantity
-              }</td></tr>`
-          )
-          .join("")}
-        <tr><td colspan="2">Total Cash</td><td>${totalCash}</td></tr>
-        <tr><td colspan="2">Receivables</td><td>${
-          settings.receivables
-        }</td></tr>
-        <tr><td colspan="2">Other People Cash</td><td>${
-          settings.otherPeopleCash
-        }</td></tr>
-        <tr><td colspan="2">Cash In Data</td><td>${
-          settings.cashInData
-        }</td></tr>
-        <tr><td colspan="2">Difference</td><td>${difference}</td></tr>
-      </table>
-    `;
-
-    const blob = new Blob([table], { type: "application/vnd.ms-excel" });
-
-    const url = URL.createObjectURL(blob);
-    const link = document.createElement("a");
-    link.href = url;
-    link.download = "cash-counter.xls";
-    link.click();
-    URL.revokeObjectURL(url);
+    const currency = settings.currency.toUpperCase();
+    exportToExcel(denoms, "Cash Counter", [
+      [
+        "Total Cash",
+        "Receivables",
+        "OtherPeopleCash",
+        "CashInData",
+        "Difference",
+      ],
+      [
+        formatCurrency(totalCash, currency),
+        formatCurrency(settings.receivables, currency),
+        formatCurrency(settings.otherPeopleCash, currency),
+        formatCurrency(settings.cashInData, currency),
+        formatCurrency(difference, currency),
+      ],
+    ]);
   };
 
   return (

@@ -7,74 +7,32 @@ import { Button } from "@/components/ui/button";
 import { CurrencyField } from "@/components/molecules/input/currency-field";
 import { SubHeading } from "@/components/atoms/text/subHeading";
 import { Plus, Trash2 } from "lucide-react";
-import { AssetAllocationInput, AssetItem } from "../types/input";
-import { Dispatch, SetStateAction } from "react";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Separator } from "@/components/ui/separator";
 import { useLocale } from "next-intl";
 import { assetAllocationInputI18n } from "../i18n/input/asset-allocation-input";
+import { useAssetAllocation } from "../store/provider";
 
-interface Props {
-  inputData: AssetAllocationInput;
-  setInputData: Dispatch<SetStateAction<AssetAllocationInput>>;
-}
-
-export function AssetAllocationInputComp({
-  inputData,
-  setInputData,
-}: Props) {
+export function AssetAllocationInputComp() {
   const locale = useLocale();
   const t = assetAllocationInputI18n[locale];
-
-  const addAsset = () => {
-    const newAsset: AssetItem = {
-      category: "",
-      amount: 0,
-    };
-
-    setInputData((prev) => ({
-      ...prev,
-      assets: [...prev.assets, newAsset],
-    }));
-  };
-
-  const updateAsset = (index: number, updated: Partial<AssetItem>) => {
-    setInputData((prev) => ({
-      ...prev,
-      assets: prev.assets.map((asset, i) =>
-        i === index ? { ...asset, ...updated } : asset
-      ),
-    }));
-  };
-
-  const removeAsset = (index: number) => {
-    setInputData((prev) => ({
-      ...prev,
-      assets: prev.assets.filter((_, i) => i !== index),
-    }));
-  };
+  const { removeAsset, addAsset, inputData, updateAsset } =
+    useAssetAllocation();
 
   return (
     <ToolCard>
       <div className="space-y-6">
-        <SubHeading className="mt-0">
-          {t.heading}
-        </SubHeading>
+        <SubHeading className="mt-0">{t.heading}</SubHeading>
 
         {inputData.assets.length === 0 && (
-          <p className="text-sm text-muted-foreground">
-            {t.emptyHint}
-          </p>
+          <p className="text-sm text-muted-foreground">{t.emptyHint}</p>
         )}
 
         {/* ASSET ROWS */}
         <ScrollArea className="h-[420px] pr-2">
           <div>
             {inputData.assets.map((asset, index) => (
-              <div
-                key={index}
-                className="rounded-lg p-3 space-y-0.5"
-              >
+              <div key={index} className="rounded-lg p-3 space-y-0.5">
                 {/* ACTION */}
                 <Button
                   variant="ghost"
@@ -82,10 +40,7 @@ export function AssetAllocationInputComp({
                   onClick={() => removeAsset(index)}
                   aria-label={t.removeAssetAria}
                 >
-                  <Trash2
-                    size={18}
-                    className="text-muted-foreground"
-                  />
+                  <Trash2 size={18} className="text-muted-foreground" />
                 </Button>
 
                 <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
