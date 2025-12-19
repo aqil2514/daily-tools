@@ -1,6 +1,16 @@
-import {  ToolRegistryItem } from "@/@types/Tools";
+import { ToolRegistryItem } from "@/@types/Tools";
 import { TextToolName } from "@/@types/tools/text";
 import dynamic from "next/dynamic";
+import caseConverterJsonLdSEO from "../../tool-name/Text/CaseConverter/seo/jsonld";
+import caseConverterMetadataSEO from "../../tool-name/Text/CaseConverter/seo/metadata";
+import wordCounterJsonLdSEO from "../../tool-name/Text/WordCounter/seo/jsonld";
+import wordCounterMetadataSEO from "../../tool-name/Text/WordCounter/seo/metadata";
+import removeDuplicateLinesJsonLdSEO from "../../tool-name/Text/RemoveDuplicateLines/seo/jsonld";
+import removeDuplicateLinesMetadataSEO from "../../tool-name/Text/RemoveDuplicateLines/seo/metadata";
+import textDiffJsonLdSEO from "../../tool-name/Text/TextDiff/seo/jsonld";
+import textDiffMetadataSEO from "../../tool-name/Text/TextDiff/seo/metadata";
+import urlExtractorJsonLdSEO from "../../tool-name/Text/UrlExtractor/seo/jsonld";
+import urlExtractorMetadataSEO from "../../tool-name/Text/UrlExtractor/seo/metadata";
 
 export const textRegistry01: Partial<Record<TextToolName, ToolRegistryItem>> = {
   "case-converter": {
@@ -36,6 +46,13 @@ export const textRegistry01: Partial<Record<TextToolName, ToolRegistryItem>> = {
         "ubah format teks",
         "konversi huruf",
       ],
+    },
+
+    relatedTools: ["slug-generator", "remove-duplicate-lines"],
+
+    seo: {
+      jsonLd: caseConverterJsonLdSEO,
+      metadata: caseConverterMetadataSEO,
     },
   },
 
@@ -73,6 +90,13 @@ export const textRegistry01: Partial<Record<TextToolName, ToolRegistryItem>> = {
         "asisten mengetik",
       ],
     },
+
+    relatedTools: ["text-diff"],
+
+    seo: {
+      jsonLd: wordCounterJsonLdSEO,
+      metadata: wordCounterMetadataSEO,
+    },
   },
 
   "remove-duplicate-lines": {
@@ -109,6 +133,13 @@ export const textRegistry01: Partial<Record<TextToolName, ToolRegistryItem>> = {
         "deduplikasi teks",
       ],
     },
+
+    relatedTools: ["case-converter", "url-extractor"],
+
+    seo: {
+      jsonLd: removeDuplicateLinesJsonLdSEO,
+      metadata: removeDuplicateLinesMetadataSEO,
+    },
   },
 
   "text-diff": {
@@ -144,6 +175,11 @@ export const textRegistry01: Partial<Record<TextToolName, ToolRegistryItem>> = {
         "diff teks online",
         "cari perbedaan teks",
       ],
+    },
+    relatedTools: ["word-counter"],
+    seo: {
+      jsonLd: textDiffJsonLdSEO,
+      metadata: textDiffMetadataSEO,
     },
   },
 
@@ -182,6 +218,13 @@ export const textRegistry01: Partial<Record<TextToolName, ToolRegistryItem>> = {
         "parser url dari teks",
         "pemindai url",
       ],
+    },
+
+    relatedTools: ["remove-duplicate-lines", "url-parser"],
+
+    seo: {
+      jsonLd: urlExtractorJsonLdSEO,
+      metadata: urlExtractorMetadataSEO,
     },
   },
 };

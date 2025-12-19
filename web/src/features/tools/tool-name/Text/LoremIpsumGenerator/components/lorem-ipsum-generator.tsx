@@ -15,8 +15,6 @@ import { Textarea } from "@/components/ui/textarea";
 import { useLocale } from "next-intl";
 import { i18nLoremIpsum } from "../i18n/lorem-ipsum";
 import { generateLorem, LoremMode } from "../utils/lorem-utils";
-import { FAQSection } from "@/components/organisms/faq-section";
-import { loremFAQ_en, loremFAQ_id } from "../data/faq-data";
 
 export function LoremIpsumGenerator() {
   const locale = useLocale();
@@ -25,8 +23,6 @@ export function LoremIpsumGenerator() {
   const [mode, setMode] = useState<LoremMode>("sentences");
   const [count, setCount] = useState(1);
   const [output, setOutput] = useState("");
-
-  const sampleFAQ = locale === "en" ? loremFAQ_en : loremFAQ_id;
 
   const handleGenerate = () => {
     setOutput(generateLorem(count, mode));
@@ -83,8 +79,6 @@ export function LoremIpsumGenerator() {
           </div>
         </div>
       </ToolCard>
-
-      <FAQSection items={sampleFAQ} />
     </div>
   );
 }

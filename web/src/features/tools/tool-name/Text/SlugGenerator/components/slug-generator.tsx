@@ -9,9 +9,6 @@ import { SlugOutput } from "./slug-output";
 import { SlugControllerState } from "../types/interface";
 import { defaultSlugControllerState } from "../data/default";
 import { slugify } from "../utils/slugify";
-import { FAQSection } from "@/components/organisms/faq-section";
-import { useLocale } from "next-intl";
-import { slugFAQ_en, slugFAQ_id } from "../i18n/faq";
 import { slugSampleData } from "../data/sample";
 import { SampleDataComponent } from "@/components/atoms/sample-data";
 
@@ -31,9 +28,6 @@ export function SlugGenerator() {
     setManualSlug(generated);
   };
 
-  const locale = useLocale();
-  const faq = locale === "id" ? slugFAQ_id : slugFAQ_en;
-
   return (
     <div className="space-y-4">
       <ToolCard>
@@ -52,8 +46,6 @@ export function SlugGenerator() {
       <ToolCard>
         <SlugOutput slug={slug} />
       </ToolCard>
-
-      <FAQSection items={faq} />
     </div>
   );
 }
