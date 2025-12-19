@@ -3,8 +3,7 @@ import { InitialLoader } from "./InitialLoader";
 export function LayoutWrapper({ children }: { children: React.ReactNode }) {
   return (
     <InitialLoader>
-      <div className="overflow-y-auto">
-
+      <div>
         <div
           className="
             px-4 sm:px-6 lg:px-8 xl:px-12

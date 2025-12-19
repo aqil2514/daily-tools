@@ -9,6 +9,7 @@
 
 ===== 02-image-registry.ts =====
 01. Image Metadata Viewer (Lihat Metadata Gambar)
+02. Placeholder Image Generator (Generator Gambar Placeholder)
 
 ---
 > ⚠️ **Catatan:** File ini dihasilkan secara otomatis oleh script generator.

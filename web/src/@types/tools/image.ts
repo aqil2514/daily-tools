@@ -4,7 +4,8 @@ export const IMAGE_TOOLS = [
   "image-cropper",
   "image-rotate",
   "image-to-pdf",
-  "image-metadata-viewer"
+  "image-metadata-viewer",
+  "placeholder-image-generator"
 ] as const;
 
 export type ImageToolName = typeof IMAGE_TOOLS[number];
