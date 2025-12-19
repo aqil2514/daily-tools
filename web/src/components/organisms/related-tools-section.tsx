@@ -30,7 +30,7 @@ export function RelatedToolsSection({ toolsName, locale }: Props) {
                   {tool.title[locale]}
                 </h3>
                 <p className="text-sm text-muted-foreground">
-                  {tool.description![locale]}
+                  {tool.seo.metadata.description[locale]}
                 </p>
               </div>
             </ToolCard>

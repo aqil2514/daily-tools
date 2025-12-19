@@ -12,10 +12,8 @@ export default async function ToolMainTemplate({ toolName }: Props) {
   const locale = await getLocale();
   const tool = toolsRegistry[toolName];
 
-  const title = tool.seo ? tool.seo.metadata.title[locale] : tool.title[locale];
-  const description = tool.seo
-    ? tool.seo.metadata.description[locale]
-    : tool.description![locale];
+  const title = tool.seo.metadata.title[locale];
+  const description = tool.seo.metadata.description[locale];
 
   return (
     <div>

@@ -12,14 +12,7 @@ export const imageRegistry02: Partial<Record<ImageToolName, ToolRegistryItem>> =
         en: "Image Metadata Viewer",
         id: "Lihat Metadata Gambar",
       },
-      description: {
-        en: "See image metadata",
-        id: "Lihat metadata",
-      },
-      keywords: {
-        en: [""],
-        id: [""],
-      },
+      
       href: "/tools/image-metadata-viewer",
       Component: dynamic(
         () => import("@/features/tools/tool-name/Images/ImageMetadataViewer")

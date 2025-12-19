@@ -24,29 +24,6 @@ export const conversionRegistry01: Record<
       id: "Konverter Suhu",
     },
 
-    description: {
-      en: "Convert temperatures between Celsius, Fahrenheit, and Kelvin instantly with accurate formulas.",
-      id: "Konversi suhu antara Celsius, Fahrenheit, dan Kelvin secara instan dengan rumus yang akurat.",
-    },
-
-    keywords: {
-      en: [
-        "temperature converter",
-        "celsius to fahrenheit",
-        "fahrenheit to celsius",
-        "celsius to kelvin",
-        "kelvin converter",
-        "temperature conversion",
-      ],
-      id: [
-        "konverter suhu",
-        "celsius ke fahrenheit",
-        "fahrenheit ke celsius",
-        "celsius ke kelvin",
-        "konversi suhu",
-      ],
-    },
-
     relatedTools: ["length-converter"],
 
     seo: {
@@ -66,34 +43,6 @@ export const conversionRegistry01: Record<
     title: {
       en: "Length Converter",
       id: "Konverter Panjang",
-    },
-
-    description: {
-      en: "Convert length and distance units such as millimeter, centimeter, meter, kilometer, inch, foot, yard, and mile instantly.",
-      id: "Konversi satuan panjang dan jarak seperti milimeter, sentimeter, meter, kilometer, inci, kaki, yard, dan mil secara instan.",
-    },
-
-    keywords: {
-      en: [
-        "length converter",
-        "distance converter",
-        "meter to kilometer",
-        "centimeter to meter",
-        "inch to cm",
-        "foot to meter",
-        "mile to kilometer",
-        "length conversion",
-      ],
-      id: [
-        "konverter panjang",
-        "konverter jarak",
-        "meter ke kilometer",
-        "sentimeter ke meter",
-        "inci ke cm",
-        "kaki ke meter",
-        "mil ke kilometer",
-        "konversi panjang",
-      ],
     },
 
     relatedTools: ["temperature-converter"],

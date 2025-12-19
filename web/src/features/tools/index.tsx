@@ -5,7 +5,6 @@ import { CategoryList } from "./components/category-list";
 import { useState } from "react";
 
 export default function ToolsTemplate() {
-  // const locale = useLocale();
   const [search, setSearch] = useState<string>("");
 
   return (

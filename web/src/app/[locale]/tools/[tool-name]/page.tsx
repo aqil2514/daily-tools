@@ -1,5 +1,4 @@
 import { ToolName } from "@/@types/tools/index";
-import { JsonLdTool } from "@/components/seo/json-ld-tool";
 import ToolMainTemplate from "@/components/templates/ToolMainTemplate";
 import { SEO_CONFIG } from "@/constants/seo";
 import { toolsRegistry } from "@/features/tools/registry";
@@ -25,19 +24,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     };
   }
 
-  if (tool.seo)
-    return toNextMetadata(tool.seo.metadata, {
-      baseUrl: SEO_CONFIG.siteUrl,
-      locale,
-    });
-
-  // TODO Nanti hapus kalo semuanya udah ada seo
-
-  return {
-    title: `${tool.title[locale]} | Flowtooly`,
-    description: tool.description![locale],
-    keywords: tool.keywords![locale],
-  };
+  return toNextMetadata(tool.seo.metadata, {
+    baseUrl: SEO_CONFIG.siteUrl,
+    locale,
+  });
 }
 
 export default async function ConvertCategoryPage({ params }: Props) {
@@ -50,30 +40,18 @@ export default async function ConvertCategoryPage({ params }: Props) {
     return <div>{t("Misc.notfound-title")}</div>;
   }
 
-  const urlJsonLd = `${SEO_CONFIG.siteUrl}/${locale}${tool.href}`;
-  let jsonLdData = null;
-
-  if (tool.seo) {
-    jsonLdData = toJsonLdSEO(tool.seo.metadata, tool.seo.jsonLd, {
-      baseUrl: SEO_CONFIG.siteUrl,
-      locale,
-    });
-  }
+  const jsonLdData = toJsonLdSEO(tool.seo.metadata, tool.seo.jsonLd, {
+    baseUrl: SEO_CONFIG.siteUrl,
+    locale,
+  });
 
   return (
     <>
-      {jsonLdData ? (
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdData) }}
-        />
-      ) : (
-        <JsonLdTool
-          url={urlJsonLd}
-          description={tool.description![locale]}
-          name={tool.title[locale]}
-        />
-      )}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdData) }}
+      />
+
       <ToolMainTemplate toolName={toolName} />
     </>
   );

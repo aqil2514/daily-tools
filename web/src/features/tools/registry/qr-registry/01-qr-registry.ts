@@ -16,26 +16,6 @@ export const qrRegistry01: Record<QRToolName, ToolRegistryItem> = {
       en: "QR Generator",
       id: "Generator QR",
     },
-    description: {
-      en: "Create your own QR code instantly.",
-      id: "Buat kode QR Anda sendiri secara instan.",
-    },
-    keywords: {
-      en: [
-        "qr generator",
-        "generate qr code",
-        "qr maker",
-        "create qr",
-        "qr code tool",
-      ],
-      id: [
-        "generator qr",
-        "buat kode qr",
-        "pembuat qr",
-        "buat qr",
-        "alat kode qr",
-      ],
-    },
 
     seo: {
       jsonLd: qrGeneratorJsonLdSEO,

@@ -7,22 +7,12 @@ export interface ToolRegistryItem {
   href: `/tools/${ToolName}`;
   category: ToolCategoryName;
 
-  seo?: {
+  seo: {
     metadata: MetadataSEO;
     jsonLd: JsonLdSEO;
   };
 
   relatedTools?: ToolName[];
-
-  description?: {
-    en: string;
-    id: string;
-  };
-
-  keywords?: {
-    en: string[];
-    id: string[];
-  };
 
   title: { en: string; id: string };
 }

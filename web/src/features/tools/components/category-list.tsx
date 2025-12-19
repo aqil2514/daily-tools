@@ -11,7 +11,6 @@ export function CategoryList() {
     <div className="px-4 md:px-8 lg:px-16 py-8">
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
         {sidebarSections.map((item) => {
-          // const Icon = categoryIcons[item.sectionCategory];
           const Icon = CATEGORY_REGISTRY[item.sectionCategory].Icon;
           const title = CATEGORY_REGISTRY[item.sectionCategory].title[locale];
           const sectionTitle =

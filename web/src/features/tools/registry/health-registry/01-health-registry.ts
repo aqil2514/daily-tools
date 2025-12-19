@@ -19,30 +19,6 @@ export const healthRegistry01: Record<HealthToolName, ToolRegistryItem> = {
       id: "Kalkulator BMI",
     },
 
-    description: {
-      en: "Calculate your Body Mass Index (BMI) based on your height and weight. Includes BMI categories and health insights for general awareness.",
-      id: "Hitung Body Mass Index (BMI) berdasarkan tinggi dan berat badan Anda. Dilengkapi kategori BMI dan wawasan kesehatan untuk pemahaman umum.",
-    },
-
-    keywords: {
-      en: [
-        "bmi calculator",
-        "body mass index",
-        "bmi chart",
-        "bmi categories",
-        "healthy weight bmi",
-        "calculate bmi online",
-      ],
-      id: [
-        "kalkulator bmi",
-        "indeks massa tubuh",
-        "tabel bmi",
-        "kategori bmi",
-        "berat badan ideal bmi",
-        "hitung bmi online",
-      ],
-    },
-
     seo: {
       jsonLd: bmiCalculatorJsonLdSEO,
       metadata: bmiCalculatorMetadataSEO,

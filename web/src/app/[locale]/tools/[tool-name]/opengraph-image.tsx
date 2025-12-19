@@ -13,21 +13,11 @@ export default async function OpengraphImage({ params }: Props) {
 
   const tool = toolsRegistry[toolName];
 
-  if (tool.seo)
-    return await generateOg({
-      enDesc: tool.seo.metadata.description.en,
-      idDesc: tool.seo.metadata.description.id,
-
-      enTitle: tool.seo.metadata.title.en,
-      idTitle: tool.seo.metadata.title.id,
-    });
-
-    // TODO Nanti hapus kalo semuanya udah ada seo
   return await generateOg({
-    enTitle: tool.title.en,
-    enDesc: tool.description!.en,
+    enDesc: tool.seo.metadata.description.en,
+    idDesc: tool.seo.metadata.description.id,
 
-    idTitle: tool.title.id,
-    idDesc: tool.description!.id,
+    enTitle: tool.seo.metadata.title.en,
+    idTitle: tool.seo.metadata.title.id,
   });
 }

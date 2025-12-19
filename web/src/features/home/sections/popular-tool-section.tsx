@@ -73,7 +73,7 @@ export function PopularToolsSection() {
 
                 {/* Description */}
                 <p className="mt-3 text-sm leading-relaxed text-zinc-600 dark:text-zinc-500 line-clamp-2">
-                  {tool!.description?.[locale]}
+                  {tool.seo.metadata.description[locale]}
                 </p>
               </div>
             </Link>

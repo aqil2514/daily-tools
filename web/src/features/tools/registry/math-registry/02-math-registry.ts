@@ -10,7 +10,6 @@ import semicircleJsonLdSEO from "../../tool-name/Math/GeometrySemicircle/seo/jso
 import semicircleMetadataSEO from "../../tool-name/Math/GeometrySemicircle/seo/metadata";
 import { MathToolName } from "@/@types/tools/math";
 
-
 export const mathRegistry02: Partial<Record<MathToolName, ToolRegistryItem>> = {
   "geometry-parallelogram": {
     Component: dynamic(
@@ -21,24 +20,6 @@ export const mathRegistry02: Partial<Record<MathToolName, ToolRegistryItem>> = {
     title: {
       en: "Parallelogram Calculator",
       id: "Kalkulator Jajar Genjang",
-    },
-    description: {
-      en: "Calculate the area and perimeter of a parallelogram using base, height, and side length.",
-      id: "Hitung luas dan keliling jajar genjang menggunakan alas, tinggi, dan sisi miring.",
-    },
-    keywords: {
-      en: [
-        "parallelogram calculator",
-        "area of parallelogram",
-        "perimeter of parallelogram",
-        "parallelogram geometry",
-      ],
-      id: [
-        "kalkulator jajar genjang",
-        "luas jajar genjang",
-        "keliling jajar genjang",
-        "bangun datar jajar genjang",
-      ],
     },
 
     seo: {
@@ -56,24 +37,6 @@ export const mathRegistry02: Partial<Record<MathToolName, ToolRegistryItem>> = {
       en: "Rhombus Calculator",
       id: "Kalkulator Belah Ketupat",
     },
-    description: {
-      en: "Calculate the area and perimeter of a rhombus using diagonals and side length.",
-      id: "Hitung luas dan keliling belah ketupat menggunakan diagonal dan panjang sisi.",
-    },
-    keywords: {
-      en: [
-        "rhombus calculator",
-        "area of rhombus",
-        "perimeter of rhombus",
-        "rhombus geometry",
-      ],
-      id: [
-        "kalkulator belah ketupat",
-        "luas belah ketupat",
-        "keliling belah ketupat",
-        "bangun datar belah ketupat",
-      ],
-    },
     seo: {
       jsonLd: rhombusJsonLdSEO,
       metadata: rhombusMetadataSEO,
@@ -89,24 +52,6 @@ export const mathRegistry02: Partial<Record<MathToolName, ToolRegistryItem>> = {
       en: "Kite Calculator",
       id: "Kalkulator Layang-layang",
     },
-    description: {
-      en: "Calculate the area and perimeter of a kite using diagonals and side lengths.",
-      id: "Hitung luas dan keliling layang-layang menggunakan diagonal dan panjang sisi.",
-    },
-    keywords: {
-      en: [
-        "kite calculator",
-        "area of kite",
-        "perimeter of kite",
-        "kite geometry",
-      ],
-      id: [
-        "kalkulator layang-layang",
-        "luas layang-layang",
-        "keliling layang-layang",
-        "bangun datar layang-layang",
-      ],
-    },
     seo: {
       jsonLd: kiteJsonLdSEO,
       metadata: kiteMetadataSEO,
@@ -121,24 +66,6 @@ export const mathRegistry02: Partial<Record<MathToolName, ToolRegistryItem>> = {
     title: {
       en: "Semicircle Calculator",
       id: "Kalkulator Setengah Lingkaran",
-    },
-    description: {
-      en: "Calculate the area and perimeter of a semicircle based on its radius.",
-      id: "Hitung luas dan keliling setengah lingkaran berdasarkan jari-jari.",
-    },
-    keywords: {
-      en: [
-        "semicircle calculator",
-        "area of semicircle",
-        "perimeter of semicircle",
-        "half circle geometry",
-      ],
-      id: [
-        "kalkulator setengah lingkaran",
-        "luas setengah lingkaran",
-        "keliling setengah lingkaran",
-        "bangun datar setengah lingkaran",
-      ],
     },
     seo: {
       jsonLd: semicircleJsonLdSEO,

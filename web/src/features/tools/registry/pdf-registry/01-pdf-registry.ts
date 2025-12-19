@@ -18,20 +18,6 @@ export const pdfRegistry01: Record<PDFToolName, ToolRegistryItem> = {
       en: "PDF Merge",
       id: "Gabung PDF",
     },
-    description: {
-      en: "Combine multiple PDF files into one.",
-      id: "Gabungkan beberapa file PDF menjadi satu.",
-    },
-    keywords: {
-      en: [
-        "pdf merge",
-        "merge pdf",
-        "combine pdf",
-        "join pdf",
-        "merge documents",
-      ],
-      id: ["gabung pdf", "menggabungkan pdf", "satukan pdf", "gabung dokumen"],
-    },
 
     relatedTools: ["pdf-split", "pdf-generator", "image-to-pdf"],
 
@@ -49,14 +35,6 @@ export const pdfRegistry01: Record<PDFToolName, ToolRegistryItem> = {
     title: {
       en: "PDF Split",
       id: "Pisah PDF",
-    },
-    description: {
-      en: "Split PDF pages into separate files.",
-      id: "Pisahkan halaman-halaman PDF menjadi file terpisah.",
-    },
-    keywords: {
-      en: ["pdf split", "split pdf", "separate pdf", "extract pdf pages"],
-      id: ["pisah pdf", "memisahkan pdf", "ekstrak halaman pdf"],
     },
 
     relatedTools: ["pdf-generator", "pdf-merge", "image-to-pdf"],
@@ -77,26 +55,6 @@ export const pdfRegistry01: Record<PDFToolName, ToolRegistryItem> = {
     title: {
       en: "PDF Generator",
       id: "Generator PDF",
-    },
-    description: {
-      en: "Generate invoices, certificates, and custom PDFs.",
-      id: "Buat faktur, sertifikat, dan PDF kustom.",
-    },
-    keywords: {
-      en: [
-        "pdf generator",
-        "create pdf",
-        "generate invoice pdf",
-        "generate certificate",
-        "custom pdf creator",
-      ],
-      id: [
-        "generator pdf",
-        "buat pdf",
-        "buat faktur pdf",
-        "buat sertifikat",
-        "pembuat pdf kustom",
-      ],
     },
     relatedTools: ["pdf-split", "pdf-merge", "image-to-pdf"],
 
