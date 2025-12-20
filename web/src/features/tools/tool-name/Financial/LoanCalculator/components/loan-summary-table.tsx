@@ -1,27 +1,23 @@
 import { formatCurrency } from "@/utils/formatter/formatCurrency";
-import { LoanCalculatorInput } from "../types/input";
-import { LoanCalculationResult } from "../types/output";
 import { useLocale } from "next-intl";
 import { i18nLoanSummary } from "../i18n/loan-summary";
+import { useLoanCalculator } from "../store/provider";
 
-interface Props {
-  input: LoanCalculatorInput;
-  result: LoanCalculationResult;
-}
 
-export function LoanSummaryTable({ input, result }: Props) {
+export function LoanSummaryTable() {
+  const {inputData,result} = useLoanCalculator()
   const locale = useLocale();
   const t = i18nLoanSummary[locale];
 
-  const currency = input.currency ?? "IDR";
+  const currency = inputData.currency ?? "IDR";
 
   const rows = [
-    { label: t.amount, value: formatCurrency(input.amount, currency, 0) },
-    { label: t.annualInterestRate, value: input.annualInterestRate + "%" },
-    { label: t.tenorMonths, value: input.tenorMonths + " bulan" },
+    { label: t.amount, value: formatCurrency(inputData.amount, currency, 0) },
+    { label: t.annualInterestRate, value: inputData.annualInterestRate + "%" },
+    { label: t.tenorMonths, value: inputData.tenorMonths + " bulan" },
     {
       label: t.loanType,
-      value: input.loanType === "flat" ? "Flat" : "Efektif / Anuitas",
+      value: inputData.loanType === "flat" ? "Flat" : "Efektif / Anuitas",
     },
     {
       label: t.monthlyInstallment,

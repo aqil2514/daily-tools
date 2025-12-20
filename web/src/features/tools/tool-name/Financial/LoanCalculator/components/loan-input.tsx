@@ -12,26 +12,15 @@ import {
   SelectContent,
   SelectItem,
 } from "@/components/ui/select";
-import { Dispatch, SetStateAction } from "react";
-import { LoanCalculatorInput, LoanType } from "../types/input";
 import { useLocale } from "next-intl";
 import { i18nLoanInput } from "../i18n/loan-input";
+import { useLoanCalculator } from "../store/provider";
+import { LoanType } from "../types/input";
 
-interface Props {
-  inputData: LoanCalculatorInput;
-  setInputData: Dispatch<SetStateAction<LoanCalculatorInput>>;
-}
-
-export function LoanInput({ inputData, setInputData }: Props) {
+export function LoanInput() {
   const locale = useLocale();
   const t = i18nLoanInput[locale];
-
-  const editHandler = <K extends keyof LoanCalculatorInput>(
-    key: K,
-    value: LoanCalculatorInput[K]
-  ) => {
-    setInputData((prev) => ({ ...prev, [key]: value }));
-  };
+  const {editHandler, inputData} = useLoanCalculator()
 
   return (
     <ToolCard>

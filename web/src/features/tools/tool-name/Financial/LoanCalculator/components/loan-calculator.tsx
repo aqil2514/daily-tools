@@ -1,25 +1,16 @@
 "use client";
 import { LoanInput } from "./loan-input";
-import { LoanCalculatorInput } from "../types/input";
-import { useState } from "react";
 import { LoanOutput } from "./loan-output";
-
-const defaultInput: LoanCalculatorInput = {
-  amount: 10000000,
-  annualInterestRate: 12,
-  monthlyInterestRate: 1,
-  tenorMonths: 12,
-  loanType: "flat",
-  currency: "IDR",
-  locale: "id-ID",
-};
+import { LoanCalculatorProvider } from "../store/provider";
 
 export function LoanCalculator() {
-  const [inputData, setInputData] = useState<LoanCalculatorInput>(defaultInput);
   return (
+    <LoanCalculatorProvider>
+
     <div className="grid lg:grid-cols-2 gap-4">
-      <LoanInput inputData={inputData} setInputData={setInputData} />
-      <LoanOutput inputData={inputData} />
+      <LoanInput />
+      <LoanOutput />
     </div>
+    </LoanCalculatorProvider>
   );
 }
