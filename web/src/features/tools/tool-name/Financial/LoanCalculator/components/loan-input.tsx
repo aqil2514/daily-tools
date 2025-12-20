@@ -20,7 +20,7 @@ import { LoanType } from "../types/input";
 export function LoanInput() {
   const locale = useLocale();
   const t = i18nLoanInput[locale];
-  const {editHandler, inputData} = useLoanCalculator()
+  const { editHandler, inputData } = useLoanCalculator();
 
   return (
     <ToolCard>

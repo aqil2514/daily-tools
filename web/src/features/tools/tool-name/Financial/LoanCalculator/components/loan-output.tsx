@@ -1,18 +1,16 @@
-import { Banknote, Percent, Wallet, FileText } from "lucide-react";
+import { FileText, Table } from "lucide-react";
+import { useLocale } from "next-intl";
 
 import { SubHeading } from "@/components/atoms/text/subHeading";
 import { ToolCard } from "@/components/molecules/card/tool-card";
-import { formatCurrency } from "@/utils/formatter/formatCurrency";
-import { LoanSummaryTable } from "./loan-summary-table";
-import { useLocale } from "next-intl";
+
+import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
+
 import { i18nLoanOutput } from "../i18n/loan-output";
-import { InfoBlock } from "@/components/atoms/info-block";
-import { useLoanCalculator } from "../store/provider";
+import { SummaryTabContent } from "./loan-output-tabs/summary-tab-content";
+import { ScheduleTabContent } from "./loan-output-tabs/schedule-tab-content";
 
 export function LoanOutput() {
-  const { inputData, result } = useLoanCalculator();
-  const currency = inputData.currency ?? "IDR";
-
   const locale = useLocale();
   const t = i18nLoanOutput[locale];
 
@@ -20,48 +18,24 @@ export function LoanOutput() {
     <ToolCard>
       <SubHeading className="mt-0">{t.title}</SubHeading>
 
-      <div className="mt-6 space-y-6">
-        {/* Highlight Result */}
-        <InfoBlock
-          icon={<Banknote className="w-5 h-5" />}
-          title={t.monthlyInstallment}
-        >
-          <p className="text-2xl font-bold text-primary">
-            {formatCurrency(result.monthlyInstallment, currency, 0)}
-          </p>
-        </InfoBlock>
+      <Tabs defaultValue="summary" className="mt-6">
+        {/* Tabs Header */}
+        <TabsList className="grid w-full grid-cols-2">
+          <TabsTrigger value="summary">
+            <FileText className="w-4 h-4 mr-2" />
+            {t.summary}
+          </TabsTrigger>
 
-        {/* Secondary Results */}
-        <div className="grid gap-4 sm:grid-cols-2">
-          <InfoBlock
-            icon={<Percent className="w-5 h-5" />}
-            title={t.totalInterest}
-          >
-            <p className="text-lg font-semibold">
-              {formatCurrency(result.totalInterest, currency, 0)}
-            </p>
-          </InfoBlock>
+          <TabsTrigger value="schedule">
+            <Table className="w-4 h-4 mr-2" />
+            Tabel Cicilan
+          </TabsTrigger>
+        </TabsList>
 
-          <InfoBlock
-            icon={<Wallet className="w-5 h-5" />}
-            title={t.totalPayment}
-          >
-            <p className="text-lg font-semibold">
-              {formatCurrency(result.totalPayment, currency, 0)}
-            </p>
-          </InfoBlock>
-        </div>
+        <SummaryTabContent />
 
-        {/* Summary */}
-        <div className="pt-2 space-y-3">
-          <div className="flex items-center gap-2">
-            <FileText className="w-4 h-4 text-muted-foreground" />
-            <SubHeading className="text-base">{t.summary}</SubHeading>
-          </div>
-
-          <LoanSummaryTable />
-        </div>
-      </div>
+        <ScheduleTabContent />
+      </Tabs>
     </ToolCard>
   );
 }
