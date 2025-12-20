@@ -9,6 +9,7 @@ export const FINANCIAL_TOOLS = [
   "retirement-savings-estimator",
   "asset-allocation-calculator",
   "percentage-calculator",
+  "compound-interest-calculator"
 ] as const;
 
 export type FinancialToolName = (typeof FINANCIAL_TOOLS)[number];
