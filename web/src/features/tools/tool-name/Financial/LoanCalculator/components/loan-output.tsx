@@ -28,7 +28,7 @@ export function LoanOutput() {
 
           <TabsTrigger value="schedule">
             <Table className="w-4 h-4 mr-2" />
-            Tabel Cicilan
+            {t.installmentTable}
           </TabsTrigger>
         </TabsList>
 

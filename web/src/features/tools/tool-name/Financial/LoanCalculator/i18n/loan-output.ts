@@ -5,6 +5,7 @@ export const i18nLoanOutput = {
     totalInterest: "Total Interest",
     totalPayment: "Total Payment",
     summary: "Summary",
+    installmentTable: "Installment Table",
   },
 
   id: {
@@ -13,6 +14,7 @@ export const i18nLoanOutput = {
     totalInterest: "Total Bunga",
     totalPayment: "Total Pembayaran Keseluruhan",
     summary: "Ringkasan",
+    installmentTable: "Tabel Cicilan",
   },
 } as const;
 
