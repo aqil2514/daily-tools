@@ -44,5 +44,4 @@ Syarat dan Ketentuan ini dapat diperbarui dari waktu ke waktu. Setiap perubahan 
 
 Jika Anda memiliki pertanyaan terkait Syarat dan Ketentuan ini, silakan hubungi kami melalui email:
 
-**support@flowtooly.app**  
-_(akan tersedia saat peluncuran resmi)_
+[**support@flowtooly.com**](mailto:support@flowtooly.com)

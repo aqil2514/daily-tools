@@ -44,5 +44,4 @@ These Terms of Service may be updated from time to time. Any changes will be pos
 
 If you have any questions regarding these Terms of Service, please contact us at:
 
-**support@flowtooly.app**  
-_(will be available upon official launch)_
+[**support@flowtooly.com**](mailto:support@flowtooly.com)

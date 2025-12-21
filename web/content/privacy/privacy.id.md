@@ -36,5 +36,4 @@ Kami dapat memperbarui Kebijakan Privasi ini dari waktu ke waktu. Setiap perubah
 
 Jika Anda memiliki pertanyaan terkait Kebijakan Privasi ini, silakan hubungi kami melalui email:
 
-**support@flowtooly.app**  
-_(akan tersedia saat peluncuran resmi)_
+[**support@flowtooly.com**](mailto:support@flowtooly.com)

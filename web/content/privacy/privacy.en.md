@@ -36,5 +36,4 @@ We may update this Privacy Policy from time to time. Any changes will be posted 
 
 If you have any questions about this Privacy Policy, please contact us via email at:
 
-**support@flowtooly.app**  
-_(will be available upon official launch)_
+[**support@flowtooly.com**](mailto:support@flowtooly.com)
