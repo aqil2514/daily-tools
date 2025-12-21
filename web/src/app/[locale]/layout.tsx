@@ -17,6 +17,7 @@ import { canonicalUrl, getHreflangs } from "@/constants/seo";
 import { Footer } from "@/components/layout/footer";
 import { cookies } from "next/headers";
 import { getGlobalJsonLd } from "@/components/seo/layout/global-jsonld";
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 export async function generateMetadata(): Promise<Metadata> {
   const locale = await getLocale();
@@ -78,6 +79,7 @@ export default async function LocaleLayout({ children, params }: Props) {
             <Toaster richColors position="top-center" />
           </SidebarProvider>
 
+          <GoogleAnalytics gaId="G-WZDD8RCJN2" />
           <Analytics />
           <SpeedInsights />
         </NextIntlClientProvider>
