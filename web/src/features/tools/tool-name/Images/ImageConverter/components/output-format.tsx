@@ -11,6 +11,7 @@ import { useState } from "react";
 import { Paragraph } from "@/components/atoms/text/paragraph";
 import { convertImageFormat } from "@/utils/convertImageFormat";
 import { ImageOutputFormat } from "@/@types/Images";
+import { trackToolDownload } from "@/utils/analytics/track-tool";
 
 export function OutputFormatSelect() {
   const { items, setConvertedUrl, outputFormat, setOutputFormat } =
@@ -36,6 +37,7 @@ export function OutputFormatSelect() {
         item.url,
         outputFormat as ImageOutputFormat
       );
+      trackToolDownload("image-converter", outputFormat as ImageOutputFormat)
 
       setConvertedUrl(convertedUrl);
     } catch (e) {

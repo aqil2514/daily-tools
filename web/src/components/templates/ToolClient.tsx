@@ -7,6 +7,8 @@ import { RelatedToolsSection } from "../organisms/related-tools-section";
 import { useHydration } from "@/hooks/use-hydration";
 import { Loader } from "../layout/wrapper/Loader";
 import { ToolName } from "@/@types/tools/index";
+import { useEffect } from "react";
+import { trackToolView } from "@/utils/analytics/track-tool";
 
 export function ToolClient({
   toolName,
@@ -18,8 +20,13 @@ export function ToolClient({
   const hydrated = useHydration();
 
   const tool = toolsRegistry[toolName];
+
+  useEffect(() => {
+    trackToolView(toolName, locale);
+  }, [locale, toolName]);
+
   if (!tool) return null;
-  if(!hydrated) return <Loader />
+  if (!hydrated) return <Loader />;
 
   const MainComponent = tool.Component;
 
@@ -31,10 +38,7 @@ export function ToolClient({
         <FAQSection items={tool.seo.jsonLd.faq[locale]} />
       )}
 
-      <RelatedToolsSection
-        toolsName={tool.relatedTools}
-        locale={locale}
-      />
+      <RelatedToolsSection toolsName={tool.relatedTools} locale={locale} />
     </>
   );
 }

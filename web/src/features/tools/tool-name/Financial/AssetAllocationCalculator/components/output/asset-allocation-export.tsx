@@ -5,16 +5,18 @@ import { useAssetAllocation } from "../../store/provider";
 import { usePdfExport } from "@/hooks/pdf/use-pdf-export";
 import { AssetAllocationDocument } from "@/pdf/documents/AssetAllocationDocument";
 import { useLocale } from "next-intl";
+import { trackToolExport } from "@/utils/analytics/track-tool";
 
 export function AssetAllocationExport() {
   const { exportChartToImage } = useChartExport();
   const { exportPdf, loading } = usePdfExport();
   const { chartRef, calculate } = useAssetAllocation();
-  const locale = useLocale()
+  const locale = useLocale();
 
   const clickHandler = async () => {
     if (!chartRef.current) return;
 
+    trackToolExport("asset-allocation-calculator", "pdf");
     const image = await exportChartToImage(chartRef.current);
 
     const document = (

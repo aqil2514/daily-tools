@@ -28,7 +28,6 @@ export function formatPercent(
   value?: number | null,
   options: FormatPercentOptions = {}
 ): string {
-  console.log(value)
   const {
     fromDecimal = false,
     maximumFractionDigits = 2,

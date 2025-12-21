@@ -76,5 +76,5 @@ export function generateToolList() {
   const outputPath = path.join(process.cwd(), "tool-list.md");
   fs.writeFileSync(outputPath, md, "utf-8");
 
-  console.log("✅ tool-list.md generated");
+  console.info("✅ tool-list.md generated");
 }

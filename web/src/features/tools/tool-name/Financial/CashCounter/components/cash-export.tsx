@@ -8,6 +8,7 @@ import { useLocale } from "next-intl";
 import { usePdfExport } from "@/hooks/pdf/use-pdf-export";
 import { useExcelExport } from "@/hooks/excel/use-excel-export";
 import { formatCurrency } from "@/utils/formatter/formatCurrency";
+import { trackToolExport } from "@/utils/analytics/track-tool";
 
 export function CashExport() {
   const { denoms, settings, totalCash, difference } = useCashCounter();
@@ -29,6 +30,8 @@ export function CashExport() {
       difference,
     };
 
+    trackToolExport("cash-counter", "json");
+
     const blob = new Blob([JSON.stringify(data, null, 2)], {
       type: "application/json",
     });
@@ -42,6 +45,8 @@ export function CashExport() {
   };
 
   const exportPdfHandler = async () => {
+    trackToolExport("cash-counter", "pdf");
+
     const component = (
       <CashCounterDocument
         data={denoms}
@@ -63,35 +68,13 @@ export function CashExport() {
       fileName:
         locale === "id" ? "Laporan Penghitung Uang" : "Cash Counter Report",
     });
-
-    // const blob = await pdf(
-    //   <CashCounterDocument
-    //     data={denoms}
-    //     settings={settings}
-    //     locale={locale}
-    //     title={
-    //       locale === "id" ? "Laporan Penghitung Uang" : "Cash Counter Report"
-    //     }
-    //     subject={
-    //       locale === "id"
-    //         ? "Laporan perhitungan uang tunai"
-    //         : "Cash counter report"
-    //     }
-    //     keywords="cash counter, laporan kas, flowtooly"
-    //   />
-    // ).toBlob();
-
-    // const url = URL.createObjectURL(blob);
-    // const link = document.createElement("a");
-    // link.href = url;
-    // link.download = "cash-counter.pdf";
-    // link.click();
-    // URL.revokeObjectURL(url);
   };
   /* ---------------------------------------
       EXPORT CSV
   ---------------------------------------- */
   const exportCSV = () => {
+    trackToolExport("cash-counter", "csv");
+  
     const rows = [
       ["Nominal", "Qty", "Subtotal"],
       ...denoms.map((d) => [
@@ -119,6 +102,8 @@ export function CashExport() {
   };
 
   const exportExcel = () => {
+    trackToolExport("cash-counter", "excel");
+
     const currency = settings.currency.toUpperCase();
     exportToExcel(denoms, "Cash Counter", [
       [

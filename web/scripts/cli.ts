@@ -70,7 +70,7 @@ switch (arg) {
     break;
 
   default:
-    console.log(`
+    console.info(`
 Usage:
   tsx scripts/cli.ts text
   tsx scripts/cli.ts financial
