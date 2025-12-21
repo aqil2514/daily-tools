@@ -35,6 +35,9 @@ export async function generateMetadata(): Promise<Metadata> {
     applicationName: "Flowtooly",
     generator: "Next.js",
     category: "Utility",
+    verification: {
+      google: "IOKnnnVCUKJ06i5nbjzZjPvkHGZC36il9zs_CfaUato",
+    },
   };
 }
 

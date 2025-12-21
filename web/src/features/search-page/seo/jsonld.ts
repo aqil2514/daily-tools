@@ -10,11 +10,11 @@ export function getSearchJsonLd(locale: "en" | "id") {
       locale === "id"
         ? "Halaman pencarian untuk menemukan berbagai tools online gratis di Flowtooly."
         : "Search page to explore free online tools available on Flowtooly.",
-    url: `https://flowtooly.vercel.app/${locale}/search`,
+    url: `https://flowtooly.com/${locale}/search`,
     isPartOf: {
       "@type": "WebSite",
       name: "Flowtooly",
-      url: "https://flowtooly.vercel.app",
+      url: "https://flowtooly.com",
     },
   };
 }

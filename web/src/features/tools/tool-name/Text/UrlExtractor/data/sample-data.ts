@@ -4,7 +4,7 @@ export const sampleData: Record<SampleKey, string> = {
   "sample-1": `Here are some mixed lines containing URLs:
 https://google.com
 Some text here...
-Visit our site at https://flowtooly.vercel.app/tools/url-extractor
+Visit our site at https://flowtooly.com/tools/url-extractor
 Contact: www.example.org/contact
 `,
 

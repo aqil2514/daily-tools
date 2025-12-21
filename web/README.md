@@ -3,7 +3,7 @@
 Flowtooly adalah kumpulan utility tools lengkap untuk kebutuhan harian — mulai dari Text Tools, Image Tools, PDF Tools, Financial Tools, Developer Tools, dan banyak lagi.  
 Semua tools dibuat dengan fokus pada **kecepatan**, **kebersihan UI**, **kemudahan penggunaan**, dan **privasi** (sebanyak mungkin diproses lokal tanpa server).
 
-Website: **https://flowtooly.vercel.app**
+Website: **https://flowtooly.com**
 
 ---
 
