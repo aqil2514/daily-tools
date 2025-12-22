@@ -28,7 +28,7 @@ const InnerTemplate = () => {
 
       <Tabs defaultValue="input" className="w-full">
         {/* TABS HEADER */}
-        <TabsList className="grid grid-cols-3 w-full">
+        <TabsList className="grid grid-cols-2 w-full">
           <TabsTrigger value="input">Input</TabsTrigger>
           <TabsTrigger value="output">Output</TabsTrigger>
         </TabsList>
