@@ -4,6 +4,8 @@ import { ToolRegistryItem } from "@/@types/Tools";
 import { UtilityToolName } from "@/@types/tools/utility";
 import ageCalculatorJsonLdSEO from "../../tool-name/Utility/AgeCalculator/seo/jsonld";
 import ageCalculatorMetadataSEO from "../../tool-name/Utility/AgeCalculator/seo/metadata";
+import quizMakerJsonLdSEO from "../../tool-name/Utility/QuizMaker/seo/jsonld";
+import quizMakerMetadataSEO from "../../tool-name/Utility/QuizMaker/seo/metadata";
 
 export const utilityRegistry01: Partial<
   Record<UtilityToolName, ToolRegistryItem>
@@ -23,6 +25,24 @@ export const utilityRegistry01: Partial<
     seo: {
       jsonLd: ageCalculatorJsonLdSEO,
       metadata: ageCalculatorMetadataSEO,
+    },
+  },
+
+   "quiz-maker": {
+    Component: dynamic(
+      () => import("@/features/tools/tool-name/Utility/QuizMaker")
+    ),
+    href: "/tools/quiz-maker",
+    category: "utility",
+
+    title: {
+      en: "Quiz Maker",
+      id: "Pembuat Kuis",
+    },
+
+    seo: {
+      jsonLd: quizMakerJsonLdSEO,
+      metadata: quizMakerMetadataSEO,
     },
   },
 };
