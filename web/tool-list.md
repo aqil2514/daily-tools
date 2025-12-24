@@ -1,5 +1,5 @@
 # Tool List (Internal)
-Total tools: 52
+Total tools: 54
 
 ## conversion (2)
 1. Temperature Converter | Konverter Suhu
@@ -27,7 +27,7 @@ Total tools: 52
 6. Image Metadata Viewer | Lihat Metadata Gambar
 7. Placeholder Image Generator | Generator Gambar Placeholder
 
-## Financial Tools (10)
+## Financial Tools (11)
 1. Cash Counter | Penghitung Uang Tunai
 2. COGS Calculator | Profit Margin Kalkulator
 3. Product HPP Calculator | Kalkulator HPP Produk
@@ -38,9 +38,11 @@ Total tools: 52
 8. Retirement Savings Estimator | Estimator Tabungan Pensiun
 9. Asset Allocation Calculator | Kalkulator Alokasi Aset
 10. Percentage Calculator | Kalkulator Persentase
+11. Compound Interest Calculator | Kalkulator Bunga Majemuk
 
-## Health Tools (1)
+## Health Tools (2)
 1. BMI Calculator | Kalkulator BMI
+2. BMR & TDEE Calculator | Kalkulator BMR & TDEE
 
 ## Math Tools (9)
 1. Square Calculator | Kalkulator Persegi

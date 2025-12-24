@@ -20,8 +20,6 @@ export const utilityRegistry01: Partial<
       id: "Kalkulator Usia",
     },
 
-    // relatedTools: ["date-difference", "countdown-timer"],
-
     seo: {
       jsonLd: ageCalculatorJsonLdSEO,
       metadata: ageCalculatorMetadataSEO,

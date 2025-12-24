@@ -14,6 +14,9 @@
 04. Asset Allocation Calculator (Kalkulator Alokasi Aset)
 05. Percentage Calculator (Kalkulator Persentase)
 
+===== 03-financial-registry.ts =====
+01. Compound Interest Calculator (Kalkulator Bunga Majemuk)
+
 ---
 > ⚠️ **Catatan:** File ini dihasilkan secara otomatis oleh script generator.
 > Jangan diedit manual karena setiap perubahan akan ditimpa.
