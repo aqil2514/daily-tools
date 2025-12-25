@@ -1,5 +1,5 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { useFieldArray, UseFormReturn } from "react-hook-form";
+import { useFieldArray } from "react-hook-form";
 import {
   FormControl,
   FormField,
@@ -8,22 +8,17 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Textarea } from "@/components/ui/textarea";
-import { defaultMainQuestSchema, MainQuestSchema } from "../../../schema/main";
+import { defaultMainQuestSchema } from "../../../schema/main";
 import { QuestionOptionArray } from "./question-options";
 import { Button } from "@/components/ui/button";
 import { Plus, RefreshCcw, Trash } from "lucide-react";
 import { questionSchemaDefaultValues } from "../../../schema/question";
-import { Dispatch, SetStateAction, useState } from "react";
+import { useState } from "react";
 import { nanoid } from "nanoid";
-import { QuizPreviewData } from "../../../types/preview";
+import { useQuizMaker } from "../../../store/provider";
 
-interface Props {
-  form: UseFormReturn<MainQuestSchema>;
-  setShowErrors: Dispatch<SetStateAction<boolean>>;
-  setData: Dispatch<SetStateAction<QuizPreviewData | null>>;
-}
-
-export function QuestionFieldContent({ form, setShowErrors, setData }: Props) {
+export function QuestionFieldContent() {
+  const { form, setShowErrors, setData } = useQuizMaker();
   const { fields, append, remove } = useFieldArray({
     name: "questions",
     control: form.control,

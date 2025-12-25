@@ -17,10 +17,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Switch } from "@/components/ui/switch";
 import { formatDuration } from "@/utils/time/formatDuration";
-
-interface Props {
-  form: UseFormReturn<MainQuestSchema>;
-}
+import { useQuizMaker } from "../../../store/provider";
 
 /**
  * Reusable switch field for quiz config
@@ -71,7 +68,8 @@ function ConfigSwitch({
   );
 }
 
-export function QuestionMetadataContent({ form }: Props) {
+export function QuestionMetadataContent() {
+  const { form } = useQuizMaker();
   return (
     <TabsContent value="metadata" className="space-y-6">
       <SubHeading>Metadata</SubHeading>
@@ -156,9 +154,7 @@ export function QuestionMetadataContent({ form }: Props) {
                   min={0}
                   placeholder="Masukkan waktu (dalam detik)"
                   value={field.value ?? 0}
-                  onChange={(e) =>
-                    field.onChange(e.target.valueAsNumber || 0)
-                  }
+                  onChange={(e) => field.onChange(e.target.valueAsNumber || 0)}
                 />
               </FormControl>
 

@@ -3,14 +3,10 @@
 import { CheckCircle } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
-import { QuizPreviewData } from "../types/preview";
 import { shuffle } from "../utils/shuffle";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { QuizExport } from "./quiz-export";
-
-interface Props {
-  data: QuizPreviewData | null;
-}
+import { useQuizMaker } from "../store/provider";
 
 function QuizPreviewEmpty({
   title,
@@ -31,7 +27,8 @@ function QuizPreviewEmpty({
   );
 }
 
-export function QuizPreview({ data }: Props) {
+export function QuizPreview() {
+  const { data } = useQuizMaker();
   // ===== NULL DATA =====
   if (!data) {
     return (
