@@ -21,6 +21,7 @@ import { useQuizMaker } from "../../../store/provider";
 import { toast } from "sonner";
 import { useLocale } from "next-intl";
 import { quizQuestionFieldI18n } from "../../../i18n/question-field";
+import { QuizImportJsonButton } from "../../quiz-import-json";
 
 export function QuestionFieldContent() {
   const {
@@ -78,19 +79,30 @@ export function QuestionFieldContent() {
           <Plus /> {t.addQuestion}
         </Button>
 
-        <Button
-          variant="destructive"
-          onClick={() => {
-            form.reset(defaultMainQuestSchema);
-            setData(null);
-            setIsInitContent(true);
-            setIsFromSample(false);
-            toast.success(t.resetSuccess);
-          }}
-          type="button"
-        >
-          <RefreshCcw /> {t.resetForm}
-        </Button>
+        <div className="flex gap-4">
+          <Button
+            variant="destructive"
+            onClick={() => {
+              form.reset(defaultMainQuestSchema);
+              setData(null);
+              setIsInitContent(true);
+              setIsFromSample(false);
+              toast.success(t.resetSuccess);
+            }}
+            type="button"
+          >
+            <RefreshCcw /> {t.resetForm}
+          </Button>
+
+          <QuizImportJsonButton
+            onImported={(data) => {
+              form.reset(data);
+              setData(data);
+              setIsInitContent(true);
+              setIsFromSample(false);
+            }}
+          />
+        </div>
       </div>
 
       <Tabs value={content} onValueChange={setContent} className="w-full">

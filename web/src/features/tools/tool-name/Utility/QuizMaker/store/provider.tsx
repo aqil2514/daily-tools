@@ -57,7 +57,7 @@ export function QuizMakerProvider({ children }: { children: React.ReactNode }) {
 
   const onSubmit = (values: MainQuestSchema) => {
     const mappedData = mapQuizToClientData(values);
-    toast.success("Soal berhasil dibuat");
+    toast.success(locale === "en" ? "Question successfully created" : "Soal berhasil dibuat");
 
     setShowErrors(false);
     setData(mappedData);

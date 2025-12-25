@@ -5,7 +5,7 @@ import { Locale } from "next-intl";
 
 const createQuizOptionSchema = (locale: Locale) => {
   return z.object({
-    id: z.string(),
+    id: z.string().optional(),
     optionId: z.string(),
     text: z
       .string()
@@ -23,7 +23,7 @@ export const createQuestionSchema = (locale: Locale) => {
 
   return z
     .object({
-      id: z.string(),
+      id: z.string().optional(),
       questionId: z.string().min(1),
       text: z
         .string()
