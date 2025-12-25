@@ -2,46 +2,23 @@
 
 import { Button } from "@/components/ui/button";
 import { QuizPreviewData } from "../types/preview";
-import { toast } from "sonner";
 import { Code } from "lucide-react";
+import { useExportJson } from "@/hooks/json/use-export-json";
 
 interface Props {
   data: QuizPreviewData | null;
 }
 
 export function QuizExport({ data }: Props) {
-  // TODO : BUAT GENERAL HOOKSNYA NANTI
-  function handleExportJSON() {
-    if (!data) {
-      toast.error("Tidak ada data untuk diekspor");
-      return;
-    }
-
-    try {
-      const json = JSON.stringify(data, null, 2);
-
-      const blob = new Blob([json], {
-        type: "application/json",
-      });
-
-      const url = URL.createObjectURL(blob);
-
-      const a = document.createElement("a");
-      a.href = url;
-      a.download = "quiz-export.json";
-      a.click();
-
-      URL.revokeObjectURL(url);
-
-      toast.success("JSON berhasil diekspor");
-    } catch {
-      toast.error("Gagal mengekspor JSON");
-    }
-  }
+  const { handleExportJSON } = useExportJson();
 
   return (
     <div className="flex gap-2">
-      <Button variant="outline" onClick={handleExportJSON} disabled={!data}>
+      <Button
+        variant="outline"
+        onClick={() => handleExportJSON(data)}
+        disabled={!data}
+      >
         <Code /> Export JSON
       </Button>
     </div>
