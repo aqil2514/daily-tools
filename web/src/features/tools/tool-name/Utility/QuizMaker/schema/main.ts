@@ -1,14 +1,20 @@
 import z from "zod";
-import { questionSchema, questionSchemaDefaultValues } from "./question";
-import { defaultQuizMetadata, quizMetadataSchema } from "./metadata";
+import { createQuestionSchema, questionSchemaDefaultValues } from "./question";
+import { createQuizMetadataSchema, defaultQuizMetadata } from "./metadata";
+import { Locale } from "next-intl";
 
-export const mainQuestSchema = z.object({
-  version: z.string(),
-  questions: z.array(questionSchema).min(1),
-  metadata: quizMetadataSchema,
-});
+export const createMainQuestSchema = (locale: Locale) => {
+  const quizMetadataSchema = createQuizMetadataSchema(locale);
+  const questionSchema = createQuestionSchema(locale);
 
-export type MainQuestSchema = z.infer<typeof mainQuestSchema>;
+  return z.object({
+    version: z.string(),
+    questions: z.array(questionSchema).min(1),
+    metadata: quizMetadataSchema,
+  });
+};
+
+export type MainQuestSchema = z.infer<ReturnType<typeof createMainQuestSchema>>;
 export const defaultMainQuestSchema: MainQuestSchema = {
   version: "1",
   questions: [questionSchemaDefaultValues],

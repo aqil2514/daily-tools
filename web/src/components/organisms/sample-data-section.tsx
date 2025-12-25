@@ -8,17 +8,25 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { useLocale } from "next-intl";
+import { toast } from "sonner";
 
 interface Props<TData, T extends Record<string, TData>> {
   sampleData: T;
   onSelected: (sample: TData, key: keyof T) => void;
 }
 
-export function SampleDataComponent<
-  TData,
-  T extends Record<string, TData>
->({ sampleData, onSelected }: Props<TData, T>) {
+export function SampleDataComponent<TData, T extends Record<string, TData>>({
+  sampleData,
+  onSelected,
+}: Props<TData, T>) {
+  const locale = useLocale();
   const sampleKeys = Object.keys(sampleData) as (keyof T)[];
+
+  const selectHandler = (key: keyof T) => {
+    onSelected(sampleData[key], key);
+    toast.success(locale === "en" ? "Sample data is loaded" : "Data sampel berhasil dimuat")
+  };
 
   return (
     <div className="w-full">
@@ -34,7 +42,7 @@ export function SampleDataComponent<
                     key={String(key)}
                     variant="outline"
                     className="w-full justify-start"
-                    onClick={() => onSelected(sampleData[key], key)}
+                    onClick={() => selectHandler(key)}
                   >
                     Sample {i + 1}
                   </Button>
@@ -53,7 +61,7 @@ export function SampleDataComponent<
               <Button
                 key={String(key)}
                 variant="outline"
-                onClick={() => onSelected(sampleData[key], key)}
+                onClick={() => selectHandler(key)}
               >
                 Sample {i + 1}
               </Button>

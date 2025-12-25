@@ -1,6 +1,6 @@
-import { QuizPreviewData } from "../types/preview";
+import { QuizMakerOutputData } from "../types/output";
 
-export const quizSampleHTML: QuizPreviewData = {
+export const quizSampleHTML: QuizMakerOutputData = {
   version: "1",
   metadata: {
     title: "HTML Fundamentals Quiz",

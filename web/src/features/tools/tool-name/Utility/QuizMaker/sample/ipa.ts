@@ -1,6 +1,6 @@
-import { QuizPreviewData } from "../types/preview";
+import { QuizMakerOutputData } from "../types/output";
 
-export const quizSampleIPA: QuizPreviewData = {
+export const quizSampleIPA: QuizMakerOutputData = {
   version: "1",
   metadata: {
     title: "Kuis IPA Dasar",

@@ -13,18 +13,32 @@ import { QuestionOptionArray } from "./question-options";
 import { Button } from "@/components/ui/button";
 import { Plus, RefreshCcw, Trash } from "lucide-react";
 import { questionSchemaDefaultValues } from "../../../schema/question";
-import { useState } from "react";
+import { useEffect } from "react";
 import { nanoid } from "nanoid";
 import { useQuizMaker } from "../../../store/provider";
+import { toast } from "sonner";
 
 export function QuestionFieldContent() {
-  const { form, setShowErrors, setData } = useQuizMaker();
+  const {
+    form,
+    setShowErrors,
+    setData,
+    setContent,
+    content,
+    isInitContent,
+    setIsInitContent,
+    setIsFromSample,
+  } = useQuizMaker();
   const { fields, append, remove } = useFieldArray({
     name: "questions",
     control: form.control,
   });
 
-  const [content, setContent] = useState(fields[0].questionId);
+  useEffect(() => {
+    if (!isInitContent) return;
+    setContent(fields[0].questionId);
+    setIsInitContent(false);
+  }, [fields, setContent, isInitContent, setIsInitContent]);
 
   const removeHandler = (index: number) => {
     setShowErrors(false);
@@ -61,6 +75,9 @@ export function QuestionFieldContent() {
           onClick={() => {
             form.reset(defaultMainQuestSchema);
             setData(null);
+            setIsInitContent(true);
+            setIsFromSample(false);
+            toast.success("Form soal berhasil direset");
           }}
           type="button"
         >

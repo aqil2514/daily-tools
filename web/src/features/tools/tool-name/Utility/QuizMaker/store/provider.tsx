@@ -1,24 +1,36 @@
 import React, { createContext, useContext, useMemo, useState } from "react";
-import { QuizErrorGroup } from "../components/quiz-maker";
 import { useForm, UseFormReturn, useFormState } from "react-hook-form";
 import {
+  createMainQuestSchema,
   defaultMainQuestSchema,
-  mainQuestSchema,
   MainQuestSchema,
 } from "../schema/main";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { QuizPreviewData } from "../types/preview";
+import { mapQuizToClientData } from "../utils/mapToClientData";
+import { QuizMakerOutputData } from "../types/output";
+import { toast } from "sonner";
+import { getErrors } from "../utils/getErrors";
+import { useLocale } from "next-intl";
 
 interface QuizMakerContextType {
-  quizErrors: QuizErrorGroup[];
+  quizErrors: string[];
   form: UseFormReturn<MainQuestSchema>;
   onSubmit: (values: MainQuestSchema) => void;
 
   showErrors: boolean;
   setShowErrors: React.Dispatch<React.SetStateAction<boolean>>;
 
-  data: QuizPreviewData | null;
-  setData: React.Dispatch<React.SetStateAction<QuizPreviewData | null>>;
+  data: QuizMakerOutputData | null;
+  setData: React.Dispatch<React.SetStateAction<QuizMakerOutputData | null>>;
+
+  content: string;
+  setContent: React.Dispatch<React.SetStateAction<string>>;
+
+  isInitContent: boolean;
+  setIsInitContent: React.Dispatch<React.SetStateAction<boolean>>;
+
+  isFromSample: boolean;
+  setIsFromSample: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 const QuizMakerContext = createContext<QuizMakerContextType>(
@@ -26,51 +38,52 @@ const QuizMakerContext = createContext<QuizMakerContextType>(
 );
 
 export function QuizMakerProvider({ children }: { children: React.ReactNode }) {
+  const locale = useLocale();
+  const mainQuestSchema = createMainQuestSchema(locale);
+
   const form = useForm<MainQuestSchema>({
     resolver: zodResolver(mainQuestSchema),
     defaultValues: defaultMainQuestSchema,
   });
-  const [data, setData] = useState<QuizPreviewData | null>(null);
+  const [data, setData] = useState<QuizMakerOutputData | null>(null);
+  const [content, setContent] = useState("");
+  const [isInitContent, setIsInitContent] = useState<boolean>(true);
+  const [isFromSample, setIsFromSample] = useState<boolean>(true);
 
   const { errors } = useFormState({ control: form.control });
   const [showErrors, setShowErrors] = useState<boolean>(false);
 
-  const quizErrors = useMemo<QuizErrorGroup[]>(() => {
-    if (!errors.questions) return [];
-
-    return Object.values(errors.questions)
-      .map((_, qIndex) => {
-        const messages: string[] = [];
-
-        (["text", "options", "correctOptionId"] as const).forEach((field) => {
-          const raw = errors.questions?.[qIndex]?.[field]?.message;
-          if (raw) {
-            messages.push(raw);
-          }
-        });
-
-        return {
-          questionIndex: qIndex,
-          messages,
-        };
-      })
-      .filter((group) => group.messages.length > 0);
-  }, [errors]);
+  const quizErrors = useMemo(() => getErrors(errors, locale), [errors, locale]);
 
   const onSubmit = (values: MainQuestSchema) => {
+    const mappedData = mapQuizToClientData(values);
+    toast.success("Soal berhasil dibuat");
+
     setShowErrors(false);
-    setData(values);
+    setData(mappedData);
   };
 
   const values: QuizMakerContextType = {
     quizErrors,
     form,
     onSubmit,
+
     data,
-    showErrors,
     setData,
-    setShowErrors
+
+    showErrors,
+    setShowErrors,
+
+    content,
+    setContent,
+
+    isInitContent,
+    setIsInitContent,
+
+    isFromSample,
+    setIsFromSample,
   };
+
   return (
     <QuizMakerContext.Provider value={values}>
       {children}

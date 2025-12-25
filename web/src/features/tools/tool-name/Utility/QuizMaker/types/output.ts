@@ -1,4 +1,4 @@
-export interface QuizPreviewData {
+export interface QuizMakerOutputData {
   version: string;
   questions: {
     questionId: string;
@@ -8,11 +8,11 @@ export interface QuizPreviewData {
       text: string;
     }[];
     correctOptionId: string;
-    explanation?: string;
+    explanation: string;
   }[];
   metadata: {
     title: string;
-    description?: string;
+    description: string;
     config: {
       shuffleQuestions: boolean;
       shuffleOptions: boolean;

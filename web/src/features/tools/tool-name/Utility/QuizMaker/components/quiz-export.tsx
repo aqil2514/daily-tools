@@ -1,12 +1,12 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { QuizPreviewData } from "../types/preview";
 import { Code } from "lucide-react";
 import { useExportJson } from "@/hooks/json/use-export-json";
+import { QuizMakerOutputData } from "../types/output";
 
 interface Props {
-  data: QuizPreviewData | null;
+  data: QuizMakerOutputData | null;
 }
 
 export function QuizExport({ data }: Props) {

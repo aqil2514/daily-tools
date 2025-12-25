@@ -1,3 +1,4 @@
+import { Locale } from "next-intl";
 import z from "zod";
 
 const quizConfigSchema = z.object({
@@ -13,7 +14,17 @@ export const quizMetadataSchema = z.object({
   config: quizConfigSchema,
 });
 
-export type QuizMetadataSchemaType = z.infer<typeof quizMetadataSchema>;
+export const createQuizMetadataSchema = (locale: Locale) => {
+  return z.object({
+    title: z
+      .string()
+      .min(1, locale === "en" ? "Title is required" : "Judul wajib diisi"),
+    description: z.string(),
+    config: quizConfigSchema,
+  });
+};
+
+export type QuizMetadataSchemaType = z.infer<ReturnType<typeof createQuizMetadataSchema>>;
 
 export const defaultQuizMetadata: QuizMetadataSchemaType = {
   title: "",
