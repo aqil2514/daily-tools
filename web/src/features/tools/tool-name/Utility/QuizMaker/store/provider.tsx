@@ -48,7 +48,7 @@ export function QuizMakerProvider({ children }: { children: React.ReactNode }) {
   const [data, setData] = useState<QuizMakerOutputData | null>(null);
   const [content, setContent] = useState("");
   const [isInitContent, setIsInitContent] = useState<boolean>(true);
-  const [isFromSample, setIsFromSample] = useState<boolean>(true);
+  const [isFromSample, setIsFromSample] = useState<boolean>(false);
 
   const { errors } = useFormState({ control: form.control });
   const [showErrors, setShowErrors] = useState<boolean>(false);

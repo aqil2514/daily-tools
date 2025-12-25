@@ -1,18 +1,20 @@
 "use client";
+
 import { ToolCard } from "@/components/molecules/card/tool-card";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { QuestionFieldContent } from "./contents/questions/question-field";
 import { Form } from "@/components/ui/form";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
-// import { QuestionError } from "./contents/questions/question-error";
 import { QuestionMetadataContent } from "./contents/metadata/question-metadata";
 import { QuizPreview } from "./preview";
 import { quizSampleData } from "../sample/sample-data";
 import { SampleDataComponent } from "@/components/organisms/sample-data-section";
 import { QuizMakerProvider, useQuizMaker } from "../store/provider";
-import { QuizMakerOutputData } from "../types/output";
 import { QuestionError } from "./contents/questions/question-error";
+import { SampleData } from "../sample/finansial";
+import { useLocale } from "next-intl";
+import { quizMakerI18n } from "../i18n/quiz-maker";
 
 export function QuizMaker() {
   return (
@@ -35,33 +37,34 @@ const InnerTemplate = () => {
     setIsFromSample,
   } = useQuizMaker();
 
+  const locale = useLocale() as "en" | "id";
+  const t = quizMakerI18n[locale];
+
   return (
     <div className="space-y-4">
-      <p className="uppercase text-center underline font-semibold text-2xl">
-        This tool on progress
-      </p>
       <SampleDataComponent
-        onSelected={(data) => {
-          setData(data as QuizMakerOutputData);
-          form.reset(data as QuizMakerOutputData);
+        onSelected={(data: SampleData) => {
+          setData(data[locale]);
+          form.reset(data[locale]);
           setIsInitContent(true);
           setIsFromSample(true);
         }}
         sampleData={quizSampleData}
       />
+
       <ToolCard>
         <Form {...form}>
           <form
             onSubmit={form.handleSubmit(onSubmit, () => {
               setShowErrors(true);
-              toast.error("Ada data yang tidak valid, silahkan periksa lagi");
+              toast.error(t.invalidDataToast);
             })}
             className="space-y-8"
           >
             <Tabs defaultValue="question" className="w-full">
               <TabsList className="w-full">
-                <TabsTrigger value="question">Question</TabsTrigger>
-                <TabsTrigger value="metadata">Metadata</TabsTrigger>
+                <TabsTrigger value="question">{t.tabQuestion}</TabsTrigger>
+                <TabsTrigger value="metadata">{t.tabMetadata}</TabsTrigger>
               </TabsList>
 
               <QuestionFieldContent />
@@ -74,12 +77,12 @@ const InnerTemplate = () => {
 
             {isFromSample && (
               <p className="text-muted-foreground text-sm my-0">
-                Data sample tidak bisa diubah
+                {t.sampleLocked}
               </p>
             )}
 
             <Button type="submit" disabled={isFromSample}>
-              Submit
+              {t.submit}
             </Button>
           </form>
         </Form>

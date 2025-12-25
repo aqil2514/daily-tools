@@ -1,3 +1,5 @@
+"use client";
+
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useFieldArray } from "react-hook-form";
 import {
@@ -17,6 +19,8 @@ import { useEffect } from "react";
 import { nanoid } from "nanoid";
 import { useQuizMaker } from "../../../store/provider";
 import { toast } from "sonner";
+import { useLocale } from "next-intl";
+import { quizQuestionFieldI18n } from "../../../i18n/question-field";
 
 export function QuestionFieldContent() {
   const {
@@ -29,6 +33,10 @@ export function QuestionFieldContent() {
     setIsInitContent,
     setIsFromSample,
   } = useQuizMaker();
+
+  const locale = useLocale() as "en" | "id";
+  const t = quizQuestionFieldI18n[locale];
+
   const { fields, append, remove } = useFieldArray({
     name: "questions",
     control: form.control,
@@ -60,30 +68,31 @@ export function QuestionFieldContent() {
     };
 
     append(newQuestion);
-
     setContent(newQuestion.questionId);
   };
 
   return (
     <TabsContent value="question" className="space-y-4">
       <div className="flex justify-between">
-        <Button variant={"outline"} onClick={addHandler} type="button">
-          <Plus /> Tambah Soal
+        <Button variant="outline" onClick={addHandler} type="button">
+          <Plus /> {t.addQuestion}
         </Button>
+
         <Button
-          variant={"destructive"}
+          variant="destructive"
           onClick={() => {
             form.reset(defaultMainQuestSchema);
             setData(null);
             setIsInitContent(true);
             setIsFromSample(false);
-            toast.success("Form soal berhasil direset");
+            toast.success(t.resetSuccess);
           }}
           type="button"
         >
-          <RefreshCcw /> Reset
+          <RefreshCcw /> {t.resetForm}
         </Button>
       </div>
+
       <Tabs value={content} onValueChange={setContent} className="w-full">
         <TabsList className="w-full">
           {fields.map((field, index) => (
@@ -95,27 +104,31 @@ export function QuestionFieldContent() {
 
         {fields.map((field, index) => {
           const isHiddenDelete = fields.length > 1;
+
           return (
             <TabsContent key={field.id} value={field.questionId}>
-              <div key={field.id} className="space-y-4">
+              <div className="space-y-4">
                 {isHiddenDelete && (
                   <Button
                     type="button"
-                    variant={"destructive"}
+                    variant="destructive"
                     onClick={() => removeHandler(index)}
                   >
-                    <Trash /> Hapus Soal
+                    <Trash /> {t.deleteQuestion}
                   </Button>
                 )}
+
                 <FormField
                   control={form.control}
                   name={`questions.${index}.text`}
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Pertanyaan #{index + 1}</FormLabel>
+                      <FormLabel>
+                        {t.questionLabelPrefix} #{index + 1}
+                      </FormLabel>
                       <FormControl>
                         <Textarea
-                          placeholder="Tulis pertanyaan..."
+                          placeholder={t.questionPlaceholder}
                           {...field}
                         />
                       </FormControl>
@@ -131,9 +144,12 @@ export function QuestionFieldContent() {
                   name={`questions.${index}.explanation`}
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Penjelasan</FormLabel>
+                      <FormLabel>{t.explanationLabel}</FormLabel>
                       <FormControl>
-                        <Textarea placeholder="Penjelasan..." {...field} />
+                        <Textarea
+                          placeholder={t.explanationPlaceholder}
+                          {...field}
+                        />
                       </FormControl>
                       <FormMessage />
                     </FormItem>

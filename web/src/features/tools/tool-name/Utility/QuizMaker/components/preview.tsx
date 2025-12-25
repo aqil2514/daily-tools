@@ -7,6 +7,8 @@ import { shuffle } from "../utils/shuffle";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { QuizExport } from "./quiz-export";
 import { useQuizMaker } from "../store/provider";
+import { useLocale } from "next-intl";
+import { quizPreviewI18n } from "../i18n/quiz-preview";
 
 function QuizPreviewEmpty({
   title,
@@ -29,12 +31,15 @@ function QuizPreviewEmpty({
 
 export function QuizPreview() {
   const { data } = useQuizMaker();
+  const locale = useLocale() as "en" | "id";
+  const t = quizPreviewI18n[locale];
+
   // ===== NULL DATA =====
   if (!data) {
     return (
       <QuizPreviewEmpty
-        title="Belum ada data kuis"
-        description="Silakan buat kuis terlebih dahulu atau pilih sample data untuk melihat preview."
+        title={t.emptyQuizTitle}
+        description={t.emptyQuizDesc}
       />
     );
   }
@@ -45,8 +50,8 @@ export function QuizPreview() {
   if (!questions || questions.length === 0) {
     return (
       <QuizPreviewEmpty
-        title="Belum ada soal"
-        description="Tambahkan minimal satu soal untuk menampilkan preview kuis."
+        title={t.emptyQuestionTitle}
+        description={t.emptyQuestionDesc}
       />
     );
   }
@@ -62,7 +67,7 @@ export function QuizPreview() {
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-2xl font-semibold">
-            {metadata.title || "Untitled Quiz"}
+            {metadata.title || t.untitledQuiz}
           </h1>
           {metadata.description && (
             <p className="text-muted-foreground mt-1">{metadata.description}</p>
@@ -119,7 +124,8 @@ export function QuizPreview() {
                 {metadata.config.revealCorrectAnswer &&
                   question.explanation && (
                     <div className="rounded-md bg-muted p-3 text-sm">
-                      <strong>Penjelasan:</strong> {question.explanation}
+                      <strong>{t.explanationLabel}:</strong>{" "}
+                      {question.explanation}
                     </div>
                   )}
               </Card>

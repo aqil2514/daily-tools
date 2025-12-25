@@ -18,6 +18,8 @@ import { Textarea } from "@/components/ui/textarea";
 import { Switch } from "@/components/ui/switch";
 import { formatDuration } from "@/utils/time/formatDuration";
 import { useQuizMaker } from "../../../store/provider";
+import { useLocale } from "next-intl";
+import { quizMetadataI18n } from "../../../i18n/question-metadata";
 
 /**
  * Reusable switch field for quiz config
@@ -70,9 +72,12 @@ function ConfigSwitch({
 
 export function QuestionMetadataContent() {
   const { form } = useQuizMaker();
+  const locale = useLocale() as "en" | "id";
+  const t = quizMetadataI18n[locale];
+
   return (
     <TabsContent value="metadata" className="space-y-6">
-      <SubHeading>Metadata</SubHeading>
+      <SubHeading>{t.sectionMetadata}</SubHeading>
       <Separator />
 
       <div className="space-y-4">
@@ -81,9 +86,9 @@ export function QuestionMetadataContent() {
           name="metadata.title"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Judul Kuis</FormLabel>
+              <FormLabel>{t.titleLabel}</FormLabel>
               <FormControl>
-                <Input placeholder="Contoh: JavaScript Basic Quiz" {...field} />
+                <Input placeholder={t.titlePlaceholder} {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -95,10 +100,10 @@ export function QuestionMetadataContent() {
           name="metadata.description"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Deskripsi</FormLabel>
+              <FormLabel>{t.descLabel}</FormLabel>
               <FormControl>
                 <Textarea
-                  placeholder="Deskripsi singkat tentang kuis ini..."
+                  placeholder={t.descPlaceholder}
                   {...field}
                 />
               </FormControl>
@@ -109,7 +114,7 @@ export function QuestionMetadataContent() {
       </div>
 
       <Separator />
-      <SubHeading>Konfigurasi</SubHeading>
+      <SubHeading>{t.sectionConfig}</SubHeading>
       <Separator />
 
       <div className="space-y-6">
@@ -118,27 +123,27 @@ export function QuestionMetadataContent() {
             form={form}
             name="metadata.config.shuffleQuestions"
             id="shuffle-questions"
-            label="Acak Pertanyaan"
-            descriptionOn="Urutan pertanyaan akan diacak saat kuis dijalankan"
-            descriptionOff="Urutan pertanyaan mengikuti urutan saat dibuat"
+            label={t.shuffleQuestionsLabel}
+            descriptionOn={t.shuffleQuestionsOn}
+            descriptionOff={t.shuffleQuestionsOff}
           />
 
           <ConfigSwitch
             form={form}
             name="metadata.config.shuffleOptions"
             id="shuffle-options"
-            label="Acak Pilihan Jawaban"
-            descriptionOn="Urutan pilihan jawaban akan diacak"
-            descriptionOff="Urutan pilihan jawaban tetap seperti saat dibuat"
+            label={t.shuffleOptionsLabel}
+            descriptionOn={t.shuffleOptionsOn}
+            descriptionOff={t.shuffleOptionsOff}
           />
 
           <ConfigSwitch
             form={form}
             name="metadata.config.revealCorrectAnswer"
             id="reveal-answer"
-            label="Tampilkan Jawaban"
-            descriptionOn="Jawaban benar akan ditampilkan setelah kuis selesai"
-            descriptionOff="Jawaban benar tidak akan ditampilkan"
+            label={t.revealAnswerLabel}
+            descriptionOn={t.revealAnswerOn}
+            descriptionOff={t.revealAnswerOff}
           />
         </div>
 
@@ -147,23 +152,25 @@ export function QuestionMetadataContent() {
           name="metadata.config.timeLimitSeconds"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Batas Waktu</FormLabel>
+              <FormLabel>{t.timeLimitLabel}</FormLabel>
               <FormControl>
                 <Input
                   type="number"
                   min={0}
-                  placeholder="Masukkan waktu (dalam detik)"
+                  placeholder={t.timeLimitPlaceholder}
                   value={field.value ?? 0}
-                  onChange={(e) => field.onChange(e.target.valueAsNumber || 0)}
+                  onChange={(e) =>
+                    field.onChange(e.target.valueAsNumber || 0)
+                  }
                 />
               </FormControl>
 
               <FormDescription>
                 {field.value === 0
-                  ? "Waktu pengerjaan tidak dibatasi"
-                  : `Waktu pengerjaan maksimal ${formatDuration(
+                  ? t.timeUnlimited
+                  : `${t.timeLimitedPrefix} ${formatDuration(
                       field.value!,
-                      "id"
+                      locale
                     )}`}
               </FormDescription>
 
