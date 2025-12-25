@@ -31,9 +31,7 @@ export function useImportJson({ locale, onSuccess }: UseImportJsonOptions) {
       try {
         const text = await file.text();
         const parsed = JSON.parse(text);
-        console.log("PARSED");
-        console.log(parsed)
-        
+
         const schema = createMainQuestSchema(locale);
         const result = schema.parse(parsed);
 
@@ -56,7 +54,6 @@ export function useImportJson({ locale, onSuccess }: UseImportJsonOptions) {
         );
       } catch (err) {
         if (err instanceof ZodError) {
-            console.log(err.message)
           toast.error(
             locale === "en" ? "Invalid quiz format" : "Format kuis tidak valid"
           );
