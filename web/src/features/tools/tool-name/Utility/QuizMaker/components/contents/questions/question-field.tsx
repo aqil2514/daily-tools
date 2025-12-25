@@ -22,6 +22,7 @@ import { toast } from "sonner";
 import { useLocale } from "next-intl";
 import { quizQuestionFieldI18n } from "../../../i18n/question-field";
 import { QuizImportJsonButton } from "../../quiz-import-json";
+import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 
 export function QuestionFieldContent() {
   const {
@@ -74,7 +75,7 @@ export function QuestionFieldContent() {
 
   return (
     <TabsContent value="question" className="space-y-4">
-      <div className="flex justify-between">
+      <div className="flex gap-4 flex-col-reverse lg:flex-row justify-between">
         <Button variant="outline" onClick={addHandler} type="button">
           <Plus /> {t.addQuestion}
         </Button>
@@ -106,13 +107,16 @@ export function QuestionFieldContent() {
       </div>
 
       <Tabs value={content} onValueChange={setContent} className="w-full">
-        <TabsList className="w-full">
-          {fields.map((field, index) => (
-            <TabsTrigger key={index} value={field.questionId}>
-              {index + 1}
-            </TabsTrigger>
-          ))}
-        </TabsList>
+        <ScrollArea className="w-full whitespace-nowrap rounded-md">
+          <TabsList>
+            {fields.map((field, index) => (
+              <TabsTrigger key={index} value={field.questionId} className="p-4">
+                {index + 1}
+              </TabsTrigger>
+            ))}
+            <ScrollBar orientation="horizontal" />
+          </TabsList>
+        </ScrollArea>
 
         {fields.map((field, index) => {
           const isHiddenDelete = fields.length > 1;
