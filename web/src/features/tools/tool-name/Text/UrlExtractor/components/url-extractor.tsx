@@ -4,7 +4,7 @@ import { ToolCard } from "@/components/molecules/card/tool-card";
 import { useTranslations } from "next-intl";
 import { useState } from "react";
 import { URLExtractorPreview } from "./url-result";
-import { SampleDataComponent } from "@/components/atoms/sample-data";
+import { SampleDataComponent } from "@/components/organisms/sample-data-section";
 import { sampleData } from "../data/sample-data";
 
 export function URLExtractor() {
@@ -13,7 +13,10 @@ export function URLExtractor() {
   return (
     <div className="grid lg:grid-cols-2 gap-4">
       <ToolCard>
-        <SampleDataComponent setText={setInputText} sampleData={sampleData} />
+        <SampleDataComponent
+          onSelected={(e: string) => setInputText(e)}
+          sampleData={sampleData}
+        />
         <TextEditor
           setText={setInputText}
           text={inputText}

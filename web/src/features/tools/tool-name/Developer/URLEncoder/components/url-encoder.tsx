@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Copy } from "lucide-react";
 import { useState, useMemo } from "react";
 
-import { SampleDataComponent } from "@/components/atoms/sample-data";
+import { SampleDataComponent } from "@/components/organisms/sample-data-section";
 
 import {
   Select,
@@ -76,7 +76,7 @@ export function URLEncoder() {
 
           {/* SAMPLE DATA */}
           <div className="mb-4">
-            <SampleDataComponent setText={setText} sampleData={sampleData} />
+            <SampleDataComponent onSelected={(e: string) => setText(e)} sampleData={sampleData} />
           </div>
 
           <TextEditor title={t["text-editor"]} text={text} setText={setText} />

@@ -10,7 +10,7 @@ import { SlugControllerState } from "../types/interface";
 import { defaultSlugControllerState } from "../data/default";
 import { slugify } from "../utils/slugify";
 import { slugSampleData } from "../data/sample";
-import { SampleDataComponent } from "@/components/atoms/sample-data";
+import { SampleDataComponent } from "@/components/organisms/sample-data-section";
 
 export function SlugGenerator() {
   const [text, setText] = useState<string>("");
@@ -31,7 +31,7 @@ export function SlugGenerator() {
   return (
     <div className="space-y-4">
       <ToolCard>
-        <SampleDataComponent setText={setText} sampleData={slugSampleData} />
+        <SampleDataComponent onSelected={(e:string) => setText(e)} sampleData={slugSampleData} />
         <TextEditor setText={setText} text={text} title="Text Editor" />
 
         <SlugController controller={controller} setController={setController} />

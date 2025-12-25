@@ -6,7 +6,8 @@ import { TextEditor } from "@/components/atoms/text-editor";
 import { useTranslations } from "next-intl";
 import { ChangeObject, diffChars } from "diff";
 import { OutputSection } from "./output-section";
-import { SampleDataComponent } from "./sample-data";
+import { SampleDataComponent } from "@/components/organisms/sample-data-section";
+import { sampleData, SampleItem } from "../data/sample";
 
 export function TextDiff() {
   const t = useTranslations("tools-text.text-diff");
@@ -17,8 +18,11 @@ export function TextDiff() {
   return (
     <div className="space-y-4">
       <SampleDataComponent
-        setOriginal={setOriginalText}
-        setChanged={setChangedText}
+        sampleData={sampleData}
+        onSelected={(e: SampleItem) => {
+          setOriginalText(e.original);
+          setChangedText(e.changed);
+        }}
       />
       <div className="grid lg:grid-cols-2 gap-4">
         <ToolCard>

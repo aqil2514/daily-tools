@@ -16,7 +16,7 @@ import {
   validateYAML,
 } from "../utils/convert-utils";
 
-import { SampleDataComponent } from "@/components/atoms/sample-data";
+import { SampleDataComponent } from "@/components/organisms/sample-data-section";
 import { useLocale } from "next-intl";
 import { i18nYAMLJSON } from "../i18n/yaml-json-converter";
 
@@ -88,7 +88,7 @@ export function YAMLJSONConverter() {
             </Select>
           </div>
 
-          <SampleDataComponent setText={setText} sampleData={sampleData} />
+          <SampleDataComponent onSelected={(e: string) => setText(e)} sampleData={sampleData} />
 
           <TextEditor title={t["text-editor"]} text={text} setText={setText} />
         </ToolCard>

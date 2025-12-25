@@ -17,8 +17,8 @@ import { QuestionError } from "./contents/questions/question-error";
 import { QuestionMetadataContent } from "./contents/metadata/question-metadata";
 import { QuizPreviewData } from "../types/preview";
 import { QuizPreview } from "./preview";
-import { SampleDataComponent } from "./sample-data";
 import { quizSampleData } from "../sample/sample-data";
+import { SampleDataComponent } from "@/components/organisms/sample-data-section";
 
 export type QuizErrorGroup = {
   questionIndex: number;

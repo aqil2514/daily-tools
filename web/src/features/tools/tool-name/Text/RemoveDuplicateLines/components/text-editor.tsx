@@ -2,7 +2,7 @@ import { SubHeading } from "@/components/atoms/text/subHeading";
 import { Textarea } from "@/components/ui/textarea";
 import { useTranslations } from "next-intl";
 import { useRemoveDuplicateLines } from "../store/provider";
-import { SampleDataComponent } from "@/components/atoms/sample-data";
+import { SampleDataComponent } from "@/components/organisms/sample-data-section";
 import { sampleData } from "../data/sample-data";
 
 export function TextEditor() {
@@ -12,7 +12,10 @@ export function TextEditor() {
     <div>
       <SubHeading className="mt-0">{t("editor-title")}</SubHeading>
       <div className="space-y-2">
-        <SampleDataComponent setText={setText} sampleData={sampleData} />
+        <SampleDataComponent
+          onSelected={(e: string) => setText(e)}
+          sampleData={sampleData}
+        />
         <Textarea
           className="h-96"
           value={text}

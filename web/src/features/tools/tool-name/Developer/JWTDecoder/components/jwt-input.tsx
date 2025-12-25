@@ -1,4 +1,4 @@
-import { SampleDataComponent } from "@/components/atoms/sample-data";
+import { SampleDataComponent } from "@/components/organisms/sample-data-section";
 import { TextEditor } from "@/components/atoms/text-editor";
 import { ToolCard } from "@/components/molecules/card/tool-card";
 import { jwtSampleData } from "../data/sample-data";
@@ -16,7 +16,10 @@ export function JWTInput({ setText, text }: Props) {
 
   return (
     <ToolCard>
-      <SampleDataComponent setText={setText} sampleData={jwtSampleData} />
+      <SampleDataComponent
+        onSelected={(e: string) => setText(e)}
+        sampleData={jwtSampleData}
+      />
       <TextEditor
         setText={setText}
         text={text}

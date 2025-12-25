@@ -9,7 +9,7 @@ import { Copy } from "lucide-react";
 import { htmlEscapeSamples, htmlUnescapeSamples } from "../data/sample-data";
 import { escapeHTML, unescapeHTML } from "../utils/escape-utils";
 
-import { SampleDataComponent } from "@/components/atoms/sample-data";
+import { SampleDataComponent } from "@/components/organisms/sample-data-section";
 
 import { useLocale } from "next-intl";
 import { i18nHTMLEscape } from "../i18n/html-escape";
@@ -69,13 +69,12 @@ export function HTMLEscapeTool() {
           </Select>
         </div>
 
-        <SampleDataComponent setText={setText} sampleData={sampleData} />
-
-        <TextEditor
-          title={t["text-editor"]}
-          text={text}
-          setText={setText}
+        <SampleDataComponent
+          onSelected={(e: string) => setText(e)}
+          sampleData={sampleData}
         />
+
+        <TextEditor title={t["text-editor"]} text={text} setText={setText} />
       </ToolCard>
 
       {/* OUTPUT */}

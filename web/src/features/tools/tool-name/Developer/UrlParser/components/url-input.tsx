@@ -1,6 +1,6 @@
 "use client";
 
-import { SampleDataComponent } from "@/components/atoms/sample-data";
+import { SampleDataComponent } from "@/components/organisms/sample-data-section";
 import { TextEditor } from "@/components/atoms/text-editor";
 import { ToolCard } from "@/components/molecules/card/tool-card";
 import { Dispatch, SetStateAction } from "react";
@@ -21,7 +21,7 @@ export function UrlParserInput({ value, setValue }: Props) {
     <ToolCard>
       <SampleDataComponent
         sampleData={urlParserSamples}
-        setText={setValue}
+        onSelected={(e: string) => setValue(e)}
       />
 
       <TextEditor

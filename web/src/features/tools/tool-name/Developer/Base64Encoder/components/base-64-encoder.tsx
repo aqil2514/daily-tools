@@ -8,7 +8,7 @@ import { useState, useMemo } from "react";
 import { decodeBase64, encodeBase64 } from "../utils/encode-decode";
 import { base64EncodeSampleData } from "../data/encode-sample";
 import { base64DecodeSampleData } from "../data/decode-sample";
-import { SampleDataComponent } from "@/components/atoms/sample-data";
+import { SampleDataComponent } from "@/components/organisms/sample-data-section";
 import {
   Select,
   SelectContent,
@@ -74,7 +74,10 @@ export function Base64Encoder() {
 
           {/* SAMPLE DATA */}
           <div className="mb-4">
-            <SampleDataComponent sampleData={sampleData} setText={setText} />
+            <SampleDataComponent
+              sampleData={sampleData}
+              onSelected={(e: string) => setText(e)}
+            />
           </div>
 
           {/* TEXT EDITOR */}

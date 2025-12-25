@@ -9,7 +9,7 @@ import { Copy } from "lucide-react";
 import { jsonSamples } from "../data/sample-data";
 import { formatJSON, minifyJSON, validateJSON } from "../utils/format-utils";
 
-import { SampleDataComponent } from "@/components/atoms/sample-data";
+import { SampleDataComponent } from "@/components/organisms/sample-data-section";
 import { useLocale } from "next-intl";
 import { i18nJSONFormatter } from "../i18n/json-formatter";
 
@@ -74,7 +74,10 @@ export function JSONFormatter() {
         </div>
 
         <div className="mb-4">
-          <SampleDataComponent setText={setText} sampleData={jsonSamples} />
+          <SampleDataComponent
+            onSelected={(e: string) => setText(e)}
+            sampleData={jsonSamples}
+          />
         </div>
 
         <TextEditor title={t["text-editor"]} text={text} setText={setText} />

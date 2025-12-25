@@ -8,35 +8,33 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { Dispatch, SetStateAction } from "react";
 
-interface Props<T extends Record<string, string>> {
-  setText: Dispatch<SetStateAction<string>>;
+interface Props<TData, T extends Record<string, TData>> {
   sampleData: T;
+  onSelected: (sample: TData, key: keyof T) => void;
 }
 
-export function SampleDataComponent<T extends Record<string, string>>({
-  setText,
-  sampleData,
-}: Props<T>) {
-  const sampleKeys = Object.keys(sampleData);
+export function SampleDataComponent<
+  TData,
+  T extends Record<string, TData>
+>({ sampleData, onSelected }: Props<TData, T>) {
+  const sampleKeys = Object.keys(sampleData) as (keyof T)[];
 
   return (
     <div className="w-full">
-      {/* ===== MOBILE VERSION — ACCORDION ===== */}
+      {/* ===== MOBILE — ACCORDION ===== */}
       <div className="block md:hidden">
-        <Accordion type="single" collapsible className="w-full">
-          <AccordionItem value="sample-accordion">
+        <Accordion type="single" collapsible>
+          <AccordionItem value="sample">
             <AccordionTrigger>Sample Data</AccordionTrigger>
-
             <AccordionContent>
               <div className="grid grid-cols-2 gap-4">
-                {sampleKeys.map((sample, i) => (
+                {sampleKeys.map((key, i) => (
                   <Button
+                    key={String(key)}
                     variant="outline"
-                    key={sample}
-                    onClick={() => setText(sampleData[sample])}
                     className="w-full justify-start"
+                    onClick={() => onSelected(sampleData[key], key)}
                   >
                     Sample {i + 1}
                   </Button>
@@ -47,15 +45,15 @@ export function SampleDataComponent<T extends Record<string, string>>({
         </Accordion>
       </div>
 
-      {/* ===== DESKTOP VERSION — HORIZONTAL SCROLL ===== */}
+      {/* ===== DESKTOP — HORIZONTAL ===== */}
       <div className="hidden md:block">
         <ScrollArea>
           <div className="flex gap-4 p-4 items-center">
-            {sampleKeys.map((sample, i) => (
+            {sampleKeys.map((key, i) => (
               <Button
+                key={String(key)}
                 variant="outline"
-                key={sample}
-                onClick={() => setText(sampleData[sample])}
+                onClick={() => onSelected(sampleData[key], key)}
               >
                 Sample {i + 1}
               </Button>
