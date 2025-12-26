@@ -15,7 +15,7 @@ export const quizMakerFAQ: LocalizedFAQ = {
     {
       question: "How can I share my quiz with others?",
       answer:
-        "Quizzes can be shared by exporting them to CSV, Excel, JSON, or PDF formats. These files can be used as data sources, documentation, or imported into other platforms that support the corresponding formats.",
+        "Quizzes can be shared by exporting them to CSV, Excel, JSON, or DOCX formats. These files can be used as data sources, documentation, or imported into other platforms that support the corresponding formats.",
     },
     {
       question: "Is there a limit to the number of questions?",
@@ -53,7 +53,7 @@ export const quizMakerFAQ: LocalizedFAQ = {
     {
       question: "Bagaimana cara membagikan kuis ke orang lain?",
       answer:
-        "Kuis dapat dibagikan dengan mengekspornya ke format CSV, Excel, JSON, atau PDF. File hasil ekspor ini dapat digunakan sebagai data, dokumentasi, atau bahan impor ke platform lain yang mendukung format tersebut.",
+        "Kuis dapat dibagikan dengan mengekspornya ke format CSV, Excel, JSON, atau DOCX. File hasil ekspor ini dapat digunakan sebagai data, dokumentasi, atau bahan impor ke platform lain yang mendukung format tersebut.",
     },
     {
       question: "Apakah ada batas jumlah soal?",
