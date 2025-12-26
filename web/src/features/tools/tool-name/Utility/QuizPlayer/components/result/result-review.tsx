@@ -1,6 +1,7 @@
 import { Separator } from "@/components/ui/separator";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { ResultReviewItem } from "./result-review-item";
+import { useLocale } from "next-intl";
 
 interface Question {
   questionId: string;
@@ -19,12 +20,13 @@ interface Props {
 }
 
 export function ResultReview({ questions, answers, getAnswerStatus }: Props) {
+  const locale = useLocale()
   return (
     <>
       <Separator />
 
       <div className="space-y-3">
-        <h3 className="font-semibold">Review Jawaban</h3>
+        <h3 className="font-semibold">{locale ==="en" ? "Review Answers" : "Review Jawaban"}</h3>
 
         <ScrollArea className="h-[360px] pr-4">
           <div className="space-y-4">

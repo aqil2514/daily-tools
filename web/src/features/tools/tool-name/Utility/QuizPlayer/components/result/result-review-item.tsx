@@ -1,5 +1,6 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { Locale, useLocale } from "next-intl";
 
 interface Question {
   text: string;
@@ -21,6 +22,19 @@ export function ResultReviewItem({
   status,
 }: Props) {
   // TODO : Lanjut ke sini i18n
+  const locale = useLocale();
+  const badgeAnswer: Record<Locale, Record<typeof status, string>> = {
+    en: {
+      correct: "Correct",
+      unanswered: "Unanswered",
+      wrong: "Wrong",
+    },
+    id: {
+      correct: "Benar",
+      unanswered: "Tidak Dijawab",
+      wrong: "Salah",
+    },
+  };
   return (
     <Card>
       <CardContent className="pt-5 space-y-3">
@@ -39,21 +53,19 @@ export function ResultReviewItem({
             }
           >
             {status === "correct"
-              ? "Benar"
+              ? badgeAnswer[locale].correct
               : status === "wrong"
-              ? "Salah"
-              : "Tidak Dijawab"}
+              ? badgeAnswer[locale].wrong
+              : badgeAnswer[locale].unanswered}
           </Badge>
         </div>
 
         <div className="text-sm space-y-1">
           <p>
-            <strong>Jawaban Anda:</strong>{" "}
-            {userAnswer ?? "—"}
+            <strong>{locale ==="en" ? "Your Answer:" :"Jawaban Anda:"}</strong> {userAnswer ?? "—"}
           </p>
           <p>
-            <strong>Jawaban Benar:</strong>{" "}
-            {question.correctOptionId}
+            <strong>{locale ==="en" ? "Correct Answer" :"Jawaban Benar:"}</strong> {question.correctOptionId}
           </p>
         </div>
 
