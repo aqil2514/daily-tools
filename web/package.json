@@ -41,6 +41,7 @@
     "clsx": "^2.1.1",
     "date-fns": "^4.1.0",
     "diff": "^8.0.2",
+    "docx": "^9.5.1",
     "exifreader": "^4.33.1",
     "fuse.js": "^7.1.0",
     "html-to-image": "^1.11.13",
