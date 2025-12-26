@@ -64,7 +64,7 @@ export function QuizPreview() {
   return (
     <div className="space-y-6">
       {/* ===== HEADER ===== */}
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col-reverse lg:flex-row lg:items-center justify-between gap-4">
         <div>
           <h1 className="text-2xl font-semibold">
             {metadata.title || t.untitledQuiz}
