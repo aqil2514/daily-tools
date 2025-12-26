@@ -6,6 +6,8 @@ import ageCalculatorJsonLdSEO from "../../tool-name/Utility/AgeCalculator/seo/js
 import ageCalculatorMetadataSEO from "../../tool-name/Utility/AgeCalculator/seo/metadata";
 import quizMakerJsonLdSEO from "../../tool-name/Utility/QuizMaker/seo/jsonld";
 import quizMakerMetadataSEO from "../../tool-name/Utility/QuizMaker/seo/metadata";
+import quizPlayerJsonLdSEO from "../../tool-name/Utility/QuizPlayer/seo/jsonld";
+import quizPlayerMetadataSEO from "../../tool-name/Utility/QuizPlayer/seo/metadata";
 
 export const utilityRegistry01: Partial<
   Record<UtilityToolName, ToolRegistryItem>
@@ -28,7 +30,7 @@ export const utilityRegistry01: Partial<
     },
   },
 
-   "quiz-maker": {
+  "quiz-maker": {
     Component: dynamic(
       () => import("@/features/tools/tool-name/Utility/QuizMaker")
     ),
@@ -43,6 +45,28 @@ export const utilityRegistry01: Partial<
     seo: {
       jsonLd: quizMakerJsonLdSEO,
       metadata: quizMakerMetadataSEO,
+    },
+
+    relatedTools:['quiz-player']
+  },
+
+  "quiz-player": {
+    Component: dynamic(
+      () => import("@/features/tools/tool-name/Utility/QuizPlayer")
+    ),
+    href: "/tools/quiz-player",
+    category: "utility",
+
+    title: {
+      en: "Quiz Player",
+      id: "Pemain Kuis",
+    },
+
+    relatedTools:['quiz-maker'],
+
+    seo: {
+      jsonLd: quizPlayerJsonLdSEO,
+      metadata: quizPlayerMetadataSEO,
     },
   },
 };
