@@ -13,7 +13,6 @@ import { notNull } from "@/utils/type-guard/not-null";
 
 export function useExportQuizDocx() {
   const { data } = useQuizMaker();
-  if (!data) return;
 
   /* ================= HEADER ================= */
   const header = new Header({
@@ -53,7 +52,7 @@ export function useExportQuizDocx() {
     new Paragraph({
       children: [
         new TextRun({
-          text: data.metadata.title,
+          text: data?.metadata.title ?? "Untitled",
           bold: true,
           size: 32,
         }),
@@ -61,11 +60,11 @@ export function useExportQuizDocx() {
       spacing: { after: 200 },
     }),
 
-    data.metadata.description
+    data?.metadata.description
       ? new Paragraph({
           children: [
             new TextRun({
-              text: data.metadata.description,
+              text: data?.metadata.description,
               italics: true,
             }),
           ],
@@ -87,7 +86,7 @@ export function useExportQuizDocx() {
   });
 
   /* ================= QUESTIONS ================= */
-  const questions = data.questions.map((question, index) => {
+  const questions = data?.questions.map((question, index) => {
     const questionNumber = new TextRun({
       text: `${index + 1}. `,
       bold: true,
@@ -112,7 +111,7 @@ export function useExportQuizDocx() {
     });
   });
 
-  const answerParagraphs = data.questions.map((question, index) => {
+  const answerParagraphs = data?.questions.map((question, index) => {
     return new Paragraph({
       children: [
         new TextRun({
@@ -127,8 +126,8 @@ export function useExportQuizDocx() {
   const doc = new Document({
     creator: "Flowtooly",
     lastModifiedBy: "Flowtooly",
-    title: data.metadata.title,
-    description: data.metadata.description,
+    title: data?.metadata.title,
+    description: data?.metadata.description,
     subject: "Quiz / Assessment Document",
     keywords: ["quiz", "assessment", "exam", "flowtooly"].join(", "),
 
@@ -138,9 +137,9 @@ export function useExportQuizDocx() {
         footers: { default: footer },
         children: [
           ...titleSection,
-          ...questions,
+          ...questions as Paragraph[],
           answerTitle,
-          ...answerParagraphs,
+          ...answerParagraphs as Paragraph[],
         ],
       },
     ],
@@ -153,7 +152,7 @@ export function useExportQuizDocx() {
 
     const element = document.createElement("a");
     element.href = url;
-    element.download = `${data.metadata.title || "quiz"}.docx`;
+    element.download = `${data?.metadata.title || "quiz"}.docx`;
     element.click();
 
     URL.revokeObjectURL(url);

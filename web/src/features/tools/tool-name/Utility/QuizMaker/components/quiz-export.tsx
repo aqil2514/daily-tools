@@ -16,7 +16,7 @@ export function QuizExport({ data }: Props) {
   const { handleExportJSON } = useExportJson();
   const { exportQuizCsv } = useExportQuizCsv();
   const { exportQuizExcel } = useExportQuizExcel();
-  const {handleExportDocx} = useExportQuizDocx()
+  const { handleExportDocx } = useExportQuizDocx();
 
   if (!data) return null;
 
