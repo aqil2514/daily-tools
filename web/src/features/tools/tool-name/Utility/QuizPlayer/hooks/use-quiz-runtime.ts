@@ -4,6 +4,7 @@ import { useCallback, useEffect, useMemo, useState } from "react";
 import { QuizMakerOutputData } from "../../QuizMaker/types/output";
 import { toast } from "sonner";
 import { shuffle } from "../../QuizMaker/utils/shuffle";
+import { useLocale } from "next-intl";
 
 interface UseQuizRuntimeOptions {
   quiz: QuizMakerOutputData | null;
@@ -11,6 +12,7 @@ interface UseQuizRuntimeOptions {
 
 export function useQuizRuntime({ quiz }: UseQuizRuntimeOptions) {
   const timeLimitSeconds = quiz?.metadata.config.timeLimitSeconds ?? 0;
+  const locale = useLocale();
 
   const [timeLeft, setTimeLeft] = useState<number>(timeLimitSeconds);
 
@@ -50,9 +52,13 @@ export function useQuizRuntime({ quiz }: UseQuizRuntimeOptions) {
     if (timeLeft === 0 && !isFinished) {
       // eslint-disable-next-line react-hooks/set-state-in-effect
       setIsFinished(true);
-      toast.warning("Waktu habis. Quiz otomatis diselesaikan.");
+      toast.warning(
+        locale === "en"
+          ? "Time's up. Quiz automatically completed."
+          : "Waktu habis. Quiz otomatis diselesaikan."
+      );
     }
-  }, [timeLeft, timeLimitSeconds, isFinished]);
+  }, [timeLeft, timeLimitSeconds, isFinished, locale]);
 
   const totalQuestions = questions.length;
   const currentQuestion = questions[currentIndex];
@@ -86,17 +92,17 @@ export function useQuizRuntime({ quiz }: UseQuizRuntimeOptions) {
   }, [isFirst]);
 
   const finish = useCallback(() => {
-    toast.success("Quiz selesai. Hasil ditampilkan.");
+    toast.success(locale === "en" ? "Quiz completed. Results displayed." : "Quiz selesai. Hasil ditampilkan.");
     setIsFinished(true);
-  }, []);
+  }, [locale]);
 
   const reset = useCallback(() => {
     setCurrentIndex(0);
     setAnswers({});
     setIsFinished(false);
     setTimeLeft(timeLimitSeconds);
-    toast("Quiz diulang dari awal.");
-  }, [timeLimitSeconds]);
+    toast(locale === "en" ? "Quiz is repeated from the beginning" : "Quiz diulang dari awal.");
+  }, [timeLimitSeconds, locale]);
 
   const progressPercent = useMemo(() => {
     if (totalQuestions === 0) return 0;
