@@ -60,6 +60,18 @@ export function useQuizRuntime({ quiz }: UseQuizRuntimeOptions) {
     }
   }, [timeLeft, timeLimitSeconds, isFinished, locale]);
 
+  useEffect(() => {
+  if (!quiz) return;
+
+  // eslint-disable-next-line react-hooks/set-state-in-effect
+  setCurrentIndex(0);
+  setAnswers({});
+  setIsFinished(false);
+
+  const limit = quiz.metadata.config.timeLimitSeconds ?? 0;
+  setTimeLeft(limit);
+}, [quiz]);
+
   const totalQuestions = questions.length;
   const currentQuestion = questions[currentIndex];
 
@@ -92,7 +104,11 @@ export function useQuizRuntime({ quiz }: UseQuizRuntimeOptions) {
   }, [isFirst]);
 
   const finish = useCallback(() => {
-    toast.success(locale === "en" ? "Quiz completed. Results displayed." : "Quiz selesai. Hasil ditampilkan.");
+    toast.success(
+      locale === "en"
+        ? "Quiz completed. Results displayed."
+        : "Quiz selesai. Hasil ditampilkan."
+    );
     setIsFinished(true);
   }, [locale]);
 
@@ -101,7 +117,11 @@ export function useQuizRuntime({ quiz }: UseQuizRuntimeOptions) {
     setAnswers({});
     setIsFinished(false);
     setTimeLeft(timeLimitSeconds);
-    toast(locale === "en" ? "Quiz is repeated from the beginning" : "Quiz diulang dari awal.");
+    toast(
+      locale === "en"
+        ? "Quiz is repeated from the beginning"
+        : "Quiz diulang dari awal."
+    );
   }, [timeLimitSeconds, locale]);
 
   const progressPercent = useMemo(() => {

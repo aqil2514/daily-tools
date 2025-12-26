@@ -38,7 +38,7 @@ export function ResultReviewItem({
   return (
     <Card>
       <CardContent className="pt-5 space-y-3">
-        <div className="flex justify-between items-start gap-2">
+        <div className="flex lg:flex-row flex-col justify-between items-start gap-2">
           <p className="font-medium">
             {index + 1}. {question.text}
           </p>
