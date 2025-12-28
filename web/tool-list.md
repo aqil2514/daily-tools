@@ -1,5 +1,5 @@
 # Tool List (Internal)
-Total tools: 54
+Total tools: 56
 
 ## conversion (2)
 1. Temperature Converter | Konverter Suhu
@@ -72,8 +72,10 @@ Total tools: 54
 6. Slug Generator | Generator Slug
 7. Lorem Ipsum Generator | Generator Lorem Ipsum
 
-## utility (1)
+## utility (3)
 1. Age Calculator | Kalkulator Usia
+2. Quiz Maker | Pembuat Kuis
+3. Quiz Player | Pemain Kuis
 
 ---
 ⚠️ File ini dihasilkan secara otomatis.

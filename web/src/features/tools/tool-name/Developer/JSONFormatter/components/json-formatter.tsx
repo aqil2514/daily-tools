@@ -3,8 +3,6 @@
 import { useState, useMemo } from "react";
 import { TextEditor } from "@/components/atoms/text-editor";
 import { ToolCard } from "@/components/molecules/card/tool-card";
-import { Button } from "@/components/ui/button";
-import { Copy } from "lucide-react";
 
 import { jsonSamples } from "../data/sample-data";
 import { formatJSON, minifyJSON, validateJSON } from "../utils/format-utils";
@@ -20,6 +18,7 @@ import {
   SelectValue,
   SelectItem,
 } from "@/components/ui/select";
+import { TextOutputCard } from "@/components/molecules/tools-output-card/text-output-card";
 
 export function JSONFormatter() {
   const locale = useLocale();
@@ -27,7 +26,6 @@ export function JSONFormatter() {
 
   const [text, setText] = useState("");
   const [mode, setMode] = useState<"format" | "minify">("format");
-  const [copied, setCopied] = useState(false);
 
   const output = useMemo(() => {
     if (!text.trim()) return "";
@@ -41,13 +39,6 @@ export function JSONFormatter() {
       return t["error-invalid"];
     }
   }, [text, mode, t]);
-
-  const handleCopy = async () => {
-    if (!output) return;
-    await navigator.clipboard.writeText(output);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 1500);
-  };
 
   return (
     <div className="grid lg:grid-cols-2 gap-4">
@@ -84,40 +75,7 @@ export function JSONFormatter() {
       </ToolCard>
 
       {/* OUTPUT */}
-      <ToolCard>
-        <div className="flex justify-between items-center mb-4">
-          <h2 className="text-lg font-medium">{t.output}</h2>
-          <Button
-            variant="outline"
-            size="sm"
-            className="flex items-center gap-2"
-            onClick={handleCopy}
-            disabled={!output}
-          >
-            <Copy size={16} />
-            {copied ? t.copied : t.copy}
-          </Button>
-        </div>
-
-        <textarea
-          readOnly
-          value={output}
-          placeholder={t.empty}
-          className="
-            w-full 
-            h-[300px] 
-            p-3 
-            rounded-md 
-            border 
-            bg-muted 
-            text-sm 
-            font-mono 
-            resize-none 
-            focus-visible:ring-1 
-            focus-visible:ring-ring
-          "
-        />
-      </ToolCard>
+      <TextOutputCard title={t.output} value={output} emptyText={t.empty} />
     </div>
   );
 }

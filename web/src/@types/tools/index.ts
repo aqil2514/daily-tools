@@ -9,6 +9,7 @@ export * from "./categories";
 export * from "./utility";
 export * from "./conversion";
 export * from "./health";
+export * from "./data"
 
 import type { DeveloperToolName } from "./developer";
 import type { FinancialToolName } from "./financial";
@@ -20,6 +21,7 @@ import type { MathToolName } from "./math";
 import type { UtilityToolName } from "./utility";
 import { ConversionToolName } from "./conversion";
 import { HealthToolName } from "./health";
+import { DataToolName } from "./data";
 
 export type ToolName =
   | DeveloperToolName
@@ -31,4 +33,5 @@ export type ToolName =
   | MathToolName
   | UtilityToolName
   | ConversionToolName
-  | HealthToolName;
+  | HealthToolName
+  | DataToolName;

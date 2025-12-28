@@ -9,6 +9,7 @@ import {
   Calendar1,
   Scale,
   Cross,
+  Database,
 } from "lucide-react";
 
 import {
@@ -69,5 +70,10 @@ export const CATEGORY_REGISTRY: Record<
     name:"health",
     title:{en:"Health", id:"Kesehatan"},
     Icon: Cross
+  },
+  data:{
+    name:"data",
+    title:{en:"Data", id:"Data"},
+    Icon: Database
   }
 };

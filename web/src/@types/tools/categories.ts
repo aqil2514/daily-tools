@@ -11,6 +11,7 @@ import { LocalizedText } from "../metadata";
  */
 
 export const TOOL_CATEGORIES = [
+  "data",
   "developer",
   "financial",
   "image",
